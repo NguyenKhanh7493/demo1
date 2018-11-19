@@ -7,8 +7,10 @@
 <title>Elite CRM Admin Template - CRM admin dashboard web app kit</title>
 <!-- Bootstrap Core CSS -->
 <link href="{!! url('public/admin/assets') !!}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="{!! url('public/admin') !!}/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 <!-- Menu CSS -->
 <link href="{!! url('public/admin') !!}/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<link href="{!! url('public/admin') !!}/plugins/bower_components/icheck/skins/all.css" rel="stylesheet">
 <!-- morris CSS -->
 <link href="{!! url('public/admin') !!}/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
 <!-- animation CSS -->

@@ -18,5 +18,11 @@
 <!-- Custom Theme JavaScript -->
 <script src="{!! url('public/admin/assets') !!}/js/custom.min.js"></script>
 <script src="{!! url('public/admin/assets') !!}/js/dashboard1.js"></script>
+<script src="{!! url('public/admin') !!}/plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
 <!--Style Switcher -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>

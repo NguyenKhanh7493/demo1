@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 Route::group(['prefix'=>'admin'],function (){
     Route::get('/','Admin\AdminController@index');
+
+    Route::group(['prefix'=>'user'],function (){
+        Route::get('/','admin\UserController@index');
+    });
 });
