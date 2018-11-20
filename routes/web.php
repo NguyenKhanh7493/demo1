@@ -18,6 +18,11 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/','Admin\AdminController@index');
 
     Route::group(['prefix'=>'user'],function (){
-        Route::get('/','admin\UserController@index');
+        Route::get('/','Admin\UserController@index');
     });
 });
+
+Route::post('login','Auth\LoginController@login')->name('login');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
