@@ -46,8 +46,14 @@ class LoginController extends Controller
         ];
         if (Auth::attempt($auth)){
             return redirect()->route('admin');
+//            echo 'thành công';
         }else{
-            echo 'thất bại';
+            return redirect()->back();
         }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

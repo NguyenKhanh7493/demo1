@@ -137,7 +137,7 @@
         <div class="user-profile">
             <div class="dropdown user-pro-body">
                 <div><img src="{!! url('public/admin') !!}/plugins/images/users/varun.jpg" alt="user-img" class="img-circle"></div>
-                <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Steave Gection <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->fullname }}<span class="caret"></span></a>
                 <ul class="dropdown-menu animated flipInY">
                     <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                     <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
@@ -145,7 +145,7 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-power-off"></i> Logout</a></li>
+                    <li><a href="{{ url('logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -218,7 +218,7 @@
                     <li><a href="weather.html">Weather Icons</a></li>
                 </ul>
             </li>
-            <li><a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+            <li><a href="{{ url('logout') }}" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
             {{--<li class="nav-small-cap">--- Extra Components</li>--}}
             {{--<li> <a href="#" class="waves-effect"><i data-icon="/" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">UI Elements<span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">13</span> </span></a>--}}
                 {{--<ul class="nav nav-second-level">--}}

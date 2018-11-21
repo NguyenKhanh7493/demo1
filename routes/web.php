@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix'=>'admin'],function (){
-    Route::get('/','Admin\AdminController@index');
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
+    Route::get('/','Admin\AdminController@index')->name('admin');
 
     Route::group(['prefix'=>'user'],function (){
         Route::get('/','Admin\UserController@index');
@@ -26,3 +26,7 @@ Route::post('login','Auth\LoginController@login')->name('login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout','Auth\LoginController@logout');
+
+//Route::get('/insert-user','HomeController@insertUser');
