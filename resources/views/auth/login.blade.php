@@ -43,13 +43,32 @@
 <section id="wrapper" class="login-register">
     <div class="login-box">
         <div class="white-box">
+            @if(count($errors) > 0)
+            <div class="my-alert">
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+                @if (Session::has('danger'))
+                    <div class="my-alert">
+                        <div class="alert alert-danger">{{ Session::get('danger') }}</div>
+                    </div>
+                @endif
             <form class="form-horizontal form-material" id="loginform" method="post" action="{{ url('login') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <h3 class="box-title m-b-20">Sign In</h3>
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" required="" placeholder="email" name="email">
+                        <input class="form-control" type="text" required="" placeholder="email" name="email" value="@if(Session::has('email')) {{ Session::get('email') }} @endif {{ old('email') }}">
                     </div>
+                    {{--@if($errors->has('email'))--}}
+                        {{--<span style="color: red">* {{ $errors->first('email') }}</span>--}}
+                    {{--@endif--}}
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
@@ -116,6 +135,9 @@
 <script src="{!! url('public/admin/assets') !!}/js/custom.min.js"></script>
 <!--Style Switcher -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script type="text/javascript">
+    $('div.my-alert').delay(7000).slideUp();
+</script>
 </body>
 
 <!-- Mirrored from eliteadmin.themedesigner.in/demos/eliteadmin-crm/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 09:34:34 GMT -->

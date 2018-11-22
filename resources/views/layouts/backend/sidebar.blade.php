@@ -173,7 +173,7 @@
             {{--<li class="nav-small-cap">--- Proffessional</li>--}}
             <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-people fa-fw"></i> <span class="hide-menu">Users<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
-                    <li> <a href="{{ url('admin/user') }}">Thêm mới</a></li>
+                    <li> <a href="{{ url('admin/user/create') }}">Thêm mới</a></li>
                     <li> <a href="{{ url('admin/user') }}">Danh sách</a></li>
                     {{--<li> <a href="crm-edit-leads.html">Edit Leads</a></li>--}}
                 </ul>

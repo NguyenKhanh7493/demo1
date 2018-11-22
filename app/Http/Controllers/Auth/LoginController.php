@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     /*
@@ -38,7 +39,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function login(Request $request){
+    public function login(LoginRequest $request){
         $auth = [
             'email'=>$request->email,
             'password'=>$request->password,
@@ -48,7 +49,10 @@ class LoginController extends Controller
             return redirect()->route('admin');
 //            echo 'thành công';
         }else{
+            Session::flash('danger', 'Sai tên đăng nhập hoặc mật khẩu!');
+            Session::flash('email',$request->email);
             return redirect()->back();
+
         }
     }
     public function logout(Request $request)
