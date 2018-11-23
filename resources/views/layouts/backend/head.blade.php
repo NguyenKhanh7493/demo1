@@ -10,6 +10,7 @@
 <link href="{!! url('public/admin') !!}/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 <!-- Menu CSS -->
 <link href="{!! url('public/admin') !!}/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{!! url('public/admin') !!}/plugins/bower_components/dropify/dist/css/dropify.min.css">
 <link href="{!! url('public/admin') !!}/plugins/bower_components/icheck/skins/all.css" rel="stylesheet">
 <!-- morris CSS -->
 <link href="{!! url('public/admin') !!}/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
