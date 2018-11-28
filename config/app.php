@@ -17,7 +17,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | Application Environmprovidersent
     |--------------------------------------------------------------------------
     |
     | This value determines the "environment" your application is currently
@@ -172,6 +172,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //kn
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
     ],
 
@@ -221,6 +223,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //kn
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 
