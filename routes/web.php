@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     Route::get('/','Admin\AdminController@index')->name('admin');
+    Route::get('error','HomeController@errors');
 
     Route::group(['prefix'=>'user'],function (){
         Route::get('/','Admin\UserController@index');

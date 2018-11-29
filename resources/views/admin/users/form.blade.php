@@ -94,6 +94,24 @@
                                     <label for="minimal-checkbox-1">Xem</label>
                                 </li>
                             </ul>
+                                <ul class="icheck-list">
+                                    <li>
+                                        <input type="checkbox" class="check" id="minimal-checkbox-1">
+                                        <label for="minimal-checkbox-1">Thêm</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check" id="minimal-checkbox-2">
+                                        <label for="minimal-checkbox-1">Sửa</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check" id="minimal-checkbox-3">
+                                        <label for="minimal-checkbox-1">Xóa</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="check" id="minimal-checkbox-4">
+                                        <label for="minimal-checkbox-1">Xem</label>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
