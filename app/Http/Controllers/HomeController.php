@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use View;
 class HomeController extends Controller
 {
     /**
@@ -43,4 +44,14 @@ class HomeController extends Controller
    //     $user->password = Hash::make('123456');
    //     $user->save();
    // }
+    public function errors(){
+        $error = [
+            'name' => 'Bạn không có quyền truy cập',
+            'title' => 'Nếu có thắc mắc bạn hãy liên hệ với ban quản trị để biết thêm thông tin',
+            'description' => '',
+            'content' => ''
+        ];
+        View::share('error_message', $error);
+        return view('admin/error/errors');
+    }
 }

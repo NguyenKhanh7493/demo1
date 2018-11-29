@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Session;
 
 class UserController extends Controller
 {
@@ -29,6 +30,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (!\Entrust::can('create-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         return view('admin/users/form');
     }
 
