@@ -16,8 +16,13 @@
         <form action="" method="post">
             <div class="col-sm-7">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0">Sample Basic Forms</h3>
-                    <p class="text-muted m-b-30 font-13"> Bootstrap Elements </p>
+                    <h3 class="box-title m-b-0">Thêm admin quản trị</h3>
+                    <p class="text-muted m-b-30 font-13"></p>
+                    @if(Session::has('danger'))
+                        <div class="my-alert">
+                            <div class="alert alert-danger">{{ Session::get('danger') }}</div>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
                                 <div class="form-group">

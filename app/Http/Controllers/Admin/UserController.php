@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Permission;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,7 +35,11 @@ class UserController extends Controller
             Session::flash('danger','Bạn không có quyền này');
             return redirect('admin/error');
         }
-        return view('admin/users/form');
+        $permission = Permission::all();
+//        echo "<pre>";
+//        print_r($permission);
+//        echo "</pre>";die();
+        return view('admin/users/form',compact('permission'));
     }
 
     /**
@@ -45,6 +50,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::user()->hasRole('admin')){
+            Session::flash('danger','Bạn không phải là admin');
+            return redirect()->route('create_user');
+        }
         //
     }
 

@@ -20,7 +20,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
 
     Route::group(['prefix'=>'user'],function (){
         Route::get('/','Admin\UserController@index');
-        Route::get('/create','Admin\UserController@create');
+        Route::get('/create','Admin\UserController@create')->name('create_user');
     });
 });
 
