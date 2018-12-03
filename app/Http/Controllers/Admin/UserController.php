@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\UserAddRequest;
 use App\Permission;
 use App\User;
 use Illuminate\Http\Request;
@@ -42,13 +43,7 @@ class UserController extends Controller
         return view('admin/users/form',compact('permission'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(UserAddRequest $request)
     {
         if (!Auth::user()->hasRole('admin')){
             Session::flash('danger','Bạn không phải là admin');

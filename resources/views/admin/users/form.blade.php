@@ -13,7 +13,8 @@
         </div>
     </div>
     <div class="row">
-        <form action="" method="post">
+        <form action="{{ route('post_create') }}" method="post">
+            {{ csrf_field() }}
             <div class="col-sm-7">
                 <div class="white-box">
                     <h3 class="box-title m-b-0">Thêm admin quản trị</h3>
@@ -28,26 +29,37 @@
                                 <div class="form-group">
                                     <label for="name" class="control-label">Tên</label>
                                     <input type="text" class="form-control" name="name" id="name" placeholder="nhập tên">
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('name') }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="fullname" class="control-label">Tên đầy đủ</label>
                                     <input type="text" class="form-control" name="fullname" id="fullnam" placeholder="Nhập họ tên đầy đủ">
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('fullname') }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="control-label">Email</label>
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Nhập email">
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('email') }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="control-label">Mật khẩu</label>
                                     <input type="password" class="form-control" name="password" id="password" placeholder="Nhập mật khẩu">
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('password') }}</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" name="repassword" id="repassword" placeholder="Nhập mật khẩu">
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('repassword') }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="control-label">Địa chỉ</label>
                                     <textarea name="address" id="address" class="form-control" placeholder="Nhập địa chỉ"></textarea>
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('address') }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="control-label">Điện thoại</label>
                                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại">
+                                    <span style="color:red; font-style:italic;">(*){{ $errors->first('phone') }}</span>
                                 </div>
                         </div>
                     </div>
@@ -64,10 +76,12 @@
                                 <option value="0">Nữ</option>
                                 <option value="0">Khác</option>
                             </select>
+                        <span style="color:red; font-style:italic;">(*){{ $errors->first('gender') }}</span>
                     </div>
                     <div class="form-group">
                         <label for="status" class="control-label">status</label>
                         <input type="text" class="form-control" id="status" name="status" placeholder="Nhập status">
+                        <span style="color:red; font-style:italic;">(*){{ $errors->first('status') }}</span>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Level</label>
@@ -76,47 +90,20 @@
                                 <option value="0">admin</option>
                                 <option value="0">Biên tập viên</option>
                             </select>
+                        <span style="color:red; font-style:italic;">(*){{ $errors->first('level_user') }}</span>
                     </div>
                     <div class="form-group">
                         <label>Quyền hạn của user mới</label>
                         <div class="input-group">
                             <div class="col-sm-12">
+                            @foreach($permission as $target)
                             <ul class="icheck-list">
                                 <li>
                                     <input type="checkbox" class="check" id="minimal-checkbox-1">
-                                    <label for="minimal-checkbox-1">Thêm</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" class="check" id="minimal-checkbox-2">
-                                    <label for="minimal-checkbox-1">Sửa</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" class="check" id="minimal-checkbox-3">
-                                    <label for="minimal-checkbox-1">Xóa</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" class="check" id="minimal-checkbox-4">
-                                    <label for="minimal-checkbox-1">Xem</label>
+                                    <label for="minimal-checkbox-1">{{ $target->display_name }}</label>
                                 </li>
                             </ul>
-                                <ul class="icheck-list">
-                                    <li>
-                                        <input type="checkbox" class="check" id="minimal-checkbox-1">
-                                        <label for="minimal-checkbox-1">Thêm</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" class="check" id="minimal-checkbox-2">
-                                        <label for="minimal-checkbox-1">Sửa</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" class="check" id="minimal-checkbox-3">
-                                        <label for="minimal-checkbox-1">Xóa</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" class="check" id="minimal-checkbox-4">
-                                        <label for="minimal-checkbox-1">Xem</label>
-                                    </li>
-                                </ul>
+                            @endforeach
                             </div>
                         </div>
                     </div>
@@ -124,6 +111,7 @@
                         <div class="white-box">
                             <h3 class="box-title">Ảnh đại diện </h3>
                             <input type="file" id="input-file-disable-remove" name="avatar" class="dropify" data-show-remove="true" multiple value="" />
+                            <span style="color:red; font-style:italic;">(*){{ $errors->first('avatar') }}</span>
                         </div>
                     </div>
                     {{--@if(isset($detail) && $detail->avatar != '')--}}
