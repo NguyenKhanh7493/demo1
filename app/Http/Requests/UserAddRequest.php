@@ -42,6 +42,7 @@ class UserAddRequest extends FormRequest
         return [
             'name.required' => "Bạn chưa nhập tên",
             'fullname.required' => "Bạn chưa nhập họ tên đầy đủ",
+            'fullname.max' => "Giới hạn tên là 40 ký tự",
             'email.required' => "Bạn chưa nhập email",
             'email.email' => "Bạn nhập sai định dạng email",
             'email.unique' => "Email này đã tồn tại",

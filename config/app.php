@@ -174,6 +174,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         //kn
         Zizaco\Entrust\EntrustServiceProvider::class,
+        //kn form
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -225,6 +227,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //kn
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        //kn form 
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
