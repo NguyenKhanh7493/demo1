@@ -70,3 +70,6 @@
 </script>
 <!--Style Switcher -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script type="text/javascript">
+    $('div.my-alert').delay(7000).slideUp();
+</script>

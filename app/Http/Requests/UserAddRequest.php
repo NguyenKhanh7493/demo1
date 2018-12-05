@@ -30,10 +30,10 @@ class UserAddRequest extends FormRequest
             'password' => 'required|min:6|max:20',
             'repassword' => 'required|same:password',
             'address' => 'required',
-            'phone' => 'required|integer|max:11|min:10',
+            'phone' => 'required|max:11|min:10',
             'gender' => 'required',
-            'level_user' => 'required',
-            'avatar' => 'required|image',
+            'level' => 'required',
+            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
             'status'=>'required'
         ];
     }
@@ -55,11 +55,13 @@ class UserAddRequest extends FormRequest
             'phone.required' => "Bạn chưa nhập sđt",
             'phone.max' => "sđt không hợp lệ",
             'phone.min' => "Sđt không hợp lệ",
-            'phone.integer' => "sđt phải là số",
+//            'phone.integer' => "sđt phải là số",
             'gender.required' => "Bạn chưa nhập giới tính",
-            'level_user.required' => "Bạn chưa nhập level",
+            'level.required' => "Bạn chưa nhập level",
             'avatar.required' => "Bạn chưa chọn ảnh",
             'avatar.image' => "Định dạng chưa được hỗ trợ",
+//            'avatar.mimes' => "Đuôi ảnh phải là jpg",
+//            'avatar.size' => "ảnh quá lớn",size:2048
             'status.required' => "Bạn chưa nhập status",
         ];
     }
