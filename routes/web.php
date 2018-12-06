@@ -22,8 +22,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::get('/','Admin\UserController@index');
         Route::get('/create','Admin\UserController@create')->name('create_user');
         Route::post('/create','Admin\UserController@store')->name('post_create');
-        Route::get('/edit/{id}','Admin\UserController@edit');
-        Route::post('edit/{id}',['as'=>'edit_post','uses'=>'Admin\UserController@update']);
+        Route::get('/edit/{id}','Admin\UserController@edit')->name('editGet');
+        Route::patch('edit/{id}',['as'=>'edit_post','uses'=>'Admin\UserController@update']);
     });
 });
 

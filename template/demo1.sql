@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2018 lúc 10:49 AM
+-- Thời gian đã tạo: Th12 06, 2018 lúc 10:40 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -40,7 +40,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1);
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2018_11_28_075818_entrust_setup_tables', 2);
 
 -- --------------------------------------------------------
 
@@ -53,6 +54,97 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `display_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'create-user', 'Create User', 'Create User', '2018-11-14 17:00:00', NULL),
+(2, 'edit-user', 'Edit User', 'Edit User', '2018-11-14 17:00:00', NULL),
+(3, 'delete-user', 'Delete User', 'Delete User', '2018-11-13 17:00:00', NULL),
+(4, 'create-post', 'Create Post', 'Thêm mới sản phẩm', '2018-12-17 17:00:00', NULL),
+(5, 'edit-post', 'Edit Post', 'Sửa danh mục sản phẩm', '2018-12-26 17:00:00', NULL),
+(6, 'delete-post', 'Delete Post', 'Xóa sản phẩm', '2018-12-10 17:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `permission_role`
+--
+
+CREATE TABLE `permission_role` (
+  `permission_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `permission_role`
+--
+
+INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `display_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'Admin', 'Quản lý tất cả', '2018-11-13 17:00:00', NULL),
+(2, 'censor', 'Censor', 'kiểm duyệt bài viết', '2018-11-21 17:00:00', NULL),
+(3, 'employee', 'Employee', 'Người viết bài', '2018-11-20 17:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `role_user`
+--
+
+CREATE TABLE `role_user` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `role_user`
+--
+
+INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
+(2, 1),
+(3, 2),
+(4, 3);
 
 -- --------------------------------------------------------
 
@@ -83,7 +175,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `password`, `address`, `phone`, `gender`, `avatar`, `status`, `level`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Khánh', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Vĩnh linh - Quảng Trị', '0964245027', 1, 'http://4.bp.blogspot.com/-dIo9bSLQDtQ/VKWIwt_Wa8I/AAAAAAAASCA/O24L-G8oiHI/s1600/zoro-onepiece-wallpaper-hd%2B(2).png', 1, 0, NULL, '2018-11-12 17:00:00', '2018-11-20 17:00:00', NULL);
+(2, 'admin', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', '$2y$10$DQ4PzN5kkC3xBqJWuYQ4He1cftxjWLit9XSl5sG4moehcMVzzHaBu', 'Vĩnh thủy - Vĩnh Linh -Quảng Trị', '0964245027', 1, 'https://www.facebook.com/photo.php?fbid=1099413300206952&set=t.100004148760923&type=3&theater', 1, 0, 'f0k1wTGhqjqCoTpvqT1ZJMqr7I5D0Zd0iVh99ekWDqhB3wyEtBoiRsEm6nQ7', '2018-11-21 00:51:19', '2018-11-21 00:51:19', NULL),
+(3, 'censor', 'Đoàn THị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$tArwapbEiuFWqsbl6Zr32OpqyulJ26ncAxuY./ZcnW/TtLy851Ex.', 'QUẢNG TRỊ', '0972024098', 1, 'hieu', 1, 0, 'asGFSxFzmF5qfTYJNmAJA44IsXrNsH1US52K6gZxEVWH12S1LD2gdE4IjuwP', '2018-11-28 20:09:33', '2018-11-28 20:09:33', NULL),
+(4, 'employee', 'Nguyễn Khánh Long', 'khanhlong7498@gmail.com', '$2y$10$il90EK76z8L0d5Wcttfk9.ND8DipF1OkEluWqpO8br24N.px46yBq', 'QUẢNG TRỊ', '0972024098', 1, 'hieu', 1, 0, NULL, '2018-11-28 20:10:57', '2018-11-28 20:10:57', NULL),
+(5, 'admin', 'khanhne1234', 'khanhne@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 'quangtri', '01658148257', 0, 'http://demo1.site/public/images/user/40366047_832870557103998_7194142045538091008_o.jpg', 1, 0, NULL, '2018-12-04 23:59:40', '2018-12-04 23:59:40', NULL),
+(6, 'censor', 'hiudien', 'hiudien@gmail.com', '1234567', 'quangtri', '01688434788', 0, 'http://demo1.site/public/images/user/hieuunganh.com_5bd926f07ec9e.jpg', 1, 0, NULL, '2018-12-05 00:04:10', '2018-12-05 00:04:10', NULL),
+(7, 'ment', 'khanhhuhu', 'khanhhihi@gmail.com', '123456', 'quangtri', '01658148257', 0, 'http://demo1.site/public/images/user/hinh-nen-luffy-one-piece-19.jpg', 1, 0, NULL, '2018-12-05 21:21:43', '2018-12-05 21:21:43', NULL),
+(8, 'thu', 'testthu', 'thune12@gmail.com', '123456', 'qe', '1234567890', 0, 'http://demo1.site/public/images/user/fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 1, 0, NULL, '2018-12-05 23:10:35', '2018-12-05 23:10:35', NULL),
+(9, 'kk', 'hy vọng đc', 'dcko@gmail.com', '123456', 'khanhne', '1234567890', 0, 'http://demo1.site/public/images/user/hinh-nen-chopper-3.jpg', 1, 0, NULL, '2018-12-06 00:24:32', '2018-12-06 00:24:32', NULL),
+(10, 'admin', 'xuanhieu', 'hieuoi@gmail.com', '$2y$10$9C54tvtiockUQGkACqbjFezTn17k7YmnKHDXt/ag8sM/1gI9SecSe', 'kk', '1234567890', 0, 'http://demo1.site/public/images/user/40366047_832870557103998_7194142045538091008_o.jpg', 1, 0, 'W4PRMAya21sMFzjOWqBDKGDIIYfKmag7EX0Sod4lgrQ8aAt7anTmEr5MIQQU', '2018-12-06 02:29:33', '2018-12-06 02:29:33', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -102,6 +202,34 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Chỉ mục cho bảng `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_unique` (`name`);
+
+--
+-- Chỉ mục cho bảng `permission_role`
+--
+ALTER TABLE `permission_role`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `permission_role_role_id_foreign` (`role_id`);
+
+--
+-- Chỉ mục cho bảng `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_unique` (`name`);
+
+--
+-- Chỉ mục cho bảng `role_user`
+--
+ALTER TABLE `role_user`
+  ADD PRIMARY KEY (`user_id`,`role_id`),
+  ADD KEY `role_user_role_id_foreign` (`role_id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -116,13 +244,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `permission_role`
+--
+ALTER TABLE `permission_role`
+  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `role_user`
+--
+ALTER TABLE `role_user`
+  ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

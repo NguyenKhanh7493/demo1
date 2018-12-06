@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserAddRequest;
+use App\Http\Requests\UserEditRequest;
 use App\Permission;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Session;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\MyHelper;
@@ -72,6 +74,7 @@ class UserController extends Controller
         //end upload
         $requestData = $request->all();
         $requestData['avatar'] = URL::asset( $this->path_file . '/' . $avatar);
+        $requestData['password'] = Hash::make($request->password);
         if (User::create($requestData)){
             Session::flash('danger','Thêm quản trị thành công');
             return redirect()->back();
@@ -93,9 +96,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-//        $user = User::findOrFail($id);
-////        $route = "edit_post".$user->id."";
-//        return view('admin/users/form',['user'=>$user]);
+        if (!\Entrust::can('edit-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
+        $user = User::find($id);
+        $permission = Permission::all();
+        $route = "editGet";
+        return view('admin/users/form',['user'=>$user,'permission'=>$permission,'route'=>$route]);
     }
 
     /**
@@ -105,9 +113,34 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEditRequest $request, $id)
     {
-        //
+        if (\Entrust::can('edit-user')){
+            Session::flash('danger','Bạn không phải là admin');
+            return redirect('admin/error');
+        }
+        $user = User::findOrFail($id);
+        if (Input::hasFile('avatar')){
+            $avatar = $request->file('avatar')->getClientOriginalName();
+            $request->file('avatar')->move($this->path_file,$avatar);
+        }else{
+            $avatar = $user->avatar;
+        }
+        $requestData = $request->all();
+        $requestData['avatar'] = URL::asset($this->path_file . '/' . $avatar);
+        $pass = '';
+        if ($request->password != ''){
+            $requestData['password'] = Hash::make($request->password);
+        }else{
+            $pass = $user->password;
+        }
+        if (User::create($requestData)){
+            Session::flash('danger','Update thanh cong');
+            return redirect()->back();
+        }else{
+            Session::flash('danger','Update that bai');
+            return redirect()->back();
+        }
     }
 
     /**
