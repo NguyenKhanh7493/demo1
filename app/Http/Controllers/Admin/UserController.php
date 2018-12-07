@@ -73,7 +73,8 @@ class UserController extends Controller
         }
         //end upload
         $requestData = $request->all();
-        $requestData['avatar'] = URL::asset( $this->path_file . '/' . $avatar);
+//        $requestData['avatar'] = $this->path_file . '/' . $avatar; lấy toàn bộ đường dẫn
+        $requestData['avatar'] = $avatar;
         $requestData['password'] = Hash::make($request->password);
         if (User::create($requestData)){
             Session::flash('danger','Thêm quản trị thành công');
@@ -115,11 +116,12 @@ class UserController extends Controller
      */
     public function update(UserEditRequest $request, $id)
     {
-        if (\Entrust::can('edit-user')){
-            Session::flash('danger','Bạn không phải là admin');
-            return redirect('admin/error');
-        }
+//        if (\Entrust::can('edit-user')){
+//            Session::flash('danger','Bạn không phải là admin');
+//            return redirect('admin/error');
+//        }
         $user = User::findOrFail($id);
+
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
             $request->file('avatar')->move($this->path_file,$avatar);
@@ -128,13 +130,7 @@ class UserController extends Controller
         }
         $requestData = $request->all();
         $requestData['avatar'] = URL::asset($this->path_file . '/' . $avatar);
-        $pass = '';
-        if ($request->password != ''){
-            $requestData['password'] = Hash::make($request->password);
-        }else{
-            $pass = $user->password;
-        }
-        if (User::create($requestData)){
+        if ($user->update($requestData)){
             Session::flash('danger','Update thanh cong');
             return redirect()->back();
         }else{

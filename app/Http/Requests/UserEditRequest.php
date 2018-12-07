@@ -26,14 +26,14 @@ class UserEditRequest extends FormRequest
         return [
             'name' => 'required',
             'fullname' => 'required|max:20',
-            'email' => 'required|email|unique:users,email' ,
+            'email' => 'required|email|unique:users,email,'.$this->id ,
             'password' => 'min:6|max:20',
             'repassword' => 'same:password',
             'address' => 'required',
             'phone' => 'required|max:11|min:10',
             'gender' => 'required',
             'level' => 'required',
-            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg',
             'status'=>'required'
         ];
     }
@@ -58,7 +58,7 @@ class UserEditRequest extends FormRequest
 //            'phone.integer' => "sđt phải là số",
             'gender.required' => "Bạn chưa nhập giới tính",
             'level.required' => "Bạn chưa nhập level",
-            'avatar.required' => "Bạn chưa chọn ảnh",
+//            'avatar.required' => "Bạn chưa chọn ảnh",
             'avatar.image' => "Định dạng chưa được hỗ trợ",
 //            'avatar.mimes' => "Đuôi ảnh phải là jpg",
 //            'avatar.size' => "ảnh quá lớn",size:2048

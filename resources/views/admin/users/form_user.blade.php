@@ -32,6 +32,7 @@
                         <span style="color:red; font-style:italic;">(*) {{ $errors->first('email') }}</span>
                     @endif()
                 </div>
+                @if(!isset($user))
                 <div class="form-group">
                     <label for="password" class="control-label">Mật khẩu</label>
                     {{--<input type="password" class="form-control" name="password" id="password" placeholder="Nhập mật khẩu">--}}
@@ -48,6 +49,7 @@
                         <span style="color:red; font-style:italic;">(*) {{ $errors->first('repassword') }}</span>
                     @endif()
                 </div>
+                @endif
                 <div class="form-group">
                     <label for="address" class="control-label">Địa chỉ</label>
                     {{--<textarea name="address" id="address" class="form-control" placeholder="Nhập địa chỉ"></textarea>--}}
@@ -133,7 +135,7 @@
         @if(isset($user))
         <div id="showImg" style="text-align: center">
             <div class="form-group" name="parentImg">
-                <img src="{{ $user->avatar }}" alt="" width="150">
+                <img src="{{ url('/') }}/public/images/user/{{ $user->avatar }}" alt="" width="150">
             </div>
         </div>
         @endif
