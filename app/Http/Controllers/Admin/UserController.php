@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\UserAddRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Permission;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Helpers\MyHelper;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\URL;
-
+use File;
 class UserController extends Controller
 {
     private $path_file = 'public/images/user';
@@ -39,11 +40,12 @@ class UserController extends Controller
             return redirect('admin/error');
         }
         $permission = Permission::all();
+        $role = Role::pluck('name','id')->toArray();
         $route = "post_create";
 //        echo "<pre>";
-//        print_r($permission);
+//        print_r($role);
 //        echo "</pre>";die();
-        return view('admin/users/form',['permission'=>$permission,'route'=>$route]);
+        return view('admin/users/form',['permission'=>$permission,'route'=>$route,'role'=>$role]);
     }
 
     public function store(UserAddRequest $request)
@@ -107,29 +109,26 @@ class UserController extends Controller
         return view('admin/users/form',['user'=>$user,'permission'=>$permission,'route'=>$route]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(UserEditRequest $request, $id)
     {
-//        if (\Entrust::can('edit-user')){
-//            Session::flash('danger','Bạn không phải là admin');
-//            return redirect('admin/error');
-//        }
+        if (!\Entrust::can('edit-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $user = User::findOrFail($id);
-
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
             $request->file('avatar')->move($this->path_file,$avatar);
+            $usersImage = ("public/images/user/{$user->avatar}");
+            if (File::exists($usersImage)) {
+                File::delete($usersImage);
+            }
         }else{
             $avatar = $user->avatar;
         }
         $requestData = $request->all();
-        $requestData['avatar'] = URL::asset($this->path_file . '/' . $avatar);
+//        $requestData['avatar'] = URL::asset($this->path_file . '/' . $avatar); lấy cả đường url ví dụ : http://demo1.site/upload/image/user/1.jpg
+        $requestData['avatar'] = $avatar;
         if ($user->update($requestData)){
             Session::flash('danger','Update thanh cong');
             return redirect()->back();

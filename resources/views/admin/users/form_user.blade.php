@@ -95,15 +95,15 @@
             @endif()
         </div>
         <div class="form-group">
-            <label class="control-label">Level</label>
+            <label class="control-label">Rose</label>
             {{--<select class="form-control" name="level_user">--}}
             {{--<option>Chọn level</option>--}}
             {{--<option value="0">admin</option>--}}
             {{--<option value="1">Biên tập viên</option>--}}
             {{--</select>--}}
-            {!! Form::select('level',['0'=>'admin','1'=>'Biên tập viên'],null,['class'=>'form-control','id'=>'level_user','placeholder'=>'level']) !!}
-            @if ($errors->first('level_user'))
-                <span style="color:red; font-style:italic;">(*) {{ $errors->first('level_user') }}</span>
+            {!! Form::select('level',$role,null,['class'=>'form-control','id'=>'level_user','placeholder'=>'level']) !!}
+            @if ($errors->first('level'))
+                <span style="color:red; font-style:italic;">(*) {{ $errors->first('level') }}</span>
             @endif()
         </div>
         <div class="form-group">
