@@ -101,9 +101,9 @@
             {{--<option value="0">admin</option>--}}
             {{--<option value="1">Biên tập viên</option>--}}
             {{--</select>--}}
-            {!! Form::select('level',$role,null,['class'=>'form-control','id'=>'level_user','placeholder'=>'level']) !!}
-            @if ($errors->first('level'))
-                <span style="color:red; font-style:italic;">(*) {{ $errors->first('level') }}</span>
+            {!! Form::select('role',$role,$role_user[0]->role_id,['class'=>'form-control','id'=>'role','placeholder'=>'level']) !!}
+            @if ($errors->first('role'))
+                <span style="color:red; font-style:italic;">(*) {{ $errors->first('role') }}</span>
             @endif()
         </div>
         <div class="form-group">

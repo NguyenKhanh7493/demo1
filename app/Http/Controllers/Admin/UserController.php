@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Helpers\MyHelper;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\URL;
-use File;
+use File,DB;
 class UserController extends Controller
 {
     private $path_file = 'public/images/user';
@@ -78,7 +78,16 @@ class UserController extends Controller
 //        $requestData['avatar'] = $this->path_file . '/' . $avatar; lấy toàn bộ đường dẫn
         $requestData['avatar'] = $avatar;
         $requestData['password'] = Hash::make($request->password);
-        if (User::create($requestData)){
+        $user_add = User::create($requestData);
+        if ($user_add){
+            $id = $user_add->id;
+            $user_add = User::findOrFail($id);
+            $user_add->roles()->detach();
+            if( isset($requestData['role']) ) {
+                $id_role = $requestData['role'];
+                $user_add->roles()->attach($id_role);
+            }
+            $user_add->update($requestData);
             Session::flash('danger','Thêm quản trị thành công');
             return redirect()->back();
         }else{
@@ -105,8 +114,11 @@ class UserController extends Controller
         }
         $user = User::find($id);
         $permission = Permission::all();
+        $role = Role::pluck('name','id')->toArray();
+        $role_user = DB::table('role_user')->where('user_id',$user->id)->select('user_id','role_id')->get()->toArray();
+       // print_r($role_user);die();
         $route = "editGet";
-        return view('admin/users/form',['user'=>$user,'permission'=>$permission,'route'=>$route]);
+        return view('admin/users/form',['user'=>$user,'permission'=>$permission,'route'=>$route,'role'=>$role,'role_user'=>$role_user]);
     }
 
     public function update(UserEditRequest $request, $id)
@@ -129,7 +141,13 @@ class UserController extends Controller
         $requestData = $request->all();
 //        $requestData['avatar'] = URL::asset($this->path_file . '/' . $avatar); lấy cả đường url ví dụ : http://demo1.site/upload/image/user/1.jpg
         $requestData['avatar'] = $avatar;
-        if ($user->update($requestData)){
+        $user_edit = $user->update($requestData);
+        if ($user_edit){
+            $user_edit->roles()->detach();
+            if (isset($requestData['role'])){
+                $edit_role = $requestData['role'];
+                $user_edit->role()->attach($edit_role);
+            }
             Session::flash('danger','Update thanh cong');
             return redirect()->back();
         }else{
