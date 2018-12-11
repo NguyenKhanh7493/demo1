@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         {{--<form action="{{ route('post_create') }}" method="post">--}}
-        @if(isset($user)):
+        @if(isset($user))
         {!! Form::model($user,[
                 'method' => 'PATCH',
                 'url' => ['/admin/user/edit',$user->id],

@@ -42,8 +42,7 @@ class LoginController extends Controller
     public function login(LoginRequest $request){
         $auth = [
             'email'=>$request->email,
-            'password'=>$request->password,
-            'level'=>0
+            'password'=>$request->password
         ];
         if (Auth::attempt($auth)){
             return redirect()->route('admin');

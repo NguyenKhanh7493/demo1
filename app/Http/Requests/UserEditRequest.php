@@ -32,7 +32,7 @@ class UserEditRequest extends FormRequest
             'address' => 'required',
             'phone' => 'required|max:11|min:10',
             'gender' => 'required',
-            'level' => 'required',
+            'role' => 'required',
             'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg',
             'status'=>'required'
         ];
@@ -57,7 +57,7 @@ class UserEditRequest extends FormRequest
             'phone.min' => "Sđt không hợp lệ",
 //            'phone.integer' => "sđt phải là số",
             'gender.required' => "Bạn chưa nhập giới tính",
-            'level.required' => "Bạn chưa nhập level",
+            'role.required' => "Bạn chưa nhập level",
 //            'avatar.required' => "Bạn chưa chọn ảnh",
             'avatar.image' => "Định dạng chưa được hỗ trợ",
 //            'avatar.mimes' => "Đuôi ảnh phải là jpg",
