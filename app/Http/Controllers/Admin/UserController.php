@@ -23,8 +23,8 @@ class UserController extends Controller
     {
         $list = User::all();
 //        echo "<pre>";
-//        print_r($list);die();
-//        echo "</pre>";
+//        print_r($list);
+//        echo "</pre>";die();
         return view('admin/users/list',compact('list'));
     }
 
@@ -116,9 +116,15 @@ class UserController extends Controller
         $permission = Permission::all();
         $role = Role::pluck('name','id')->toArray();
         $role_user = DB::table('role_user')->where('user_id',$user->id)->select('user_id','role_id')->get()->toArray();
-       // print_r($role_user);die();
+        $role_id = $role_user[0]->role_id;
         $route = "editGet";
-        return view('admin/users/form',['user'=>$user,'permission'=>$permission,'route'=>$route,'role'=>$role,'role_user'=>$role_user]);
+        $per_role = DB::table('permission_role')
+            ->join('permissions','permission_role.permission_id', '=' , 'permissions.id')
+            ->where('role_id',$role_id)
+            ->select('permissions.name')
+            ->get()->toArray();
+//         print_r($per_role);die();
+        return view('admin/users/form',['user'=>$user,'permission'=>$permission,'route'=>$route,'role'=>$role,'role_user'=>$role_user,'per_role'=>$per_role]);
     }
 
     public function update(UserEditRequest $request, $id)
@@ -141,13 +147,12 @@ class UserController extends Controller
         $requestData = $request->all();
 //        $requestData['avatar'] = URL::asset($this->path_file . '/' . $avatar); lấy cả đường url ví dụ : http://demo1.site/upload/image/user/1.jpg
         $requestData['avatar'] = $avatar;
-        $user_edit = $user->update($requestData);
-        if ($user_edit){
-            $user_edit->roles()->detach();
-            if (isset($requestData['role'])){
-                $edit_role = $requestData['role'];
-                $user_edit->role()->attach($edit_role);
-            }
+        $user->roles()->detach();
+        if (isset($requestData['role'])){
+            $edit_role = $requestData['role'];
+            $user->roles()->attach($edit_role);
+        }
+        if ($user->update($requestData)){
             Session::flash('danger','Update thanh cong');
             return redirect()->back();
         }else{

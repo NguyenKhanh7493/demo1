@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 11, 2018 lúc 10:47 AM
+-- Thời gian đã tạo: Th12 12, 2018 lúc 10:54 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -100,7 +100,11 @@ CREATE TABLE `permission_role` (
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
 (2, 1),
-(3, 1);
+(3, 1),
+(4, 3),
+(5, 2),
+(5, 3),
+(6, 2);
 
 -- --------------------------------------------------------
 
@@ -145,7 +149,8 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (2, 1),
 (3, 2),
 (4, 3),
-(19, 2);
+(19, 2),
+(20, 1);
 
 -- --------------------------------------------------------
 
@@ -192,7 +197,9 @@ INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `password`, `address`, `
 (16, 'haha', 'haha', 'hahane@gmail.com', '$2y$10$nTqp3MnBjPBzq.A9HU01C.fufdBhCd2K9QRCZ66eMAvOb6YbYnflm', 'aquan', '1234567890', 0, 'hinh-anh-hinh-nen-zoro-dep-nhat-one-piece-18.png', 1, NULL, '2018-12-10 23:20:21', '2018-12-10 23:20:21', NULL),
 (17, 'rq', 'rrrrrrrr', 'rrr@gmail.com', '$2y$10$brXxsVBAS5Uy4KGjCQ91CehLF2yYSKDah3hkL7J4EabobXm.8McPm', 'âdadad', '1234567890', 0, 'hinh-nen-luffy-one-piece-13.jpg', 1, NULL, '2018-12-11 01:12:50', '2018-12-11 01:12:50', NULL),
 (18, 'rq', 'rrrrrrrr', 'rrrs@gmail.com', '$2y$10$cEsBxApF2UAgqUvt2cehze/hQJE0o7G/QBD/bCxix/7/SpkxGK0C.', 'âdadad', '1234567890', 0, 'big-1663460904.png', 1, NULL, '2018-12-11 01:14:11', '2018-12-11 01:14:11', NULL),
-(19, 'dc ko', 'dc ko ne', 'dckothu@gmail.com', '$2y$10$Qvt8pWLDQdKuIYro6nr9quM74Xzqw4nVJpZmHGAVvbHdDBFh4xO4y', 'khanhoi', '1234567890', 0, 'hinh-nen-luffy-one-piece-19.jpg', 1, NULL, '2018-12-11 01:19:42', '2018-12-11 01:19:42', NULL);
+(19, 'dc ko', 'dc ko ne', 'dckothu@gmail.com', '$2y$10$Qvt8pWLDQdKuIYro6nr9quM74Xzqw4nVJpZmHGAVvbHdDBFh4xO4y', 'khanhoi', '1234567890', 0, 'hinh-nen-luffy-one-piece-19.jpg', 1, NULL, '2018-12-11 01:19:42', '2018-12-11 01:19:42', NULL),
+(20, 'thu lan', 'thử lần 2', 'thune123@gmail.com', '$2y$10$CZkuvtxgRsyBX6DaTSBiUeJpoqmpeM0sciL60XJ9tNnH7QWwyHSyO', 'quangtri', '1234567890', 0, 'hinh-nen-chopper-3.jpg', 1, NULL, '2018-12-11 19:32:46', '2018-12-11 19:32:46', NULL),
+(21, 'Khanh', 'Khánh Đẹp Trai', 'khanhdeptrai@gmail.com', '$2y$10$OplXLPRRAVqlgWda7JAaPOjph0TDQajfnKAikHRHsJBpqgWw3PEVi', 'quangtri', '1234567890', 0, 'hinh-anh-cuc-hoa-mi-dep-nhat.jpg', 1, NULL, '2018-12-11 23:46:38', '2018-12-11 23:46:38', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -271,7 +278,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

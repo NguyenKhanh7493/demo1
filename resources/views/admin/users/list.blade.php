@@ -37,12 +37,12 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->fullname }}</td>
                             <td>{{ $item->email }}</td>
-                            <td><img src="{{ $item->avatar }}" alt="" style="width: 80px;height: 60px;"></td>
+                            <td><img src="{{ url('/') }}/public/images/user/{{ $item->avatar }}" alt="" style="width: 80px;height: 60px;"></td>
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->gender }}</td>
                             <td>
                                 <a href="#" id="editItem"><i class="ti-pencil text-success"></i></a> |
-                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?"><i class="ti-trash text-danger"></i></a>
+                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" data-id="{{ $item->id }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
                             </td>
                         </tr>
                         @endforeach

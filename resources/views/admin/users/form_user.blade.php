@@ -101,26 +101,45 @@
             {{--<option value="0">admin</option>--}}
             {{--<option value="1">Biên tập viên</option>--}}
             {{--</select>--}}
-            {!! Form::select('role',$role,$role_user[0]->role_id,['class'=>'form-control','id'=>'role','placeholder'=>'level']) !!}
-            @if ($errors->first('role'))
-                <span style="color:red; font-style:italic;">(*) {{ $errors->first('role') }}</span>
-            @endif()
+            @if(!isset($role_user))
+                {!! Form::select('role',$role,null,['class'=>'form-control','id'=>'role','placeholder'=>'role']) !!}
+                @if ($errors->first('role'))
+                    <span style="color:red; font-style:italic;">(*) {{ $errors->first('role') }}</span>
+                @endif()
+            @else
+                {!! Form::select('role',$role,$role_user[0]->role_id,['class'=>'form-control','id'=>'role','placeholder'=>'role']) !!}
+                @if ($errors->first('role'))
+                    <span style="color:red; font-style:italic;">(*) {{ $errors->first('role') }}</span>
+                @endif()
+            @endif
         </div>
+        {{--<div class="form-group">--}}
+            {{--<label>Quyền hạn của user mới</label>--}}
+            {{--<div class="input-group">--}}
+                {{--<div class="col-sm-12">--}}
+                    {{--@foreach($permission as $target)--}}
+                        {{--<ul class="icheck-list">--}}
+                            {{--<li>--}}
+                                {{--<input type="checkbox" class="check" id="minimal-checkbox-1">--}}
+                                {{--<label for="minimal-checkbox-1">{{ $target->display_name }}</label>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--@endforeach--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        @if(isset($per_role))
         <div class="form-group">
-            <label>Quyền hạn của user mới</label>
-            <div class="input-group">
-                <div class="col-sm-12">
-                    @foreach($permission as $target)
-                        <ul class="icheck-list">
-                            <li>
-                                <input type="checkbox" class="check" id="minimal-checkbox-1">
-                                <label for="minimal-checkbox-1">{{ $target->display_name }}</label>
-                            </li>
-                        </ul>
+                <div class="collapse m-t-15 well" id="pgr2" aria-expanded="true">
+                </div>
+                <div class="list-group" style="text-align: center">
+                    <p class="list-group-item active">Các quyền thành viên được thực hiện</p>
+                    @foreach($per_role as $per)
+                    <p class="list-group-item" style="font-weight: 400">{{ $per->name }}</p>
                     @endforeach
                 </div>
-            </div>
         </div>
+        @endif
         <div class="form-group">
             <div class="white-box">
                 <h3 class="box-title">Ảnh đại diện </h3>
