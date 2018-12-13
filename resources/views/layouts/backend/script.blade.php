@@ -1,6 +1,7 @@
 <script src="{!! url('public/admin') !!}/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="{!! url('public/admin/assets') !!}/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{!! url('public/admin/assets') !!}/js/myscript.js"></script>
 <!-- Menu Plugin JavaScript -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->

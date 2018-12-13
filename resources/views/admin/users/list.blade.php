@@ -19,6 +19,7 @@
                 <h3 class="box-title m-b-0">-- Danh sách quản trị viên --</h3>
                 <p class="text-muted m-b-30"></p>
                 <div class="table-responsive">
+                    <form action="" method="post" name="frmList">
                     <table id="myTable" class="table table-striped">
                         <thead>
                         <tr>
@@ -33,7 +34,7 @@
                         </thead>
                         <tbody>
                         @foreach($list as $item)
-                        <tr>
+                        <tr id="{{ $item->id }}">
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->fullname }}</td>
                             <td>{{ $item->email }}</td>
@@ -42,14 +43,27 @@
                             <td>{{ $item->gender }}</td>
                             <td>
                                 <a href="#" id="editItem"><i class="ti-pencil text-success"></i></a> |
-                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" data-id="{{ $item->id }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
+                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" onclick="deleteAjax({{ $item->id }})" data-id="{{ $item->id }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
                             </td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    {{--<script type="text/javascript">--}}
+{{--//         $(document).ready(function () {--}}
+{{--//            $("a#delItem").on('click',function () {--}}
+{{--//                alert(1111);--}}
+{{--//            })--}}
+{{--//         });--}}
+{{--//$(document).on('click','#delItem',function (e) {--}}
+{{--//    alert(111);--}}
+{{--//});--}}
+{{--//function deleteAjax(id) {--}}
+{{--//    if (confirm('bạn có muốn xóa không '+id+'?')){}}--}}
+    {{--</script>--}}
 @stop
