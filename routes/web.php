@@ -19,7 +19,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     Route::get('error','HomeController@errors');
 
     Route::group(['prefix'=>'user'],function (){
-        Route::get('/','Admin\UserController@index');
+        Route::get('/','Admin\UserController@index')->name('listUser');
         Route::get('/create','Admin\UserController@create')->name('create_user');
         Route::post('/create','Admin\UserController@store')->name('post_create');
         Route::get('/edit/{id}','Admin\UserController@edit')->name('editGet');

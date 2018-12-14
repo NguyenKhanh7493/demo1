@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 12, 2018 lúc 10:54 AM
+-- Thời gian đã tạo: Th12 14, 2018 lúc 10:49 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -147,10 +147,9 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (2, 1),
-(3, 2),
-(4, 3),
-(19, 2),
-(20, 1);
+(23, 2),
+(24, 3),
+(34, 1);
 
 -- --------------------------------------------------------
 
@@ -180,26 +179,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `password`, `address`, `phone`, `gender`, `avatar`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'admin', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', '$2y$10$DQ4PzN5kkC3xBqJWuYQ4He1cftxjWLit9XSl5sG4moehcMVzzHaBu', 'Vĩnh thủy - Vĩnh Linh -Quảng Trị', '0964245027', 1, 'https://www.facebook.com/photo.php?fbid=1099413300206952&set=t.100004148760923&type=3&theater', 1, 'f0k1wTGhqjqCoTpvqT1ZJMqr7I5D0Zd0iVh99ekWDqhB3wyEtBoiRsEm6nQ7', '2018-11-21 00:51:19', '2018-11-21 00:51:19', NULL),
-(3, 'censor', 'Đoàn THị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$tArwapbEiuFWqsbl6Zr32OpqyulJ26ncAxuY./ZcnW/TtLy851Ex.', 'QUẢNG TRỊ', '0972024098', 1, 'hieu', 1, 'asGFSxFzmF5qfTYJNmAJA44IsXrNsH1US52K6gZxEVWH12S1LD2gdE4IjuwP', '2018-11-28 20:09:33', '2018-11-28 20:09:33', NULL),
-(4, 'employee', 'Nguyễn Khánh Long', 'khanhlong7498@gmail.com', '$2y$10$il90EK76z8L0d5Wcttfk9.ND8DipF1OkEluWqpO8br24N.px46yBq', 'QUẢNG TRỊ', '0972024098', 1, 'hieu', 1, NULL, '2018-11-28 20:10:57', '2018-11-28 20:10:57', NULL),
-(5, 'admin', 'khanhne1234acd', 'khanhne@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 'quangtri', '01658148257', 0, 'http://demo1.site/public/images/user/13034510073_c99dc89679_b.jpg', 1, NULL, '2018-12-04 23:59:40', '2018-12-07 01:24:18', NULL),
-(6, 'censor', 'hiudien ne', 'hiudien@gmail.com', '1234567', 'quangtri', '01688434788', 1, 'http://demo1.site/public/images/user/http://demo1.site/public/images/user/hieuunganh.com_5bd926f07ec9e.jpg', 1, NULL, '2018-12-05 00:04:10', '2018-12-07 01:26:16', NULL),
-(7, 'ment', 'khanhhuhu', 'khanhhihi@gmail.com', '123456', 'quangtri', '01658148257', 0, 'http://demo1.site/public/images/user/hinh-nen-luffy-one-piece-19.jpg', 1, NULL, '2018-12-05 21:21:43', '2018-12-05 21:21:43', NULL),
-(8, 'thu', 'testthu', 'thune12@gmail.com', '123456', 'qe', '1234567890', 0, 'http://demo1.site/public/images/user/fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 1, NULL, '2018-12-05 23:10:35', '2018-12-05 23:10:35', NULL),
-(9, 'kk', 'hy vọng đc', 'dcko@gmail.com', '123456', 'khanhne', '1234567890', 0, 'http://demo1.site/public/images/user/hinh-nen-chopper-3.jpg', 1, NULL, '2018-12-06 00:24:32', '2018-12-06 00:24:32', NULL),
-(10, 'admin', 'xuanhieu', 'hieuoi@gmail.com', '$2y$10$9C54tvtiockUQGkACqbjFezTn17k7YmnKHDXt/ag8sM/1gI9SecSe', 'kk', '1234567890', 0, 'http://demo1.site/public/images/user/40366047_832870557103998_7194142045538091008_o.jpg', 1, 'W4PRMAya21sMFzjOWqBDKGDIIYfKmag7EX0Sod4lgrQ8aAt7anTmEr5MIQQU', '2018-12-06 02:29:33', '2018-12-06 02:29:33', NULL),
-(11, 'nhanvien', 'khanh', 'khanh@gmail.com', '$2y$10$6QC9LZTEkfgRAyKr476ypuDmj9wFOseHybd6rEN5lxHtFERVqnLE.', 'ưewrwe', '1234567890', 0, 'F:\\xampp\\tmp\\phpE8D3.tmp', 1, NULL, '2018-12-07 02:30:45', '2018-12-07 02:30:45', NULL),
-(12, 'd', 'de', 'a@gmail.com', '$2y$10$9pHqkkQ.ghekywQ8/vgpauCBlcxgqcXBu7ofYE3f6Y1/dvG35u9oW', 'Đường 434 - Thuận An - Bình Dương', '01688434788', 2, 'public/images/user/13034541673_1df0512e0b_b.jpg', 1, NULL, '2018-12-07 02:32:37', '2018-12-07 02:32:37', NULL),
-(13, 'er', 'khanhne', 'khanhoi@gmail.com', '$2y$10$1bLDi4fkMse6u/BYUx2Mjuzl.6H17dlPhPmpB4I1Wl739oxfxWtA6', 'kkaak', '1234567890', 0, 'hinh-nen-luffy-one-piece-13.jpg', 1, NULL, '2018-12-07 02:35:20', '2018-12-09 23:45:33', NULL),
-(14, 'Khánh Như', 'Khánh Như', 'dckof@gmail.com', '$2y$10$jlOX54YTHaVtjgNY3aEcreuZp3v73G83VpQ66NzYSZkjwD/4Q2UDC', 'qeq', '1234567890', 0, 'anh-luffy-chibi-8.png', 1, NULL, '2018-12-10 23:14:26', '2018-12-10 23:14:26', NULL),
-(15, 'haha', 'haha', 'haha@gmail.com', '$2y$10$2j3fcZ1G2jaidLLr1a302ueo8G4ZuB9ynblucyQ7vcgMB1SxHUklG', 'aquan', '1234567890', 0, 'Chibi-Sanji-630x420.jpeg', 1, NULL, '2018-12-10 23:19:34', '2018-12-10 23:19:34', NULL),
-(16, 'haha', 'haha', 'hahane@gmail.com', '$2y$10$nTqp3MnBjPBzq.A9HU01C.fufdBhCd2K9QRCZ66eMAvOb6YbYnflm', 'aquan', '1234567890', 0, 'hinh-anh-hinh-nen-zoro-dep-nhat-one-piece-18.png', 1, NULL, '2018-12-10 23:20:21', '2018-12-10 23:20:21', NULL),
-(17, 'rq', 'rrrrrrrr', 'rrr@gmail.com', '$2y$10$brXxsVBAS5Uy4KGjCQ91CehLF2yYSKDah3hkL7J4EabobXm.8McPm', 'âdadad', '1234567890', 0, 'hinh-nen-luffy-one-piece-13.jpg', 1, NULL, '2018-12-11 01:12:50', '2018-12-11 01:12:50', NULL),
-(18, 'rq', 'rrrrrrrr', 'rrrs@gmail.com', '$2y$10$cEsBxApF2UAgqUvt2cehze/hQJE0o7G/QBD/bCxix/7/SpkxGK0C.', 'âdadad', '1234567890', 0, 'big-1663460904.png', 1, NULL, '2018-12-11 01:14:11', '2018-12-11 01:14:11', NULL),
-(19, 'dc ko', 'dc ko ne', 'dckothu@gmail.com', '$2y$10$Qvt8pWLDQdKuIYro6nr9quM74Xzqw4nVJpZmHGAVvbHdDBFh4xO4y', 'khanhoi', '1234567890', 0, 'hinh-nen-luffy-one-piece-19.jpg', 1, NULL, '2018-12-11 01:19:42', '2018-12-11 01:19:42', NULL),
-(20, 'thu lan', 'thử lần 2', 'thune123@gmail.com', '$2y$10$CZkuvtxgRsyBX6DaTSBiUeJpoqmpeM0sciL60XJ9tNnH7QWwyHSyO', 'quangtri', '1234567890', 0, 'hinh-nen-chopper-3.jpg', 1, NULL, '2018-12-11 19:32:46', '2018-12-11 19:32:46', NULL),
-(21, 'Khanh', 'Khánh Đẹp Trai', 'khanhdeptrai@gmail.com', '$2y$10$OplXLPRRAVqlgWda7JAaPOjph0TDQajfnKAikHRHsJBpqgWw3PEVi', 'quangtri', '1234567890', 0, 'hinh-anh-cuc-hoa-mi-dep-nhat.jpg', 1, NULL, '2018-12-11 23:46:38', '2018-12-11 23:46:38', NULL);
+(2, 'Nguyễn Khánh', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', '$2y$10$DQ4PzN5kkC3xBqJWuYQ4He1cftxjWLit9XSl5sG4moehcMVzzHaBu', 'Vĩnh thủy - Vĩnh Linh -Quảng Trị', '0964245027', 0, 'Capture.JPG', 1, 'ao0zsfL7QpnDeHvaxuXzvdhGiQ4FlQ8PCCIYiUETi1B7xbOAwfU5huUdLBOR', '2018-11-21 00:51:19', '2018-12-13 20:01:15', '0000-00-00 00:00:00'),
+(23, 'Khánh Long', 'Nguyễn Khánh Long', 'khanhlongqt7498@gmail.com', '$2y$10$JnuLeM.VK2U0dz6O1KSdiO40B6RlmsgrKfQ11bCSbZX7N7h.JMQSq', 'quảng trị', '0967257501', 0, 'fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 1, NULL, '2018-12-13 20:21:29', '2018-12-13 20:22:06', '0000-00-00 00:00:00'),
+(24, 'Xuân Hiếu', 'Đoàn Thị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$aqzIA7.5CZ.Vq0kIdQ.dLOc45qgBANhmoLCC194mJPsCu2hQzm/By', 'quảng trị', '0972024098', 1, 'hinh-anh-cuc-hoa-mi-dep-nhat.jpg', 1, NULL, '2018-12-13 20:23:07', '2018-12-13 20:23:07', '0000-00-00 00:00:00'),
+(34, 't1', 't1', 't1@gmail.com', '$2y$10$Uo4b5bkUwuCJkpDYDNuI/.q3Fr/B9cjvoO5elrI7tAz7LfJoeo2k6', 'qr`', '1234567890', 0, 'hinh-nen-one-piece-2.jpeg', 1, NULL, '2018-12-14 01:10:29', '2018-12-14 01:10:29', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -278,7 +261,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

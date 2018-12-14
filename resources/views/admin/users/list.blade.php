@@ -6,11 +6,18 @@
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
             {{--<a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>--}}
-            <ol class="breadcrumb">
-                <li><a href="#">Admin</a></li>
-                <li class="active">User</li>
-                <li class="active">List</li>
-            </ol>
+            {{--<ol class="breadcrumb">--}}
+                {{--<li><a href="#">Admin</a></li>--}}
+                {{--<li class="active">User</li>--}}
+                {{--<li class="active">List</li>--}}
+            {{--</ol>--}}
+            <p class="text-right">
+                <a href="{{ route('create_user') }}">
+                   <span class="btn btn-success" style="text-align: center">
+                        <i  class="fa fa-plus-circle text-white" aria-hidden="true"></i>
+                           Thêm mới</span>
+                </a>
+            </p>
         </div>
     </div>
     <div class="row">
@@ -24,26 +31,26 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Full name</th>
+                            <th>Họ tên</th>
                             <th>Email</th>
-                            <th>Avatar</th>
-                            <th>phone</th>
-                            <th>gender</th>
+                            <th>Ảnh</th>
+                            <th>SĐT</th>
+                            <th>Chức vụ</th>
                             <th>active</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($list as $item)
-                        <tr id="{{ $item->id }}">
-                            <td>{{ $item->id }}</td>
+                        <tr id="{{ $item->id_user }}">
+                            <td>{{ $item->id_user }}</td>
                             <td>{{ $item->fullname }}</td>
                             <td>{{ $item->email }}</td>
                             <td><img src="{{ url('/') }}/public/images/user/{{ $item->avatar }}" alt="" style="width: 80px;height: 60px;"></td>
                             <td>{{ $item->phone }}</td>
-                            <td>{{ $item->gender }}</td>
+                            <td>{{ $item->role_name }}</td>
                             <td>
-                                <a href="#" id="editItem"><i class="ti-pencil text-success"></i></a> |
-                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" onclick="deleteAjax({{ $item->id }})" data-id="{{ $item->id }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
+                                <a href="{{ route('editGet',$item->id_user) }}" id="editItem"><i class="ti-pencil text-success"></i></a> |
+                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" onclick="deleteAjax({{ $item->id_user }})" data-id="{{ $item->id_user }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
                             </td>
                         </tr>
                         @endforeach

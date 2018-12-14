@@ -13,12 +13,12 @@ class User extends Authenticatable
 //    use SoftDeletes;
 //    use EntrustUserTrait;
     use EntrustUserTrait { restore as private restoreA; }
-    use SoftDeletes { restore as private restoreB; }
+//    use SoftDeletes { restore as private restoreB; }
 
     public function restore()
     {
         $this->restoreA();
-        $this->restoreB();
+//        $this->restoreB();
     }
 
     /**
@@ -26,7 +26,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+//    protected $dates = ['deleted_at'];
     protected $table = "users";
     protected $fillable = [
         'id','name','fullname' , 'email', 'password','address','phone','gender','avatar','status','level',

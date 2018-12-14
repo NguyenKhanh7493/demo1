@@ -21,10 +21,18 @@ class UserController extends Controller
     private $path_file = 'public/images/user';
     public function index()
     {
-        $list = User::all();
+//        $list = User::all();
+        $list = DB::table('users')
+            ->join('role_user','role_user.user_id','=','users.id')
+            ->join('roles','roles.id','=','role_user.role_id')
+            //->where('role_id',$role_detail['id'])
+            ->select('roles.name as role_name','users.id as id_user','users.fullname','users.email','users.avatar','users.phone')
+            ->get()->toArray();
+//        $role = DB::table('role_user')->join('roles','role_user.role_id','=','roles.id')->where('user_id',$k[0]->id)->get()->toArray();
 //        echo "<pre>";
 //        print_r($list);
-//        echo "</pre>";die();
+//        echo "<pre>";
+//        die();
         return view('admin/users/list',compact('list'));
     }
 
@@ -89,9 +97,9 @@ class UserController extends Controller
             }
             $user_add->update($requestData);
             Session::flash('danger','Thêm quản trị thành công');
-            return redirect()->back();
+            return redirect()->route('editGet',$user_add->id);
         }else{
-            Session::flash('danger','thành công');
+            Session::flash('danger','Thêm thất bại');
             return redirect()->back();
         }
     }

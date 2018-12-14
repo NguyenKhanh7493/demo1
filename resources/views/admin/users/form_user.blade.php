@@ -1,6 +1,10 @@
 <div class="col-sm-7">
     <div class="white-box">
-        <h3 class="box-title m-b-0">Thêm admin quản trị</h3>
+        @if(isset($user))
+        <h3 class="box-title m-b-0">Sửa admin quản trị</h3>
+        @elseif(!isset($user))
+            <h3 class="box-title m-b-0">Thêm admin quản trị</h3>
+        @endif
         <p class="text-muted m-b-30 font-13"></p>
         @if(Session::has('danger'))
             <div class="my-alert">
@@ -160,6 +164,6 @@
         @endif
         {{--@endif--}}
         <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-        <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+        {{--<a href="{{ route('editGet') }}"><button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button></a>--}}
     </div>
 </div>

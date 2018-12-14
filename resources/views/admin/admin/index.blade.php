@@ -16,9 +16,9 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 col-xs-12">
             <div class="white-box">
-                <div class="user-bg"> <img width="100%" alt="user" src="{!! url('public/admin') !!}/plugins/images/large/img1.jpg">
+                <div class="user-bg"> <img width="100%" alt="user" src="{!! url('/') !!}/public/images/user/gd2.JPG">
                     <div class="overlay-box">
-                        <div class="user-content"> <a href="javascript:void(0)"><img src="{!! url('public/admin') !!}/plugins/images/users/15.jpg" class="thumb-lg img-circle" alt="img"></a>
+                        <div class="user-content"> <a href="javascript:void(0)"><img src="{!! url('/') !!}/public/images/user/{{ Auth::user()->avatar }}" class="thumb-lg img-circle" alt="img"></a>
                             <h4 class="text-white">{{ Auth::user()->fullname }}</h4>
                             <h5 class="text-white">{{ Auth::user()->email }}</h5>
                         </div>
