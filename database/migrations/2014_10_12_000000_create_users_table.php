@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('gender');
             $table->string('avatar');
             $table->integer('status');
-            $table->integer('level');
             $table->rememberToken();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
