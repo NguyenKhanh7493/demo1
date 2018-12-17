@@ -50,7 +50,7 @@
                             <td>{{ $item->role_name }}</td>
                             <td>
                                 <a href="{{ route('editGet',$item->id_user) }}" id="editItem"><i class="ti-pencil text-success"></i></a> |
-                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" onclick="deleteAjax({{ $item->id_user }})" data-id="{{ $item->id_user }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
+                                <a href="javascript:void(0)" class="delItem" data-msg="Bạn muốn xóa?" data-id="{{ $item->id_user }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
                             </td>
                         </tr>
                         @endforeach

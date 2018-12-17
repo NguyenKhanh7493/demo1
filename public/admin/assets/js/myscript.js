@@ -1,47 +1,68 @@
-// $(document).ready(function () {
-//    $("a#delItem").on('click',function () {
-//        alert(1111);
-//    })
-// });
-
-// $(document).on('click','#delItem',function (e) {
-//     alert(111);
-// });
-function deleteAjax(id) {
-    if (confirm('bạn có muốn xóa không '+id+'?')){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: 'POST',
-            url: 'http://demo1.site/admin/user/delete',
-            data: {id:id},
-            dataType: 'json',
-            success:function (data) {
-                console.log(data);
-                    $('tr#'+id).remove();
-                // $(this).closest('tr').remove();
-            }
-        });
-    }
-}
+//AJAX NÀY SỬ DỤNG ĐƯỢC.....,THÊM SỰ KIỆN ONCLICK LÀ ĐC
 // function deleteAjax(id) {
-//     var popup = confirm("ok" +id);
-//     var csrf_token = $('meta[name="csrf-token"]').attr('content');
-//     if (popup == true){
+//     if (confirm('bạn có muốn xóa không '+id+'?')){
+//         $.ajaxSetup({
+//             headers: {
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//             }
+//         });
 //         $.ajax({
-//             url:"http://demo1.site/admin/user/delete" + '/' + id,
-//             type:"POST",
-//             data:{'_method':'DELETE','_token':csrf_token},
-//             succsess:function (data) {
-//                 table.ajax.reload();
+//             type: 'DELETE',
+//             url: 'http://demo1.site/admin/user/delete',
+//             data: {id:id},
+//             dataType: 'json',
+//             success:function (data) {
 //                 console.log(data);
-//             },
-//             error:function () {
-//                 alert("ko được");
+//                     $('tr#'+id).remove();
+//                 // $(this).closest('tr').remove();
 //             }
 //         });
 //     }
 // }
+//END
+$(document).ready(function () {
+    $('.delItem').click(function () {
+        var id = $(this).attr('data-id');
+        if (confirm('bạn có muốn xóa ' + id)){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://demo1.site/admin/user/delete',
+                data:{id:id},
+                dataType: 'json',
+                success:function (data) {
+                    console.log(data);
+                    // $('tr#'+id).remove();//xóa ok rồi
+                    $('tr#'+id).slideUp(300,function () {
+                        $(this).remove();
+                    });
+                }
+            });
+        }
+    });
+});
+// $('.delItem').on('click',function () {
+//
+//     var id = $(this).attr('data-id');
+//     if (confirm('bạn có muốn xóa ' + id)){
+//         $.ajaxSetup({
+//             headers: {
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//             }
+//         });
+//         $.ajax({
+//             type: 'DELETE',
+//             url: 'http://demo1.site/admin/user/delete',
+//             data:{id:id},
+//             dataType: 'json',
+//             success:function (data) {
+//                 console.log(data);
+//                 $('tr#'+id).remove();
+//             }
+//         });
+//     }
+// });

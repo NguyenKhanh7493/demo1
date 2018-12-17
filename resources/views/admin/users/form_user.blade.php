@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label for="password" class="control-label">Nhập lại mật khẩu</label>
                     {{--<input type="password" class="form-control" name="repassword" id="repassword" placeholder="Nhập lại mật khẩu">--}}
-                    {!! Form::password('repassword',['class'=>'form-control','id'=>'repassword','placeholder'=>'Xin mời nhập email']) !!}
+                    {!! Form::password('repassword',['class'=>'form-control','id'=>'repassword','placeholder'=>'Xin mời nhập lại mật khẩu']) !!}
                     @if ($errors->first('repassword'))
                         <span style="color:red; font-style:italic;">(*) {{ $errors->first('repassword') }}</span>
                     @endif()

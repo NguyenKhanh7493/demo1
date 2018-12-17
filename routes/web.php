@@ -24,7 +24,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::post('/create','Admin\UserController@store')->name('post_create');
         Route::get('/edit/{id}','Admin\UserController@edit')->name('editGet');
         Route::patch('edit/{id}',['as'=>'edit_post','uses'=>'Admin\UserController@update']);
-        Route::post('delete','Admin\UserController@destroy');
+        Route::delete('delete','Admin\UserController@destroy');
     });
 });
 
