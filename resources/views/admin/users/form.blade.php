@@ -16,6 +16,11 @@
                 {{--@endif--}}
                 {{--<a style="font-size: 15px" href="{{ route('listUser') }}" class="text-success"><i class="fa fa-list-ul text-success" aria-hidden="true"></i> Danh sách</a>--}}
                 @if(isset($user))
+                    <a href="{{ route('changerPass',$user->id) }}">
+                        <span class="btn btn-success" style="text-align: center">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            Đổi mật khẩu</span>
+                    </a>
                     <a href="{{ route('create_user') }}">
                         <span class="btn btn-success btn-md" style="text-align: center">
                             <i  class="fa fa-plus-circle text-white" aria-hidden="true"></i>

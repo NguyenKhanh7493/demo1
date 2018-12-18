@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\ChangePassRequest;
 use App\Http\Requests\UserAddRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Permission;
@@ -180,6 +181,33 @@ class UserController extends Controller
         if ($request->ajax()){
             User::destroy($request->id);
             return response(['id'=>$request->id]);
+        }
+    }
+    public function ShowChangePassword($id){
+        if(!Auth::user()->ability('admin', 'edit-user')){
+            Session::flash('danger', 'Bạn không phải là admin');
+            return redirect('admin/error');
+        }
+        $user = User::find($id);
+//        echo "<pre>";
+//        print_r($user);
+//        echo "</pre>";die();
+        return view('admin/users/change_password',['user'=>$user]);
+    }
+    public function postChangePassword(ChangePassRequest $request, $id){
+        if (Auth::check()){
+            $requestData = $request->all();
+            $cur_pass = Auth::user()->password;
+            $user = User::find($id);
+            if(Hash::check($requestData['current_password'], $cur_pass)){
+                $user->password = Hash::make($requestData['password']);
+                $user->save();
+                Session::flash('danger','Bạn đổi mật khẩu thành công');
+                return redirect()->route('editGet',$user->id);
+            }else{
+                Session::flash('danger','Bạn nhập mật khẩu hiện tại không chính xác');
+                return redirect()->route('changerPass',$user->id);
+            }
         }
     }
 }
