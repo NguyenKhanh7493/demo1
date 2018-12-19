@@ -14,7 +14,7 @@ class CateController extends Controller
      */
     public function index()
     {
-        //
+//        return view('admin/cates/form');
     }
 
     /**
@@ -24,7 +24,7 @@ class CateController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/cates/form');
     }
 
     /**

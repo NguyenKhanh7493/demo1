@@ -178,6 +178,13 @@
                     {{--<li> <a href="crm-edit-leads.html">Edit Leads</a></li>--}}
                 </ul>
             </li>
+            <li><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-bars" aria-hidden="true"></i> <span class="hide-menu">Category<span class="fa arrow"></span></span></a>
+                <ul class="nav nav-second-level">
+                    <li> <a href="{{ url('admin/cates/create') }}">Thêm mới</a></li>
+                    <li> <a href="{{ url('admin/cates') }}">Danh sách</a></li>
+                    {{--<li> <a href="crm-edit-leads.html">Edit Leads</a></li>--}}
+                </ul>
+            </li>
             <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-docs fa-fw"></i> <span class="hide-menu">Reports<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
                     <li> <a href="crm-customer-report.html">Customer Reports</a></li>

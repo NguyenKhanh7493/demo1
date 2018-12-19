@@ -11,6 +11,22 @@
 <script src="{!! url('public/admin') !!}/plugins/bower_components/morrisjs/morris.js"></script>
 <!-- Sparkline chart JavaScript -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+<!--check-->
+<script src="{!! url('public/admin/') !!}/plugins/bower_components/switchery/dist/switchery.min.js"></script>
+<script src="{!! url('public/admin/') !!}/plugins/bower_components/icheck/icheck.min.js"></script>
+<script src="{!! url('public/admin/') !!}/plugins/bower_components/icheck/icheck.init.js"></script>
+<script src="{!! url('public/admin/') !!}/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script src="{!! url('public/admin/') !!}/plugins/plugin-soanthao/ckeditor/ckeditor.js"></script>
+<script src="{!! url('public/admin/') !!}/plugins/plugin-soanthao/ckfinder/ckfinder.js"></script>
+<script src="{!! url('public/admin/') !!}/plugins/plugin-soanthao/func_ckfinder.js"></script>
+
+<script>
+    var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+    $('.js-switch').each(function() {
+        new Switchery($(this)[0], $(this).data());
+
+    });
+</script>
 <!-- jQuery peity -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/peity/jquery.peity.min.js"></script>
 <script src="{!! url('public/admin') !!}/plugins/bower_components/peity/jquery.peity.init.js"></script>

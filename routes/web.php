@@ -28,6 +28,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::get('change-password/{id}','Admin\UserController@ShowChangePassword')->name('changerPass');
         Route::post('handle-change-password/{id}','Admin\UserController@postChangePassword')->name('postChange');
     });
+    Route::group(['prefix'=>'cates'],function (){
+        Route::get('/','admin\CateController@index')->name('listCate');
+        Route::get('/create','admin\CateController@create');
+        Route::post('/create','admin\CateController@store');
+    });
 });
 
 Route::post('login','Auth\LoginController@login')->name('login');

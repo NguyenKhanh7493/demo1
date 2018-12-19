@@ -178,6 +178,10 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        if(!Auth::user()->hasRole('admin')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         if ($request->ajax()){
             User::destroy($request->id);
             return response(['id'=>$request->id]);

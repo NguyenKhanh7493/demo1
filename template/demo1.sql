@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 17, 2018 lúc 10:51 AM
+-- Thời gian đã tạo: Th12 19, 2018 lúc 10:27 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -34,8 +34,10 @@ CREATE TABLE `cates` (
   `alias` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
+  `type` int(11) DEFAULT NULL,
   `menu_top` int(11) DEFAULT NULL,
   `menu_right` int(11) DEFAULT NULL,
+  `icon` int(11) DEFAULT NULL,
   `footer` int(11) DEFAULT NULL,
   `keywords` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -61,10 +63,10 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(5, '2014_10_12_000000_create_users_table', 1),
-(6, '2014_10_12_100000_create_password_resets_table', 1),
-(7, '2018_11_28_123824_entrust_setup_tables', 1),
-(8, '2018_12_17_091443_create_table__cates_table', 1);
+(13, '2014_10_12_000000_create_users_table', 1),
+(14, '2014_10_12_100000_create_password_resets_table', 1),
+(15, '2018_11_28_123824_entrust_setup_tables', 1),
+(16, '2018_12_17_091443_create_table__cates_table', 1);
 
 -- --------------------------------------------------------
 
@@ -98,12 +100,12 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'create-user', 'Create User', 'Thêm quản trị', '2018-12-04 17:00:00', '2018-12-20 17:00:00'),
-(2, 'edit-user', 'Edit User', 'Sửa quản trị', '2018-12-24 17:00:00', '2018-12-24 17:00:00'),
-(3, 'delete-user', 'Delete User', 'Xóa quản trị', '2018-12-19 17:00:00', '2018-12-20 17:00:00'),
-(4, 'create-post', 'Create Post', 'Thêm bài viết', '2018-12-17 17:00:00', '2018-12-17 17:00:00'),
-(5, 'edit-post', 'Edit Post', 'Sửa bài viết', '2018-12-18 17:00:00', '2018-12-19 17:00:00'),
-(6, 'delete-post', 'Delete Post', 'Xóa bài viết', '2018-12-18 17:00:00', '2018-12-18 17:00:00');
+(1, 'create-user', 'Create User', 'Thêm quản trị', '2018-12-04 10:00:00', '2018-12-20 10:00:00'),
+(2, 'edit-user', 'Edit User', 'Sửa quản trị', '2018-12-24 10:00:00', '2018-12-24 10:00:00'),
+(3, 'delete-user', 'Delete User', 'Xóa quản trị', '2018-12-19 10:00:00', '2018-12-20 10:00:00'),
+(4, 'create-post', 'Create Post', 'Thêm bài viết', '2018-12-17 10:00:00', '2018-12-17 10:00:00'),
+(5, 'edit-post', 'Edit Post', 'Sửa bài viết', '2018-12-18 10:00:00', '2018-12-19 10:00:00'),
+(6, 'delete-post', 'Delete Post', 'Xóa bài viết', '2018-12-18 10:00:00', '2018-12-18 10:00:00');
 
 -- --------------------------------------------------------
 
@@ -152,9 +154,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Admin', 'Đây là quản trị cao cấp', '2018-12-18 17:00:00', '2018-12-13 17:00:00'),
-(2, 'censor', 'censor', 'Đây là người kiểm duyệt', '2018-12-11 17:00:00', '2018-12-12 17:00:00'),
-(3, 'employee', 'Employee', 'Đây là người đăng', '2018-12-24 17:00:00', '2018-12-19 17:00:00');
+(1, 'admin', 'Admin', 'Đây là quản trị cao cấp', '2018-12-18 10:00:00', '2018-12-13 10:00:00'),
+(2, 'censor', 'censor', 'Đây là người kiểm duyệt', '2018-12-11 10:00:00', '2018-12-12 10:00:00'),
+(3, 'employee', 'Employee', 'Đây là người đăng', '2018-12-24 10:00:00', '2018-12-19 10:00:00');
 
 -- --------------------------------------------------------
 
@@ -204,9 +206,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `password`, `address`, `phone`, `gender`, `avatar`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Nguyễn Khánh', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', '$2y$10$CXZx6yokokq8v5o4z8wdBeVE.jI6XWB/G0et7TRuIFDDhu1Uoynw6', 'QUẢNG TRỊ', '0964245027', 0, 'Capture.JPG', 1, NULL, '2018-12-17 02:32:15', '2018-12-17 02:46:06', NULL),
-(2, 'Khánh Long', 'Nguyễn Khánh Long', 'khanhlongqt7498@gmail.com', '$2y$10$trOOhc.lZTgOQHhQqnoNm.rw.MvvfxNLyEyAk3pRUWv/t/Mwrs9jG', 'Vĩnh linh Quảng trị', '0967257501', 0, 'fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 1, NULL, '2018-12-17 02:48:52', '2018-12-17 02:48:52', NULL),
-(3, 'Xuân Hiếu', 'Đoàn Thị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$/6du94EhYfc3dYozs9kdHeyX9zjRRdF8Pd72lvGKU1.KdBs9pUbDm', 'Vĩnh Linh - Quảng trị', '0972024098', 1, 'hinh-anh-cuc-hoa-mi-dep-nhat.jpg', 1, NULL, '2018-12-17 02:49:54', '2018-12-17 02:49:54', NULL);
+(1, 'Nguyễn Khánh', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', '$2y$10$CXZx6yokokq8v5o4z8wdBeVE.jI6XWB/G0et7TRuIFDDhu1Uoynw6', 'QUẢNG TRỊ', '0964245027', 0, 'Capture.JPG', 1, NULL, '2018-12-16 19:32:15', '2018-12-16 19:46:06', NULL),
+(2, 'Khánh Long', 'Nguyễn Khánh Long', 'khanhlongqt7498@gmail.com', '$2y$10$trOOhc.lZTgOQHhQqnoNm.rw.MvvfxNLyEyAk3pRUWv/t/Mwrs9jG', 'Vĩnh linh Quảng trị', '0967257501', 0, 'fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 1, NULL, '2018-12-16 19:48:52', '2018-12-16 19:48:52', NULL),
+(3, 'Xuân Hiếu', 'Đoàn Thị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$/6du94EhYfc3dYozs9kdHeyX9zjRRdF8Pd72lvGKU1.KdBs9pUbDm', 'Vĩnh Linh - Quảng trị', '0972024098', 1, 'hinh-anh-cuc-hoa-mi-dep-nhat.jpg', 1, NULL, '2018-12-16 19:49:54', '2018-12-16 19:49:54', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -279,7 +281,7 @@ ALTER TABLE `cates`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`

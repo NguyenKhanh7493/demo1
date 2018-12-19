@@ -141,6 +141,13 @@
                     @foreach($per_role as $per)
                     <p class="list-group-item" style="font-weight: 400">{{ $per->name }}</p>
                     @endforeach
+                    {{--<p class="list-group-item" style="font-weight: 400">--}}
+                        {{--<a href="">--}}
+                        {{--<span class="btn btn-success btn-md" style="text-align: center">--}}
+                            {{--<i class="fa fa-pencil-square-o" aria-hidden="true"></i>--}}
+                            {{--Sửa phân quyền</span>--}}
+                        {{--</a>--}}
+                    {{--</p>--}}
                 </div>
         </div>
         @endif
