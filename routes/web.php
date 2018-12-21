@@ -30,8 +30,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     });
     Route::group(['prefix'=>'cates'],function (){
         Route::get('/','admin\CateController@index')->name('listCate');
-        Route::get('/create','admin\CateController@create');
-        Route::post('/create','admin\CateController@store');
+        Route::get('/create','admin\CateController@create')->name('createCate');
+        Route::post('/create','admin\CateController@store')->name('postCreate');
     });
 });
 
