@@ -41,9 +41,10 @@ class CateController extends Controller
     {
         $requestData = $request->all();
         $requestData['alias'] = changeTitle($request->name);
-        if (Cate::create($requestData)){
+        $cate_add = Cate::create($requestData);
+        if ($cate_add){
             Session::flash('danger','Thêm menu thành công');
-            return redirect()->route('createCate');
+            return redirect()->route('editCate',$cate_add->id);
         }else{
             Session::flash('danger','Thất bại');
             return redirect()->back();
@@ -69,7 +70,9 @@ class CateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cate = Cate::findOrFail($id);
+        $parent = Cate::select('id','name','parent_id')->get()->toArray();
+        return view('admin/cates/form',['cate'=>$cate,'parent'=>$parent]);
     }
 
     /**
@@ -81,7 +84,15 @@ class CateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cate = Cate::find($id);
+        $requestData = $request->all();
+        if ($cate->update($requestData)){
+            Session::flash('danger','Sửa thành công');
+            return redirect()->route('editCate',$cate->id);
+        }else{
+            Session::flash('danger','Sửa không thành công');
+            return redirect()->back();
+        }
     }
 
     /**

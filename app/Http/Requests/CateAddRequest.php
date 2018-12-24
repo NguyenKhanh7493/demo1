@@ -27,9 +27,9 @@ class CateAddRequest extends FormRequest
             'name' => 'required|unique:cates,name|max:40',
             'keywords' => 'required',
             'description' =>'required',
-            'menu_top' => 'required',
-            'menu_right' => 'required',
-            'footer' => 'required',
+//            'menu_top' => 'required',
+//            'menu_right' => 'required',
+//            'footer' => 'required',
         ];
     }
     public function messages()
@@ -40,9 +40,9 @@ class CateAddRequest extends FormRequest
             'name.max' => 'Không quá 40 ký tự',
             'keyword.required' => 'Bạn chưa nhập keyword',
             'description.required' => 'Bạn chưa nhập giới thiệu',
-            'menu_top.required' => 'Bạn chưa chọn hiển thị',
-            'menu_right.required' => 'Bạn chưa chọn hiển thị',
-            'footer.required' => 'Bạn chưa chọn hiển thị'
+//            'menu_top.required' => 'Bạn chưa chọn hiển thị',
+//            'menu_right.required' => 'Bạn chưa chọn hiển thị',
+//            'footer.required' => 'Bạn chưa chọn hiển thị'
         ];
     }
 }

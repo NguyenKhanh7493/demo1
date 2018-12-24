@@ -31,7 +31,7 @@ function changeTitle($str){
     $str = str_replace(' ', '-', $str);
     return $str ;
 }
-function cate_parent($data,$parent = 0,$str="--",$select = 0){
+function cate_parent($data,$parent = 0,$str="-",$select = 0){
     foreach ($data as $key => $val){
         $id = $val["id"];
         $name = $val["name"];
@@ -41,7 +41,7 @@ function cate_parent($data,$parent = 0,$str="--",$select = 0){
             }else{
                 echo "<option value='$id'>$str $name</option>";
             }
-            cate_parent($data,$id,$str."--",$select);
+            cate_parent($data,$id,$str."-",$select);
         }
     }
 }

@@ -17,9 +17,9 @@ class CreateTableCatesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('alias');
-            $table->integer('status');
+            $table->integer('status')->nullable();
             $table->integer('parent_id');
-            $table->integer('type');
+            $table->integer('type')->nullable();
             $table->integer('menu_top')->nullable();
             $table->integer('menu_right')->nullable();
             $table->integer('icon')->nullable();
