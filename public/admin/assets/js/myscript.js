@@ -66,3 +66,30 @@ $(document).ready(function () {
 //         });
 //     }
 // });
+
+
+$(document).ready(function () {
+    $('.delCate').click(function () {
+        var id = $(this).attr('data-id');
+        if (confirm('Bạn có muốn xóa' + id)){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://demo1.site/admin/cates/delete',
+                data:{id:id},
+                dataType:'json',
+                success:function (data) {
+                    console.log(data);
+                    $('tr#'+id).slideUp(300,function () {
+                        $(this).remove();
+                    });
+                }
+
+            });
+        }
+    });
+});

@@ -34,6 +34,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::post('/create','admin\CateController@store')->name('postCreate');
         Route::get('/edit/{id}','admin\CateController@edit')->name('editCate');
         Route::patch('/edit/{id}','admin\CateController@update')->name('postupdate');
+        Route::delete('/delete','admin\CateController@destroy');
     });
 });
 

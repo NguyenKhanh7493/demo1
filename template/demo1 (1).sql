@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 19, 2018 lúc 10:27 AM
+-- Thời gian đã tạo: Th12 25, 2018 lúc 10:58 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -32,7 +32,7 @@ CREATE TABLE `cates` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) DEFAULT NULL,
   `parent_id` int(11) NOT NULL,
   `type` int(11) DEFAULT NULL,
   `menu_top` int(11) DEFAULT NULL,
@@ -45,6 +45,16 @@ CREATE TABLE `cates` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `cates`
+--
+
+INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu_top`, `menu_right`, `icon`, `footer`, `keywords`, `description`, `content`, `created_at`, `updated_at`) VALUES
+(1, 'Khánh Nguyễn Như', 'khanh-nguyen-nhu', 1, 0, NULL, 1, 1, NULL, 1, 'Laptop giá rẻ', 'ad', NULL, '2018-12-20 21:45:54', '2018-12-20 21:45:54'),
+(2, 'Laptop', 'laptop', 1, 1, 1, 1, 1, NULL, 1, 'khanhne', 'khanhnebacon', NULL, '2018-12-20 23:52:35', '2018-12-20 23:52:35'),
+(3, 'kakaka akak', 'kakaka-akak', NULL, 2, 3, 1, 1, NULL, 1, 'Laptop giá rẻ', 'sf', NULL, '2018-12-23 19:52:47', '2018-12-23 19:52:47'),
+(4, 'Khánh nè bạn', 'khanh-ne-ban', NULL, 0, 2, 1, 1, NULL, 1, 'Laptop giá rẻ', 'qer', NULL, '2018-12-23 20:05:36', '2018-12-23 20:05:36');
 
 -- --------------------------------------------------------
 
@@ -275,7 +285,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`

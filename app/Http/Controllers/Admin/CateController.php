@@ -17,7 +17,11 @@ class CateController extends Controller
      */
     public function index()
     {
-//        return view('admin/cates/form');
+//        $cate_product   = Cate::where(['type'=>3])->get();
+//        $cate_post      = Cate::where(['type'=>2])->get();
+//        $cate_page      = Cate::where(['type'=>1])->get();
+        $cate = Cate::all();
+        return view('admin/cates/list',compact('cate'));
     }
 
     /**
@@ -86,6 +90,22 @@ class CateController extends Controller
     {
         $cate = Cate::find($id);
         $requestData = $request->all();
+//        echo "<pre>";
+//        print_r($requestData);
+//        echo "</pre>";die();
+        if (!isset($requestData['status'])){
+            $requestData['status'] = 0;
+        }
+        if (!isset($requestData['menu_top'])){
+            $requestData['menu_top'] = 0;
+        }
+        if (!isset($requestData['menu_right'])){
+            $requestData['menu_right'] = 0;
+        }
+        if (!isset($requestData['footer'])){
+            $requestData['footer'] = 0;
+        }
+
         if ($cate->update($requestData)){
             Session::flash('danger','Sửa thành công');
             return redirect()->route('editCate',$cate->id);
@@ -101,8 +121,11 @@ class CateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        if ($request->ajax()){
+            Cate::destroy($request->id);
+            return response(['id'=>$request->id]);
+        }
     }
 }
