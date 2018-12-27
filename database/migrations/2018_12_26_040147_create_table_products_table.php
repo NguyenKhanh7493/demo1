@@ -32,11 +32,9 @@ class CreateTableProductsTable extends Migration
             $table->longtext('content');
             $table->string('keywords');
             $table->string('description');
-            $table->integer('cate_id');
+            $table->integer('cate_id')->unsigned();
             $table->foreign('cate_id')->references('id')->on('cates');
-            $table->integer('images_id');
-            $table->foreign('images_id')->references('id')->on('images');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('view');
             $table->integer('cart');
