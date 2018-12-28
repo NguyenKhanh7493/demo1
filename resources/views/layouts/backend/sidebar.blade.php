@@ -185,11 +185,10 @@
                     {{--<li> <a href="crm-edit-leads.html">Edit Leads</a></li>--}}
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-docs fa-fw"></i> <span class="hide-menu">Reports<span class="fa arrow"></span></span></a>
+            <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-handbag fa-fw"></i> <span class="hide-menu">Sản phẩm<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
-                    <li> <a href="crm-customer-report.html">Customer Reports</a></li>
-                    <li> <a href="crm-sales-report.html">Sales Reports</a></li>
-                    <li> <a href="crm-leads-report.html">Leads Reports</a></li>
+                    <li> <a href="{{ url('admin/product/create') }}">Thêm mới</a></li>
+                    <li> <a href="{{ url('admin/product') }}crm-sales-report.html">Danh sách</a></li>
                 </ul>
             </li>
             <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-people fa-fw"></i> <span class="hide-menu">Customers<span class="fa arrow"></span></span></a>

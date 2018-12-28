@@ -36,6 +36,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::patch('/edit/{id}','admin\CateController@update')->name('postupdate');
         Route::delete('/delete','admin\CateController@destroy');
     });
+    Route::group(['prefix'=>'product'],function (){
+        Route::get('/','Admin\ProductController@index')->name('listPro');
+        Route::get('/create','Admin\ProductController@create')->name('proCreate');
+        Route::post('/create','Admin\ProductController@store')->name('postPro');
+    });
 });
 
 Route::post('login','Auth\LoginController@login')->name('login');
