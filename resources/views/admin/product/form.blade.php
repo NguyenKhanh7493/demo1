@@ -117,6 +117,10 @@
                                 {{--@endif()--}}
                             </div>
                         </div>
+                        <div id="showInput"></div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-success" id="addImg"> <i class="ti-plus"></i> Thêm ảnh</button>
+                        </div>
                         {{--@if(isset($detail) && $detail->avatar != '')--}}
                             <div id="showImg" style="text-align: center">
                                 <div class="form-group" name="parentImg">
@@ -131,4 +135,7 @@
         </div>
         {!! Form::close() !!}
     </div>
+
+
+
 @stop
