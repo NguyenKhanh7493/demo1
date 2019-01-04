@@ -93,3 +93,58 @@ $(document).ready(function () {
         }
     });
 });
+// $(document).ready(function () {
+//     $('.delItemPro').click(function () {
+//         // alert('ok');
+//         var id = $(this).attr('data-id');
+//         var link = $(this).attr('data-link');
+//         var msg = $(this).attr('data-msg');
+//         if (confirm(msg)){
+//             $.ajaxSetup({
+//                 headers: {
+//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                 }
+//             });
+//             $.ajax({
+//                 rl: 'http://demo1.site/admin/product/delImg',
+//                 type:'DELETE',
+//                 dataType:'json',
+//                 data:{id:id},
+//                 success:function (data) {
+//                     if (data == 'ok'){
+//                         $('#'+id).slideUp(300,function () {
+//                             $(this).remove();
+//                         })
+//                     }else {
+//                         alert('Xóa không thành công');
+//                     }
+//                 }
+//             });
+//         }
+//     });
+// });
+$(document).ready(function () {
+    $('.delItemPro').click(function () {
+        var id = $(this).attr('data-id');
+        if (confirm('Bạn có muốn xóa' + id)){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://demo1.site/admin/product/delete',
+                data:{id:id},
+                dataType:'json',
+                success:function (data) {
+                    console.log(data);
+                    $('#'+id).slideUp(300,function () {
+                        $(this).remove();
+                    });
+                }
+
+            });
+        }
+    });
+});

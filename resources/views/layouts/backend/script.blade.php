@@ -92,7 +92,7 @@
 </script>
 <script>
     $("#addImg").click(function () {
-        $('#showInput').append('<div class="form-group"><div class="white-box"><h3 class="box-title"></h3><input type="file" id="input-file-disable-remove" name="images[]" class="dropify" data-show-remove="true"/></div></div>');
+        $('#showInput').append('<div class="form-group"><div class="white-box"><h3 class="box-title"></h3><input type="file" id="input-file-disable-remove" multiple="multiple" name="images[]" class="dropify" data-show-remove="true"/></div></div>');
     });
     $("#addIntro").click(function () {
         $('#introHtmlChild').append('<div class="row"><div class="col-lg-4"><div class="form-group"><input type="text" class="form-control" name="titleIntro[]" placeholder="Tiêu đề"></div></div><div class="col-lg-8"><div class="form-group"><input type="text" class="form-control" name="textIntro[]" placeholder="Đoạn giới thiệu"></div></div></div>');

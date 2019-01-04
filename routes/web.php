@@ -40,6 +40,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::get('/','Admin\ProductController@index')->name('listPro');
         Route::get('/create','Admin\ProductController@create')->name('proCreate');
         Route::post('/create','Admin\ProductController@store')->name('postPro');
+        Route::get('/edit/{id}','Admin\ProductController@edit')->name('getProEdit');
+        Route::patch('/edit/{id}','Admin\ProductController@update')->name('postProEdit');
+        Route::delete('/delete','Admin\ProductController@delImg')->name('deleteImg');
     });
 });
 

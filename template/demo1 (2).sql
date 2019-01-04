@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 28, 2018 lúc 10:44 AM
+-- Thời gian đã tạo: Th1 04, 2019 lúc 10:39 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -52,9 +52,7 @@ CREATE TABLE `cates` (
 
 INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu_top`, `menu_right`, `icon`, `footer`, `keywords`, `description`, `content`, `created_at`, `updated_at`) VALUES
 (1, 'Khánh Nguyễn Như', 'khanh-nguyen-nhu', 1, 0, NULL, 1, 1, NULL, 1, 'Laptop giá rẻ', 'ad', NULL, '2018-12-20 21:45:54', '2018-12-20 21:45:54'),
-(2, 'Laptop', 'laptop', 1, 1, 1, 1, 1, NULL, 1, 'khanhne', 'khanhnebacon', NULL, '2018-12-20 23:52:35', '2018-12-20 23:52:35'),
-(3, 'kakaka akak', 'kakaka-akak', NULL, 2, 3, 1, 1, NULL, 1, 'Laptop giá rẻ', 'sf', NULL, '2018-12-23 19:52:47', '2018-12-23 19:52:47'),
-(4, 'Khánh nè bạn', 'khanh-ne-ban', NULL, 0, 2, 1, 1, NULL, 1, 'Laptop giá rẻ', 'qer', NULL, '2018-12-23 20:05:36', '2018-12-23 20:05:36');
+(2, 'Laptop', 'laptop', 1, 1, 1, 1, 1, NULL, 1, 'khanhne', 'khanhnebacon', NULL, '2018-12-20 23:52:35', '2018-12-20 23:52:35');
 
 -- --------------------------------------------------------
 
@@ -66,12 +64,22 @@ CREATE TABLE `images` (
   `id` int(10) UNSIGNED NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `item_type` int(11) NOT NULL,
+  `item_type` int(11) DEFAULT NULL,
   `item_id` int(11) NOT NULL,
   `url` text,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `images`
+--
+
+INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`, `created_at`, `updated_at`) VALUES
+(5, 'f7ee043730020fb23c25decd0dfdeca4.jpg', 'Tiêu đề33', 1, 8, NULL, '2019-01-03 20:15:32', '2019-01-03 20:15:32'),
+(6, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', 'Tiêu đề33', 1, 8, NULL, '2019-01-03 20:15:33', '2019-01-03 20:15:33'),
+(9, 'lotus-25438418c06e0f97cc45e41.md.jpg', 'khanhnea', 1, 6, NULL, '2019-01-04 02:03:05', '2019-01-04 02:03:05'),
+(10, 'sen_2.jpg', 'khanhnea', 1, 6, NULL, '2019-01-04 02:03:05', '2019-01-04 02:03:05');
 
 -- --------------------------------------------------------
 
@@ -190,11 +198,22 @@ CREATE TABLE `products` (
   `description` varchar(255) NOT NULL,
   `cate_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `view` int(11) NOT NULL,
-  `cart` int(11) NOT NULL,
+  `view` int(11) DEFAULT NULL,
+  `cart` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
+(3, 'er', 'er', 0, 0, 0, NULL, 'anh-luffy-chibi-8.png', 0, 1, 0, 0, 1, 'ggggg', 'grtg', 'rtgrg', 'trgrtg', 'rgrtg', 1, 1, NULL, NULL, '2019-01-02 02:55:31', '2019-01-02 02:55:31'),
+(4, 'thu thoi', 'thu-thoi', 22, 23, 34, NULL, 'anh-luffy-chibi-8.png', 0, 0, 0, 1, 0, 'khanh ne', 'ưdwedwe', 'lkjlj', 'ljlj', 'ljlj', 1, 1, NULL, NULL, '2019-01-03 01:03:39', '2019-01-03 01:03:39'),
+(5, 'adda', 'adda', 12, 121212, 121221, NULL, 'Sanji-sau-2-năm.jpg', 0, 0, 1, 0, 1, 'adadad', 'adadadadad', 'adadadad', 'adadada', 'dâdadad', 1, 1, NULL, NULL, '2019-01-03 20:00:37', '2019-01-03 20:00:37'),
+(6, 'khánhoi', 'khanhoi', 22, 224, 44, NULL, 'images (8).jpg', 0, 0, 0, 0, 0, 'khanhnea', 'kjadkjakdjk', 'kajkajdkjadk', 'kajdkjakdj', 'akjfkajfk', 1, 1, NULL, NULL, '2019-01-03 20:05:29', '2019-01-04 02:32:31'),
+(8, 'hihi', 'hihi', 4, 35, 5, NULL, '12.jpg', 1, 0, 0, 0, 1, 'Tiêu đề33', 'wer', 'ưerwerwe', 'rưerwerwe', 'rưerwer', 1, 1, NULL, NULL, '2019-01-03 20:15:32', '2019-01-03 20:15:32');
 
 -- --------------------------------------------------------
 
@@ -351,13 +370,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -375,7 +394,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
@@ -387,7 +406,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
