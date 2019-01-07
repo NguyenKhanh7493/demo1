@@ -196,7 +196,7 @@
                         @foreach($pImg as $item)
                             <div id="{{ $item['id_img'] }}">
                                 <div class="form-group" id="parentImg">
-                                    <img src="{!! url('/public/images/product/image_product') !!}/{!! $item['image_name'] !!}" alt="" width="150">
+                                    <img src="{!! url('/public/images/product/image_product') !!}/{!! $item['image_name'] !!}" alt="" width="150" id="pro_img">
                                     <a href="javascript:void(0)" class="clearImg text-danger delItemPro" type="button" data-id="{!! $item['id_img'] !!}" data-link="{{ URL::route('deleteImg') }}" data-msg="Bạn có muốn xóa ảnh này? {{$item['item_id']}}" data-token="{{ csrf_token() }}"><i class="fa fa-times"></i></a>
                                 </div>
                             </div>

@@ -195,8 +195,11 @@ class ProductController extends Controller
 //        }else{
 //            die(0);
 //        }
+        $img = Images::findOrFail($request->id);
         if ($request->ajax()){
-            Images::destroy($request->id);
+//            Images::destroy($request->id);
+            File::delete(public_path('/images/product/image_product/'.$img->image_name));
+            $img->delete($request->id);
             return response(['id'=>$request->id]);
         }
     }

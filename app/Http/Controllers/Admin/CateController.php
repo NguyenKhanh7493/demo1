@@ -123,8 +123,10 @@ class CateController extends Controller
      */
     public function destroy(Request $request)
     {
+        $cate = Cate::findOrFail($request->id);
         if ($request->ajax()){
-            Cate::destroy($request->id);
+//            Cate::destroy($request->id);
+            $cate->delete($request->id);
             return response(['id'=>$request->id]);
         }
     }
