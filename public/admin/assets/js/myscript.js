@@ -148,3 +148,30 @@ $(document).ready(function () {
         }
     });
 });
+
+//Delete item product
+$(document).ready(function () {
+    $('.proDelItem').click(function () {
+        var id = $(this).attr('data-id');
+        if(confirm('Bạn có muốn xóa '+ id)){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url:'http://demo1.site/admin/product/deleteItem',
+                type:'DELETE',
+                data:{id:id},
+                DataType:'json',
+                success:function (data) {
+                    console.log(data);
+                    $('tr#'+id).slideUp(300,function () {
+                        $(this).remove();
+                    });
+                }
+            });
+        }
+    });
+});
+//end

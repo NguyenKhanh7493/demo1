@@ -188,14 +188,13 @@
             <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-handbag fa-fw"></i> <span class="hide-menu">Sản phẩm<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
                     <li> <a href="{{ url('admin/product/create') }}">Thêm mới</a></li>
-                    <li> <a href="{{ url('admin/product') }}crm-sales-report.html">Danh sách</a></li>
+                    <li> <a href="{{ url('admin/product') }}">Danh sách</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-people fa-fw"></i> <span class="hide-menu">Customers<span class="fa arrow"></span></span></a>
+            <li><a href="javascript:void(0);" class="waves-effect"><i class="ti-clipboard fa-fw"></i> <span class="hide-menu">Bài viết<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
-                    <li> <a href="crm-customers.html">All Customers</a></li>
-                    <li> <a href="crm-add-customers.html">Add Customers</a></li>
-                    <li> <a href="crm-edit-customers.html">Edit Customers</a></li>
+                    <li> <a href="{{ route('postCreate') }}">Thêm mới</a></li>
+                    <li> <a href="{{ route('postList') }}">Danh sách</a></li>
                 </ul>
             </li>
 

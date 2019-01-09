@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ProductAddRequest;
 use App\Images;
 use App\Product;
+use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
@@ -18,30 +19,15 @@ class ProductController extends Controller
     private $path_file_pro = 'public/images/product/image_product';
     public function index()
     {
-        //
+        $pro = Product::all();
+        return view('admin/product/list',['pro'=>$pro]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
         $user = User::pluck('name','id')->toArray();
-//        echo "<pre>";
-//        print_r($user);
-//        echo "</pre>";die();
         return view('admin/product/form',['parent'=>$parent,'user'=>$user]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ProductAddRequest $request)
     {
         if (Input::hasFile('avatar')){
@@ -87,50 +73,25 @@ class ProductController extends Controller
                 }
             }
             Session::flash('success','Thêm thành công');
-            return redirect()->route('proCreate');
+            return redirect()->route('getProEdit',$proId);
         }else{
             Session::flash('danger','Thêm Thất bại');
             return redirect()->back();
         }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $product = Product::find($id);
-//        $pImg = Product::findOrFail($id)->pImages;
         $pImg = Images::select('image_name','item_id','id as id_img')->where('item_id',$product->id)->get()->toArray();
-//        echo "<pre>";
-//        print_r($pImg);
-//        echo "</pre>";die();
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
         $user = User::pluck('name','id')->toArray();
         return view('admin/product/form',['product'=>$product,'parent'=>$parent,'user'=>$user,'pImg'=>$pImg]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -165,6 +126,8 @@ class ProductController extends Controller
         if ($product->update($requestData)){
             $proId = $product['id'];
             $proTitle = $product['title'];
+            $ldate = date('Y-m-d H:i:s');
+            $product->update_at = $ldate;
             if (Input::hasFile('images')){
                 foreach (Input::file('images') as $file){
                     $pImages = new Images();
@@ -185,7 +148,13 @@ class ProductController extends Controller
             return redirect()->back();
         }
     }
-
+    public function listProductImages($id){
+        $product = Product::findOrFail($id);
+        $img = Images::select('id','image_name')->where('item_id',$product->id)->get()->toArray();
+        echo "<pre>";
+        print_r($img);
+        echo "</pre>";
+    }
     public function delImg(Request $request){
 //        if (Request::ajax()){
 //            $id = Request::get('id');
@@ -198,13 +167,18 @@ class ProductController extends Controller
         $img = Images::findOrFail($request->id);
         if ($request->ajax()){
 //            Images::destroy($request->id);
-            File::delete(public_path('/images/product/image_product/'.$img->image_name));
             $img->delete($request->id);
+            File::delete(public_path('/images/product/image_product/'.$img->image_name));
             return response(['id'=>$request->id]);
         }
     }
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $product = Product::findOrFail($request->id);
+        if ($request->ajax()){
+            File::delete(public_path('/images/product/avatar/'.$product->avatar));
+            $product->delete($request->id);
+            return response(['id'=>$request->id]);
+        }
     }
 }

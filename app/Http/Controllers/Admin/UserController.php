@@ -182,10 +182,12 @@ class UserController extends Controller
             Session::flash('danger','Bạn không có quyền này');
             return redirect('admin/error');
         }
+        $user = User::findOrFail($request->id);
         if ($request->ajax()){
-            User::destroy($request->id);
+        User::find($request->id)->delete();
+        File::delete(public_path('/images/user/'.$user->avatar));
             return response(['id'=>$request->id]);
-        }
+       }
     }
     public function ShowChangePassword($id){
         if(!Auth::user()->ability('admin', 'edit-user')){

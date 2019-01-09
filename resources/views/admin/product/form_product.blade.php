@@ -193,6 +193,8 @@
                     </div>
                 </div>
                     @if(isset($pImg))
+                        <div style="text-align: center">
+                        <label for="">Ảnh sản phẩm</label>
                         @foreach($pImg as $item)
                             <div id="{{ $item['id_img'] }}">
                                 <div class="form-group" id="parentImg">
@@ -201,6 +203,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        </div>
                     @endif
                 <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
                 <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>

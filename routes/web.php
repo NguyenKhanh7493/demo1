@@ -39,10 +39,17 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     Route::group(['prefix'=>'product'],function (){
         Route::get('/','Admin\ProductController@index')->name('listPro');
         Route::get('/create','Admin\ProductController@create')->name('proCreate');
+        Route::get('/abc/{id}','Admin\ProductController@listProductImages');
         Route::post('/create','Admin\ProductController@store')->name('postPro');
         Route::get('/edit/{id}','Admin\ProductController@edit')->name('getProEdit');
         Route::patch('/edit/{id}','Admin\ProductController@update')->name('postProEdit');
         Route::delete('/delete','Admin\ProductController@delImg')->name('deleteImg');
+        Route::delete('/deleteItem','Admin\ProductController@destroy');
+    });
+    Route::group(['prefix'=>'post'],function (){
+        Route::get('/','Admin\PostController@index')->name('postList');
+        Route::get('/create','Admin\PostController@create')->name('postCreate');
+        Route::post('/create','Admin\PostController@store');
     });
 });
 
