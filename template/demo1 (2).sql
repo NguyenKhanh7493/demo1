@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 04, 2019 lúc 10:39 AM
+-- Thời gian đã tạo: Th1 11, 2019 lúc 10:41 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -76,10 +76,29 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`, `created_at`, `updated_at`) VALUES
-(5, 'f7ee043730020fb23c25decd0dfdeca4.jpg', 'Tiêu đề33', 1, 8, NULL, '2019-01-03 20:15:32', '2019-01-03 20:15:32'),
-(6, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', 'Tiêu đề33', 1, 8, NULL, '2019-01-03 20:15:33', '2019-01-03 20:15:33'),
-(9, 'lotus-25438418c06e0f97cc45e41.md.jpg', 'khanhnea', 1, 6, NULL, '2019-01-04 02:03:05', '2019-01-04 02:03:05'),
-(10, 'sen_2.jpg', 'khanhnea', 1, 6, NULL, '2019-01-04 02:03:05', '2019-01-04 02:03:05');
+(23, 'banmetoday.com-004.jpg', 'khanhnea', 1, 6, NULL, '2019-01-06 21:04:49', '2019-01-06 21:04:49'),
+(25, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', 'khanhnea', 1, 6, NULL, '2019-01-06 21:04:50', '2019-01-06 21:04:50'),
+(27, 'images (1).jpg', 'khanhnea', 1, 6, NULL, '2019-01-06 21:04:50', '2019-01-06 21:04:50'),
+(28, 'hieuunganh.com_5bd926f07ec9e.jpg', 'khánh', 1, 9, NULL, '2019-01-07 20:39:53', '2019-01-07 20:39:53'),
+(31, 'hinh-nen-luffy-vua-hai-tac (5).jpg', 'dgggd', 1, 10, NULL, '2019-01-07 20:42:39', '2019-01-07 20:42:39'),
+(35, 'cuc-hoa-mi-dep-3.jpg', 'Tiêu đề33', 1, 8, NULL, '2019-01-08 21:10:52', '2019-01-08 21:10:52'),
+(36, 'cuc-hoa-mi-dep-11.jpg', 'Tiêu đề33', 1, 8, NULL, '2019-01-08 21:10:53', '2019-01-08 21:10:53'),
+(37, 'hinh-nen-luffy-vua-hai-tac (14).jpg', 'khanh1', 1, 11, NULL, '2019-01-08 21:49:18', '2019-01-08 21:49:18'),
+(38, 'hinh-nen-one-piece-2.jpeg', 'khanh1', 1, 11, NULL, '2019-01-08 21:49:18', '2019-01-08 21:49:18'),
+(39, 'zoro-onepiece-wallpaper-hd (2).png', 'khanh1', 1, 11, NULL, '2019-01-08 21:49:18', '2019-01-08 21:49:18'),
+(40, 'Chiase360.Com (5).jpg', 'khanh2', 1, 12, NULL, '2019-01-08 21:50:00', '2019-01-08 21:50:00'),
+(42, 'hinh-nen-one-piece-11.jpeg', 'khanh3', 1, 13, NULL, '2019-01-08 21:50:56', '2019-01-08 21:50:56'),
+(43, 'hinh-nen-one-piece-16.jpg', 'khanh3', 1, 13, NULL, '2019-01-08 21:50:56', '2019-01-08 21:50:56'),
+(44, 'zoro-onepiece-wallpaper-hd (7).jpg', 'khanh3', 1, 13, NULL, '2019-01-08 21:50:56', '2019-01-08 21:50:56'),
+(47, 'f7ee043730020fb23c25decd0dfdeca4.jpg', 'ư', 1, 15, NULL, '2019-01-10 22:00:29', '2019-01-10 22:00:29'),
+(48, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', 'ư', 1, 15, NULL, '2019-01-10 22:00:29', '2019-01-10 22:00:29'),
+(49, 'hinh-nen-dien-thoai-13.jpg', 'ư', 1, 15, NULL, '2019-01-10 22:00:29', '2019-01-10 22:00:29'),
+(55, 'banmetoday.com-004.jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
+(56, 'f7ee043730020fb23c25decd0dfdeca4.jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
+(57, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
+(58, 'images (1).jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
+(59, 'images (2).jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
+(60, 'images (3).jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06');
 
 -- --------------------------------------------------------
 
@@ -103,7 +122,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2018_11_28_123824_entrust_setup_tables', 1),
 (16, '2018_12_17_091443_create_table__cates_table', 1),
 (17, '2018_12_26_040147_create_table_products_table', 2),
-(18, '2018_12_27_082656_create_table_images_table', 2);
+(18, '2018_12_27_082656_create_table_images_table', 2),
+(19, '2019_01_09_085823_create_table_posts_table', 3);
 
 -- --------------------------------------------------------
 
@@ -142,7 +162,10 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 (3, 'delete-user', 'Delete User', 'Xóa quản trị', '2018-12-19 10:00:00', '2018-12-20 10:00:00'),
 (4, 'create-post', 'Create Post', 'Thêm bài viết', '2018-12-17 10:00:00', '2018-12-17 10:00:00'),
 (5, 'edit-post', 'Edit Post', 'Sửa bài viết', '2018-12-18 10:00:00', '2018-12-19 10:00:00'),
-(6, 'delete-post', 'Delete Post', 'Xóa bài viết', '2018-12-18 10:00:00', '2018-12-18 10:00:00');
+(6, 'delete-post', 'Delete Post', 'Xóa bài viết', '2018-12-18 10:00:00', '2018-12-18 10:00:00'),
+(7, 'edit-product', 'Edit Product', 'Sửa sản phẩm', '2019-01-21 17:00:00', '2019-01-06 17:00:00'),
+(8, 'create-product', 'Create Product', 'Thêm sản phẩm', '2019-01-29 17:00:00', '2019-01-22 17:00:00'),
+(9, 'delete-product', 'Delete Product', 'Xóa sản phẩm', '2019-01-08 17:00:00', '2019-01-22 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +192,46 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (5, 2),
 (5, 3),
 (6, 1),
-(6, 2);
+(6, 2),
+(7, 5),
+(8, 5),
+(9, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `home` int(11) DEFAULT NULL,
+  `new` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `introduction` text NOT NULL,
+  `content` longtext NOT NULL,
+  `keywords` text NOT NULL,
+  `description` text NOT NULL,
+  `url_video` varchar(255) DEFAULT NULL,
+  `view` int(11) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `cate_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `posts`
+--
+
+INSERT INTO `posts` (`id`, `name`, `alias`, `avatar`, `home`, `new`, `status`, `introduction`, `content`, `keywords`, `description`, `url_video`, `view`, `tag`, `cate_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Quảng trị anh hùng', 'quang-tri-anh-hung', 'images (4).jpg', 1, NULL, 1, 'quảng trị quê tui', 'khánh nè', 'khánh nè', 'khánh nè', NULL, NULL, '24h', 1, 17, '2019-01-10 21:39:43', '2019-01-10 21:39:43'),
+(2, 'tôi là khánh', 'toi-la-khanh', 'images (7).jpg', 1, NULL, 1, 'khánh', 'khánh', 'khánh', 'khánh', NULL, NULL, NULL, 2, 16, '2019-01-10 23:18:58', '2019-01-10 23:18:58'),
+(3, 'sdfsdf', 'sdfsdf', 'hinh-nen-dien-thoai-13.jpg', 1, NULL, 1, 'sfdsdfsf', 'sdfsdfsfs', 'dfsdfsdfs', 'fdsdfsd', NULL, NULL, 'sdf', 1, 1, '2019-01-11 01:02:06', '2019-01-11 01:02:06');
 
 -- --------------------------------------------------------
 
@@ -209,11 +271,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
-(3, 'er', 'er', 0, 0, 0, NULL, 'anh-luffy-chibi-8.png', 0, 1, 0, 0, 1, 'ggggg', 'grtg', 'rtgrg', 'trgrtg', 'rgrtg', 1, 1, NULL, NULL, '2019-01-02 02:55:31', '2019-01-02 02:55:31'),
-(4, 'thu thoi', 'thu-thoi', 22, 23, 34, NULL, 'anh-luffy-chibi-8.png', 0, 0, 0, 1, 0, 'khanh ne', 'ưdwedwe', 'lkjlj', 'ljlj', 'ljlj', 1, 1, NULL, NULL, '2019-01-03 01:03:39', '2019-01-03 01:03:39'),
-(5, 'adda', 'adda', 12, 121212, 121221, NULL, 'Sanji-sau-2-năm.jpg', 0, 0, 1, 0, 1, 'adadad', 'adadadadad', 'adadadad', 'adadada', 'dâdadad', 1, 1, NULL, NULL, '2019-01-03 20:00:37', '2019-01-03 20:00:37'),
-(6, 'khánhoi', 'khanhoi', 22, 224, 44, NULL, 'images (8).jpg', 0, 0, 0, 0, 0, 'khanhnea', 'kjadkjakdjk', 'kajkajdkjadk', 'kajdkjakdj', 'akjfkajfk', 1, 1, NULL, NULL, '2019-01-03 20:05:29', '2019-01-04 02:32:31'),
-(8, 'hihi', 'hihi', 4, 35, 5, NULL, '12.jpg', 1, 0, 0, 0, 1, 'Tiêu đề33', 'wer', 'ưerwerwe', 'rưerwerwe', 'rưerwer', 1, 1, NULL, NULL, '2019-01-03 20:15:32', '2019-01-03 20:15:32');
+(8, 'hihi', 'hihi', 4, 35, 5, NULL, '12.jpg', 1, 0, 0, 0, 1, 'Tiêu đề33', 'wer', 'ưerwerwe', 'rưerwerwe', 'rưerwer', 1, 1, NULL, NULL, '2019-01-03 20:15:32', '2019-01-03 20:15:32'),
+(11, 'khanh1', 'khanh1', 2, 2, 2, NULL, 'hinh-nen-luffy-vua-hai-tac (5).jpg', 0, 0, 0, 0, 0, 'khanh1', 'kk', 'k', 'k', 'k', 1, 1, NULL, NULL, '2019-01-08 21:49:18', '2019-01-08 21:49:18'),
+(12, 'khanh2', 'khanh2', 22, 222, 222, NULL, 'hinh-anh-one-piece-dep-nhat.jpg', 0, 0, 0, 0, 0, 'khanh2', 'a', 'k', 'k', 'k', 1, 1, NULL, NULL, '2019-01-08 21:50:00', '2019-01-09 02:32:47'),
+(13, 'ad', 'ad', 3, 3, 3, NULL, 'tải xuống.jpg', 0, 1, 0, 0, 1, 'ad', 'ad', 'ád', 'sad', 'ád', 1, 1, NULL, NULL, '2019-01-10 21:58:20', '2019-01-10 21:58:20'),
+(14, 'Hiếu điên', 'hieu-dien', 3, 4, 4, NULL, '12.jpg', 0, 0, 0, 0, 1, 'd', 'ưqww', 'sad', 'ád', 'ád', 1, 1, NULL, NULL, '2019-01-10 21:59:11', '2019-01-10 21:59:11'),
+(15, 'd', 'd', 4, 4, 4, NULL, '38f722d0b02751790836.jpg', 1, 0, 0, 0, 0, 'ư', 'ư', 'ư', 'ư', 'đ', 1, 1, NULL, NULL, '2019-01-10 22:00:21', '2019-01-10 22:00:21');
 
 -- --------------------------------------------------------
 
@@ -237,7 +300,8 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Admin', 'Đây là quản trị cao cấp', '2018-12-18 10:00:00', '2018-12-13 10:00:00'),
 (2, 'censor', 'censor', 'Đây là người kiểm duyệt', '2018-12-11 10:00:00', '2018-12-12 10:00:00'),
-(3, 'employee', 'Employee', 'Đây là người đăng', '2018-12-24 10:00:00', '2018-12-19 10:00:00');
+(3, 'employee-post', 'Employee', 'Đây là người đăng bài viết', '2018-12-24 10:00:00', '2018-12-19 10:00:00'),
+(5, 'employee-product\r\n', 'Employee Post', 'Người đăng sản phẩm', '2019-01-28 17:00:00', '2019-01-22 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -256,8 +320,12 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (1, 1),
-(2, 2),
-(3, 3);
+(11, 2),
+(12, 3),
+(14, 5),
+(15, 5),
+(16, 2),
+(17, 1);
 
 -- --------------------------------------------------------
 
@@ -288,8 +356,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `password`, `address`, `phone`, `gender`, `avatar`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Nguyễn Khánh', 'Nguyễn Như Khánh', 'nguyenkhanh7493@gmail.com', '$2y$10$CXZx6yokokq8v5o4z8wdBeVE.jI6XWB/G0et7TRuIFDDhu1Uoynw6', 'QUẢNG TRỊ', '0964245027', 0, 'Capture.JPG', 1, NULL, '2018-12-16 19:32:15', '2018-12-16 19:46:06', NULL),
-(2, 'Khánh Long', 'Nguyễn Khánh Long', 'khanhlongqt7498@gmail.com', '$2y$10$trOOhc.lZTgOQHhQqnoNm.rw.MvvfxNLyEyAk3pRUWv/t/Mwrs9jG', 'Vĩnh linh Quảng trị', '0967257501', 0, 'fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 1, NULL, '2018-12-16 19:48:52', '2018-12-16 19:48:52', NULL),
-(3, 'Xuân Hiếu', 'Đoàn Thị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$/6du94EhYfc3dYozs9kdHeyX9zjRRdF8Pd72lvGKU1.KdBs9pUbDm', 'Vĩnh Linh - Quảng trị', '0972024098', 1, 'hinh-anh-cuc-hoa-mi-dep-nhat.jpg', 1, NULL, '2018-12-16 19:49:54', '2018-12-16 19:49:54', NULL);
+(11, 'Khánh Long', 'Nguyễn Khánh Long', 'khanhlongqt7498@gmail.com', '$2y$10$T1XiUWryWAzRr7x14wr0ZOgvprU.vgOBpQJRxZCMthvkeNjHMzzXu', 'vĩnh linh quảng trị', '0967257501', 0, 'anh-luffy-chibi-8.png', 1, NULL, '2019-01-08 21:17:04', '2019-01-08 21:17:04', NULL),
+(12, 'Xuân Hiếu', 'Đoàn Thị Xuân Hiếu', 'xuanhieu7496@gmail.com', '$2y$10$6HkhVMafjGwZnQa9FRUNduhQKreeUmeNQvqUYpblksDhn741TPkaS', 'vĩnh linh quảng trị', '0972024098', 1, 'anh-luffy-chibi-8.png', 1, NULL, '2019-01-08 21:21:16', '2019-01-09 00:19:10', NULL),
+(14, 'thử nè khánh ơi', 'qq', 'test1@gmail.com', '$2y$10$y4QtL7MT043H87fbOdKTJOz8A5rIno7UeKgWNMDP4bDzbbw9EQP.W', 'qe', '1688434788', 1, '1q.jpg', 1, NULL, '2019-01-09 00:34:36', '2019-01-10 20:12:30', NULL),
+(15, 'r', 'r', 'rrr@gmail.com', '$2y$10$2Nk2XFhqW9qK96yYEIrDFuyMVqJnuiQwbVQY2xJ1qrh.G/SoDl8t6', 'rrr', '5555555555', 1, 'anh-luffy-chibi-8.png', 1, NULL, '2019-01-09 00:36:01', '2019-01-09 00:36:01', NULL),
+(16, 'k', 'k', 'khanh@gmail.com', '$2y$10$Rf92XZXUDIkey8zkMU.tVOXTxZI/6LX2QKo8lqzLd10ID7i.LhNQ6', 'kkkkkkkkkkkkkkkkk', '1688434788', 0, 'anh-luffy-chibi-8.png', 1, NULL, '2019-01-09 00:45:57', '2019-01-09 00:45:57', NULL),
+(17, 'Khánh Như', 'Khánh Như', 'admin@ers.com', '$2y$10$zmtj5B.npIrZcT1BZNOlX.tTbqSltp2lWBN/kMzbnEOcFLOe4Jjpq', 'quảng trị', '1688434788', 1, 'hinh-nen-luffy-one-piece-13.jpg', 1, NULL, '2019-01-09 01:29:23', '2019-01-09 01:43:05', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -334,6 +406,14 @@ ALTER TABLE `permission_role`
   ADD KEY `permission_role_role_id_foreign` (`role_id`);
 
 --
+-- Chỉ mục cho bảng `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `posts_cate_id_foreign` (`cate_id`),
+  ADD KEY `posts_user_id_foreign` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
@@ -370,43 +450,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT cho bảng `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -418,6 +504,13 @@ ALTER TABLE `users`
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_cate_id_foreign` FOREIGN KEY (`cate_id`) REFERENCES `cates` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `products`

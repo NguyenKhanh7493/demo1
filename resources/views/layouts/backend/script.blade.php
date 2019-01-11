@@ -12,6 +12,9 @@
 <!-- Sparkline chart JavaScript -->
 <script src="{!! url('public/admin') !!}/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
 <!--check-->
+<!--tag input-->
+<script src="{!! url('public/admin') !!}/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<!--end-->
 <script src="{!! url('public/admin/') !!}/plugins/bower_components/switchery/dist/switchery.min.js"></script>
 <script src="{!! url('public/admin/') !!}/plugins/bower_components/icheck/icheck.min.js"></script>
 <script src="{!! url('public/admin/') !!}/plugins/bower_components/icheck/icheck.init.js"></script>
@@ -111,4 +114,9 @@
         });
     });
 
+</script>
+<script>
+    $("#addImgPost").click(function () {
+        $('#showInputPost').append('<div class="form-group"><div class="white-box"><h3 class="box-title"></h3><input type="file" id="input-file-disable-remove" multiple="multiple" name="imagesPost[]" class="dropify" data-show-remove="true"/></div></div>');
+    });
 </script>

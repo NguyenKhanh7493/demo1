@@ -198,31 +198,31 @@
                 </ul>
             </li>
 
-            <li><a href="javascript:void(0);" class="waves-effect"><i class="icon-handbag fa-fw"></i> <span class="hide-menu">Vendors<span class="fa arrow"></span></span></a>
-                <ul class="nav nav-second-level">
-                    <li> <a href="crm-vendors.html">All Vendors</a></li>
-                    <li> <a href="crm-add-vendors.html">Add Vendors</a></li>
-                    <li> <a href="crm-edit-vendors.html">Edit Vendors</a></li>
-                </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="waves-effect"><i class="ti-clipboard fa-fw"></i> <span class="hide-menu">Invoice<span class="fa arrow"></span></span></a>
-                <ul class="nav nav-second-level">
-                    <li> <a href="crm-invoice.html">All Invoice</a></li>
-                    <li> <a href="crm-add-invoice.html">Add Invoice</a></li>
-                    <li> <a href="crm-edit-invoice.html">Edit Invoice</a></li>
-                    <li> <a href="crm-view-invoice.html">View Invoice</a></li>
-                </ul>
-            </li>
-            <li> <a href="widgets.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Widgets</span></a> </li>
-            <li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a>
-                <ul class="nav nav-second-level">
-                    <li> <a href="fontawesome.html">Font awesome</a> </li>
-                    <li> <a href="themifyicon.html">Themify Icons</a> </li>
-                    <li> <a href="simple-line.html">Simple line Icons</a> </li>
-                    <li><a href="linea-icon.html">Linea Icons</a></li>
-                    <li><a href="weather.html">Weather Icons</a></li>
-                </ul>
-            </li>
+            {{--<li><a href="javascript:void(0);" class="waves-effect"><i class="icon-handbag fa-fw"></i> <span class="hide-menu">Vendors<span class="fa arrow"></span></span></a>--}}
+                {{--<ul class="nav nav-second-level">--}}
+                    {{--<li> <a href="crm-vendors.html">All Vendors</a></li>--}}
+                    {{--<li> <a href="crm-add-vendors.html">Add Vendors</a></li>--}}
+                    {{--<li> <a href="crm-edit-vendors.html">Edit Vendors</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a href="javascript:void(0);" class="waves-effect"><i class="ti-clipboard fa-fw"></i> <span class="hide-menu">Invoice<span class="fa arrow"></span></span></a>--}}
+                {{--<ul class="nav nav-second-level">--}}
+                    {{--<li> <a href="crm-invoice.html">All Invoice</a></li>--}}
+                    {{--<li> <a href="crm-add-invoice.html">Add Invoice</a></li>--}}
+                    {{--<li> <a href="crm-edit-invoice.html">Edit Invoice</a></li>--}}
+                    {{--<li> <a href="crm-view-invoice.html">View Invoice</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li> <a href="widgets.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Widgets</span></a> </li>--}}
+            {{--<li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a>--}}
+                {{--<ul class="nav nav-second-level">--}}
+                    {{--<li> <a href="fontawesome.html">Font awesome</a> </li>--}}
+                    {{--<li> <a href="themifyicon.html">Themify Icons</a> </li>--}}
+                    {{--<li> <a href="simple-line.html">Simple line Icons</a> </li>--}}
+                    {{--<li><a href="linea-icon.html">Linea Icons</a></li>--}}
+                    {{--<li><a href="weather.html">Weather Icons</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             <li><a href="{{ url('logout') }}" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
             {{--<li class="nav-small-cap">--- Extra Components</li>--}}
             {{--<li> <a href="#" class="waves-effect"><i data-icon="/" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">UI Elements<span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">13</span> </span></a>--}}

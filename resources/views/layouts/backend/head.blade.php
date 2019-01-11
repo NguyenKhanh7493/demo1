@@ -15,6 +15,9 @@
 <link href="{!! url('public/admin') !!}/plugins/bower_components/icheck/skins/all.css" rel="stylesheet">
 <!-- morris CSS -->
 <link href="{!! url('public/admin') !!}/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+<!--thêm tag-->
+<link href="{!! url('public/admin') !!}/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+<!--end-->
 <!--them thu-->
 <link href="{!! url('public/admin/') !!}/plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
 <!--them thu-->

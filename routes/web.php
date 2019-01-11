@@ -50,6 +50,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::get('/','Admin\PostController@index')->name('postList');
         Route::get('/create','Admin\PostController@create')->name('postCreate');
         Route::post('/create','Admin\PostController@store');
+        Route::get('/edit/{id}','Admin\PostController@edit')->name('postEdit');
+        Route::patch('/edit/{id}','Admin\PostController@update');
+        Route::delete('/delete','Admin\PostController@delImgPost');
     });
 });
 

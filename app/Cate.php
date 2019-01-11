@@ -13,4 +13,7 @@ class Cate extends Model
     public function product(){
         return $this->hasMany('App\Product');
     }
+    public function post(){
+        return $this->hasMany('App\Post');
+    }
 }

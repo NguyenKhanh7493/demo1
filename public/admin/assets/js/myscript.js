@@ -175,3 +175,31 @@ $(document).ready(function () {
     });
 });
 //end
+
+//delete image post
+$(document).ready(function () {
+    $('.delItemPost').click(function () {
+        var id = $(this).attr('data-id');
+        if (confirm('Bạn có muốn xóa' + id)){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://demo1.site/admin/post/delete',
+                data:{id:id},
+                dataType:'json',
+                success:function (data) {
+                    console.log(data);
+                    $('#'+id).slideUp(300,function () {
+                        $(this).remove();
+                    });
+                }
+
+            });
+        }
+    });
+});
+//end

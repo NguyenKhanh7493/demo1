@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ProductAddRequest;
+use App\Http\Requests\ProductEditRequest;
 use App\Images;
 use App\Product;
 use Faker\Provider\DateTime;
@@ -92,7 +93,7 @@ class ProductController extends Controller
         return view('admin/product/form',['product'=>$product,'parent'=>$parent,'user'=>$user,'pImg'=>$pImg]);
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductEditRequest $request, $id)
     {
         $product = Product::findOrFail($id);
         if (Input::hasFile('avatar')){

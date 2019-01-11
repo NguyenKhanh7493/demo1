@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Cate;
 use App\Http\Requests\CateAddRequest;
+use App\Http\Requests\CateEditRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
@@ -86,7 +87,7 @@ class CateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CateEditRequest $request, $id)
     {
         $cate = Cate::find($id);
         $requestData = $request->all();
