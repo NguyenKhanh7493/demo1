@@ -18,7 +18,10 @@ class PostController extends Controller
     private $path_detail = 'public/images/post/image_detail';
     public function index()
     {
-        //
+        $post = DB::table('posts')
+                ->join('users','users.id','=','posts.user_id')
+                ->select('posts.id','posts.name','posts.view','posts.avatar','users.name as nameUser')->get()->toArray();
+        return view('admin/post/list',compact('post'));
     }
 
     /**
@@ -76,6 +79,15 @@ class PostController extends Controller
             return redirect()->back();
         }
         $requestData = $request->all();
+        if (!isset($requestData['status'])){
+            $requestData['status'] = 0;
+        }
+        if (!isset($requestData['home'])){
+            $requestData['home'] = 0;
+        }
+        if (!isset($requestData['new'])){
+            $requestData['new'] = 0;
+        }
         $requestData['avatar'] = $avatar;
         $requestData['alias'] = changeTitle($request->name);
         $post = Post::create($requestData);
@@ -85,16 +97,18 @@ class PostController extends Controller
             if (Input::hasFile('imagesPost')){
                 foreach (Input::file('imagesPost') as $file){
                     $pImgaes = new Images();
-                    $pImgaes->image_name = $file->getClientOriginalName();
-                    $pImgaes->title = $titlePost;
-                    $pImgaes->item_type = 2;
-                    $pImgaes->item_id = $postId;
-                    $file->move($this->path_detail,$file->getClientOriginalName());
-                    $pImgaes->save();
+                    if (isset($file)){
+                        $pImgaes->image_name = $file->getClientOriginalName();
+                        $pImgaes->title = $titlePost;
+                        $pImgaes->item_type = 2;
+                        $pImgaes->item_id = $postId;
+                        $file->move($this->path_detail,$file->getClientOriginalName());
+                        $pImgaes->save();
+                    }
                 }
             }
             Session::flash('success','Thêm bài viết thành công');
-            return redirect()->route('postCreate');
+            return redirect()->route('postEdit',$post->id);
         }else{
             Session::flash('danger','Thêm bài viết không thành công');
             return redirect()->back();
@@ -147,7 +161,51 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        if (Input::hasFile('avatar')){
+            $avatar = $request->file('avatar')->getClientOriginalName();
+            $request->file('avatar')->move($this->path_file,$avatar);
+            $proImage = ("public/images/post/avatar/{$post->avatar}");
+            if (File::exists($proImage)) {
+                File::delete($proImage);
+            }
+        }else{
+            $avatar = $post->avatar;
+        }
+        $requestData = $request->all();
+        if (!isset($requestData['status'])){
+            $requestData['status'] = 0;
+        }
+        if (!isset($requestData['home'])){
+            $requestData['home'] = 0;
+        }
+        if (!isset($requestData['new'])){
+            $requestData['new'] = 0;
+        }
+        $requestData['alias'] = changeTitle($request->name);
+        $requestData['avatar'] = $avatar;
+        if ($post->update($requestData)){
+            $pId = $post->id;
+            $title = $post->name;
+            if (Input::hasFile('imagesPost')){
+                foreach (Input::file('imagesPost') as $file){
+                    $pImgaes = new Images();
+                    if (isset($file)){
+                        $pImgaes->image_name = $file->getClientOriginalName();
+                        $pImgaes->title = $title;
+                        $pImgaes->item_type = 2;
+                        $pImgaes->item_id = $pId;
+                        $file->move($this->path_detail,$file->getClientOriginalName());
+                        $pImgaes->save();
+                    }
+                }
+            }
+            Session::flash('success','Sửa thành công');
+            return redirect()->route('postEdit',$post->id);
+        }else{
+            Session::flash('danger','Thêm thất bại');
+            return redirect()->back();
+        }
     }
 
     public function delImgPost(Request $request){
@@ -159,8 +217,13 @@ class PostController extends Controller
             return response(['id'=>$request->id]);
         }
     }
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $img = Post::findOrFail($request->id);
+        if ($request->ajax()){
+            $img->delete($request->id);
+            File::delete(public_path('/images/post/avatar/'.$img->avatar));
+            return response(['id'=>$request->id]);
+        }
     }
 }

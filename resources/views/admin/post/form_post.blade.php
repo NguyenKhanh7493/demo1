@@ -1,7 +1,12 @@
 <div class="col-md-8">
     <div class="white-box">
-        <h3 class="box-title m-b-0">Thêm bài viết</h3>
-        <p class="text-muted m-b-30 font-13"></p>
+        @if(isset($post))
+            <h3 class="box-title m-b-0">Sửa bài viết</h3>
+            <p class="text-muted m-b-30 font-13"></p>
+        @else
+            <h3 class="box-title m-b-0">Thêm mới bài viết</h3>
+            <p class="text-muted m-b-30 font-13"></p>
+        @endif
         @if(Session::has('danger'))
             <div class="my-alert">
                 <div class="alert alert-danger">{{ Session::get('danger') }}</div>

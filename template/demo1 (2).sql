@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 11, 2019 lúc 10:41 AM
+-- Thời gian đã tạo: Th1 14, 2019 lúc 10:52 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -94,11 +94,15 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 (48, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', 'ư', 1, 15, NULL, '2019-01-10 22:00:29', '2019-01-10 22:00:29'),
 (49, 'hinh-nen-dien-thoai-13.jpg', 'ư', 1, 15, NULL, '2019-01-10 22:00:29', '2019-01-10 22:00:29'),
 (55, 'banmetoday.com-004.jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
-(56, 'f7ee043730020fb23c25decd0dfdeca4.jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
 (57, 'hinh-nen-cho-dien-thoai-cam-ung-4.jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
-(58, 'images (1).jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
-(59, 'images (2).jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06'),
-(60, 'images (3).jpg', NULL, 2, 3, NULL, '2019-01-11 01:02:06', '2019-01-11 01:02:06');
+(61, '1q.jpg', 'kahnsh ơi là khánh', 1, 16, NULL, '2019-01-13 19:42:02', '2019-01-13 19:42:02'),
+(62, '12.jpg', 'kahnsh ơi là khánh', 1, 16, NULL, '2019-01-13 19:42:02', '2019-01-13 19:42:02'),
+(63, 'f7ee043730020fb23c25decd0dfdeca4.jpg', 'kahnsh ơi là khánh', 1, 16, NULL, '2019-01-13 19:42:02', '2019-01-13 19:42:02'),
+(65, 'images (6).jpg', NULL, 2, 4, NULL, '2019-01-14 02:26:02', '2019-01-14 02:26:02'),
+(66, 'lotus-25438418c06e0f97cc45e41.md.jpg', NULL, 2, 4, NULL, '2019-01-14 02:26:02', '2019-01-14 02:26:02'),
+(67, 'images (3).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06'),
+(68, 'images (4).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06'),
+(69, 'images (7).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06');
 
 -- --------------------------------------------------------
 
@@ -230,8 +234,7 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `name`, `alias`, `avatar`, `home`, `new`, `status`, `introduction`, `content`, `keywords`, `description`, `url_video`, `view`, `tag`, `cate_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 'Quảng trị anh hùng', 'quang-tri-anh-hung', 'images (4).jpg', 1, NULL, 1, 'quảng trị quê tui', 'khánh nè', 'khánh nè', 'khánh nè', NULL, NULL, '24h', 1, 17, '2019-01-10 21:39:43', '2019-01-10 21:39:43'),
-(2, 'tôi là khánh', 'toi-la-khanh', 'images (7).jpg', 1, NULL, 1, 'khánh', 'khánh', 'khánh', 'khánh', NULL, NULL, NULL, 2, 16, '2019-01-10 23:18:58', '2019-01-10 23:18:58'),
-(3, 'sdfsdf', 'sdfsdf', 'hinh-nen-dien-thoai-13.jpg', 1, NULL, 1, 'sfdsdfsf', 'sdfsdfsfs', 'dfsdfsdfs', 'fdsdfsd', NULL, NULL, 'sdf', 1, 1, '2019-01-11 01:02:06', '2019-01-11 01:02:06');
+(2, 'tôi là khánh', 'toi-la-khanh', 'images (7).jpg', 1, NULL, 1, 'khánh', 'khánh', 'khánh', 'khánh', NULL, NULL, NULL, 2, 16, '2019-01-10 23:18:58', '2019-01-10 23:18:58');
 
 -- --------------------------------------------------------
 
@@ -276,7 +279,8 @@ INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, 
 (12, 'khanh2', 'khanh2', 22, 222, 222, NULL, 'hinh-anh-one-piece-dep-nhat.jpg', 0, 0, 0, 0, 0, 'khanh2', 'a', 'k', 'k', 'k', 1, 1, NULL, NULL, '2019-01-08 21:50:00', '2019-01-09 02:32:47'),
 (13, 'ad', 'ad', 3, 3, 3, NULL, 'tải xuống.jpg', 0, 1, 0, 0, 1, 'ad', 'ad', 'ád', 'sad', 'ád', 1, 1, NULL, NULL, '2019-01-10 21:58:20', '2019-01-10 21:58:20'),
 (14, 'Hiếu điên', 'hieu-dien', 3, 4, 4, NULL, '12.jpg', 0, 0, 0, 0, 1, 'd', 'ưqww', 'sad', 'ád', 'ád', 1, 1, NULL, NULL, '2019-01-10 21:59:11', '2019-01-10 21:59:11'),
-(15, 'd', 'd', 4, 4, 4, NULL, '38f722d0b02751790836.jpg', 1, 0, 0, 0, 0, 'ư', 'ư', 'ư', 'ư', 'đ', 1, 1, NULL, NULL, '2019-01-10 22:00:21', '2019-01-10 22:00:21');
+(15, 'd', 'd', 4, 4, 4, NULL, '38f722d0b02751790836.jpg', 1, 0, 0, 0, 0, 'ư', 'ư', 'ư', 'ư', 'đ', 1, 1, NULL, NULL, '2019-01-10 22:00:21', '2019-01-10 22:00:21'),
+(16, 'Khánh thử nè', 'khanh-thu-ne', 23, 42, 43, NULL, 'tải xuống.jpg', 0, 0, 1, 0, 1, 'kahnsh ơi là khánh', 'kahsnh', 'khánh', 'khnsh', 'khánh', 1, 1, NULL, NULL, '2019-01-13 19:42:02', '2019-01-13 19:42:02');
 
 -- --------------------------------------------------------
 
@@ -456,7 +460,7 @@ ALTER TABLE `cates`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -474,13 +478,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`

@@ -53,6 +53,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::get('/edit/{id}','Admin\PostController@edit')->name('postEdit');
         Route::patch('/edit/{id}','Admin\PostController@update');
         Route::delete('/delete','Admin\PostController@delImgPost');
+        Route::delete('/deletePost','Admin\PostController@destroy');
     });
 });
 

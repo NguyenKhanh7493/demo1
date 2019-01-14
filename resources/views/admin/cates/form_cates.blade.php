@@ -20,7 +20,7 @@
                         <span style="color: red;font-style: italic">(*) {{ $errors->first('name') }}</span>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group hidden">
                     {!! Form::label('labAlias','Alias') !!}
                     {!! Form::text('alias',null,['class'=>'form-control','readonly']) !!}
                 </div>
