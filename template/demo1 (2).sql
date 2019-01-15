@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 14, 2019 lúc 10:52 AM
+-- Thời gian đã tạo: Th1 15, 2019 lúc 10:46 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -102,7 +102,14 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 (66, 'lotus-25438418c06e0f97cc45e41.md.jpg', NULL, 2, 4, NULL, '2019-01-14 02:26:02', '2019-01-14 02:26:02'),
 (67, 'images (3).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06'),
 (68, 'images (4).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06'),
-(69, 'images (7).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06');
+(69, 'images (7).jpg', NULL, 2, 5, NULL, '2019-01-14 02:27:06', '2019-01-14 02:27:06'),
+(70, 'cuc-hoa-mi-dep-3.jpg', 'tôi là khánh', 2, 2, NULL, '2019-01-14 23:42:18', '2019-01-14 23:42:18'),
+(71, 'cuc-hoa-mi-dep-11.jpg', 'tôi là khánh', 2, 2, NULL, '2019-01-14 23:42:18', '2019-01-14 23:42:18'),
+(72, 'fe6f47ae6e0a117b_3486830cbe8ca4a6_16257814739311769143215.jpg', 'tôi là khánh', 2, 2, NULL, '2019-01-14 23:42:19', '2019-01-14 23:42:19'),
+(73, 'images (5).jpg', 'csd', 2, 3, NULL, '2019-01-15 01:10:22', '2019-01-15 01:10:22'),
+(74, 'images.jpg', 'csd', 2, 3, NULL, '2019-01-15 01:10:37', '2019-01-15 01:10:37'),
+(75, 'hinh-nen-luffy-one-piece-12.jpg', NULL, 2, 5, NULL, '2019-01-15 01:13:12', '2019-01-15 01:13:12'),
+(76, 'hinh-nen-luffy-one-piece-13.jpg', NULL, 2, 5, NULL, '2019-01-15 01:13:12', '2019-01-15 01:13:12');
 
 -- --------------------------------------------------------
 
@@ -234,7 +241,10 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `name`, `alias`, `avatar`, `home`, `new`, `status`, `introduction`, `content`, `keywords`, `description`, `url_video`, `view`, `tag`, `cate_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 'Quảng trị anh hùng', 'quang-tri-anh-hung', 'images (4).jpg', 1, NULL, 1, 'quảng trị quê tui', 'khánh nè', 'khánh nè', 'khánh nè', NULL, NULL, '24h', 1, 17, '2019-01-10 21:39:43', '2019-01-10 21:39:43'),
-(2, 'tôi là khánh', 'toi-la-khanh', 'images (7).jpg', 1, NULL, 1, 'khánh', 'khánh', 'khánh', 'khánh', NULL, NULL, NULL, 2, 16, '2019-01-10 23:18:58', '2019-01-10 23:18:58');
+(2, 'tôi là khánh', 'toi-la-khanh', 'f7ee043730020fb23c25decd0dfdeca4.jpg', 1, 0, 1, 'khánh', 'khánh', 'llljjljlljjljl', 'khánh', NULL, NULL, NULL, 2, 16, '2019-01-10 23:18:58', '2019-01-15 00:26:31'),
+(3, 'csd', 'csd', 'images (7).jpg', 0, 0, 1, 'cscdsdcsdc', 'sdc', 'sdc', 'sdc', NULL, NULL, 'sd', 1, 1, '2019-01-15 00:49:59', '2019-01-15 00:49:59'),
+(4, 'ads', 'ads', 'images (7).jpg', 0, 0, 0, 'ads', 'ád', 'ads', 'ád', NULL, NULL, NULL, 1, 1, '2019-01-15 01:12:20', '2019-01-15 02:36:47'),
+(5, 'ac', 'ac', 'hinh-anh-hinh-nen-zoro-dep-nhat-one-piece-21.jpg', 1, 0, 1, 'sa', 'sa', 'sa', 'sa', NULL, NULL, NULL, 1, 1, '2019-01-15 01:13:12', '2019-01-15 01:13:12');
 
 -- --------------------------------------------------------
 
@@ -460,7 +470,7 @@ ALTER TABLE `cates`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -496,7 +506,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

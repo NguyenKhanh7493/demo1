@@ -77,6 +77,11 @@ class UserController extends Controller
 //        }
         if(Input::hasFile('avatar')){
             $avatar 	        = $request->file('avatar')->getClientOriginalName();
+            $userImage = ("public/images/user/{$avatar}");
+            if (File::exists($userImage)){
+                Session::flash('danger','Trùng file ảnh');
+                return redirect()->route('create_user');
+            }
             $request->file('avatar')->move($this->path_file,$avatar);
         }else{
             Session::flash('danger','Upload ảnh không thành công');
@@ -145,6 +150,10 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
+            if ($user->avatar == Input::hasFile('avatar')){
+                Session::flash('danger','Trùng tên ảnh');
+                return redirect()->back();
+            }
             $request->file('avatar')->move($this->path_file,$avatar);
             $usersImage = ("public/images/user/{$user->avatar}");
             if (File::exists($usersImage)) {

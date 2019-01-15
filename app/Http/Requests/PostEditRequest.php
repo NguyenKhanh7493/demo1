@@ -30,7 +30,7 @@ class PostEditRequest extends FormRequest
             'keywords'=>'required',
             'description'=>'required',
             'avatar'=>'image',
-            'imagesPost'=>'image'
+//            'imagesPost'=>'image'
 
         ];
     }
@@ -44,7 +44,7 @@ class PostEditRequest extends FormRequest
             'keywords.required'=>'Bạn chưa nhập keyword',
             'description.required'=>'Bạn chưa nhập giói thiệu seo',
             'avatar.image'=>'Định dạng ảnh chưa được hỗ trợ',
-            'imagesPost.image'=>'Định dạng ảnh chưa được hỗ trợ'
+//            'imagesPost.image'=>'Định dạng ảnh chưa được hỗ trợ'
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Cate;
 use App\Http\Requests\PostAddRequest;
+use App\Http\Requests\PostEditRequest;
 use App\Images;
 use App\User;
 use App\Post;
@@ -73,6 +74,11 @@ class PostController extends Controller
     {
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
+            $proImage = ("public/images/post/avatar/{$avatar}");
+            if (File::exists($proImage)){
+                Session::flash('danger','Trùng file ảnh');
+                return redirect()->route('postCreate');
+            }
             $request->file('avatar')->move($this->path_file,$avatar);
         }else{
             Session::flash('danger','Upload ảnh không thành công');
@@ -102,6 +108,13 @@ class PostController extends Controller
                         $pImgaes->title = $titlePost;
                         $pImgaes->item_type = 2;
                         $pImgaes->item_id = $postId;
+                        if ($pImgaes->image_name == $file->getClientOriginalName()){
+                            $test = Images::where('image_name','like',$pImgaes->image_name)->where('item_type',2)->get()->toArray();
+                            if ($test != null){
+                                Session::flash('danger','Trùng tên ảnh sản phẩm');
+                                return redirect()->back();
+                            }
+                        }
                         $file->move($this->path_detail,$file->getClientOriginalName());
                         $pImgaes->save();
                     }
@@ -159,11 +172,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostEditRequest $request, $id)
     {
         $post = Post::findOrFail($id);
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
+            if (Input::hasFile('avatar') == $post->avatar){
+                Session::flash('danger','Trùng tên ảnh nè');
+                return redirect()->back();
+            }
             $request->file('avatar')->move($this->path_file,$avatar);
             $proImage = ("public/images/post/avatar/{$post->avatar}");
             if (File::exists($proImage)) {
@@ -195,6 +212,13 @@ class PostController extends Controller
                         $pImgaes->title = $title;
                         $pImgaes->item_type = 2;
                         $pImgaes->item_id = $pId;
+                        if ($pImgaes->image_name == $file->getClientOriginalName()){
+                            $test = Images::where('image_name','like',$pImgaes->image_name)->where('item_type',2)->get()->toArray();
+                            if ($test != null){
+                                Session::flash('danger','Trùng tên ảnh sản phẩm');
+                                return redirect()->back();
+                            }
+                        }
                         $file->move($this->path_detail,$file->getClientOriginalName());
                         $pImgaes->save();
                     }
