@@ -32,6 +32,10 @@ class CateController extends Controller
      */
     public function create()
     {
+        if (!\Entrust::can('create-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
         return view('admin/cates/form',['parent'=>$parent]);
     }
@@ -44,6 +48,10 @@ class CateController extends Controller
      */
     public function store(CateAddRequest $request)
     {
+        if (!\Entrust::can('create-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $requestData = $request->all();
         $requestData['alias'] = changeTitle($request->name);
         $cate_add = Cate::create($requestData);
@@ -75,6 +83,10 @@ class CateController extends Controller
      */
     public function edit($id)
     {
+        if (!\Entrust::can('edit-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $cate = Cate::findOrFail($id);
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
         return view('admin/cates/form',['cate'=>$cate,'parent'=>$parent]);
@@ -89,6 +101,10 @@ class CateController extends Controller
      */
     public function update(CateEditRequest $request, $id)
     {
+        if (!\Entrust::can('edit-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $cate = Cate::find($id);
         $requestData = $request->all();
 //        echo "<pre>";
@@ -124,6 +140,10 @@ class CateController extends Controller
      */
     public function destroy(Request $request)
     {
+        if (!\Entrust::can('delete-user')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $cate = Cate::findOrFail($request->id);
         if ($request->ajax()){
 //            Cate::destroy($request->id);

@@ -102,7 +102,7 @@ class UserController extends Controller
                 $user_add->roles()->attach($id_role);
             }
             $user_add->update($requestData);
-            Session::flash('danger','Thêm quản trị thành công');
+            Session::flash('success','Thêm quản trị thành công');
             return redirect()->route('editGet',$user_add->id);
         }else{
             Session::flash('danger','Thêm thất bại');
@@ -150,8 +150,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
-            if ($user->avatar == Input::hasFile('avatar')){
-                Session::flash('danger','Trùng tên ảnh');
+            $checkImg = User::where('avatar','like',$avatar)->get()->toArray();
+            if ($checkImg != null){
+                Session::flash('danger','Trùng tên ảnh avatar');
                 return redirect()->back();
             }
             $request->file('avatar')->move($this->path_file,$avatar);
@@ -171,7 +172,7 @@ class UserController extends Controller
             $user->roles()->attach($edit_role);
         }
         if ($user->update($requestData)){
-            Session::flash('danger','Update thanh cong');
+            Session::flash('success','Update thanh cong');
             return redirect()->back();
         }else{
             Session::flash('danger','Update that bai');
@@ -217,7 +218,7 @@ class UserController extends Controller
             if(Hash::check($requestData['current_password'], $cur_pass)){
                 $user->password = Hash::make($requestData['password']);
                 $user->save();
-                Session::flash('danger','Bạn đổi mật khẩu thành công');
+                Session::flash('success','Bạn đổi mật khẩu thành công');
                 return redirect()->route('editGet',$user->id);
             }else{
                 Session::flash('danger','Bạn nhập mật khẩu hiện tại không chính xác');

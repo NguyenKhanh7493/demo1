@@ -16,7 +16,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 col-xs-12">
             <div class="white-box">
-                <div class="user-bg"> <img width="100%" alt="user" src="{!! url('/') !!}/public/images/user/gd2.JPG">
+                <div class="user-bg"> <img width="100%" alt="user" src="{!! url('/') !!}/public/images/user/abc.jpg">
                     <div class="overlay-box">
                         <div class="user-content"> <a href="javascript:void(0)"><img src="{!! url('/') !!}/public/images/user/{{ Auth::user()->avatar }}" class="thumb-lg img-circle" alt="img"></a>
                             <h4 class="text-white">{{ Auth::user()->fullname }}</h4>

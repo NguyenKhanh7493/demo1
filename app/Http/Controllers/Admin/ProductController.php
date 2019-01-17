@@ -25,14 +25,27 @@ class ProductController extends Controller
     }
     public function create()
     {
+        if (!\Entrust::can('create-product')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
         $user = User::pluck('name','id')->toArray();
         return view('admin/product/form',['parent'=>$parent,'user'=>$user]);
     }
     public function store(ProductAddRequest $request)
     {
+        if (!\Entrust::can('create-product')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
+            $proImage = ("public/images/product/avatar/{$avatar}");
+            if (File::exists($proImage)){
+                Session::flash('danger','Trùng file ảnh');
+                return redirect()->back();
+            }
             $request->file('avatar')->move($this->path_file,$avatar);
         }else{
             Session::flash('danger','Upload ảnh không thành công');
@@ -68,6 +81,13 @@ class ProductController extends Controller
                         $pImages->item_id = $proId;
                         $pImages->title = $proTitle;
                         $pImages->item_type = 1;
+                        if ($pImages->image_name == $file->getClientOriginalName()){
+                            $test = Images::where('image_name','like',$pImages->image_name)->where('item_type',1)->get()->toArray();
+                            if ($test != null){
+                                Session::flash('danger','Trùng tên ảnh sản phẩm nè');
+                                return redirect()->back();
+                            }
+                        }
                         $file->move($this->path_file_pro,$file->getClientOriginalName());
                         $pImages->save();
                     }
@@ -86,6 +106,10 @@ class ProductController extends Controller
     }
     public function edit($id)
     {
+        if (!\Entrust::can('edit-product')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $product = Product::find($id);
         $pImg = Images::select('image_name','item_id','id as id_img')->where('item_id',$product->id)->get()->toArray();
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
@@ -95,9 +119,18 @@ class ProductController extends Controller
 
     public function update(ProductEditRequest $request, $id)
     {
+        if (!\Entrust::can('edit-product')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $product = Product::findOrFail($id);
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
+            $checkImg = Product::where('avatar','like',$avatar)->get()->toArray();
+            if ($checkImg != null){
+                Session::flash('danger','Trùng tên ảnh avatar');
+                return redirect()->back();
+            }
             $request->file('avatar')->move($this->path_file,$avatar);
             $proImage = ("public/images/product/avatar/{$product->avatar}");
             if (File::exists($proImage)) {
@@ -137,6 +170,13 @@ class ProductController extends Controller
                         $pImages->item_id = $proId;
                         $pImages->title = $proTitle;
                         $pImages->item_type = 1;
+                        if ($pImages->image_name == $file->getClientOriginalName()){
+                            $test = Images::where('image_name','like',$pImages->image_name)->where('item_type',1)->get()->toArray();
+                            if ($test != null){
+                                Session::flash('danger','Trùng tên ảnh sản phẩm nè');
+                                return redirect()->back();
+                            }
+                        }
                         $file->move($this->path_file_pro,$file->getClientOriginalName());
                         $pImages->save();
                     }
@@ -175,6 +215,10 @@ class ProductController extends Controller
     }
     public function destroy(Request $request)
     {
+        if (!\Entrust::can('delete-product')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $product = Product::findOrFail($request->id);
         if ($request->ajax()){
             File::delete(public_path('/images/product/avatar/'.$product->avatar));

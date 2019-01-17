@@ -32,6 +32,10 @@ class PostController extends Controller
      */
     public function create()
     {
+        if (!\Entrust::can('create-post')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $parent = Cate::select('id','name','parent_id')->get()->toArray();
 //        $user = User::pluck('name','id')->toArray();
         $user = DB::table('users')
@@ -72,6 +76,10 @@ class PostController extends Controller
      */
     public function store(PostAddRequest $request)
     {
+        if (!\Entrust::can('create-post')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
             $proImage = ("public/images/post/avatar/{$avatar}");
@@ -147,6 +155,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        if (!\Entrust::can('edit-post')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $post = Post::findOrFail($id);
         $pImg = Images::select('image_name','item_id','id as id_img')->where('item_id',$post->id)->get()->toArray();
 //        echo "<pre>";
@@ -174,13 +186,19 @@ class PostController extends Controller
      */
     public function update(PostEditRequest $request, $id)
     {
+        if (!\Entrust::can('edit-post')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $post = Post::findOrFail($id);
         if (Input::hasFile('avatar')){
             $avatar = $request->file('avatar')->getClientOriginalName();
-            if (Input::hasFile('avatar') == $post->avatar){
-                Session::flash('danger','Trùng tên ảnh nè');
+            $checkImg = Post::where('avatar','like',$avatar)->get()->toArray();
+            if ($checkImg != null){
+                Session::flash('danger','Trùng tên ảnh avatar');
                 return redirect()->back();
             }
+//            print_r($checkImg);die();
             $request->file('avatar')->move($this->path_file,$avatar);
             $proImage = ("public/images/post/avatar/{$post->avatar}");
             if (File::exists($proImage)) {
@@ -243,6 +261,10 @@ class PostController extends Controller
     }
     public function destroy(Request $request)
     {
+        if (!\Entrust::can('delete-post')){
+            Session::flash('danger','Bạn không có quyền này');
+            return redirect('admin/error');
+        }
         $img = Post::findOrFail($request->id);
         if ($request->ajax()){
             $img->delete($request->id);
