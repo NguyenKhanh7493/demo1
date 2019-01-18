@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 17, 2019 lúc 05:09 AM
+-- Thời gian đã tạo: Th1 18, 2019 lúc 10:48 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -43,8 +43,20 @@ CREATE TABLE `cates` (
   `description` varchar(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sort` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `cates`
+--
+
+INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu_top`, `menu_right`, `icon`, `footer`, `keywords`, `description`, `content`, `created_at`, `updated_at`, `sort`) VALUES
+(2, 'Trang chủ', 'trang-chu', 1, 0, NULL, 1, NULL, NULL, NULL, 'Trang chủ bán laptop', 'Cửa hàng bán laptop', NULL, '2019-01-18 02:29:56', '2019-01-18 02:29:56', NULL),
+(3, 'Giới thiệu', 'gioi-thieu', 1, 0, NULL, 1, NULL, NULL, NULL, 'Laptop giá rẻ nhất', 'Cửa hàng chúng tôi chuyên cung cấp laptop và các linh kiện chính hãng,cam kết 100%', NULL, '2019-01-18 02:30:52', '2019-01-18 02:30:52', NULL),
+(4, 'Sản phẩm', 'san-pham', 1, 0, NULL, 1, NULL, NULL, NULL, 'Sản phẩm đẹp', 'sản phẩm tốt', NULL, '2019-01-18 02:31:25', '2019-01-18 02:31:25', NULL),
+(5, 'Tin tức', 'tin-tuc', 1, 0, NULL, 1, NULL, NULL, NULL, 'Tin tức mới nhất', 'Tin tức trong ngày', NULL, '2019-01-18 02:32:41', '2019-01-18 02:32:41', NULL),
+(6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, NULL, NULL, NULL, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 02:33:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -410,7 +422,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`

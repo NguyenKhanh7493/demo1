@@ -20,6 +20,7 @@ class CreateTableCatesTable extends Migration
             $table->integer('status')->nullable();
             $table->integer('parent_id');
             $table->integer('type')->nullable();
+            $table->integer('sort')->nullable();
             $table->integer('menu_top')->nullable();
             $table->integer('menu_right')->nullable();
             $table->integer('icon')->nullable();

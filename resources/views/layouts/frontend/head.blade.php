@@ -13,4 +13,4 @@
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/option2.css" />
 
-<title>Kute shop</title>
+<title>N2K-Shop</title>

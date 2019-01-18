@@ -6,14 +6,14 @@
                 <div class="homeslider">
                     <div class="content-slide">
                         <ul id="contenhomeslider">
-                            <li><img alt="Funky roots" src="{{url('/')}}/public/front-end/assets/data/slide.jpg" title="Funky roots" /></li>
-                            <li><img alt="Funky roots" src="{{url('/')}}/public/front-end/assets/data/slide.jpg" title="Funky roots" /></li>
-                            <li><img  alt="Funky roots" src="{{url('/')}}/public/front-end/assets/data/slide.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/banner1.jpg" title="Funky roots" /></li>
+                            <li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/banner2.jpg" title="Funky roots" /></li>
+                            <li><img  alt="Funky roots" src="{{url('/')}}/public/images/banner/banner3.jpg" title="Funky roots" /></li>
                         </ul>
                     </div>
                 </div>
                 <div class="header-banner banner-opacity">
-                    <a href="#"><img alt="Funky roots" src="{{url('/')}}/public/front-end/assets/data/te.jpg" /></a>
+                    <a href="#"><img alt="Funky roots" src="{{url('/')}}/public/images/banner/banner4.jpg" /></a>
                 </div>
             </div>
         </div>
