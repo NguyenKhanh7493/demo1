@@ -1,0 +1,10 @@
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/select2/js/select2.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/owl.carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/jquery.countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/js/jquery.actual.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/fancyBox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/jquery.elevatezoom.js"></script>
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/js/theme-script.js"></script>
