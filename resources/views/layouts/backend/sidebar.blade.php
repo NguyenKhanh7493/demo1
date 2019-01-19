@@ -197,6 +197,12 @@
                     <li> <a href="{{ route('postList') }}">Danh sách</a></li>
                 </ul>
             </li>
+            <li><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-picture-o" aria-hidden="true"></i> <span class="hide-menu">Banner<span class="fa arrow"></span></span></a>
+                <ul class="nav nav-second-level">
+                    <li> <a href="{{ route('bannerCreate') }}">Thêm mới</a></li>
+                    <li> <a href="{{ route('bannerList') }}">Danh sách</a></li>
+                </ul>
+            </li>
 
             {{--<li><a href="javascript:void(0);" class="waves-effect"><i class="icon-handbag fa-fw"></i> <span class="hide-menu">Vendors<span class="fa arrow"></span></span></a>--}}
                 {{--<ul class="nav nav-second-level">--}}

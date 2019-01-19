@@ -55,6 +55,15 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::delete('/delete','Admin\PostController@delImgPost');
         Route::delete('/deletePost','Admin\PostController@destroy');
     });
+    Route::group(['prefix'=>'banner'],function (){
+        Route::get('/','Admin\BannerController@index')->name('bannerList');
+        Route::get('/create','Admin\BannerController@create')->name('bannerCreate');
+        Route::post('/create','Admin\BannerController@store');
+        // Route::get('/edit/{id}','Admin\PostController@edit')->name('postEdit');
+        // Route::patch('/edit/{id}','Admin\PostController@update');
+        // Route::delete('/delete','Admin\PostController@delImgPost');
+        // Route::delete('/deletePost','Admin\PostController@destroy');
+    });
 });
 
 Route::post('login','Auth\LoginController@login')->name('login');

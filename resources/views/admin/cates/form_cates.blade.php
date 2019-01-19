@@ -72,6 +72,10 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="form-group">
+                    {!! Form::label('labStt','Thứ tự hiển thị') !!}
+                    {!! Form::text('sort',null,['class'=>'form-control','placeholder'=>'Nhập thứ tự hiển thị']) !!}
+                </div>
+                <div class="form-group">
                     <div class="checkbox">
                         {{--<input type="checkbox" id="status" value="1" name="status"  class="js-switch" data-color="#99d683"/> status--}}
                         {!! Form::checkbox('status','1',null,['class'=>'js-switch','data-color'=>'#99d683']) !!} Status

@@ -36,6 +36,7 @@
                             <th>Tên</th>
                             <th>menu cha</th>
                             <th>Hiển thị</th>
+                            <th>STT hiển thị</th>
                             <th>tùy chọn</th>
                         </tr>
                         </thead>
@@ -65,6 +66,7 @@
                                         {{ 'footer' }}
                                     @endif
                             </td>
+                            <td>{{$item->sort}}</td>
                             <td>
                                 <a href="{{ route('editCate',$item->id) }}" id="editItem"><i class="ti-pencil text-success"></i></a> |
                                 <a href="javascript:void(0)" class="delCate" data-msg="Bạn muốn xóa?" data-id="{{ $item->id }}" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>

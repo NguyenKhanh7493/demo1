@@ -8,7 +8,7 @@ class Cate extends Model
 {
     protected $table = "cates";
     protected $fillable = [
-        'id','name','alias','status','parent_id','type','menu_top','menu_right','icon','footer','keywords','description','content',
+        'id','name','alias','status','parent_id','type','menu_top','menu_right','icon','footer','keywords','description','content','sort',
     ];
     public function product(){
         return $this->hasMany('App\Product');
