@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Banner;
+use App\Http\Requests\BannerAddRequest;
+use App\Http\Requests\BannerEditRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,7 +26,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/banner/form');
     }
 
     /**
@@ -33,7 +35,7 @@ class BannerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BannerAddRequest $request)
     {
         //
     }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 18, 2019 lúc 10:48 AM
--- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.11
+-- Thời gian đã tạo: Th1 20, 2019 lúc 10:23 AM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `demo1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `banners`
+--
+
+CREATE TABLE `banners` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `banner_center` int(11) DEFAULT NULL,
+  `banner_right` int(11) DEFAULT NULL,
+  `banner_bottom` int(11) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52,11 +72,11 @@ CREATE TABLE `cates` (
 --
 
 INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu_top`, `menu_right`, `icon`, `footer`, `keywords`, `description`, `content`, `created_at`, `updated_at`, `sort`) VALUES
-(2, 'Trang chủ', 'trang-chu', 1, 0, NULL, 1, NULL, NULL, NULL, 'Trang chủ bán laptop', 'Cửa hàng bán laptop', NULL, '2019-01-18 02:29:56', '2019-01-18 02:29:56', NULL),
-(3, 'Giới thiệu', 'gioi-thieu', 1, 0, NULL, 1, NULL, NULL, NULL, 'Laptop giá rẻ nhất', 'Cửa hàng chúng tôi chuyên cung cấp laptop và các linh kiện chính hãng,cam kết 100%', NULL, '2019-01-18 02:30:52', '2019-01-18 02:30:52', NULL),
-(4, 'Sản phẩm', 'san-pham', 1, 0, NULL, 1, NULL, NULL, NULL, 'Sản phẩm đẹp', 'sản phẩm tốt', NULL, '2019-01-18 02:31:25', '2019-01-18 02:31:25', NULL),
-(5, 'Tin tức', 'tin-tuc', 1, 0, NULL, 1, NULL, NULL, NULL, 'Tin tức mới nhất', 'Tin tức trong ngày', NULL, '2019-01-18 02:32:41', '2019-01-18 02:32:41', NULL),
-(6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, NULL, NULL, NULL, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 02:33:37', NULL);
+(2, 'Trang chủ', 'trang-chu', 1, 0, NULL, 1, 0, NULL, 0, 'Trang chủ bán laptop', 'Cửa hàng bán laptop', NULL, '2019-01-18 02:29:56', '2019-01-18 22:04:25', 1),
+(3, 'Giới thiệu', 'gioi-thieu', 1, 0, NULL, 1, 0, NULL, 0, 'Laptop giá rẻ nhất', 'Cửa hàng chúng tôi chuyên cung cấp laptop và các linh kiện chính hãng,cam kết 100%', NULL, '2019-01-18 02:30:52', '2019-01-18 22:04:53', 2),
+(4, 'Sản phẩm', 'san-pham', 1, 0, NULL, 1, 0, NULL, 0, 'Sản phẩm đẹp', 'sản phẩm tốt', NULL, '2019-01-18 02:31:25', '2019-01-18 22:05:10', 3),
+(5, 'Tin tức', 'tin-tuc', 1, 0, NULL, 1, 0, NULL, 0, 'Tin tức mới nhất', 'Tin tức trong ngày', NULL, '2019-01-18 02:32:41', '2019-01-18 22:05:30', 4),
+(6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5);
 
 -- --------------------------------------------------------
 
@@ -119,7 +139,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2018_12_26_040147_create_table_products_table', 1),
 (25, '2018_12_27_082656_create_table_images_table', 1),
 (26, '2019_01_09_085823_create_table_posts_table', 1),
-(27, '2019_01_16_082502_create_table_customer_buy_table', 2);
+(27, '2019_01_16_082502_create_table_customer_buy_table', 2),
+(28, '2019_01_19_051933_create_table_banners_table', 3);
 
 -- --------------------------------------------------------
 
@@ -333,6 +354,12 @@ INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `password`, `address`, `
 --
 
 --
+-- Chỉ mục cho bảng `banners`
+--
+ALTER TABLE `banners`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `cates`
 --
 ALTER TABLE `cates`
@@ -419,6 +446,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `banners`
+--
+ALTER TABLE `banners`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
@@ -440,7 +473,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
