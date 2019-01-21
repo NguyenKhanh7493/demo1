@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerAddRequest extends FormRequest
+class BannerEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,13 @@ class BannerAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|image',
+            'name' => 'image',
             'title' => 'required',
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'Bạn chưa chọn ảnh',
             'name.image' => 'Ảnh chưa hỗ trợ',
             'title.required' => 'Bạn chưa nhập tiêu đề cho ảnh',
         ];

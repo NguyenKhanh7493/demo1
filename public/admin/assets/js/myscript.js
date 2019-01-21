@@ -230,3 +230,30 @@ $(document).ready(function () {
     });
 });
 //end
+
+//xóa banner
+$(document).ready(function () {
+    $('.DelBanner').click(function () {
+        var id = $(this).attr('data-id');
+        if(confirm('Bạn có muốn xóa '+ id)){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url:'http://demo1.site/admin/banner/deleteBanner',
+                type:'DELETE',
+                data:{id:id},
+                DataType:'json',
+                success:function (data) {
+                    console.log(data);
+                    $('tr#'+id).slideUp(300,function () {
+                        $(this).remove();
+                    });
+                }
+            });
+        }
+    });
+});
+//kết thúc

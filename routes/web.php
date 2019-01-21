@@ -59,10 +59,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::get('/','Admin\BannerController@index')->name('bannerList');
         Route::get('/create','Admin\BannerController@create')->name('bannerCreate');
         Route::post('/create','Admin\BannerController@store');
-        // Route::get('/edit/{id}','Admin\PostController@edit')->name('postEdit');
-        // Route::patch('/edit/{id}','Admin\PostController@update');
+         Route::get('/edit/{id}','Admin\BannerController@edit')->name('bannerEdit');
+         Route::patch('/edit/{id}','Admin\BannerController@update');
         // Route::delete('/delete','Admin\PostController@delImgPost');
-        // Route::delete('/deletePost','Admin\PostController@destroy');
+         Route::delete('/deleteBanner','Admin\BannerController@destroy');
     });
 });
 
