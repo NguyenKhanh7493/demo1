@@ -6,14 +6,16 @@
                 <div class="homeslider">
                     <div class="content-slide">
                         <ul id="contenhomeslider">
-                            <li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/banner1.jpg" title="Funky roots" /></li>
-                            <li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/banner2.jpg" title="Funky roots" /></li>
-                            <li><img  alt="Funky roots" src="{{url('/')}}/public/images/banner/banner3.jpg" title="Funky roots" /></li>
+                            @foreach($banner as $banners)
+                            <li><img src="{{url('/')}}/public/images/banner/{{ $banners->name }}" title="{{ $banners->title }}" /></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="header-banner banner-opacity">
-                    <a href="#"><img alt="Funky roots" src="{{url('/')}}/public/images/banner/banner4.jpg" /></a>
+                    @foreach($banner_right as $banner_rights)
+                    <a href="#"><img alt="Funky roots" src="{{url('/')}}/public/images/banner/{{ $banner_rights->name }}" /></a>
+                    @endforeach
                 </div>
             </div>
         </div>

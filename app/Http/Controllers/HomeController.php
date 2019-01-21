@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend/index');
+        $banner = Banner::where('banner_center',1)->where('status',1)->orderBy('id','DESC')->limit(3)->select('name','title','sort')->get();
+        $banner_right = Banner::where('banner_right',1)->where('status',1)->orderBy('id','DESC')->limit(1)->select('name','title','sort')->get();
+        $banner_bottom = Banner::where('banner_bottom',1)->where('status',1)->orderBy('id','DESC')->limit(2)->select('name','title','sort')->get();
+//        echo "<pre>";
+//        print_r($banner_bottom);
+//        echo "</pre>";die();
+        return view('frontend/index',
+            compact('banner','banner_right','banner_bottom')
+        );
     }
 
    // public function insertUser()

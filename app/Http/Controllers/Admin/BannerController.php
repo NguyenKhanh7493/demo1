@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use File,Session;
+use DateTime;
 class BannerController extends Controller
 {
     private $file = 'public/images/banner';
@@ -62,6 +63,7 @@ class BannerController extends Controller
         }
         $banner = Banner::create($requestData);
         if ($banner){
+            $banner = new  DateTime();
             Session::flash('success','Thêm banner thành công');
             return redirect()->route('bannerEdit',$banner->id);
         }else{

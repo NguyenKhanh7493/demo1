@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 20, 2019 lúc 10:23 AM
--- Phiên bản máy phục vụ: 10.1.37-MariaDB
--- Phiên bản PHP: 7.3.0
+-- Thời gian đã tạo: Th1 21, 2019 lúc 10:55 AM
+-- Phiên bản máy phục vụ: 10.1.36-MariaDB
+-- Phiên bản PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,6 +41,18 @@ CREATE TABLE `banners` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `banners`
+--
+
+INSERT INTO `banners` (`id`, `name`, `title`, `link`, `banner_center`, `banner_right`, `banner_bottom`, `sort`, `created_at`, `updated_at`, `status`) VALUES
+(5, 'banner1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-01-20 22:00:14', '2019-01-20 22:00:14', 1),
+(6, 'banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-01-20 22:00:32', '2019-01-20 22:00:32', 1),
+(7, 'banner2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-01-20 22:00:50', '2019-01-20 23:38:49', 1),
+(9, 'banner4.jpg', 'Giảm giá sốc', NULL, 0, 1, 0, 1, '2019-01-21 01:18:08', '2019-01-21 01:18:08', 1),
+(12, 'banner-bottom2.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:52:59', '2019-01-21 01:52:59', 1),
+(13, 'banner-bottom1.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:53:17', '2019-01-21 01:53:17', 1);
 
 -- --------------------------------------------------------
 
@@ -449,7 +461,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `cates`
