@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 21, 2019 lúc 10:55 AM
+-- Thời gian đã tạo: Th1 22, 2019 lúc 10:48 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -88,7 +88,8 @@ INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu
 (3, 'Giới thiệu', 'gioi-thieu', 1, 0, NULL, 1, 0, NULL, 0, 'Laptop giá rẻ nhất', 'Cửa hàng chúng tôi chuyên cung cấp laptop và các linh kiện chính hãng,cam kết 100%', NULL, '2019-01-18 02:30:52', '2019-01-18 22:04:53', 2),
 (4, 'Sản phẩm', 'san-pham', 1, 0, NULL, 1, 0, NULL, 0, 'Sản phẩm đẹp', 'sản phẩm tốt', NULL, '2019-01-18 02:31:25', '2019-01-18 22:05:10', 3),
 (5, 'Tin tức', 'tin-tuc', 1, 0, NULL, 1, 0, NULL, 0, 'Tin tức mới nhất', 'Tin tức trong ngày', NULL, '2019-01-18 02:32:41', '2019-01-18 22:05:30', 4),
-(6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5);
+(6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5),
+(7, 'Samsung', 'samsung', 1, 4, NULL, 1, NULL, NULL, NULL, 'sản phẩm samsung đẹp', 'sản phẩm samsung đẹp', NULL, '2019-01-22 02:35:51', '2019-01-22 02:35:51', 1);
 
 -- --------------------------------------------------------
 
@@ -461,13 +462,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`

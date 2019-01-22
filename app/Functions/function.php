@@ -45,3 +45,22 @@ function cate_parent($data,$parent = 0,$str="-",$select = 0){
         }
     }
 }
+function subMenu($data,$parent = 0){
+    echo '<li class="dropdown">';
+    foreach ($data as $key=>$val){
+        if ($val['parent_id'] == $parent){
+            echo '<a class="dropdown-toggle" data-toggle="dropdown">'.$val["name"]. '</a>';
+            $id = $val['id'];
+            echo '<ul class="dropdown-menu container-fluid">';
+            echo '<li class="block-container">';
+            echo '<ul class="block">';
+            echo '<li class="link_container">'.subMenu($data,$id);
+
+            echo '</li>';
+            echo '</ul>';
+            echo '</li>';
+            echo '</ul>';
+        }
+    }
+    echo "</li>";
+}
