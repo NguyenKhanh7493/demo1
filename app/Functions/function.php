@@ -45,22 +45,41 @@ function cate_parent($data,$parent = 0,$str="-",$select = 0){
         }
     }
 }
-function subMenu($data,$parent = 0){
-    echo '<li class="dropdown">';
-    foreach ($data as $key=>$val){
-        if ($val['parent_id'] == $parent){
-            echo '<a class="dropdown-toggle" data-toggle="dropdown">'.$val["name"]. '</a>';
-            $id = $val['id'];
-            echo '<ul class="dropdown-menu container-fluid">';
-            echo '<li class="block-container">';
-            echo '<ul class="block">';
-            echo '<li class="link_container">'.subMenu($data,$id);
+//function subMenu($data,$parent = 0){
+//    echo '<li class="dropdown">';
+//    foreach ($data as $key=>$val){
+//        if ($val['parent_id'] == $parent){
+//            echo '<a class="dropdown-toggle" data-toggle="dropdown">'.$val["name"]. '</a>';
+//            $id = $val['id'];
+//            echo '<ul class="dropdown-menu container-fluid">';
+//            echo '<li class="block-container">';
+//            echo '<ul class="block">';
+//            echo '<li class="link_container">'.subMenu($data,$id);
+//
+//
+//            echo '</li>';
+//            echo '</ul>';
+//            echo '</li>';
+//            echo '</ul>';
+//        }
+//    }
+//    echo "</li>";
+//}
 
+function subMenuLeft($data,$id){
+    echo '<ul class="dropdown-menu container-fluid">';
+    echo '<li class="block-container">';
+    echo '<ul class="block">';
+    foreach ($data as $key=>$val){
+        if ($val['parent_id'] == $id){
+            echo '<li class="link_container">'.$val['name'];
+            subMenuLeft($data,$val['id']);
             echo '</li>';
-            echo '</ul>';
-            echo '</li>';
-            echo '</ul>';
+
         }
     }
-    echo "</li>";
+    echo '</ul>';
+    echo '</li>';
+    echo '</ul>';
+
 }

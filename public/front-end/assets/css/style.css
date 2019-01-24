@@ -1042,7 +1042,7 @@ span.notify-right{
  [ 3.4 Main menu]
  */
 .nav-top-menu{
-    background: #ffa81e;
+    background: #42aadc;
     /*#eee*/
 }
 /*-----------------
@@ -1761,7 +1761,7 @@ span.notify-right{
     border:none;
 }
 .latest-deals .latest-deal-content{
-    border: 3px solid #ff3366;
+    border: 3px solid #ffa81e;
     padding: 20px 15px 10px 15px;
 }
 .latest-deals .count-down-time{

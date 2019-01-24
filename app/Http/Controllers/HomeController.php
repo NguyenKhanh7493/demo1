@@ -38,6 +38,9 @@ class HomeController extends Controller
             compact('banner','banner_right','banner_bottom','menu')
         );
     }
+    public function about(){
+        return view('frontend/about/about');
+    }
 
    // public function insertUser()
    // {

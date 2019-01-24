@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 22, 2019 lúc 10:48 AM
+-- Thời gian đã tạo: Th1 24, 2019 lúc 10:53 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -47,12 +47,12 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `name`, `title`, `link`, `banner_center`, `banner_right`, `banner_bottom`, `sort`, `created_at`, `updated_at`, `status`) VALUES
-(5, 'banner1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-01-20 22:00:14', '2019-01-20 22:00:14', 1),
-(6, 'banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-01-20 22:00:32', '2019-01-20 22:00:32', 1),
-(7, 'banner2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-01-20 22:00:50', '2019-01-20 23:38:49', 1),
 (9, 'banner4.jpg', 'Giảm giá sốc', NULL, 0, 1, 0, 1, '2019-01-21 01:18:08', '2019-01-21 01:18:08', 1),
 (12, 'banner-bottom2.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:52:59', '2019-01-21 01:52:59', 1),
-(13, 'banner-bottom1.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:53:17', '2019-01-21 01:53:17', 1);
+(13, 'banner-bottom1.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:53:17', '2019-01-21 01:53:17', 1),
+(14, 'new-banner1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-01-24 00:14:57', '2019-01-24 00:14:57', 1),
+(15, 'new-banner2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-01-24 00:16:36', '2019-01-24 00:16:36', 1),
+(16, 'new-banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-01-24 00:16:51', '2019-01-24 00:16:51', 1);
 
 -- --------------------------------------------------------
 
@@ -223,8 +223,11 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (5, 3),
 (6, 1),
 (6, 2),
+(7, 1),
 (7, 5),
+(8, 1),
 (8, 5),
+(9, 1),
 (9, 5);
 
 -- --------------------------------------------------------
@@ -462,7 +465,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `cates`

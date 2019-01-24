@@ -128,7 +128,7 @@
 	padding-top: 9px;
 }
 .option2 .main-header .header-search-box .form-inline .btn-search{
-	background-color: #958457;
+	background-color: #42aadc;
 }
 
 .option2 .nav-top-menu.nav-ontop{
@@ -136,7 +136,7 @@
 }
 .option2 #main-menu .navbar{
 	border-radius: 0;
-	background: #958457;
+	background: #42aadc;
 }
 .option2 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -148,7 +148,7 @@
 .option2 #main-menu .navbar .navbar-nav>li:hover, 
 .option2 #main-menu .navbar .navbar-nav>li.active{
 	background-image: none;
-	background: #ab9d77;
+	background: #48c2dc;
 }
 .option2 #main-menu .navbar .navbar-nav>li:hover a, 
 .option2 #main-menu .navbar .navbar-nav>li.active a{
@@ -168,7 +168,7 @@
 }
 
 .option2 .box-vertical-megamenus .title{
-	background: #4c311d;
+	background: #42aadc;
 }
 .option2 .box-vertical-megamenus .vertical-menu-content{
 	border-top: none;
@@ -208,11 +208,11 @@
 }
 .option2 .header-top-right .homeslider .bx-controls-direction .bx-prev, 
 .option2 .header-top-right .homeslider .bx-controls-direction .bx-next{
-	background: #958457;
+	background: #42aadc;
 }
 .option2 .header-top-right .homeslider .bx-wrapper .bx-pager.bx-default-pager a:hover,
 .option2 .header-top-right .homeslider .bx-wrapper .bx-pager.bx-default-pager a.active{
-	background: #958457;
+	background: #42aadc;
 }
 
 .option2 .box-vertical-megamenus .vertical-menu-list {
