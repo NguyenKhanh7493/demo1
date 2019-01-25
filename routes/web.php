@@ -75,4 +75,5 @@ Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/','HomeController@index');
 Route::get('/about','HomeController@about');
+Route::get('/contact','HomeController@contact');
 //Route::get('/insert-user','HomeController@insertUser');

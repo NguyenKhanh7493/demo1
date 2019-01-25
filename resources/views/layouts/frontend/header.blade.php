@@ -127,7 +127,7 @@
                 <div class="col-sm-3" id="box-vertical-megamenus">
                     <div class="box-vertical-megamenus">
                         <h4 class="title">
-                            <span class="title-menu">DANH MỤC SẢN PHÂ</span>
+                            <span class="title-menu">DANH MỤC SẢN PHÂM</span>
                             <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
                         </h4>
                         <div class="vertical-menu-content is-home">

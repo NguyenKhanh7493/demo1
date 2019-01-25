@@ -41,6 +41,9 @@ class HomeController extends Controller
     public function about(){
         return view('frontend/about/about');
     }
+    public function contact(){
+        return view('frontend/contact/contact');
+    }
 
    // public function insertUser()
    // {
