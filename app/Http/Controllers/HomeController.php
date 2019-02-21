@@ -31,11 +31,29 @@ class HomeController extends Controller
         $banner_right = Banner::where('banner_right',1)->where('status',1)->orderBy('id','DESC')->limit(1)->select('name','title','sort')->get();
         $banner_bottom = Banner::where('banner_bottom',1)->where('status',1)->orderBy('id','DESC')->limit(2)->select('name','title','sort')->get();
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
+        $arr_menu = [];
+        foreach ($menu as $menus){
+            $arr_child = [];
+//            echo "<pre>";
+//            print_r($menus);
+//            echo "</pre>";
+            if($menus['parent_id'] == 0){
+                $id = $menus['id'];
+                foreach ($menu as $menus2){
+                    if($menus2['parent_id'] == $id){
+                       array_push($arr_child, $menus2);
+                    }
+                }
+                $temp = ['parent' => $menus, 'child' => $arr_child];
+                array_push( $arr_menu, $temp);
+            }
+        }
 //        echo "<pre>";
-//        print_r($menu);
-//        echo "</pre>";die();
+//        print_r($arr_menu);
+//        echo "</pre>";
+//        die();
         return view('frontend/index',
-            compact('banner','banner_right','banner_bottom','menu')
+            compact('banner','banner_right','banner_bottom','menu','arr_menu')
         );
     }
     public function about(){

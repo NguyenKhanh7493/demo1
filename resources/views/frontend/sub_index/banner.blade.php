@@ -66,12 +66,11 @@
 <div id="home-slider">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 slider-left"></div>
-            <div class="col-sm-9 header-top-right">
+            <div class="col-sm-12 header-top-right">
                 <div class="homeslider">
                     <ul id="contenhomeslider">
                         @foreach($banner as $banners)
-                        <li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/{{ $banners->name }}" title="{{ $banners->title }}" /></li>
+                            <li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/{{ $banners->name }}" title="{{ $banners->title }}" /></li>
                         @endforeach
                     </ul>
                 </div>
@@ -79,3 +78,19 @@
         </div>
     </div>
 </div>
+{{--<div id="home-slider">--}}
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<div class="col-sm-3 slider-left"></div>--}}
+            {{--<div class="col-sm-12 header-top-right">--}}
+                {{--<div class="homeslider">--}}
+                    {{--<ul id="contenhomeslider">--}}
+                        {{--@foreach($banner as $banners)--}}
+                        {{--<li><img alt="Funky roots" src="{{url('/')}}/public/images/banner/{{ $banners->name }}" title="{{ $banners->title }}" /></li>--}}
+                        {{--@endforeach--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
