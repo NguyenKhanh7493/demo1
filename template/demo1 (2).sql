@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 24, 2019 lúc 10:53 AM
+-- Thời gian đã tạo: Th2 22, 2019 lúc 10:20 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -47,12 +47,11 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `name`, `title`, `link`, `banner_center`, `banner_right`, `banner_bottom`, `sort`, `created_at`, `updated_at`, `status`) VALUES
-(9, 'banner4.jpg', 'Giảm giá sốc', NULL, 0, 1, 0, 1, '2019-01-21 01:18:08', '2019-01-21 01:18:08', 1),
 (12, 'banner-bottom2.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:52:59', '2019-01-21 01:52:59', 1),
 (13, 'banner-bottom1.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:53:17', '2019-01-21 01:53:17', 1),
-(14, 'new-banner1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-01-24 00:14:57', '2019-01-24 00:14:57', 1),
-(15, 'new-banner2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-01-24 00:16:36', '2019-01-24 00:16:36', 1),
-(16, 'new-banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-01-24 00:16:51', '2019-01-24 00:16:51', 1);
+(17, 'news-banner1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-02-20 22:41:31', '2019-02-20 22:41:31', 1),
+(18, 'news-banner2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-02-20 22:41:56', '2019-02-20 22:41:56', 1),
+(19, 'news-banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-02-20 22:42:13', '2019-02-20 22:42:13', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +88,8 @@ INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu
 (4, 'Sản phẩm', 'san-pham', 1, 0, NULL, 1, 0, NULL, 0, 'Sản phẩm đẹp', 'sản phẩm tốt', NULL, '2019-01-18 02:31:25', '2019-01-18 22:05:10', 3),
 (5, 'Tin tức', 'tin-tuc', 1, 0, NULL, 1, 0, NULL, 0, 'Tin tức mới nhất', 'Tin tức trong ngày', NULL, '2019-01-18 02:32:41', '2019-01-18 22:05:30', 4),
 (6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5),
-(7, 'Samsung', 'samsung', 1, 4, NULL, 1, NULL, NULL, NULL, 'sản phẩm samsung đẹp', 'sản phẩm samsung đẹp', NULL, '2019-01-22 02:35:51', '2019-01-22 02:35:51', 1);
+(7, 'Samsung', 'samsung', 1, 4, NULL, 1, NULL, NULL, NULL, 'sản phẩm samsung đẹp', 'sản phẩm samsung đẹp', NULL, '2019-01-22 02:35:51', '2019-01-22 02:35:51', 1),
+(8, 'Apple', 'apple', 1, 4, 1, 1, 0, NULL, 0, 'ád', 'ád', NULL, '2019-02-21 02:27:13', '2019-02-21 02:29:01', 10);
 
 -- --------------------------------------------------------
 
@@ -127,6 +127,15 @@ CREATE TABLE `images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `images`
+--
+
+INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`, `created_at`, `updated_at`) VALUES
+(1, '13034510073_c99dc89679_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
+(2, '13034541673_1df0512e0b_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
+(3, '10-1_Opt.jpg', 'ád', 1, 2, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08');
 
 -- --------------------------------------------------------
 
@@ -289,6 +298,14 @@ CREATE TABLE `products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
+(1, 'Apple', 'apple', 3, 200, 56, NULL, 'sp1.jpg', 0, 0, 0, 1, 1, 'Sản phẩm mới', 'Đây là sản phẩm mới nhất của apple', 'sdf', 'sdf', 'sdf', 4, 2, NULL, NULL, '2019-02-21 02:25:31', '2019-02-21 21:26:12'),
+(2, 'Apple x32', 'apple-x32', 3, 3000000, 2000000, NULL, '370x200_A510UN-EJ521T.jpg', 0, 0, 0, 1, 1, 'ád', 'ád', 'e', 'f', 'fe', 8, 1, NULL, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08');
 
 -- --------------------------------------------------------
 
@@ -465,13 +482,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`
@@ -483,7 +500,7 @@ ALTER TABLE `customer_buy`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -507,7 +524,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Banner;
 use App\Cate;
+use App\Product;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $banner_right = Banner::where('banner_right',1)->where('status',1)->orderBy('id','DESC')->limit(1)->select('name','title','sort')->get();
         $banner_bottom = Banner::where('banner_bottom',1)->where('status',1)->orderBy('id','DESC')->limit(2)->select('name','title','sort')->get();
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
+        $best_sale = Product::where('best_sale',1)->orderBy('id','DESC')->limit(6)->get();
         $arr_menu = [];
         foreach ($menu as $menus){
             $arr_child = [];
@@ -53,7 +55,7 @@ class HomeController extends Controller
 //        echo "</pre>";
 //        die();
         return view('frontend/index',
-            compact('banner','banner_right','banner_bottom','menu','arr_menu')
+            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale')
         );
     }
     public function about(){
