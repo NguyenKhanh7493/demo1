@@ -39,18 +39,18 @@
                             @foreach($best_sale as $best_sales)
                         <li>
                             <div class="left-block">
-                                <a href="detail2.html"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/sp1.jpg" /></a>
+                                <a href="detail2.html"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/hl1.jpg" /></a>
                                 <div class="quick-view">
                                     {{--<a title="Add to my wishlist" class="heart" href="#"></a>--}}
                                     {{--<a title="Add to compare" class="compare" href="#"></a>--}}
                                     {{--<a title="Quick view" class="search" href="#"></a>--}}
                                 </div>
                                 <div class="add-to-cart">
-                                    <a title="Add to Cart" href="#">Thêm vào giỏ</a>
+                                    <a title="Thêm vào giỏ" href="#">Thêm vào giỏ</a>
                                 </div>
                             </div>
                             <div class="right-block">
-                                <h5 class="product-name"><a href="detail2.html">{{ $best_sales->name }}</a></h5>
+                                <h5 class="product-name"><a href="{{ route('product_detail',$best_sales->alias) }}">{{ $best_sales->name }}</a></h5>
                                 <div class="content_price">
                                     <span class="price product-price">{{ $best_sales->price_new }} vnđ</span>
                                     <span class="price old-price">{{ $best_sales->price_old }} vnđ</span>

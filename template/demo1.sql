@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 22, 2019 lúc 10:20 AM
--- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.11
+-- Thời gian đã tạo: Th2 24, 2019 lúc 10:41 AM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,9 +49,9 @@ CREATE TABLE `banners` (
 INSERT INTO `banners` (`id`, `name`, `title`, `link`, `banner_center`, `banner_right`, `banner_bottom`, `sort`, `created_at`, `updated_at`, `status`) VALUES
 (12, 'banner-bottom2.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:52:59', '2019-01-21 01:52:59', 1),
 (13, 'banner-bottom1.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:53:17', '2019-01-21 01:53:17', 1),
-(17, 'news-banner1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-02-20 22:41:31', '2019-02-20 22:41:31', 1),
-(18, 'news-banner2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-02-20 22:41:56', '2019-02-20 22:41:56', 1),
-(19, 'news-banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-02-20 22:42:13', '2019-02-20 22:42:13', 1);
+(17, 'banner-1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-02-20 22:41:31', '2019-02-22 07:36:14', 1),
+(18, 'banner-2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-02-20 22:41:56', '2019-02-22 07:41:04', 1),
+(19, 'banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-02-20 22:42:13', '2019-02-22 07:44:30', 1);
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,9 @@ INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu
 (4, 'Sản phẩm', 'san-pham', 1, 0, NULL, 1, 0, NULL, 0, 'Sản phẩm đẹp', 'sản phẩm tốt', NULL, '2019-01-18 02:31:25', '2019-01-18 22:05:10', 3),
 (5, 'Tin tức', 'tin-tuc', 1, 0, NULL, 1, 0, NULL, 0, 'Tin tức mới nhất', 'Tin tức trong ngày', NULL, '2019-01-18 02:32:41', '2019-01-18 22:05:30', 4),
 (6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5),
-(7, 'Samsung', 'samsung', 1, 4, NULL, 1, NULL, NULL, NULL, 'sản phẩm samsung đẹp', 'sản phẩm samsung đẹp', NULL, '2019-01-22 02:35:51', '2019-01-22 02:35:51', 1),
-(8, 'Apple', 'apple', 1, 4, 1, 1, 0, NULL, 0, 'ád', 'ád', NULL, '2019-02-21 02:27:13', '2019-02-21 02:29:01', 10);
+(9, 'Hoa lan', 'hoa-lan', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa lan đẹp nhất', 'hoa lan đẹp nhất', NULL, '2019-02-22 06:12:56', '2019-02-22 06:12:56', 1),
+(10, 'Hoa hồng', 'hoa-hong', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa hồng đẹp nhất', 'Hoa hồng đẹp nhất', NULL, '2019-02-22 06:13:51', '2019-02-22 06:13:51', 1),
+(11, 'Hoa mai', 'hoa-mai', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa mai đẹp', 'Hoa mai đẹp', NULL, '2019-02-22 06:15:45', '2019-02-22 06:15:45', 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,11 @@ CREATE TABLE `images` (
 INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`, `created_at`, `updated_at`) VALUES
 (1, '13034510073_c99dc89679_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
 (2, '13034541673_1df0512e0b_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
-(3, '10-1_Opt.jpg', 'ád', 1, 2, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08');
+(3, '10-1_Opt.jpg', 'ád', 1, 2, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08'),
+(4, '2-lan-ho-diep-dep-phoi-ghep-3-canh-tim-bong-to-TMS-27.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-22 06:19:43', '2019-02-22 06:19:43'),
+(5, 'chau-de-ban-lan-ho-diep-9-canh-trang-tim-10_master.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-22 06:19:43', '2019-02-22 06:19:43'),
+(6, 'Nhung bo hoa hong tuyet dep (1).jpg', 'Hoa hồng đỏ đẹp', 1, 4, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24'),
+(7, 'tuyen-tap-hinh-anh-hoa-hong-dep-danh-tang-nguoi-yeu-ngay-142-5.jpg', 'Hoa hồng đỏ đẹp', 1, 4, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24');
 
 -- --------------------------------------------------------
 
@@ -304,8 +309,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
-(1, 'Apple', 'apple', 3, 200, 56, NULL, 'sp1.jpg', 0, 0, 0, 1, 1, 'Sản phẩm mới', 'Đây là sản phẩm mới nhất của apple', 'sdf', 'sdf', 'sdf', 4, 2, NULL, NULL, '2019-02-21 02:25:31', '2019-02-21 21:26:12'),
-(2, 'Apple x32', 'apple-x32', 3, 3000000, 2000000, NULL, '370x200_A510UN-EJ521T.jpg', 0, 0, 0, 1, 1, 'ád', 'ád', 'e', 'f', 'fe', 8, 1, NULL, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08');
+(3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'hl1.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', 're', 're', 're', 9, 2, NULL, NULL, '2019-02-22 06:19:43', '2019-02-22 06:19:43'),
+(4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hh.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, NULL, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24'),
+(5, 'Hoa 2', 'hoa-2', 3, 3000000, 2000000, NULL, 'ulEK-ta-hoa-hong-1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng', 'ad', 'ad', 'ad', 'ad', 2, 1, NULL, NULL, '2019-02-23 01:24:03', '2019-02-23 01:24:03'),
+(6, 'hoa 3', 'hoa-3', 3, 3333333, 3333333, NULL, 'hinh-anh-hoa-mai-ngay-tet-1.jpg', 0, 0, 0, 1, 1, 'Hoa đẹp lắm', 'ad', 'ad', 'ad', 'ad', 2, 1, NULL, NULL, '2019-02-23 01:25:17', '2019-02-23 01:25:17'),
+(7, 'hoa 4', 'hoa-4', 3, 4343434, 3434343, NULL, 'hoa-hong-dep-va-y-nghia-nhat.jpg', 0, 0, 0, 1, 1, 'hoa hoa', 'ad', 'ad', 'ad', 'ad', 9, 2, NULL, NULL, '2019-02-23 01:25:57', '2019-02-23 01:25:57'),
+(8, 'hoa 5', 'hoa-5', 3, 44444444, 44444444, NULL, 'Nhung bo hoa hong tuyet dep (1).jpg', 0, 0, 0, 1, 1, 'ad', 'adadad', 'adad', 'adad', 'adad', 9, 2, NULL, NULL, '2019-02-23 01:26:35', '2019-02-23 01:26:35');
 
 -- --------------------------------------------------------
 
@@ -488,7 +497,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`
@@ -500,7 +509,7 @@ ALTER TABLE `customer_buy`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -524,7 +533,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`

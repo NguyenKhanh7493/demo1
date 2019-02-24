@@ -91,7 +91,7 @@
 	background: #42aadc;
 }
 .option2 .product-list li .add-to-cart:hover{
-	background: #42aadc;
+	background: #22d248;
 }
 .option2 .product-list li .product-price {
 	color: #f96d10;
@@ -128,7 +128,7 @@
 	padding-top: 9px;
 }
 .option2 .main-header .header-search-box .form-inline .btn-search{
-	background-color: #42aadc;
+	background-color: #22d248;
 }
 
 /*.option2 .nav-top-menu.nav-ontop{*/
@@ -136,7 +136,8 @@
 /*}*/
 .option2 #main-menu .navbar{
 	border-radius: 0;
-	background: #42aadc;
+	background: #22d248;
+	/*#42aadc*/
 }
 .option2 #main-menu .navbar-default .navbar-nav>li>a{
 	color: #fff;
@@ -208,7 +209,7 @@
 }
 .option2 .header-top-right .homeslider .bx-controls-direction .bx-prev, 
 .option2 .header-top-right .homeslider .bx-controls-direction .bx-next{
-	background: #42aadc;
+	background: #22d248;
 }
 .option2 .header-top-right .homeslider .bx-wrapper .bx-pager.bx-default-pager a:hover,
 .option2 .header-top-right .homeslider .bx-wrapper .bx-pager.bx-default-pager a.active{
