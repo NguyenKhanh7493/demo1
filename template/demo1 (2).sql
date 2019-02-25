@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 24, 2019 lúc 10:41 AM
--- Phiên bản máy phục vụ: 10.1.37-MariaDB
--- Phiên bản PHP: 7.3.0
+-- Thời gian đã tạo: Th2 25, 2019 lúc 10:50 AM
+-- Phiên bản máy phục vụ: 10.1.36-MariaDB
+-- Phiên bản PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;

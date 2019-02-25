@@ -52,8 +52,8 @@
                             <div class="right-block">
                                 <h5 class="product-name"><a href="{{ route('product_detail',$best_sales->alias) }}">{{ $best_sales->name }}</a></h5>
                                 <div class="content_price">
-                                    <span class="price product-price">{{ $best_sales->price_new }} vnđ</span>
-                                    <span class="price old-price">{{ $best_sales->price_old }} vnđ</span>
+                                    <span class="price product-price">{{ number_format($best_sales->price_new) }} vnđ</span>
+                                    <span class="price old-price">{{ number_format($best_sales->price_old) }} vnđ</span>
                                 </div>
                             </div>
                         </li>

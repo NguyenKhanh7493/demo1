@@ -6,6 +6,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
+use DB;
 
 class Product_detail extends Controller
 {
@@ -26,9 +27,13 @@ class Product_detail extends Controller
             }
         }
         $product_detail = Product::where('alias','like',$name)->get();
+        $product_images = DB::table('products')
+                            ->join('images','products.id','=','images.item_id')
+                            ->where('alias','like',$name)
+                            ->where('images.item_type',1)->get();
 //        echo "<pre>";
-//        print_r($test);die();
+//        print_r($product_images);die();
 //        echo "</pre>";
-        return view('frontend/product/product_detail',compact('arr_menu','product_detail'));
+        return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images'));
     }
 }

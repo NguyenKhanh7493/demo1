@@ -23,38 +23,38 @@
                             <!-- product-imge-->
                             <div class="product-image">
                                 <div class="product-full">
-                                    <img id="product-zoom" src='{{url('/')}}/public/front-end/assets/data/product-s3-420x512.jpg' data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s3-850x1036.jpg"/>
+                                    <img id="product-zoom" src='{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}' data-zoom-image="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}"/>
                                 </div>
                                 <div class="product-img-thumb" id="gallery_01">
                                     <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="21" data-loop="false">
                                         <li>
                                             <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s3-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s3-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/front-end/assets/data/product-s3-100x122.jpg" />
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s2-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s2-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/front-end/assets/data/product-s2-100x122.jpg" />
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/front-end/assets/data/product-100x122.jpg" />
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s4-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s4-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/front-end/assets/data/product-s4-100x122.jpg" />
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s5-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s5-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/front-end/assets/data/product-s5-100x122.jpg" />
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s6-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s6-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/front-end/assets/data/product-s6-100x122.jpg" />
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
                                             </a>
                                         </li>
                                     </ul>
@@ -78,35 +78,37 @@
                                 </div>
                             </div>
                             <div class="product-price-group">
-                                <span class="price">{{ $product_detail[0]->price_old }} Đ</span>
+                                <span class="price">{{ number_format($product_detail[0]->price_old) }} Đ</span>
                                 {{--<span class="old-price">{{ $product_detail[0]->price_old }}</span>--}}
                                 {{--<span class="discount">-30%</span>--}}
                             </div>
-                            <div class="info-orther">
-                                <p>Item Code: #453217907</p>
-                                <p>Availability: <span class="in-stock">In stock</span></p>
-                                <p>Condition: New</p>
+                            <div class="info-orther" style="font-weight: 600;">
+                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Product ID : {{ $product_detail[0]->id }}</p>
+                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Đặt hoa online</p>
+                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Giao hàng miễn phí</p>
+                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Giao hàng nhận tiền</p>
+                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Hỗ trợ nhiệt tình</p>
                             </div>
                             <div class="product-desc">
                                 Vestibulum eu odio. Suspendisse potenti. Morbi mollis tellus ac sapien. Praesent egestas tristique nibh. Nullam dictum felis eu pede mollis pretium.Fusce egestas elit eget lorem.
                             </div>
                             <div class="form-option">
-                                <p class="form-option-title">Available Options:</p>
+                                {{--<p class="form-option-title">Available Options:</p>--}}
+                                {{--<div class="attributes">--}}
+                                    {{--<div class="attribute-label">Color:</div>--}}
+                                    {{--<div class="attribute-list">--}}
+                                        {{--<ul class="list-color">--}}
+                                            {{--<li style="background:#0c3b90;"><a href="#">red</a></li>--}}
+                                            {{--<li style="background:#036c5d;" class="active"><a href="#">red</a></li>--}}
+                                            {{--<li style="background:#5f2363;"><a href="#">red</a></li>--}}
+                                            {{--<li style="background:#ffc000;"><a href="#">red</a></li>--}}
+                                            {{--<li style="background:#36a93c;"><a href="#">red</a></li>--}}
+                                            {{--<li style="background:#ff0000;"><a href="#">red</a></li>--}}
+                                        {{--</ul>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <div class="attributes">
-                                    <div class="attribute-label">Color:</div>
-                                    <div class="attribute-list">
-                                        <ul class="list-color">
-                                            <li style="background:#0c3b90;"><a href="#">red</a></li>
-                                            <li style="background:#036c5d;" class="active"><a href="#">red</a></li>
-                                            <li style="background:#5f2363;"><a href="#">red</a></li>
-                                            <li style="background:#ffc000;"><a href="#">red</a></li>
-                                            <li style="background:#36a93c;"><a href="#">red</a></li>
-                                            <li style="background:#ff0000;"><a href="#">red</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="attributes">
-                                    <div class="attribute-label">Qty:</div>
+                                    <div class="attribute-label">SL:</div>
                                     <div class="attribute-list product-qty">
                                         <div class="qty">
                                             <input id="option-product-qty" type="text" value="1">
@@ -121,39 +123,40 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="attributes">
-                                    <div class="attribute-label">Size:</div>
-                                    <div class="attribute-list">
-                                        <select>
-                                            <option value="1">X</option>
-                                            <option value="2">XL</option>
-                                            <option value="3">XXL</option>
-                                        </select>
-                                        <a id="size_chart" class="fancybox" href="{{url('/')}}/public/front-end/assets/data/size-chart.jpg">Size Chart</a>
-                                    </div>
+                                {{--<div class="attributes">--}}
+                                    {{--<div class="attribute-label">Size:</div>--}}
+                                    {{--<div class="attribute-list">--}}
+                                        {{--<select>--}}
+                                            {{--<option value="1">X</option>--}}
+                                            {{--<option value="2">XL</option>--}}
+                                            {{--<option value="3">XXL</option>--}}
+                                        {{--</select>--}}
+                                        {{--<a id="size_chart" class="fancybox" href="{{url('/')}}/public/front-end/assets/data/size-chart.jpg">Size Chart</a>--}}
+                                    {{--</div>--}}
 
-                                </div>
+                                {{--</div>--}}
                             </div>
                             <div class="form-action">
                                 <div class="button-group">
-                                    <a class="btn-add-cart" href="#">Add to cart</a>
+                                    <a class="btn-buy" href="#">Mua hàng</a>
+                                    <a class="btn-buy" href="#">Thêm vào giỏ</a>
                                 </div>
-                                <div class="button-group">
-                                    <a class="wishlist" href="#"><i class="fa fa-heart-o"></i>
-                                        <br>Wishlist</a>
-                                    <a class="compare" href="#"><i class="fa fa-signal"></i>
-                                        <br>
-                                        Compare</a>
-                                </div>
+                                {{--<div class="button-group">--}}
+                                    {{--<a class="wishlist" href="#"><i class="fa fa-heart-o"></i>--}}
+                                        {{--<br>Wishlist</a>--}}
+                                    {{--<a class="compare" href="#"><i class="fa fa-signal"></i>--}}
+                                        {{--<br>--}}
+                                        {{--Compare</a>--}}
+                                {{--</div>--}}
                             </div>
-                            <div class="form-share">
-                                <div class="sendtofriend-print">
-                                    <a href="javascript:print();"><i class="fa fa-print"></i> Print</a>
-                                    <a href="#"><i class="fa fa-envelope-o fa-fw"></i>Send to a friend</a>
-                                </div>
-                                <div class="network-share">
-                                </div>
-                            </div>
+                            {{--<div class="form-share">--}}
+                                {{--<div class="sendtofriend-print">--}}
+                                    {{--<a href="javascript:print();"><i class="fa fa-print"></i> Print</a>--}}
+                                    {{--<a href="#"><i class="fa fa-envelope-o fa-fw"></i>Send to a friend</a>--}}
+                                {{--</div>--}}
+                                {{--<div class="network-share">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                     <!-- tab product -->

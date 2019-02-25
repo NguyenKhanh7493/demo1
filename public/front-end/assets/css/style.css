@@ -3838,7 +3838,7 @@ span.notify-right{
   margin-right: 15px;
 }
 #product .pb-right-column .product-price-group .price{
-  font-size: 18px;
+  font-size: 21px;
   font-weight: bold;
   color: #ff3366;
 }
@@ -5921,4 +5921,22 @@ span.notify-right{
   bottom: 20px;
   left: 0;
   background-color:rgba(255,102,0,0.8);
+}
+/*tự thêm sau này*/
+.btn-buy{
+    height: 35px;
+    width: auto;
+    line-height: 35px;
+    font-size: 14px;
+    color: #fff;
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+    clear: both;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #F36;
+}
+.button-group a:hover{
+    color: #fff !important;
 }
