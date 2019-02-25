@@ -4,15 +4,11 @@
     <div class="container" id="columns">
         <!-- breadcrumb -->
         <div class="breadcrumb clearfix">
-            <a class="home" href="#" title="Return to Home">Home</a>
+            <a class="home" href="{{ route('home') }}" title="Return to Home">Trang chủ</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Fashion</a>
+            <a href="#" title="Return to Home">Sản phẩm</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Women</a>
-            <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Dresses</a>
-            <span class="navigation-pipe">&nbsp;</span>
-            <span class="navigation_page">Maecenas consequat mauris</span>
+            <a href="#" title="Return to Home">{{ $product_detail[0]->name }}</a>
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
@@ -67,24 +63,24 @@
                             <!-- product-imge-->
                         </div>
                         <div class="pb-right-column col-xs-12 col-sm-7">
-                            <h1 class="product-name">Maecenas consequat mauris</h1>
+                            <h1 class="product-name">{{ $product_detail[0]->name }}</h1>
                             <div class="product-comments">
                                 <div class="product-star">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
+                                    {{--<i class="fa fa-star"></i>--}}
+                                    {{--<i class="fa fa-star"></i>--}}
+                                    {{--<i class="fa fa-star"></i>--}}
+                                    {{--<i class="fa fa-star"></i>--}}
+                                    {{--<i class="fa fa-star-half-o"></i>--}}
                                 </div>
                                 <div class="comments-advices">
-                                    <a href="#">Based  on 3 ratings</a>
-                                    <a href="#"><i class="fa fa-pencil"></i> write a review</a>
+                                    {{--<a href="#">Based  on 3 ratings</a>--}}
+                                    {{--<a href="#"><i class="fa fa-pencil"></i> write a review</a>--}}
                                 </div>
                             </div>
                             <div class="product-price-group">
-                                <span class="price">$38.95</span>
-                                <span class="old-price">$52.00</span>
-                                <span class="discount">-30%</span>
+                                <span class="price">{{ $product_detail[0]->price_old }} Đ</span>
+                                {{--<span class="old-price">{{ $product_detail[0]->price_old }}</span>--}}
+                                {{--<span class="discount">-30%</span>--}}
                             </div>
                             <div class="info-orther">
                                 <p>Item Code: #453217907</p>
@@ -169,12 +165,7 @@
                         </ul>
                         <div class="tab-container">
                             <div id="product-detail" class="tab-panel active">
-                                <p>Morbi mollis tellus ac sapien. Nunc nec neque. Praesent nec nisl a purus blandit viverra. Nunc nec neque. Pellentesque auctor neque nec urna.</p>
-
-                                <p>Curabitur suscipit suscipit tellus. Cras id dui. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas vestibulum mollis diam.</p>
-                                <div style="text-align: center"><img class="img-responsive" alt="product" src="{{url('/')}}/public/front-end/assets/data/p40.jpg" /></div>
-
-                                <p>Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Sed lectus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Nam at tortor in tellus interdum sagittis. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.</p>
+                                {{ $product_detail[0]->content }}
                             </div>
                         </div>
                     </div>

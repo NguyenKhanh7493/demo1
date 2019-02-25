@@ -39,7 +39,7 @@
                             @foreach($best_sale as $best_sales)
                         <li>
                             <div class="left-block">
-                                <a href="detail2.html"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/hl1.jpg" /></a>
+                                <a href="{{ route('product_detail',$best_sales->alias) }}"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/hl1.jpg" /></a>
                                 <div class="quick-view">
                                     {{--<a title="Add to my wishlist" class="heart" href="#"></a>--}}
                                     {{--<a title="Add to compare" class="compare" href="#"></a>--}}

@@ -76,5 +76,5 @@ Route::get('/logout','Auth\LoginController@logout');
 Route::get('/','HomeController@index');
 Route::get('/about','HomeController@about');
 Route::get('/contact','HomeController@contact');
-Route::get('/chi-tiet/{alias}','HomeController@productDetail')->name('product_detail');
+Route::get('/chi-tiet/{alias}','Home\Product_detail@productDetail')->name('product_detail');
 //Route::get('/insert-user','HomeController@insertUser');

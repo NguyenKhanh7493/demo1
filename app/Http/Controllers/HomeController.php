@@ -82,28 +82,28 @@ class HomeController extends Controller
     public function contact(){
         return view('frontend/contact/contact');
     }
-    public function productDetail(){
-        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
-        $arr_menu = [];
-        foreach ($menu as $menus){
-            $arr_child = [];
-            if($menus['parent_id'] == 0){
-                $id = $menus['id'];
-                foreach ($menu as $menus2){
-                    if($menus2['parent_id'] == $id){
-                        array_push($arr_child, $menus2);
-                    }
-                }
-                $temp = ['parent' => $menus, 'child' => $arr_child];
-                array_push( $arr_menu, $temp);
-            }
-        }
-        $best_sale = Product::where('best_sale',1)->get();
-//                    echo "<pre>";
-//            print_r($best_sale);
-//            echo "</pre>";
-        return view('frontend/product/product_detail',compact('arr_menu','best_sale'));
-    }
+//    public function productDetail(){
+//        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
+//        $arr_menu = [];
+//        foreach ($menu as $menus){
+//            $arr_child = [];
+//            if($menus['parent_id'] == 0){
+//                $id = $menus['id'];
+//                foreach ($menu as $menus2){
+//                    if($menus2['parent_id'] == $id){
+//                        array_push($arr_child, $menus2);
+//                    }
+//                }
+//                $temp = ['parent' => $menus, 'child' => $arr_child];
+//                array_push( $arr_menu, $temp);
+//            }
+//        }
+//        $best_sale = Product::where('best_sale',1)->get();
+////                    echo "<pre>";
+////            print_r($best_sale);
+////            echo "</pre>";
+//        return view('frontend/product/product_detail',compact('arr_menu','best_sale'));
+//    }
 
    // public function insertUser()
    // {
