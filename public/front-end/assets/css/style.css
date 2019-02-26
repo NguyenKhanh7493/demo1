@@ -3840,7 +3840,7 @@ span.notify-right{
 #product .pb-right-column .product-price-group .price{
   font-size: 21px;
   font-weight: bold;
-  color: #ff3366;
+  color: #ff0000;
 }
 #product .pb-right-column .product-price-group .old-price{
   text-decoration: line-through;
@@ -5935,7 +5935,7 @@ span.notify-right{
     clear: both;
     padding-left: 15px;
     padding-right: 15px;
-    background: #F36;
+    background: #22d248;
 }
 .button-group a:hover{
     color: #fff !important;

@@ -27,13 +27,24 @@ class Product_detail extends Controller
             }
         }
         $product_detail = Product::where('alias','like',$name)->get();
+//        echo "<pre>";
+//        print_r($product_detail);die();
+//        echo "</pre>";
+        $cate_pro = $product_detail[0]['cate_id'];
+        $cate_pro_id = $product_detail[0]['id'];
         $product_images = DB::table('products')
                             ->join('images','products.id','=','images.item_id')
                             ->where('alias','like',$name)
-                            ->where('images.item_type',1)->get();
+                            ->where('images.item_type',1)->get()->toArray();
+        $product_item = DB::table('products')
+                        ->join('cates','products.cate_id','=','cates.id')
+                        ->where('cates.id','=',$cate_pro)
+                        ->where('products.id','!=',$cate_pro_id)
+                        ->select('products.id','products.name','products.alias','products.price_old','products.price_new','products.avatar','products.title')
+                        ->orderBy('products.id','DESC')->limit(6)->get();
 //        echo "<pre>";
-//        print_r($product_images);die();
+//        print_r($product_item);die();
 //        echo "</pre>";
-        return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images'));
+        return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images','product_item'));
     }
 }
