@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 25, 2019 lúc 10:50 AM
--- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.11
+-- Thời gian đã tạo: Th2 26, 2019 lúc 03:45 PM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -309,12 +309,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
-(3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'hl1.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', 're', 're', 're', 9, 2, NULL, NULL, '2019-02-22 06:19:43', '2019-02-22 06:19:43'),
+(3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'ty2.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', 're', 're', 're', 9, 2, NULL, NULL, '2019-02-22 06:19:43', '2019-02-26 07:43:17'),
 (4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hh.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, NULL, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24'),
 (5, 'Hoa 2', 'hoa-2', 3, 3000000, 2000000, NULL, 'ulEK-ta-hoa-hong-1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng', 'ad', 'ad', 'ad', 'ad', 2, 1, NULL, NULL, '2019-02-23 01:24:03', '2019-02-23 01:24:03'),
 (6, 'hoa 3', 'hoa-3', 3, 3333333, 3333333, NULL, 'hinh-anh-hoa-mai-ngay-tet-1.jpg', 0, 0, 0, 1, 1, 'Hoa đẹp lắm', 'ad', 'ad', 'ad', 'ad', 2, 1, NULL, NULL, '2019-02-23 01:25:17', '2019-02-23 01:25:17'),
-(7, 'hoa 4', 'hoa-4', 3, 4343434, 3434343, NULL, 'hoa-hong-dep-va-y-nghia-nhat.jpg', 0, 0, 0, 1, 1, 'hoa hoa', 'ad', 'ad', 'ad', 'ad', 9, 2, NULL, NULL, '2019-02-23 01:25:57', '2019-02-23 01:25:57'),
-(8, 'hoa 5', 'hoa-5', 3, 44444444, 44444444, NULL, 'Nhung bo hoa hong tuyet dep (1).jpg', 0, 0, 0, 1, 1, 'ad', 'adadad', 'adad', 'adad', 'adad', 9, 2, NULL, NULL, '2019-02-23 01:26:35', '2019-02-23 01:26:35');
+(7, 'hoa 4', 'hoa-4', 3, 4343434, 3434343, NULL, 'tyyy.jpg', 0, 0, 0, 1, 1, 'hoa hoa', 'ad', 'ad', 'ad', 'ad', 9, 2, NULL, NULL, '2019-02-23 01:25:57', '2019-02-26 07:42:57'),
+(8, 'hoa 5', 'hoa-5', 3, 44444444, NULL, NULL, 'tyy.jpg', 0, 0, 0, 1, 1, 'ad', 'adadad', 'adad', 'adad', 'adad', 9, 2, NULL, NULL, '2019-02-23 01:26:35', '2019-02-26 07:36:37');
 
 -- --------------------------------------------------------
 
