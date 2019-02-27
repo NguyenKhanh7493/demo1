@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 26, 2019 lúc 03:45 PM
--- Phiên bản máy phục vụ: 10.1.37-MariaDB
--- Phiên bản PHP: 7.3.0
+-- Thời gian đã tạo: Th2 27, 2019 lúc 10:44 AM
+-- Phiên bản máy phục vụ: 10.1.36-MariaDB
+-- Phiên bản PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -137,10 +137,15 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 (1, '13034510073_c99dc89679_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
 (2, '13034541673_1df0512e0b_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
 (3, '10-1_Opt.jpg', 'ád', 1, 2, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08'),
-(4, '2-lan-ho-diep-dep-phoi-ghep-3-canh-tim-bong-to-TMS-27.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-22 06:19:43', '2019-02-22 06:19:43'),
-(5, 'chau-de-ban-lan-ho-diep-9-canh-trang-tim-10_master.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-22 06:19:43', '2019-02-22 06:19:43'),
-(6, 'Nhung bo hoa hong tuyet dep (1).jpg', 'Hoa hồng đỏ đẹp', 1, 4, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24'),
-(7, 'tuyen-tap-hinh-anh-hoa-hong-dep-danh-tang-nguoi-yeu-ngay-142-5.jpg', 'Hoa hồng đỏ đẹp', 1, 4, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24');
+(8, '42.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-26 20:50:36', '2019-02-26 20:50:36'),
+(9, '44.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-26 20:50:36', '2019-02-26 20:50:36'),
+(10, '45.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-26 20:50:36', '2019-02-26 20:50:36'),
+(11, 'lando2.jpg', 'Hoa lan hồng', 1, 5, NULL, '2019-02-26 23:30:23', '2019-02-26 23:30:23'),
+(12, 'lando3.jpg', 'Hoa lan hồng', 1, 5, NULL, '2019-02-26 23:30:23', '2019-02-26 23:30:23'),
+(13, 'mai2.jpg', 'Hoa mai vàng', 1, 6, NULL, '2019-02-26 23:37:05', '2019-02-26 23:37:05'),
+(14, 'hd2.jpg', 'Hoa hồng đỏ đẹp', 1, 4, NULL, '2019-02-26 23:41:54', '2019-02-26 23:41:54'),
+(15, 'hl2.jpg', 'hoa lan trắng', 1, 7, NULL, '2019-02-26 23:48:58', '2019-02-26 23:48:58'),
+(16, 'bs1.jpg', 'ad', 1, 8, NULL, '2019-02-26 23:49:47', '2019-02-26 23:49:47');
 
 -- --------------------------------------------------------
 
@@ -310,11 +315,11 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
 (3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'ty2.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', 're', 're', 're', 9, 2, NULL, NULL, '2019-02-22 06:19:43', '2019-02-26 07:43:17'),
-(4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hh.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, NULL, NULL, '2019-02-22 06:23:24', '2019-02-22 06:23:24'),
-(5, 'Hoa 2', 'hoa-2', 3, 3000000, 2000000, NULL, 'ulEK-ta-hoa-hong-1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng', 'ad', 'ad', 'ad', 'ad', 2, 1, NULL, NULL, '2019-02-23 01:24:03', '2019-02-23 01:24:03'),
-(6, 'hoa 3', 'hoa-3', 3, 3333333, 3333333, NULL, 'hinh-anh-hoa-mai-ngay-tet-1.jpg', 0, 0, 0, 1, 1, 'Hoa đẹp lắm', 'ad', 'ad', 'ad', 'ad', 2, 1, NULL, NULL, '2019-02-23 01:25:17', '2019-02-23 01:25:17'),
-(7, 'hoa 4', 'hoa-4', 3, 4343434, 3434343, NULL, 'tyyy.jpg', 0, 0, 0, 1, 1, 'hoa hoa', 'ad', 'ad', 'ad', 'ad', 9, 2, NULL, NULL, '2019-02-23 01:25:57', '2019-02-26 07:42:57'),
-(8, 'hoa 5', 'hoa-5', 3, 44444444, NULL, NULL, 'tyy.jpg', 0, 0, 0, 1, 1, 'ad', 'adadad', 'adad', 'adad', 'adad', 9, 2, NULL, NULL, '2019-02-23 01:26:35', '2019-02-26 07:36:37');
+(4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hd1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, NULL, NULL, '2019-02-22 06:23:24', '2019-02-26 23:41:54'),
+(5, 'hoa lan hồng', 'hoa-lan-hong', 3, 3000000, 2000000, NULL, 'lando.jpg', 0, 0, 0, 1, 1, 'Hoa lan hồng', 'hoa lan abc', 'addad', 'ad', 'ad', 9, 1, NULL, NULL, '2019-02-23 01:24:03', '2019-02-26 23:30:23'),
+(6, 'Hoa mai vàng cây', 'hoa-mai-vang-cay', 3, 3333333, 3333333, NULL, 'mai1.jpg', 0, 0, 0, 1, 1, 'Hoa mai vàng', 'ad', 'ad', 'ad', 'ad', 2, 2, NULL, NULL, '2019-02-23 01:25:17', '2019-02-26 23:37:05'),
+(7, 'Hoa lan trắng', 'hoa-lan-trang', 3, 4343434, 3434343, NULL, 'hl.jpg', 0, 0, 0, 1, 1, 'hoa lan trắng', 'ad', 'ad', 'ad', 'ad', 9, 2, NULL, NULL, '2019-02-23 01:25:57', '2019-02-26 23:48:58'),
+(8, 'Hoa mai bonsai', 'hoa-mai-bonsai', 3, 44444444, NULL, NULL, 'bs.jpg', 0, 0, 0, 1, 1, 'ad', 'adadad', 'adad', 'adad', 'adad', 11, 2, NULL, NULL, '2019-02-23 01:26:35', '2019-02-26 23:49:47');
 
 -- --------------------------------------------------------
 
@@ -509,7 +514,7 @@ ALTER TABLE `customer_buy`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`

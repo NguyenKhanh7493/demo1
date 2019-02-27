@@ -28,36 +28,13 @@
                                 </div>
                                 <div class="product-img-thumb" id="gallery_01">
                                     <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="21" data-loop="false">
+                                        @foreach($product_images as $image)
                                         <li>
-                                            <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s3-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s3-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
+                                            <a href="#" data-image="{{url('/')}}/public/images/product/image_product/{{ $image->image_name }}" data-zoom-image="{{url('/')}}/public/images/product/image_product/{{ $image->image_name }}">
+                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/image_product/{{ $image->image_name }}" />
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s2-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s2-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s4-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s4-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s5-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s5-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-image="{{url('/')}}/public/front-end/assets/data/product-s6-420x512.jpg" data-zoom-image="{{url('/')}}/public/front-end/assets/data/product-s6-850x1036.jpg">
-                                                <img id="product-zoom"  src="{{url('/')}}/public/images/product/avatar/{{ $product_images[0]->avatar }}" />
-                                            </a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -79,7 +56,11 @@
                                 </div>
                             </div>
                             <div class="product-price-group">
-                                <span class="price">{{ number_format($product_detail[0]->price_old) }} Đ</span>
+                                @if(!empty($product_detail[0]->price_new))
+                                    <span class="price">{{ number_format($product_detail[0]->price_new) }} <u style="font-size: 16px;">đ</u></span>
+                                @else
+                                    <span class="price">{{ number_format($product_detail[0]->price_old) }} <u style="font-size: 16px;">đ</u></span>
+                                @endif
                                 {{--<span class="old-price">{{ $product_detail[0]->price_old }}</span>--}}
                                 {{--<span class="discount">-30%</span>--}}
                             </div>
@@ -93,7 +74,7 @@
                             <div class="product-desc" style="font-weight: 600;font-size: 18px;color: #2280d2;">
                                 <i class="fa fa-truck" aria-hidden="true" style="font-size: 27px;color: #22d248;"></i> Cam kết giao hàng đúng thời gian và đúng mẫu mã quý khách đã mua !
                             </div>
-                            <div class="form-option">
+                            {{--<div class="form-option">--}}
                                 {{--<p class="form-option-title">Available Options:</p>--}}
                                 {{--<div class="attributes">--}}
                                     {{--<div class="attribute-label">Color:</div>--}}
@@ -108,22 +89,22 @@
                                         {{--</ul>--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
-                                <div class="attributes">
+                                {{--<div class="attributes">--}}
                                     {{--<div class="attribute-label">SL:</div>--}}
-                                    <div class="attribute-list product-qty">
+                                    {{--<div class="attribute-list product-qty">--}}
                                         {{--<div class="qty">--}}
                                             {{--<input id="option-product-qty" type="text" value="1">--}}
                                         {{--</div>--}}
-                                        <div class="btn-plus">
-                                            <a href="#" class="btn-plus-up">
-                                                <i class="fa fa-caret-up"></i>
-                                            </a>
-                                            <a href="#" class="btn-plus-down">
-                                                <i class="fa fa-caret-down"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                        {{--<div class="btn-plus">--}}
+                                            {{--<a href="#" class="btn-plus-up">--}}
+                                                {{--<i class="fa fa-caret-up"></i>--}}
+                                            {{--</a>--}}
+                                            {{--<a href="#" class="btn-plus-down">--}}
+                                                {{--<i class="fa fa-caret-down"></i>--}}
+                                            {{--</a>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 {{--<div class="attributes">--}}
                                     {{--<div class="attribute-label">Size:</div>--}}
                                     {{--<div class="attribute-list">--}}
@@ -136,7 +117,7 @@
                                     {{--</div>--}}
 
                                 {{--</div>--}}
-                            </div>
+                            {{--</div>--}}
                             <div class="form-action">
                                 <div class="button-group">
                                     <a class="btn-buy" href="#">Mua hàng</a>
@@ -164,7 +145,7 @@
                     <div class="product-tab">
                         <ul class="nav-tab">
                             <li class="active">
-                                <a aria-expanded="false" data-toggle="tab" href="#product-detail">Product Details</a>
+                                <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin sản phẩm</a>
                             </li>
                         </ul>
                         <div class="tab-container">
@@ -174,7 +155,7 @@
                         </div>
                     </div>
                     <div class="page-product-box">
-                        <h3 class="heading">Related Products</h3>
+                        <h3 class="heading">Sản phẩm liên quan</h3>
                         <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             @if(!empty($product_item))
                                 @foreach($product_item as $item)
@@ -204,10 +185,10 @@
                                                 {{--</div>--}}
                                                 <div class="content_price">
                                                     @if(!isset($item->price_new))
-                                                        <span class="price product-price">{{ number_format($item->price_old) }} </span>
+                                                        <span class="price product-price">{{ number_format($item->price_old) }} <u>đ</u></span>
                                                     @else
-                                                        <span class="price product-price">{{ number_format($item->price_new) }}</span>
-                                                        <span class="price old-price">{{ number_format($item->price_old) }}</span>
+                                                        <span class="price product-price">{{ number_format($item->price_new) }} <u>đ</u></span>
+                                                        <span class="price old-price">{{ number_format($item->price_old) }} <u>đ</u></span>
                                                     @endif
                                                 </div>
                                             </div>
@@ -271,7 +252,11 @@
                                         </div>
                                     </div>
                                     <div class="product-price-group">
-                                        <span class="price">{{ number_format($product_detail[0]->price_old) }} Đ</span>
+                                        @if(!empty($product_detail[0]->price_new))
+                                            <span class="price">{{ number_format($product_detail[0]->price_new) }} <u style="font-size: 16px;">đ</u></span>
+                                        @else
+                                            <span class="price">{{ number_format($product_detail[0]->price_old) }} <u style="font-size: 16px;">đ</u></span>
+                                        @endif
                                         {{--<span class="old-price">{{ $product_detail[0]->price_old }}</span>--}}
                                         {{--<span class="discount">-30%</span>--}}
                                     </div>
@@ -285,7 +270,7 @@
                                     <div class="product-desc" style="font-weight: 600;font-size: 18px;color: #2280d2;">
                                         <i class="fa fa-truck" aria-hidden="true" style="font-size: 27px;color: #22d248;"></i> Cam kết giao hàng đúng thời gian và đúng mẫu mã quý khách đã mua !
                                     </div>
-                                    <div class="form-option">
+                                    {{--<div class="form-option">--}}
                                         {{--<p class="form-option-title">Available Options:</p>--}}
                                         {{--<div class="attributes">--}}
                                         {{--<div class="attribute-label">Color:</div>--}}
@@ -300,22 +285,22 @@
                                         {{--</ul>--}}
                                         {{--</div>--}}
                                         {{--</div>--}}
-                                        <div class="attributes">
-                                            <div class="attribute-label">SL:</div>
-                                            <div class="attribute-list product-qty">
-                                                <div class="qty">
-                                                    <input id="option-product-qty" type="text" value="1">
-                                                </div>
-                                                <div class="btn-plus">
-                                                    <a href="#" class="btn-plus-up">
-                                                        <i class="fa fa-caret-up"></i>
-                                                    </a>
-                                                    <a href="#" class="btn-plus-down">
-                                                        <i class="fa fa-caret-down"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {{--<div class="attributes">--}}
+                                            {{--<div class="attribute-label">SL:</div>--}}
+                                            {{--<div class="attribute-list product-qty">--}}
+                                                {{--<div class="qty">--}}
+                                                    {{--<input id="option-product-qty" type="text" value="1">--}}
+                                                {{--</div>--}}
+                                                {{--<div class="btn-plus">--}}
+                                                    {{--<a href="#" class="btn-plus-up">--}}
+                                                        {{--<i class="fa fa-caret-up"></i>--}}
+                                                    {{--</a>--}}
+                                                    {{--<a href="#" class="btn-plus-down">--}}
+                                                        {{--<i class="fa fa-caret-down"></i>--}}
+                                                    {{--</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
                                         {{--<div class="attributes">--}}
                                         {{--<div class="attribute-label">Size:</div>--}}
                                         {{--<div class="attribute-list">--}}
@@ -328,7 +313,7 @@
                                         {{--</div>--}}
 
                                         {{--</div>--}}
-                                    </div>
+                                    {{--</div>--}}
                                     <div class="form-action">
                                         <div class="button-group">
                                             <a class="btn-buy" href="#">Mua hàng</a>
@@ -356,7 +341,7 @@
                             <div class="product-tab">
                                 <ul class="nav-tab">
                                     <li class="active">
-                                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Product Details</a>
+                                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Thông tin sản phẩm</a>
                                     </li>
                                 </ul>
                                 <div class="tab-container">
@@ -368,7 +353,7 @@
                             <!-- ./tab product -->
                             <!-- box product -->
                             <div class="page-product-box">
-                                <h3 class="heading">Related Products</h3>
+                                <h3 class="heading">Sản phẩm liên quan</h3>
                                 <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     @if(!empty($product_item))
                                         @foreach($product_item as $item)
@@ -398,10 +383,10 @@
                                                 {{--</div>--}}
                                                 <div class="content_price">
                                                     @if(!isset($item->price_new))
-                                                        <span class="price product-price">{{ number_format($item->price_old) }}</span>
+                                                        <span class="price product-price">{{ number_format($item->price_old) }} <u>đ</u></span>
                                                         @else
-                                                        <span class="price product-price">{{ number_format($item->price_new) }}</span>
-                                                        <span class="price old-price">{{ number_format($item->price_old) }}</span>
+                                                        <span class="price product-price">{{ number_format($item->price_new) }} <u>đ</u></span>
+                                                        <span class="price old-price">{{ number_format($item->price_old) }} <u>đ</u></span>
                                                     @endif
                                                 </div>
                                             </div>

@@ -301,8 +301,8 @@
 */
 
 .option2 .show-brand .navbar-brand{
-	width: 200px;
-	position: relative;
+	width: 300px;
+	/*position: relative;*/
 	padding-left: 10px;
 	font-family: 'Arial Narrow', Arial, sans-serif;
 	font-size: 22px;

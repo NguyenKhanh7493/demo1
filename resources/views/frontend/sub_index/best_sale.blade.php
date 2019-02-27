@@ -39,7 +39,7 @@
                             @foreach($best_sale as $best_sales)
                         <li>
                             <div class="left-block">
-                                <a href="{{ route('product_detail',$best_sales->alias) }}"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/hl1.jpg" /></a>
+                                <a href="{{ route('product_detail',$best_sales->alias) }}"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/{{ $best_sales->avatar }}" /></a>
                                 <div class="quick-view">
                                     {{--<a title="Add to my wishlist" class="heart" href="#"></a>--}}
                                     {{--<a title="Add to compare" class="compare" href="#"></a>--}}
@@ -52,8 +52,12 @@
                             <div class="right-block">
                                 <h5 class="product-name"><a href="{{ route('product_detail',$best_sales->alias) }}">{{ $best_sales->name }}</a></h5>
                                 <div class="content_price">
-                                    <span class="price product-price">{{ number_format($best_sales->price_new) }} vnđ</span>
-                                    <span class="price old-price">{{ number_format($best_sales->price_old) }} vnđ</span>
+                                    @if(isset($best_sales->price_new))
+                                        <span class="price product-price">{{ number_format($best_sales->price_new) }} <u>đ</u></span>
+                                        <span class="price old-price">{{ number_format($best_sales->price_old) }} <u>đ</u></span>
+                                    @else
+                                        <span class="price product-price">{{ number_format($best_sales->price_old) }} <u>đ</u></span>
+                                    @endif
                                 </div>
                             </div>
                         </li>

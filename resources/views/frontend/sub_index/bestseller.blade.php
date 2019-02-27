@@ -2,18 +2,18 @@
     <nav class="navbar nav-menu nav-menu-red show-brand">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-brand"><a href="#"><img alt="fashion" src="{{url('/')}}/public/front-end/assets/data/fashion.png" />fashion</a></div>
+            <div class="navbar-brand"><a href="#"><img alt="fashion" src="{{url('/')}}/public/front-end/assets/data/fashion.png" />Sản phẩm mua nhiều</a></div>
             <span class="toggle-menu"></span>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a data-toggle="tab" href="#tab-4">Best Seller</a></li>
-                    <li><a data-toggle="tab" href="#tab-5">Most Viewed</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">Accessories</a></li>
-                </ul>
+                {{--<ul class="nav navbar-nav">--}}
+                    {{--<li class="active"><a data-toggle="tab" href="#tab-4">Best Seller</a></li>--}}
+                    {{--<li><a data-toggle="tab" href="#tab-5">Most Viewed</a></li>--}}
+                    {{--<li><a href="#">Women</a></li>--}}
+                    {{--<li><a href="#">Men</a></li>--}}
+                    {{--<li><a href="#">Kids</a></li>--}}
+                    {{--<li><a href="#">Accessories</a></li>--}}
+                {{--</ul>--}}
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
         <div id="elevator-1" class="floor-elevator">
@@ -31,7 +31,7 @@
     </div>
     <div class="product-featured clearfix">
         <div class="banner-featured">
-            <div class="featured-text"><span>featured</span></div>
+            <div class="featured-text"><span>new</span></div>
             <div class="banner-img">
                 <a href="#"><img alt="Featurered 1" src="{{url('/')}}/public/front-end/assets/data/f1.jpg" /></a>
             </div>
