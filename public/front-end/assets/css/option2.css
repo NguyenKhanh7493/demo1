@@ -32,7 +32,7 @@
   right: 80px;
 }
 .latest-deals-product .product-list li{
-  border: 1px solid #eaeaea;
+  border: 1px solid #ace8b9;
   overflow: hidden;
   padding-bottom: 5px;
 }
@@ -149,7 +149,7 @@
 .option2 #main-menu .navbar .navbar-nav>li:hover, 
 .option2 #main-menu .navbar .navbar-nav>li.active{
 	background-image: none;
-	background: #48c2dc;
+	background: #1fb131;
 }
 .option2 #main-menu .navbar .navbar-nav>li:hover a, 
 .option2 #main-menu .navbar .navbar-nav>li.active a{
@@ -280,7 +280,7 @@
 	font-weight: bold;
 }
 .option2 .page-heading span.page-heading-title{
-	border-bottom: 3px solid #958457;
+	border-bottom: 3px solid #22d248;
 }
 
 .option2 .owl-controls .owl-prev:hover, 
