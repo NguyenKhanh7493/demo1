@@ -50,12 +50,13 @@ class HomeController extends Controller
                 array_push( $arr_menu, $temp);
             }
         }
+        $product_new = Product::where('status',1)->where('new',1)->orderBy('id','DESC')->limit(6)->get();
 //        echo "<pre>";
-//        print_r($arr_menu);
+//        print_r($product_new);
 //        echo "</pre>";
 //        die();
         return view('frontend/index',
-            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale')
+            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new')
         );
     }
     public function about(){

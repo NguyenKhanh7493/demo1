@@ -35,11 +35,12 @@
                         {{--</div>--}}
                         {{--</div>--}}
                         {{--</li>--}}
-                        @if(!empty($best_sale))
-                            @foreach($best_sale as $best_sales)
+                        @if(!empty($product_new))
+                            @foreach($product_new as $product_news)
                                 <li>
                                     <div class="left-block">
-                                        <a href="{{ route('product_detail',$best_sales->alias) }}"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/{{ $best_sales->avatar }}" /></a>
+                                        <div class="featured-text"><span>New</span></div>
+                                        <a href="{{ route('product_detail',$product_news->alias) }}"><img class="img-responsive" alt="product" src="{{url('/')}}/public/images/product/avatar/{{ $product_news->avatar }}" /></a>
                                         <div class="quick-view">
                                             {{--<a title="Add to my wishlist" class="heart" href="#"></a>--}}
                                             {{--<a title="Add to compare" class="compare" href="#"></a>--}}
@@ -50,13 +51,13 @@
                                         </div>
                                     </div>
                                     <div class="right-block">
-                                        <h5 class="product-name"><a href="{{ route('product_detail',$best_sales->alias) }}">{{ $best_sales->name }}</a></h5>
+                                        <h5 class="product-name"><a href="{{ route('product_detail',$product_news->alias) }}">{{ $product_news->name }}</a></h5>
                                         <div class="content_price">
-                                            @if(isset($best_sales->price_new))
-                                                <span class="price product-price">{{ number_format($best_sales->price_new) }} <u>đ</u></span>
-                                                <span class="price old-price">{{ number_format($best_sales->price_old) }} <u>đ</u></span>
+                                            @if(isset($product_news->price_new))
+                                                <span class="price product-price">{{ number_format($product_news->price_new) }} <u>đ</u></span>
+                                                <span class="price old-price">{{ number_format($product_news->price_old) }} <u>đ</u></span>
                                             @else
-                                                <span class="price product-price">{{ number_format($best_sales->price_old) }} <u>đ</u></span>
+                                                <span class="price product-price">{{ number_format($product_news->price_old) }} <u>đ</u></span>
                                             @endif
                                         </div>
                                     </div>

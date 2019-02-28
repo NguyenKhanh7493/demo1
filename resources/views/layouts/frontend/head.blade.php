@@ -29,5 +29,6 @@
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/style.css" />
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/option2.css" />
+<link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/option7.css" />
 
 <title>Kute shop Option 2</title>

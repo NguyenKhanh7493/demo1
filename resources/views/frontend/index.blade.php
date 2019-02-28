@@ -12,6 +12,8 @@
 
         @include('frontend.sub_index.new_product')
 
+        @include('frontend.sub_index.news_post')
+
         @include('frontend.sub_index.banner_bottom')
 
     </div>

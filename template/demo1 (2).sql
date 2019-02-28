@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 27, 2019 lúc 10:44 AM
+-- Thời gian đã tạo: Th2 28, 2019 lúc 10:45 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -90,7 +90,7 @@ INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu
 (6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5),
 (9, 'Hoa lan', 'hoa-lan', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa lan đẹp nhất', 'hoa lan đẹp nhất', NULL, '2019-02-22 06:12:56', '2019-02-22 06:12:56', 1),
 (10, 'Hoa hồng', 'hoa-hong', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa hồng đẹp nhất', 'Hoa hồng đẹp nhất', NULL, '2019-02-22 06:13:51', '2019-02-22 06:13:51', 1),
-(11, 'Hoa mai', 'hoa-mai', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa mai đẹp', 'Hoa mai đẹp', NULL, '2019-02-22 06:15:45', '2019-02-22 06:15:45', 1);
+(13, 'Hoa giấy', 'hoa-giay', 1, 4, 3, 1, NULL, NULL, NULL, 'gh', 'gh', NULL, '2019-02-28 01:49:19', '2019-02-28 01:49:19', 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,17 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 (13, 'mai2.jpg', 'Hoa mai vàng', 1, 6, NULL, '2019-02-26 23:37:05', '2019-02-26 23:37:05'),
 (14, 'hd2.jpg', 'Hoa hồng đỏ đẹp', 1, 4, NULL, '2019-02-26 23:41:54', '2019-02-26 23:41:54'),
 (15, 'hl2.jpg', 'hoa lan trắng', 1, 7, NULL, '2019-02-26 23:48:58', '2019-02-26 23:48:58'),
-(16, 'bs1.jpg', 'ad', 1, 8, NULL, '2019-02-26 23:49:47', '2019-02-26 23:49:47');
+(16, 'bs1.jpg', 'ad', 1, 8, NULL, '2019-02-26 23:49:47', '2019-02-26 23:49:47'),
+(17, 'hv1.jpg', 'Hoa hồng vàng đẹp nhất', 1, 9, NULL, '2019-02-27 23:24:46', '2019-02-27 23:24:46'),
+(18, 'hv2.jpg', 'Hoa hồng vàng đẹp nhất', 1, 9, NULL, '2019-02-27 23:24:46', '2019-02-27 23:24:46'),
+(19, 'hc.jpg', 'Hoa hồng cam đẹp', 1, 10, NULL, '2019-02-28 00:58:04', '2019-02-28 00:58:04'),
+(20, 'hc1.jpg', 'Hoa hồng cam đẹp', 1, 10, NULL, '2019-02-28 00:58:04', '2019-02-28 00:58:04'),
+(21, 'hx.jpg', 'Hoa hồng xanh đẹp', 1, 11, NULL, '2019-02-28 00:59:35', '2019-02-28 00:59:35'),
+(22, 'clk.jpg', 'Chi lan kiếm đẹp nhất', 1, 12, NULL, '2019-02-28 01:06:00', '2019-02-28 01:06:00'),
+(23, 'clr.jpg', 'hoa chi trúc lan', 1, 13, NULL, '2019-02-28 01:12:08', '2019-02-28 01:12:08'),
+(24, 'clc.jpg', 'Chi lan cát', 1, 14, NULL, '2019-02-28 01:18:28', '2019-02-28 01:18:28'),
+(25, 'hg.jpg', 'hoa giấy đỏ đẹp', 1, 15, NULL, '2019-02-28 01:56:12', '2019-02-28 01:56:12'),
+(26, 'hgt.jpg', 'hoa giấy trắng', 1, 16, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03');
 
 -- --------------------------------------------------------
 
@@ -317,9 +327,15 @@ INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, 
 (3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'ty2.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', 're', 're', 're', 9, 2, NULL, NULL, '2019-02-22 06:19:43', '2019-02-26 07:43:17'),
 (4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hd1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, NULL, NULL, '2019-02-22 06:23:24', '2019-02-26 23:41:54'),
 (5, 'hoa lan hồng', 'hoa-lan-hong', 3, 3000000, 2000000, NULL, 'lando.jpg', 0, 0, 0, 1, 1, 'Hoa lan hồng', 'hoa lan abc', 'addad', 'ad', 'ad', 9, 1, NULL, NULL, '2019-02-23 01:24:03', '2019-02-26 23:30:23'),
-(6, 'Hoa mai vàng cây', 'hoa-mai-vang-cay', 3, 3333333, 3333333, NULL, 'mai1.jpg', 0, 0, 0, 1, 1, 'Hoa mai vàng', 'ad', 'ad', 'ad', 'ad', 2, 2, NULL, NULL, '2019-02-23 01:25:17', '2019-02-26 23:37:05'),
 (7, 'Hoa lan trắng', 'hoa-lan-trang', 3, 4343434, 3434343, NULL, 'hl.jpg', 0, 0, 0, 1, 1, 'hoa lan trắng', 'ad', 'ad', 'ad', 'ad', 9, 2, NULL, NULL, '2019-02-23 01:25:57', '2019-02-26 23:48:58'),
-(8, 'Hoa mai bonsai', 'hoa-mai-bonsai', 3, 44444444, NULL, NULL, 'bs.jpg', 0, 0, 0, 1, 1, 'ad', 'adadad', 'adad', 'adad', 'adad', 11, 2, NULL, NULL, '2019-02-23 01:26:35', '2019-02-26 23:49:47');
+(9, 'Hoa hồng vàng', 'hoa-hong-vang', 4, 80000, NULL, NULL, 'hv.jpg', 0, 1, 0, 0, 1, 'Hoa hồng vàng đẹp nhất', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 10, 1, NULL, NULL, '2019-02-27 23:24:46', '2019-02-27 23:24:46'),
+(10, 'Hoa hồng cam', 'hoa-hong-cam', 5, 300000, NULL, NULL, 'hc2.jpg', 0, 1, 0, 0, 1, 'Hoa hồng cam đẹp', 'Màu cam là màu sắc được tạo bởi sự hòa hợp giữa hoa hồng vàng và đỏ. Do đó, hoa hồng cam luôn mang sự nhẹ nhàng, bay bổng và dịu dàng thể hiện niềm khát khao, những hoài bão lớn về một tình yêu chân thành. Do đó, nhiều người thường ví von rằng, hoa hồng cam đã hội tụ được những gì đẹp nhất của tình bạn và tình yêu trên những cánh hoa ấy.', 'Màu cam là màu sắc được tạo bởi sự hòa hợp giữa hoa hồng vàng và đỏ. Do đó, hoa hồng cam luôn mang sự nhẹ nhàng, bay bổng và dịu dàng thể hiện niềm khát khao, những hoài bão lớn về một tình yêu chân thành. Do đó, nhiều người thường ví von rằng, hoa hồng cam đã hội tụ được những gì đẹp nhất của tình bạn và tình yêu trên những cánh hoa ấy.\r\n\r\nHiếm có loài hoa nào mang nhiều cung bậc cảm xúc và thông điệp yêu thương như hoa hồng, đặc biệt hơn cả là hoa hồng cam. Nếu hoa hồng đỏ là đại diện của một tình yêu nồng nàn cháy bỏng thì hoa hồng cam lại mang hình hài cho một thứ tình cảm trong sáng và thuần khiết.\r\n\r\nBên cạnh ý nghĩa trên, tặng một bó hoa hồng cam còn là một món quà thể hiện thông điệp “tôi tự hào về bạn”, “hãy cứ làm theo suy nghĩ, trái tim và lí trí đang mách bảo”.\r\n\r\nNhững đoán hoa hồng cam thay lời muốn nói rằng: Em rất thật tự hào về anh, hãy thực hiện những điều mà anh thấy đúng đắn nhất,…Dù là tình cảm hay lý trí đều được bộc lộ rõ qua những đóa hồng cam kì diệu này.\r\n\r\nCho dù với mục đích nào đi nữa, hoa hồng cam vẫn truyền tải rất tốt thông điệp mà bạn muốn gửi đến người nhận và chắc chắn với sự góp mặt của màu hoa ấn tượng này sẽ làm ấm lên mối quan hệ của bạn.', 'à', 'âf', 10, 1, NULL, NULL, '2019-02-28 00:58:04', '2019-02-28 00:58:04'),
+(11, 'Hoa hồng xanh', 'hoa-hong-xanh', 8, 405677, NULL, NULL, 'hx1.jpg', 0, 1, 0, 0, 1, 'Hoa hồng xanh đẹp', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'á', 's', 10, 1, NULL, NULL, '2019-02-28 00:59:35', '2019-02-28 00:59:35'),
+(12, 'Hoa chi lan kiếm', 'hoa-chi-lan-kiem', 11, 100000, NULL, NULL, 'clk1.jpg', 0, 1, 0, 0, 1, 'Chi lan kiếm đẹp nhất', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Trong đó có Chi lan kiếm và Chi lan vanda Dễ nuôi trồng, mang trong mình vẻ đẹp thanh tao và hương thơm dịu dàng khiến nhiều người yêu lan cảm thấy thích thú và say mê.\r\n\r\nHôm nay Tập đoàn nông nghiệp công nghệ cao Appa cùng các bạn đi tìm hiểu về hai loài hoa này. Để có cái nhìn tổng quan hơn và qua đó có thể chăm sóc cho chậu hoa của mình đẹp, xanh tươi, hoa to, màu đẹp và nở lâu.', 're', 're', 9, 2, NULL, NULL, '2019-02-28 01:06:00', '2019-02-28 01:06:00'),
+(13, 'Hoa chi trúc lan', 'hoa-chi-truc-lan', 4, 400000, NULL, NULL, 'clr1.jpg', 0, 1, 0, 0, 1, 'hoa chi trúc lan', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Để trồng được những chậu hoa phong lan đẹp, cho hoa to, màu sắc tươi mới hẳn không phải là điều dễ dàng.', 'ádad', 'ád', 9, 2, NULL, NULL, '2019-02-28 01:12:07', '2019-02-28 01:12:07'),
+(14, 'Hoa chi lan cát', 'hoa-chi-lan-cat', 5, 10000, NULL, NULL, 'clc1.jpg', 0, 1, 0, 0, 1, 'Chi lan cát', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'da', 'ad', 9, 2, NULL, NULL, '2019-02-28 01:18:28', '2019-02-28 01:18:28'),
+(15, 'Hoa giấy đỏ', 'hoa-giay-do', 4, 400000, 300000, NULL, 'hg1.jpg', 0, 0, 0, 1, 1, 'hoa giấy đỏ đẹp', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 13, 1, NULL, NULL, '2019-02-28 01:56:12', '2019-02-28 01:56:12'),
+(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, NULL, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03');
 
 -- --------------------------------------------------------
 
@@ -502,7 +518,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`
@@ -514,7 +530,7 @@ ALTER TABLE `customer_buy`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -538,7 +554,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
