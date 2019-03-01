@@ -8,9 +8,9 @@
 
         @include('frontend.sub_index.bestseller')
 
-        @include('frontend.sub_index.hot_product')
-
         @include('frontend.sub_index.new_product')
+
+        @include('frontend.sub_index.seeds_product')
 
         @include('frontend.sub_index.news_post')
 

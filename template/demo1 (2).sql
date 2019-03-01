@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 28, 2019 lúc 10:45 AM
+-- Thời gian đã tạo: Th3 01, 2019 lúc 10:40 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -90,7 +90,8 @@ INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu
 (6, 'Liên hệ', 'lien-he', 1, 0, NULL, 1, 0, NULL, 0, 'Liên hệ', 'liên hệ', NULL, '2019-01-18 02:33:37', '2019-01-18 22:05:46', 5),
 (9, 'Hoa lan', 'hoa-lan', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa lan đẹp nhất', 'hoa lan đẹp nhất', NULL, '2019-02-22 06:12:56', '2019-02-22 06:12:56', 1),
 (10, 'Hoa hồng', 'hoa-hong', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa hồng đẹp nhất', 'Hoa hồng đẹp nhất', NULL, '2019-02-22 06:13:51', '2019-02-22 06:13:51', 1),
-(13, 'Hoa giấy', 'hoa-giay', 1, 4, 3, 1, NULL, NULL, NULL, 'gh', 'gh', NULL, '2019-02-28 01:49:19', '2019-02-28 01:49:19', 1);
+(13, 'Hoa giấy', 'hoa-giay', 1, 4, 3, 1, NULL, NULL, NULL, 'gh', 'gh', NULL, '2019-02-28 01:49:19', '2019-02-28 01:49:19', 1),
+(14, 'Hạt giống', 'hat-giong', 1, 4, 3, 1, NULL, NULL, NULL, 'da', 'da', NULL, '2019-02-28 23:08:01', '2019-02-28 23:08:01', 1);
 
 -- --------------------------------------------------------
 
@@ -155,7 +156,9 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 (23, 'clr.jpg', 'hoa chi trúc lan', 1, 13, NULL, '2019-02-28 01:12:08', '2019-02-28 01:12:08'),
 (24, 'clc.jpg', 'Chi lan cát', 1, 14, NULL, '2019-02-28 01:18:28', '2019-02-28 01:18:28'),
 (25, 'hg.jpg', 'hoa giấy đỏ đẹp', 1, 15, NULL, '2019-02-28 01:56:12', '2019-02-28 01:56:12'),
-(26, 'hgt.jpg', 'hoa giấy trắng', 1, 16, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03');
+(26, 'hgt.jpg', 'hoa giấy trắng', 1, 16, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03'),
+(27, 'htll1.jpg', 'hoa tử hoa lan', 1, 17, NULL, '2019-02-28 23:21:58', '2019-02-28 23:21:58'),
+(28, 'lnp1.jpg', 'Hoa lan nam phi', 1, 18, NULL, '2019-02-28 23:36:24', '2019-02-28 23:36:24');
 
 -- --------------------------------------------------------
 
@@ -286,6 +289,14 @@ CREATE TABLE `posts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `posts`
+--
+
+INSERT INTO `posts` (`id`, `name`, `alias`, `avatar`, `home`, `new`, `status`, `introduction`, `content`, `keywords`, `description`, `url_video`, `view`, `tag`, `cate_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Ý nghĩa của cây hoa lan', 'y-nghia-cua-cay-hoa-lan', 'blog.jpg', 0, 1, 1, 'Hoa Lan là họ hoa lớn nhất với hơn 25,000 loài và 100,000 chủng loại. Chúng thường được nuôi trồng như 1 loại cây trồng trong nhà, hoặc là dùng để trưng bày trong triển lãm các loại hoa.', 'Nhưng không phải tất cả loài Lan đều có vẻ đẹp của miền nhiệt đới. Lan dại mọc lên ở khắp nơi trên thế giới và có thể được tìm thấy ở bất cứ châu lục nào, ngoại trừ Nam cực. Loài hoa này nổi tiếng là rất khó để nuôi trồng, có thể là bởi vì nhu cầu được chiếu sáng đặc biệt và yêu cầu về độ ẩm tương đối cao. Tuy nhiên đối với những chủng loại khác của phong lan, có thể kể đến như là loài phong lan bướm (Phalaenopsis) lại có thể dễ dàng nuôi trồng trong nhà.', 'ad', 'ad', NULL, NULL, 'hoa lan', 5, 1, '2019-03-01 01:06:20', '2019-03-01 01:06:20'),
+(2, 'Ý nghĩa từng màu sắc của cây hoa hồng', 'y-nghia-tung-mau-sac-cua-cay-hoa-hong', 'bl2.jpg', 0, 1, 1, 'Trong ngày lễ tình nhân hay mỗi dịp kỉ niệm tình yêu, hoa hồng là một món quà không thể thiếu. Bởi lẽ đó là loại hoa tượng trưng cho tình yêu được nhiều', 'Hoa hồng vàng: Có lẽ đây là loài hoa làm người nhận khá đau đầu bởi ý nghĩa khá đa dạng của nó: Hoa hồng vàng không chỉ tượng trưng cho một tình yêu kiêu sa đầy rực rỡ, mà nó còn là loài hoa của tình bạn, thể hiện sự quan tâm và tiến triển trong mối quan hệ, chẳng hạn như: \"anh quan tâm đến em\" hoặc \"hãy nhớ đến anh\". Tặng một bó hồng vàng có thể là mừng ngày khởi đầu, và cả mừng ngày trở về. Đôi khi,hồng vàng lại là một lời bày tỏ sự ghen tuông, tình yêu giảm sút, và sự phản bội. Bên cạnh đó, hoa hồng vàng cũng là loài hoa lý tưởng để dành tặng mẹ và bà, bởi lẽ nó còn có ý nghĩa của sự biết ơn và tôn kính.', 'a', 'a', NULL, NULL, 'hoa hong', 5, 1, '2019-03-01 02:12:11', '2019-03-01 02:12:58');
+
 -- --------------------------------------------------------
 
 --
@@ -335,7 +346,9 @@ INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, 
 (13, 'Hoa chi trúc lan', 'hoa-chi-truc-lan', 4, 400000, NULL, NULL, 'clr1.jpg', 0, 1, 0, 0, 1, 'hoa chi trúc lan', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Để trồng được những chậu hoa phong lan đẹp, cho hoa to, màu sắc tươi mới hẳn không phải là điều dễ dàng.', 'ádad', 'ád', 9, 2, NULL, NULL, '2019-02-28 01:12:07', '2019-02-28 01:12:07'),
 (14, 'Hoa chi lan cát', 'hoa-chi-lan-cat', 5, 10000, NULL, NULL, 'clc1.jpg', 0, 1, 0, 0, 1, 'Chi lan cát', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'da', 'ad', 9, 2, NULL, NULL, '2019-02-28 01:18:28', '2019-02-28 01:18:28'),
 (15, 'Hoa giấy đỏ', 'hoa-giay-do', 4, 400000, 300000, NULL, 'hg1.jpg', 0, 0, 0, 1, 1, 'hoa giấy đỏ đẹp', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 13, 1, NULL, NULL, '2019-02-28 01:56:12', '2019-02-28 01:56:12'),
-(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, NULL, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03');
+(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, NULL, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03'),
+(17, 'Hạt hoa tử la lan', 'hat-hoa-tu-la-lan', 4, 300000, NULL, NULL, 'htll.jpg', 1, 0, 0, 0, 1, 'hoa tử hoa lan', 'fasf', 'à', 'à', 'à', 14, 1, NULL, NULL, '2019-02-28 23:21:58', '2019-02-28 23:21:58'),
+(18, 'Hạt hoa lan Nam Phi', 'hat-hoa-lan-nam-phi', 4, 200000, NULL, NULL, 'lnp.jpg', 1, 0, 0, 0, 1, 'Hoa lan nam phi', 'dâda', 'dâd', 'dâd', 'ad', 14, 1, NULL, NULL, '2019-02-28 23:36:24', '2019-02-28 23:36:24');
 
 -- --------------------------------------------------------
 
@@ -518,7 +531,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT cho bảng `cates`
 --
 ALTER TABLE `cates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`
@@ -530,7 +543,7 @@ ALTER TABLE `customer_buy`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -548,13 +561,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`

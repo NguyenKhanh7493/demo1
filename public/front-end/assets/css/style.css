@@ -1491,7 +1491,7 @@ span.notify-right{
 /** read nav **/
 .nav-menu-red{
     height: 53px;
-    background: #ff3366;
+    background: #22d2ca;
     border-radius: 0;
     padding: 0;
     padding-bottom: 3px;
@@ -4732,11 +4732,11 @@ span.notify-right{
   padding: 15px;
 }
 .blog-list .blog-list-wapper ul li .post-desc .post-title a{
-  font-size: 14px;
-  color: #333;
+  font-size: 15px;
+  color: #666;
 }
 .blog-list .blog-list-wapper ul li .post-desc .post-title a:hover{
-  color: #f96d10;
+  color: #12a238;
 }
 
 .blog-list .blog-list-wapper ul li .post-desc .post-meta{
@@ -5939,4 +5939,7 @@ span.notify-right{
 }
 .button-group a:hover{
     color: #fff !important;
+}
+.navbar-collapse ul>li>a:hover{
+    color: red;
 }

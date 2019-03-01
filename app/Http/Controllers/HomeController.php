@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Banner;
 use App\Cate;
+use App\Post;
 use App\Product;
 use Illuminate\Http\Request;
 use App\User;
@@ -51,12 +52,14 @@ class HomeController extends Controller
             }
         }
         $product_new = Product::where('status',1)->where('new',1)->orderBy('id','DESC')->limit(6)->get();
+        $product_seeds = Product::where('status',1)->where('home',1)->orderBy('id','DESC')->limit(6)->get();
+        $news_post = Post::where('status',1)->where('new',1)->orderBy('id','DESC')->limit(6)->get();
 //        echo "<pre>";
-//        print_r($product_new);
+//        print_r($news_post);
 //        echo "</pre>";
 //        die();
         return view('frontend/index',
-            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new')
+            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new','product_seeds','news_post')
         );
     }
     public function about(){
