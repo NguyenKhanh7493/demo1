@@ -4,11 +4,11 @@
         <div class="container" id="columns">
             <!-- breadcrumb -->
             <div class="breadcrumb clearfix">
-                <a class="home" href="#" title="Return to Home">Home</a>
+                <a class="home" href="{{ url('/') }}" title="Return to Home">Trang chủ</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <a class="home" href="#" title="Blog">Blog</a>
+                <a class="home" href="#" title="Blog">Tin tức</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <span> Ut pharetra augue nec augue integer rutrum ante eu lacus</span>
+                <span> {{ $post_detail[0]->tag }}</span>
             </div>
             <!-- ./breadcrumb -->
             <!-- row -->
@@ -17,17 +17,16 @@
                 <div class="column col-xs-12 col-sm-3" id="left_column">
                     <!-- Blog category -->
                     <div class="block left-module">
-                        <p class="title_block">Blog Categories</p>
+                        <p class="title_block">Danh mục</p>
                         <div class="block_content">
                             <!-- layered -->
                             <div class="layered layered-category">
                                 <div class="layered-content">
                                     <ul class="tree-menu">
-                                        <li><span></span><a href="#">News</a></li>
-                                        <li><span></span><a href="#">About Beauty</a></li>
-                                        <li><span></span><a href="#">Baby &amp; Mom</a></li>
-                                        <li><span></span><a href="#">Diet &amp; Fitness</a></li>
-                                        <li><span></span><a href="#">Promotions</a></li>
+                                        <li><span></span><a href="#">Hoa lan</a></li>
+                                        <li><span></span><a href="#">Hoa hồng</a></li>
+                                        <li><span></span><a href="#">Hoa giấy</a></li>
+                                        <li><span></span><a href="#">Hạt giống</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,52 +173,49 @@
                 </div>
                 <!-- ./left colunm -->
                 <!-- Center colunm-->
-                @foreach($post_detail as $item)
                 <div class="center_column col-xs-12 col-sm-9" id="center_column">
                     <h1 class="page-heading">
-                        <span class="page-heading-title2">{{ $item->name }}</span>
+                        <span class="page-heading-title2" style="color: #ec0992;">{{ $post_detail[0]->name }}</span>
                     </h1>
                     <article class="entry-detail">
                         <div class="entry-meta-data">
-                        <span class="author">
-                        <i class="fa fa-user"></i>
-                        by: <a href="#">Admin</a></span>
-                            <span class="cat">
-                            <i class="fa fa-folder-o"></i>
-                            <a href="#">News, </a>
-                            <a href="#">Promotions</a>
-                        </span>
-                            <span class="comment-count">
-                            <i class="fa fa-comment-o"></i> 3
-                        </span>
-                            <span class="date"><i class="fa fa-calendar"></i> 2014-08-05 07:01:49</span>
-                            <span class="post-star">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <span>(7 votes)</span>
-                        </span>
+                        {{--<span class="author">--}}
+                        {{--<i class="fa fa-user"></i>--}}
+                        {{--by: <a href="#">Admin</a></span>--}}
+                            {{--<span class="cat">--}}
+                            {{--<i class="fa fa-folder-o"></i>--}}
+                            {{--<a href="#">News, </a>--}}
+                            {{--<a href="#">Promotions</a>--}}
+                        {{--</span>--}}
+                            {{--<span class="comment-count">--}}
+                            {{--<i class="fa fa-comment-o"></i> 3--}}
+                        {{--</span>--}}
+                            {{--<span class="date"><i class="fa fa-calendar"></i> 2014-08-05 07:01:49</span>--}}
+                            {{--<span class="post-star">--}}
+                            {{--<i class="fa fa-star"></i>--}}
+                            {{--<i class="fa fa-star"></i>--}}
+                            {{--<i class="fa fa-star"></i>--}}
+                            {{--<i class="fa fa-star"></i>--}}
+                            {{--<i class="fa fa-star-half-o"></i>--}}
+                            {{--<span>(7 votes)</span>--}}
+                        {{--</span>--}}
                         </div>
                         <div class="entry-photo">
                             <img src="{{ url('/') }}/public/front-end/assets/data/blog-full.jpg" alt="Blog">
                         </div>
                         <div class="content-text clearfix">
-                            <p style="font-weight: 600;font-style: italic;">{{ $item->introduction }}</p>
+                            <p style="font-weight: 600;font-style: italic;">{{ $post_detail[0]->introduction }}</p>
 
-                            <p>{{ $item->content }}</p>
+                            <p>{{ $post_detail[0]->content }}</p>
                         </div>
                         <div class="entry-tags">
                             <span>Tags:</span>
-                            <a href="#">beauty,</a>
-                            <a href="#">medicine,</a>
-                            <a href="#">health</a>
+                            <a href="#">{{ $post_detail[0]->tag }}</a>
                         </div>
                     </article>
                     <!-- Related Posts -->
                     <div class="single-box">
-                        <h2>Related Posts</h2>
+                        <h2>Có thể bạn quan tâm</h2>
                         <ul class="related-posts owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}'>
                             <li class="post-item">
                                 <article class="entry">
@@ -244,191 +240,10 @@
                                     </div>
                                 </article>
                             </li>
-                            <li class="post-item">
-                                <article class="entry">
-                                    <div class="entry-thumb image-hover2">
-                                        <a href="#">
-                                            <img src="{{ url('/') }}/public/front-end/assets/data/blog-2.jpg" alt="Blog">
-                                        </a>
-                                    </div>
-                                    <div class="entry-ci">
-                                        <h3 class="entry-title"><a href="#">Sed ut perspiciatis unde omnis iste natus error</a></h3>
-                                        <div class="entry-meta-data">
-                                        <span class="comment-count">
-                                            <i class="fa fa-comment-o"></i> 3
-                                        </span>
-                                            <span class="date">
-                                            <i class="fa fa-calendar"></i> 2014-08-05
-                                        </span>
-                                        </div>
-                                        <div class="entry-more">
-                                            <a href="#">Read more</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li class="post-item">
-                                <article class="entry">
-                                    <div class="entry-thumb image-hover2">
-                                        <a href="#">
-                                            <img src="{{ url('/') }}/public/front-end/assets/data/blog-3.jpg" alt="Blog">
-                                        </a>
-                                    </div>
-                                    <div class="entry-ci">
-                                        <h3 class="entry-title"><a href="#">Sed ut perspiciatis unde omnis iste natus error</a></h3>
-                                        <div class="entry-meta-data">
-                                        <span class="comment-count">
-                                            <i class="fa fa-comment-o"></i> 3
-                                        </span>
-                                            <span class="date">
-                                            <i class="fa fa-calendar"></i> 2014-08-05
-                                        </span>
-                                        </div>
-                                        <div class="entry-more">
-                                            <a href="#">Read more</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li class="post-item">
-                                <article class="entry">
-                                    <div class="entry-thumb image-hover2">
-                                        <a href="#">
-                                            <img src="{{ url('/') }}/public/front-end/assets/data/blog-4.jpg" alt="Blog">
-                                        </a>
-                                    </div>
-                                    <div class="entry-ci">
-                                        <h3 class="entry-title"><a href="#">Sed ut perspiciatis unde omnis iste natus error</a></h3>
-                                        <div class="entry-meta-data">
-                                        <span class="comment-count">
-                                            <i class="fa fa-comment-o"></i> 3
-                                        </span>
-                                            <span class="date">
-                                            <i class="fa fa-calendar"></i> 2014-08-05
-                                        </span>
-                                        </div>
-                                        <div class="entry-more">
-                                            <a href="#">Read more</a>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
                         </ul>
                     </div>
-                    <!-- ./Related Posts -->
-                    <!-- Comment -->
-                    <div class="single-box">
-                        <h2 class="">Comments</h2>
-                        <div class="comment-list">
-                            <ul>
-                                <li>
-                                    <div class="avartar">
-                                        <img src="{{ url('/') }}/public/front-end/assets/data/avatar.png" alt="Avatar">
-                                    </div>
-                                    <div class="comment-body">
-                                        <div class="comment-meta">
-                                            <span class="author"><a href="#">Admin</a></span>
-                                            <span class="date">2015-04-01</span>
-                                        </div>
-                                        <div class="comment">
-                                            Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li>
-                                            <div class="avartar">
-                                                <img src="{{ url('/') }}/public/front-end/assets/data/avatar.png" alt="Avatar">
-                                            </div>
-                                            <div class="comment-body">
-                                                <div class="comment-meta">
-                                                    <span class="author"><a href="#">Admin</a></span>
-                                                    <span class="date">2015-04-01</span>
-                                                </div>
-                                                <div class="comment">
-                                                    Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="avartar">
-                                                <img src="{{ url('/') }}/public/front-end/assets/data/avatar.png" alt="Avatar">
-                                            </div>
-                                            <div class="comment-body">
-                                                <div class="comment-meta">
-                                                    <span class="author"><a href="#">Admin</a></span>
-                                                    <span class="date">2015-04-01</span>
-                                                </div>
-                                                <div class="comment">
-                                                    Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="avartar">
-                                        <img src="{{ url('/') }}/public/front-end/assets/data/avatar.png" alt="Avatar">
-                                    </div>
-                                    <div class="comment-body">
-                                        <div class="comment-meta">
-                                            <span class="author"><a href="#">Admin</a></span>
-                                            <span class="date">2015-04-01</span>
-                                        </div>
-                                        <div class="comment">
-                                            Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="avartar">
-                                        <img src="{{ url('/') }}/public/front-end/assets/data/avatar.png" alt="Avatar">
-                                    </div>
-                                    <div class="comment-body">
-                                        <div class="comment-meta">
-                                            <span class="author"><a href="#">Admin</a></span>
-                                            <span class="date">2015-04-01</span>
-                                        </div>
-                                        <div class="comment">
-                                            Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="single-box">
-                        <h2>Leave a Comment</h2>
-                        <div class="coment-form">
-                            <p>Make sure you enter the () required information where indicated. HTML code is not allowed.</p>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="name">Name</label>
-                                    <input id="name" type="text" class="form-control">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="email">Email</label>
-                                    <input id="email" type="text" class="form-control">
-                                </div>
-                                <div class="col-sm-12">
-                                    <label for="website">Website URL</label>
-                                    <input id="website" type="text" class="form-control">
-                                </div>
-                                <div class="col-sm-12">
-                                    <label for="message">Message</label>
-                                    <textarea name="message" id="message"rows="8" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <button class="btn-comment">Submit</button>
-                        </div>
-                    </div>
-                    <!-- ./Comment -->
                 </div>
-                @endforeach
-                <!-- ./ Center colunm -->
             </div>
-            <!-- ./row-->
         </div>
     </div>
 @stop()

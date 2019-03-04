@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
+use App\product;
 
 class Post_detail extends Controller
 {
