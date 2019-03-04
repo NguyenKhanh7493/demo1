@@ -10,11 +10,11 @@
                     @foreach($news_post as $item)
                     <li>
                         <div class="post-thumb">
-                            <a href="a"><img src="{{ url('/') }}/public/images/post/avatar/{{ $item->avatar }}" alt="Blog"></a>
+                            <a href="{{ route('post_detail',$item->alias) }}"><img src="{{ url('/') }}/public/images/post/avatar/{{ $item->avatar }}" alt="Blog"></a>
                         </div>
                         <div class="post-desc" style="line-height: 18px;font-size: 13px;">
                             <h5 class="post-title" style="font-weight: 600;">
-                                <a href="#">{{ $item->name }}</a>
+                                <a href="{{ route('post_detail',$item->alias) }}">{{ $item->name }}</a>
                             </h5>
                             <div class="post-meta" style="font-style: italic;margin-top: 10px;">
                                 {{--<span class="date">February 27, 2015</span>--}}
