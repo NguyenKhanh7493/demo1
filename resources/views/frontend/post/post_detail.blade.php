@@ -97,73 +97,6 @@
                             <a href="#"><img src="{{ url('/') }}/public/front-end/assets/data/slide-left.jpg" alt="ads-banner"></a>
                         </div>
                     </div>
-                    <!-- ./Banner -->
-                    <!-- Recent Comments -->
-                    <div class="block left-module">
-                        <p class="title_block">Recent Comments</p>
-                        <div class="block_content">
-                            <!-- layered -->
-                            <div class="layered">
-                                <div class="layered-content">
-                                    <ul class="recent-comment-list">
-                                        <li>
-                                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                                            <div class="comment">
-                                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                                            </div>
-                                            <div class="author">Posted by <a href="#">Admin</a></div>
-                                        </li>
-                                        <li>
-                                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                                            <div class="comment">
-                                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                                            </div>
-                                            <div class="author">Posted by <a href="#">Admin</a></div>
-                                        </li>
-                                        <li>
-                                            <h5><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                                            <div class="comment">
-                                                "Consectetuer adipis. Mauris accumsan nulla vel diam. Sed in..."
-                                            </div>
-                                            <div class="author">Posted by <a href="#">Admin</a></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- ./layered -->
-                        </div>
-                    </div>
-                    <!-- ./Recent Comments -->
-                    <!-- tags -->
-                    <div class="block left-module">
-                        <p class="title_block">TAGS</p>
-                        <div class="block_content">
-                            <div class="tags">
-                                <a href="#"><span class="level1">actual</span></a>
-                                <a href="#"><span class="level2">adorable</span></a>
-                                <a href="#"><span class="level3">change</span></a>
-                                <a href="#"><span class="level4">consider</span></a>
-                                <a href="#"><span class="level3">phenomenon</span></a>
-                                <a href="#"><span class="level4">span</span></a>
-                                <a href="#"><span class="level1">spanegs</span></a>
-                                <a href="#"><span class="level5">spanegs</span></a>
-                                <a href="#"><span class="level1">actual</span></a>
-                                <a href="#"><span class="level2">adorable</span></a>
-                                <a href="#"><span class="level3">change</span></a>
-                                <a href="#"><span class="level4">consider</span></a>
-                                <a href="#"><span class="level2">gives</span></a>
-                                <a href="#"><span class="level3">change</span></a>
-                                <a href="#"><span class="level2">gives</span></a>
-                                <a href="#"><span class="level1">good</span></a>
-                                <a href="#"><span class="level3">phenomenon</span></a>
-                                <a href="#"><span class="level4">span</span></a>
-                                <a href="#"><span class="level1">spanegs</span></a>
-                                <a href="#"><span class="level5">spanegs</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./tags -->
-                    <!-- Banner -->
                     <div class="block left-module">
                         <div class="banner-opacity">
                             <a href="#"><img src="{{ url('/') }}/public/front-end/assets/data/slide-left2.jpg" alt="ads-banner"></a>
@@ -209,7 +142,7 @@
                             <p>{{ $post_detail[0]->content }}</p>
                         </div>
                         <div class="entry-tags">
-                            <span>Tags:</span>
+                            <span>Xem thêm:</span>
                             <a href="#">{{ $post_detail[0]->tag }}</a>
                         </div>
                     </article>
@@ -217,29 +150,33 @@
                     <div class="single-box">
                         <h2>Có thể bạn quan tâm</h2>
                         <ul class="related-posts owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}'>
+                            @foreach($post_list as $item)
+                                @if($item->id != $post_detail[0]->id)
                             <li class="post-item">
                                 <article class="entry">
                                     <div class="entry-thumb image-hover2">
                                         <a href="#">
-                                            <img src="{{ url('/') }}/public/front-end/assets/data/blog-1.jpg" alt="Blog">
+                                            <img src="{{ url('/') }}/public/images/post/avatar/{{ $item->avatar }}" alt="Blog">
                                         </a>
                                     </div>
                                     <div class="entry-ci">
-                                        <h3 class="entry-title"><a href="#">Sed ut perspiciatis unde omnis iste natus error</a></h3>
+                                        <h3 class="entry-title"><a href="#" style="color: #ec09ae;">{{ $item->name }}</a></h3>
                                         <div class="entry-meta-data">
                                         <span class="comment-count">
-                                            <i class="fa fa-comment-o"></i> 3
+                                            {{--<i class="fa fa-comment-o"></i> 3--}}
                                         </span>
                                             <span class="date">
-                                            <i class="fa fa-calendar"></i> 2014-08-05
+                                            {{--<i class="fa fa-calendar"></i> 2014-08-05--}}
                                         </span>
                                         </div>
                                         <div class="entry-more">
-                                            <a href="#">Read more</a>
+                                            <a href="#" style="color: #4271a9;">Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true" ></i></a>
                                         </div>
                                     </div>
                                 </article>
                             </li>
+                                @endif
+                            @endforeach
                         </ul>
                     </div>
                 </div>
