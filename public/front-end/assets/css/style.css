@@ -3613,11 +3613,11 @@ span.notify-right{
   border-radius:0; 
 }
 .sortPagiBar .bottom-pagination .pagination a:hover{
-  background: #ff3366;
+  background: #22d248;
   color: #fff;
 }
 .sortPagiBar .bottom-pagination .pagination .active a{
-  background: #ff3366;
+  background: #22d248;
   color: #fff;
 }
 .sortPagiBar .bottom-pagination .pagination > li:first-child > a, 
