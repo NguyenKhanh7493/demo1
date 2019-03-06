@@ -55,10 +55,12 @@
             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs&width=271&height=170&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="271" height="170" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
         </div>
     </div>
+    @if(!empty($post_banner))
     <div class="block left-module">
         <div class="banner-opacity">
-            <a href="#"><img src="{{ url('/') }}/public/front-end/assets/data/slide-left2.jpg" alt="ads-banner"></a>
+            <a href="#"><img src="{{ url('/') }}/public/images/banner/{{ $post_banner[0]->name }}" alt="ads-banner"></a>
         </div>
     </div>
+    @endif
     <!-- ./Banner -->
 </div>

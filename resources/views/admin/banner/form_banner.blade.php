@@ -37,7 +37,7 @@
                         {!! Form::checkbox('banner_center','1',null,['class'=>'js-switch','data-color'=>'#99d683']) !!} Ở giữa
                     </div>
                     <div class="checkbox">
-                        {!! Form::checkbox('banner_right','1',null,['class'=>'js-switch','data-color'=>'#99d683']) !!} Ở giữa bên phải
+                        {!! Form::checkbox('banner_right','1',null,['class'=>'js-switch','data-color'=>'#99d683']) !!} Ở bên trái slidebar trang tin tức
                     </div>
                     <div class="checkbox">
                         {!! Form::checkbox('banner_bottom','1',null,['class'=>'js-switch','data-color'=>'#99d683']) !!} Ở cuối trang

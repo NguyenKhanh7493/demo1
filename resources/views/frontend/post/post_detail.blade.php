@@ -6,7 +6,7 @@
             <div class="breadcrumb clearfix">
                 <a class="home" href="{{ url('/') }}" title="Return to Home">Trang chủ</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <a class="home" href="#" title="Blog">Tin tức</a>
+                <a class="home" href="{{ route('post_list') }}" title="Blog">Tin tức</a>
                 <span class="navigation-pipe">&nbsp;</span>
                 <span> {{ $post_detail[0]->tag }}</span>
             </div>
@@ -45,7 +45,7 @@
                         {{--</span>--}}
                         </div>
                         <div class="entry-photo">
-                            <img src="{{ url('/') }}/public/front-end/assets/data/blog-full.jpg" alt="Blog">
+                            <img src="{{ url('/') }}/public/images/post/image_detail/{{ $post_image[0]->image_name }}" alt="Blog">
                         </div>
                         <div class="content-text clearfix">
                             <p style="font-weight: 600;font-style: italic;">{{ $post_detail[0]->introduction }}</p>
@@ -67,13 +67,13 @@
                                 @if($item->id != $post_detail[0]->id)
                             <li class="post-item">
                                 <article class="entry">
-                                    <div class="entry-thumb image-hover2">
-                                        <a href="#">
+                                    <div class="entry-thumb">
+                                        <a href="{{ route('post_detail',$item->alias) }}">
                                             <img src="{{ url('/') }}/public/images/post/avatar/{{ $item->avatar }}" alt="Blog">
                                         </a>
                                     </div>
                                     <div class="entry-ci">
-                                        <h3 class="entry-title"><a href="#" style="color: #ec09ae;">{{ $item->name }}</a></h3>
+                                        <h3 class="entry-title"><a href="{{ route('post_detail',$item->alias) }}" style="color: #ec09ae;">{{ $item->name }}</a></h3>
                                         <div class="entry-meta-data">
                                         <span class="comment-count">
                                             {{--<i class="fa fa-comment-o"></i> 3--}}
@@ -83,7 +83,7 @@
                                         </span>
                                         </div>
                                         <div class="entry-more">
-                                            <a href="#" style="color: #4271a9;">Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true" ></i></a>
+                                            <a href="{{ route('post_detail',$item->alias) }}" style="color: #4271a9;">Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true" ></i></a>
                                         </div>
                                     </div>
                                 </article>

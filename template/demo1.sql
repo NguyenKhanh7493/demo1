@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 06, 2019 lúc 10:44 AM
--- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.11
+-- Thời gian đã tạo: Th3 06, 2019 lúc 03:44 PM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,7 +51,8 @@ INSERT INTO `banners` (`id`, `name`, `title`, `link`, `banner_center`, `banner_r
 (13, 'banner-bottom1.jpg', 'quảng cáo', NULL, 0, 0, 1, NULL, '2019-01-21 01:53:17', '2019-01-21 01:53:17', 1),
 (17, 'banner-1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-02-20 22:41:31', '2019-02-22 07:36:14', 1),
 (18, 'banner-2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-02-20 22:41:56', '2019-02-22 07:41:04', 1),
-(19, 'banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-02-20 22:42:13', '2019-02-22 07:44:30', 1);
+(19, 'banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-02-20 22:42:13', '2019-02-22 07:44:30', 1),
+(20, 'bnn-1.jpg', 'Banner đẹp', NULL, 0, 1, 0, 1, '2019-03-06 06:23:55', '2019-03-06 06:29:41', 1);
 
 -- --------------------------------------------------------
 
@@ -137,10 +138,6 @@ CREATE TABLE `images` (
 INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`, `created_at`, `updated_at`) VALUES
 (1, '13034510073_c99dc89679_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
 (2, '13034541673_1df0512e0b_b.jpg', 'Sản phẩm mới', 1, 1, NULL, '2019-02-21 02:25:31', '2019-02-21 02:25:31'),
-(3, '10-1_Opt.jpg', 'ád', 1, 2, NULL, '2019-02-21 21:38:08', '2019-02-21 21:38:08'),
-(8, '42.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-26 20:50:36', '2019-02-26 20:50:36'),
-(9, '44.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-26 20:50:36', '2019-02-26 20:50:36'),
-(10, '45.jpg', 'Hoa lan đẹp', 1, 3, NULL, '2019-02-26 20:50:36', '2019-02-26 20:50:36'),
 (11, 'lando2.jpg', 'Hoa lan hồng', 1, 5, NULL, '2019-02-26 23:30:23', '2019-02-26 23:30:23'),
 (12, 'lando3.jpg', 'Hoa lan hồng', 1, 5, NULL, '2019-02-26 23:30:23', '2019-02-26 23:30:23'),
 (13, 'mai2.jpg', 'Hoa mai vàng', 1, 6, NULL, '2019-02-26 23:37:05', '2019-02-26 23:37:05'),
@@ -158,7 +155,10 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 (25, 'hg.jpg', 'hoa giấy đỏ đẹp', 1, 15, NULL, '2019-02-28 01:56:12', '2019-02-28 01:56:12'),
 (26, 'hgt.jpg', 'hoa giấy trắng', 1, 16, NULL, '2019-02-28 01:57:03', '2019-02-28 01:57:03'),
 (27, 'htll1.jpg', 'hoa tử hoa lan', 1, 17, NULL, '2019-02-28 23:21:58', '2019-02-28 23:21:58'),
-(28, 'lnp1.jpg', 'Hoa lan nam phi', 1, 18, NULL, '2019-02-28 23:36:24', '2019-02-28 23:36:24');
+(28, 'lnp1.jpg', 'Hoa lan nam phi', 1, 18, NULL, '2019-02-28 23:36:24', '2019-02-28 23:36:24'),
+(29, 'kgs1.jpg', 'Không gian xanh cho mọi nhà', 2, 3, NULL, '2019-03-06 07:09:44', '2019-03-06 07:09:44'),
+(30, 'cym.jpg', 'Ý nghĩa từng màu sắc của cây hoa hồng', 2, 2, NULL, '2019-03-06 07:31:49', '2019-03-06 07:31:49'),
+(31, 'maxresdefault.jpg', 'Ý nghĩa của cây hoa lan', 2, 1, NULL, '2019-03-06 07:32:21', '2019-03-06 07:32:21');
 
 -- --------------------------------------------------------
 
@@ -294,9 +294,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `name`, `alias`, `avatar`, `home`, `new`, `status`, `introduction`, `content`, `keywords`, `description`, `url_video`, `view`, `tag`, `cate_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Ý nghĩa của cây hoa lan', 'y-nghia-cua-cay-hoa-lan', 'blog.jpg', 0, 1, 1, 'Hoa Lan là họ hoa lớn nhất với hơn 25,000 loài và 100,000 chủng loại. Chúng thường được nuôi trồng như 1 loại cây trồng trong nhà, hoặc là dùng để trưng bày trong triển lãm các loại hoa.', 'Nhưng không phải tất cả loài Lan đều có vẻ đẹp của miền nhiệt đới. Lan dại mọc lên ở khắp nơi trên thế giới và có thể được tìm thấy ở bất cứ châu lục nào, ngoại trừ Nam cực. Loài hoa này nổi tiếng là rất khó để nuôi trồng, có thể là bởi vì nhu cầu được chiếu sáng đặc biệt và yêu cầu về độ ẩm tương đối cao. Tuy nhiên đối với những chủng loại khác của phong lan, có thể kể đến như là loài phong lan bướm (Phalaenopsis) lại có thể dễ dàng nuôi trồng trong nhà.', 'ad', 'ad', NULL, NULL, 'hoa lan', 5, 1, '2019-03-01 01:06:20', '2019-03-01 01:06:20'),
-(2, 'Ý nghĩa từng màu sắc của cây hoa hồng', 'y-nghia-tung-mau-sac-cua-cay-hoa-hong', 'bl2.jpg', 0, 1, 1, 'Trong ngày lễ tình nhân hay mỗi dịp kỉ niệm tình yêu, hoa hồng là một món quà không thể thiếu. Bởi lẽ đó là loại hoa tượng trưng cho tình yêu được nhiều', 'Hoa hồng vàng: Có lẽ đây là loài hoa làm người nhận khá đau đầu bởi ý nghĩa khá đa dạng của nó: Hoa hồng vàng không chỉ tượng trưng cho một tình yêu kiêu sa đầy rực rỡ, mà nó còn là loài hoa của tình bạn, thể hiện sự quan tâm và tiến triển trong mối quan hệ, chẳng hạn như: \"anh quan tâm đến em\" hoặc \"hãy nhớ đến anh\". Tặng một bó hồng vàng có thể là mừng ngày khởi đầu, và cả mừng ngày trở về. Đôi khi,hồng vàng lại là một lời bày tỏ sự ghen tuông, tình yêu giảm sút, và sự phản bội. Bên cạnh đó, hoa hồng vàng cũng là loài hoa lý tưởng để dành tặng mẹ và bà, bởi lẽ nó còn có ý nghĩa của sự biết ơn và tôn kính.', 'a', 'a', NULL, NULL, 'hoa hong', 5, 1, '2019-03-01 02:12:11', '2019-03-01 02:12:58'),
-(3, 'Không gian xanh cho mọi nhà', 'khong-gian-xanh-cho-moi-nha', 'hcp.jpg', 0, 1, 1, 'Với giá thành rẻ, tiện lợi, những giỏ hoa cảnh mi ni được người dân lựa chọn mua về chơi dịp Tết', 'Hoa oải hương tạo hương thơm, chống ẩm mốc trong các tủ quần áo của gia đình: chúng có hương thơm nồng nàn được dùng để chế tạo thành những loại hoa khô treo trong tủ quần áo. Giữ cho tủ có mùi thơm rất lâu trong vòng 2-3 tháng. Ngoài tác dụng giúp giữ cho quần áo thơm tho, tránh bị ẩm mốc bênh cạnh đó hoa oải hương còn giúp đuổi một số loài côn trùng có hại cắn phá quần áo, đồ dùng như gián, mọt…', 'ad', 'da', NULL, NULL, 'hat giong', 14, 1, '2019-03-05 21:04:34', '2019-03-05 21:04:34');
+(1, 'Ý nghĩa của cây hoa lan', 'y-nghia-cua-cay-hoa-lan', 'adc2.jpg', 0, 1, 1, 'Hoa Lan là họ hoa lớn nhất với hơn 25,000 loài và 100,000 chủng loại. Chúng thường được nuôi trồng như 1 loại cây trồng trong nhà, hoặc là dùng để trưng bày trong triển lãm các loại hoa.', 'Nhưng không phải tất cả loài Lan đều có vẻ đẹp của miền nhiệt đới. Lan dại mọc lên ở khắp nơi trên thế giới và có thể được tìm thấy ở bất cứ châu lục nào, ngoại trừ Nam cực. Loài hoa này nổi tiếng là rất khó để nuôi trồng, có thể là bởi vì nhu cầu được chiếu sáng đặc biệt và yêu cầu về độ ẩm tương đối cao. Tuy nhiên đối với những chủng loại khác của phong lan, có thể kể đến như là loài phong lan bướm (Phalaenopsis) lại có thể dễ dàng nuôi trồng trong nhà.', 'ad', 'ad', NULL, NULL, 'hoa lan', 5, 1, '2019-03-01 01:06:20', '2019-03-06 06:54:15'),
+(2, 'Ý nghĩa từng màu sắc của cây hoa hồng', 'y-nghia-tung-mau-sac-cua-cay-hoa-hong', 'aa.jpg', 0, 1, 1, 'Trong ngày lễ tình nhân hay mỗi dịp kỉ niệm tình yêu, hoa hồng là một món quà không thể thiếu. Bởi lẽ đó là loại hoa tượng trưng cho tình yêu được nhiều', 'Hoa hồng vàng: Có lẽ đây là loài hoa làm người nhận khá đau đầu bởi ý nghĩa khá đa dạng của nó: Hoa hồng vàng không chỉ tượng trưng cho một tình yêu kiêu sa đầy rực rỡ, mà nó còn là loài hoa của tình bạn, thể hiện sự quan tâm và tiến triển trong mối quan hệ, chẳng hạn như: \"anh quan tâm đến em\" hoặc \"hãy nhớ đến anh\". Tặng một bó hồng vàng có thể là mừng ngày khởi đầu, và cả mừng ngày trở về. Đôi khi,hồng vàng lại là một lời bày tỏ sự ghen tuông, tình yêu giảm sút, và sự phản bội. Bên cạnh đó, hoa hồng vàng cũng là loài hoa lý tưởng để dành tặng mẹ và bà, bởi lẽ nó còn có ý nghĩa của sự biết ơn và tôn kính.', 'a', 'a', NULL, NULL, 'hoa hong', 5, 1, '2019-03-01 02:12:11', '2019-03-06 07:31:37'),
+(3, 'Không gian xanh cho mọi nhà', 'khong-gian-xanh-cho-moi-nha', 'aaa.jpg', 0, 1, 1, 'Với giá thành rẻ, tiện lợi, những giỏ hoa cảnh mi ni được người dân lựa chọn mua về chơi dịp Tết', 'Hoa oải hương tạo hương thơm, chống ẩm mốc trong các tủ quần áo của gia đình: chúng có hương thơm nồng nàn được dùng để chế tạo thành những loại hoa khô treo trong tủ quần áo. Giữ cho tủ có mùi thơm rất lâu trong vòng 2-3 tháng. Ngoài tác dụng giúp giữ cho quần áo thơm tho, tránh bị ẩm mốc bênh cạnh đó hoa oải hương còn giúp đuổi một số loài côn trùng có hại cắn phá quần áo, đồ dùng như gián, mọt…', 'ad', 'da', NULL, NULL, 'hat giong', 14, 1, '2019-03-05 21:04:34', '2019-03-06 07:02:51');
 
 -- --------------------------------------------------------
 
@@ -526,7 +526,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `cates`
@@ -544,7 +544,7 @@ ALTER TABLE `customer_buy`
 -- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
