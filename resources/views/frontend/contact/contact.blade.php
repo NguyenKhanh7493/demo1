@@ -1,4 +1,4 @@
-@extends('layouts.frontend.master')
+@extends('layouts.frontend.index')
 @section('content')
     <div class="columns-container">
         <div class="container" id="columns">

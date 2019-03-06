@@ -20,10 +20,12 @@
                                 {{--<span class="date">February 27, 2015</span>--}}
                             </div>
                             <div class="desc">{{ $item->introduction }}</div>
-                            <div class="meta-tags" style="margin-top: 10px;font-size: 13px;color: #999;">
-                                <i class="fa fa-tag"></i>
-                                <a href="#">{{ $item->tag }} </a>
-                            </div>
+                            @if(!empty($item->tag))
+                                <div class="meta-tags" style="margin-top: 10px;font-size: 13px;color: #999;">
+                                    <i class="fa fa-tag"></i>
+                                    <a href="#">{{ $item->tag }} </a>
+                                </div>
+                            @endif
                         </div>
                     </li>
                     @endforeach

@@ -50,9 +50,10 @@ class Post_detail extends Controller
         }
         $post_detail = Post::where('status',1)->where('alias','like',$name)->orderBy('id','DESC')->limit(6)->get();
         $post_list = Post::where('status',1)->orderBy('id','=','DESC')->limit(6)->get();
+        $post_slidebar = Post::where('status',1)->orderBy('view','DESC')->limit(6)->get();
 //        echo "<pre>";
-//        print_r($post_list);die();
+//        print_r($post_slidebar);die();
 //        echo "</pre>";
-        return view('frontend/post/post_detail',compact('arr_menu','post_detail','post_list'));
+        return view('frontend/post/post_detail',compact('arr_menu','post_detail','post_list','post_slidebar'));
     }
 }

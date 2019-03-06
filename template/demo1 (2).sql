@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 01, 2019 lúc 10:40 AM
+-- Thời gian đã tạo: Th3 06, 2019 lúc 10:44 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -295,7 +295,8 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `name`, `alias`, `avatar`, `home`, `new`, `status`, `introduction`, `content`, `keywords`, `description`, `url_video`, `view`, `tag`, `cate_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 'Ý nghĩa của cây hoa lan', 'y-nghia-cua-cay-hoa-lan', 'blog.jpg', 0, 1, 1, 'Hoa Lan là họ hoa lớn nhất với hơn 25,000 loài và 100,000 chủng loại. Chúng thường được nuôi trồng như 1 loại cây trồng trong nhà, hoặc là dùng để trưng bày trong triển lãm các loại hoa.', 'Nhưng không phải tất cả loài Lan đều có vẻ đẹp của miền nhiệt đới. Lan dại mọc lên ở khắp nơi trên thế giới và có thể được tìm thấy ở bất cứ châu lục nào, ngoại trừ Nam cực. Loài hoa này nổi tiếng là rất khó để nuôi trồng, có thể là bởi vì nhu cầu được chiếu sáng đặc biệt và yêu cầu về độ ẩm tương đối cao. Tuy nhiên đối với những chủng loại khác của phong lan, có thể kể đến như là loài phong lan bướm (Phalaenopsis) lại có thể dễ dàng nuôi trồng trong nhà.', 'ad', 'ad', NULL, NULL, 'hoa lan', 5, 1, '2019-03-01 01:06:20', '2019-03-01 01:06:20'),
-(2, 'Ý nghĩa từng màu sắc của cây hoa hồng', 'y-nghia-tung-mau-sac-cua-cay-hoa-hong', 'bl2.jpg', 0, 1, 1, 'Trong ngày lễ tình nhân hay mỗi dịp kỉ niệm tình yêu, hoa hồng là một món quà không thể thiếu. Bởi lẽ đó là loại hoa tượng trưng cho tình yêu được nhiều', 'Hoa hồng vàng: Có lẽ đây là loài hoa làm người nhận khá đau đầu bởi ý nghĩa khá đa dạng của nó: Hoa hồng vàng không chỉ tượng trưng cho một tình yêu kiêu sa đầy rực rỡ, mà nó còn là loài hoa của tình bạn, thể hiện sự quan tâm và tiến triển trong mối quan hệ, chẳng hạn như: \"anh quan tâm đến em\" hoặc \"hãy nhớ đến anh\". Tặng một bó hồng vàng có thể là mừng ngày khởi đầu, và cả mừng ngày trở về. Đôi khi,hồng vàng lại là một lời bày tỏ sự ghen tuông, tình yêu giảm sút, và sự phản bội. Bên cạnh đó, hoa hồng vàng cũng là loài hoa lý tưởng để dành tặng mẹ và bà, bởi lẽ nó còn có ý nghĩa của sự biết ơn và tôn kính.', 'a', 'a', NULL, NULL, 'hoa hong', 5, 1, '2019-03-01 02:12:11', '2019-03-01 02:12:58');
+(2, 'Ý nghĩa từng màu sắc của cây hoa hồng', 'y-nghia-tung-mau-sac-cua-cay-hoa-hong', 'bl2.jpg', 0, 1, 1, 'Trong ngày lễ tình nhân hay mỗi dịp kỉ niệm tình yêu, hoa hồng là một món quà không thể thiếu. Bởi lẽ đó là loại hoa tượng trưng cho tình yêu được nhiều', 'Hoa hồng vàng: Có lẽ đây là loài hoa làm người nhận khá đau đầu bởi ý nghĩa khá đa dạng của nó: Hoa hồng vàng không chỉ tượng trưng cho một tình yêu kiêu sa đầy rực rỡ, mà nó còn là loài hoa của tình bạn, thể hiện sự quan tâm và tiến triển trong mối quan hệ, chẳng hạn như: \"anh quan tâm đến em\" hoặc \"hãy nhớ đến anh\". Tặng một bó hồng vàng có thể là mừng ngày khởi đầu, và cả mừng ngày trở về. Đôi khi,hồng vàng lại là một lời bày tỏ sự ghen tuông, tình yêu giảm sút, và sự phản bội. Bên cạnh đó, hoa hồng vàng cũng là loài hoa lý tưởng để dành tặng mẹ và bà, bởi lẽ nó còn có ý nghĩa của sự biết ơn và tôn kính.', 'a', 'a', NULL, NULL, 'hoa hong', 5, 1, '2019-03-01 02:12:11', '2019-03-01 02:12:58'),
+(3, 'Không gian xanh cho mọi nhà', 'khong-gian-xanh-cho-moi-nha', 'hcp.jpg', 0, 1, 1, 'Với giá thành rẻ, tiện lợi, những giỏ hoa cảnh mi ni được người dân lựa chọn mua về chơi dịp Tết', 'Hoa oải hương tạo hương thơm, chống ẩm mốc trong các tủ quần áo của gia đình: chúng có hương thơm nồng nàn được dùng để chế tạo thành những loại hoa khô treo trong tủ quần áo. Giữ cho tủ có mùi thơm rất lâu trong vòng 2-3 tháng. Ngoài tác dụng giúp giữ cho quần áo thơm tho, tránh bị ẩm mốc bênh cạnh đó hoa oải hương còn giúp đuổi một số loài côn trùng có hại cắn phá quần áo, đồ dùng như gián, mọt…', 'ad', 'da', NULL, NULL, 'hat giong', 14, 1, '2019-03-05 21:04:34', '2019-03-05 21:04:34');
 
 -- --------------------------------------------------------
 
@@ -561,7 +562,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
