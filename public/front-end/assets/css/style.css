@@ -3424,7 +3424,7 @@ span.notify-right{
 .display-product-option li.selected span,
 .display-product-option li:hover span
 {
-  background-color: #ff3366; 
+  background-color: #229ed2;
   background-position: 0 -30px;
 }
 .view-product-list .product-list.grid{
@@ -3475,7 +3475,7 @@ span.notify-right{
   bottom: inherit;
   width: 129px;
   height: 36px;
-  background: #ff3366;
+  background: #22d248;
   line-height: 36px;
   position: absolute;
 }

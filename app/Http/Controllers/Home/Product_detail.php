@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
 use DB;
+use App\Banner;
 
 class Product_detail extends Controller
 {
@@ -58,5 +59,33 @@ class Product_detail extends Controller
         //end
 
         return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images','product_item'));
+    }
+    public function productList($alias){
+        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
+        $arr_menu = [];
+        foreach ($menu as $menus){
+            $arr_child = [];
+            if($menus['parent_id'] == 0){
+                $id = $menus['id'];
+                foreach ($menu as $menus2){
+                    if($menus2['parent_id'] == $id){
+                        array_push($arr_child, $menus2);
+                    }
+                }
+                $temp = ['parent' => $menus, 'child' => $arr_child];
+                array_push( $arr_menu, $temp);
+            }
+        }
+        $product_list = DB::table('products')
+                        ->join('cates','products.cate_id','=','cates.id')
+                        ->where('products.status',1)
+                        ->where('cates.alias','like',$alias)
+                        ->select('products.id','products.name','products.introduction','products.title','products.content','products.price_new','products.price_old','products.avatar')
+                        ->orderBy('id','DESC')->paginate(9);
+        $post_banner = Banner::where('status',1)->where('banner_right',1)->orderBy('id','DESC')->limit(1)->get();
+//                echo "<pre>";
+//        print_r($product_list);
+//        echo "</pre>";die();
+        return view('frontend/product/product_list',compact('arr_menu','product_list','post_banner'));
     }
 }

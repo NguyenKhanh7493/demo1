@@ -45,10 +45,10 @@
                                     <h5 class="product-name"><a href="{{ route('product_detail',$item->alias) }}">{{ $item->name }}</a></h5>
                                     <div class="content_price">
                                         @if(isset($item->price_new))
-                                            <span class="price product-price">{{ $item->price_new }} <u>đ</u></span>
-                                            <span class="price old-price">{{ $item->price_old }} <u>đ</u></span>
+                                            <span class="price product-price">{{ number_format($item->price_new) }} <u>đ</u></span>
+                                            <span class="price old-price">{{ number_format($item->price_old) }} <u>đ</u></span>
                                         @endif
-                                        <span class="price product-price">{{ $item->price_old }} <u>đ</u></span>
+                                        <span class="price product-price">{{ number_format($item->price_old) }} <u>đ</u></span>
                                     </div>
                                 </div>
                             </li>

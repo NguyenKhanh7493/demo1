@@ -20,6 +20,7 @@
 <script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/countdown/jquery.countdown.js"></script>
 <script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/jquery.elevatezoom.js"></script>
 <!-- ./COUNTDOWN -->
+<script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{{url('/')}}/public/front-end/assets/lib/fancyBox/jquery.fancybox.js"></script>
 <script type="text/javascript" src="{{url('/')}}/public/front-end/assets/js/jquery.actual.min.js"></script>
 <script type="text/javascript" src="{{url('/')}}/public/front-end/assets/js/theme-script.js"></script>

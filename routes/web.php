@@ -77,6 +77,7 @@ Route::get('/','HomeController@index');
 Route::get('/about','HomeController@about')->name('about');
 Route::get('/contact','HomeController@contact')->name('contact');
 Route::get('/chi-tiet/{alias}','Home\Product_detail@productDetail')->name('product_detail');
+Route::get('/san-pham/{alias}','Home\Product_detail@productList')->name('product_list');
 Route::get('/tin-tuc/{alias}','Home\Post_detail@postDetail')->name('post_detail');
 Route::get('/tin-tuc','Home\Post_detail@postList')->name('post_list');
 //Route::get('/insert-user','HomeController@insertUser');

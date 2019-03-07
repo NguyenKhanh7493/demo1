@@ -7,10 +7,11 @@
             <div class="layered layered-category">
                 <div class="layered-content">
                     <ul class="tree-menu">
-                        <li><span></span><a href="#">Hoa lan</a></li>
-                        <li><span></span><a href="#">Hoa hồng</a></li>
-                        <li><span></span><a href="#">Hoa giấy</a></li>
-                        <li><span></span><a href="#">Hạt giống</a></li>
+                        @foreach($arr_menu as $item)
+                            @foreach($item['child'] as $menu_child)
+                        <li><span></span><a href="{{ url('/',$menu_child['alias']) }}"><?php echo $menu_child['name']?></a></li>
+                            @endforeach
+                        @endforeach
                     </ul>
                 </div>
             </div>
