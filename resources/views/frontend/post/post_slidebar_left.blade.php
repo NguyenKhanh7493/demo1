@@ -9,7 +9,7 @@
                     <ul class="tree-menu">
                         @foreach($arr_menu as $item)
                             @foreach($item['child'] as $menu_child)
-                        <li><span></span><a href="{{ url('/',$menu_child['alias']) }}"><?php echo $menu_child['name']?></a></li>
+                        <li><span></span><a href="{{ url('/san-pham',$menu_child['alias']) }}"><?php echo $menu_child['name']?></a></li>
                             @endforeach
                         @endforeach
                     </ul>

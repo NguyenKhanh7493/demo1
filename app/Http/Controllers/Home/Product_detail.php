@@ -83,9 +83,11 @@ class Product_detail extends Controller
                         ->select('products.id','products.name','products.introduction','products.title','products.content','products.price_new','products.price_old','products.avatar')
                         ->orderBy('id','DESC')->paginate(9);
         $post_banner = Banner::where('status',1)->where('banner_right',1)->orderBy('id','DESC')->limit(1)->get();
+        //lấy ra sản phẩm được xem nhiều nhất
+        $product_view = Product::where('status',1)->orderBy('view','DESC')->limit(5)->get();
 //                echo "<pre>";
-//        print_r($product_list);
+//        print_r($product_view);
 //        echo "</pre>";die();
-        return view('frontend/product/product_list',compact('arr_menu','product_list','post_banner'));
+        return view('frontend/product/product_list',compact('arr_menu','product_list','post_banner','product_view'));
     }
 }
