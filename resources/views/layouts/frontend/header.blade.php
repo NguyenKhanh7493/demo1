@@ -136,6 +136,7 @@
                             </div>
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
+                                    <li><a href="{{ url('/') }}">Trang chủ</a></li>
                                     @foreach($arr_menu as $menus)
                                         @if(!empty($menus['child']))
                                             <li class="dropdown">
@@ -144,14 +145,14 @@
                                                     <li class="block-container">
                                                         <ul class="block">
                                                             @foreach($menus['child'] as $child)
-                                                            <li class="link_container"><a href="#"><?php echo $child['name']?></a></li>
+                                                            <li class="link_container"><a href="{{ url('/san-pham',$child['alias']) }}"><?php echo $child['name']?></a></li>
                                                             @endforeach
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </li>
                                         @else
-                                            <li><a href="category.html"><?php echo $menus['parent']['name']?></a></li>
+                                            <li><a href="{{ url('/',$menus['parent']['alias']) }}"><?php echo $menus['parent']['name']?></a></li>
                                         @endif
                                     @endforeach
                                         <style type="text/css">

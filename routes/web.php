@@ -74,8 +74,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/','HomeController@index');
-Route::get('/about','HomeController@about')->name('about');
-Route::get('/contact','HomeController@contact')->name('contact');
+Route::get('/gioi-thieu','HomeController@about')->name('about');
+Route::get('/lien-he','HomeController@contact')->name('contact');
 Route::get('/chi-tiet/{alias}','Home\Product_detail@productDetail')->name('product_detail');
 Route::get('/san-pham/{alias}','Home\Product_detail@productList')->name('product_list');
 Route::get('/tin-tuc/{alias}','Home\Post_detail@postDetail')->name('post_detail');
