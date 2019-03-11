@@ -36,7 +36,7 @@ class CreateTableProductsTable extends Migration
             $table->foreign('cate_id')->references('id')->on('cates');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('view')->nullable();
+            $table->integer('view')->default(0);
             $table->integer('cart')->nullable();
             $table->timestamps();
         });

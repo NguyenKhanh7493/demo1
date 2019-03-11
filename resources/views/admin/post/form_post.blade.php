@@ -39,11 +39,12 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('labContent','Nội dung bài viết') !!}
-                    {!! Form::textarea('content',null,['class'=>'form-control','placeholder'=>'Nhập nội dung bài viết']) !!}
+                    {!! Form::textarea('content',null,['class'=>'form-control','id'=>'editor1','placeholder'=>'Nhập nội dung bài viết']) !!}
                     @if($errors->first('content'))
                         <span style="color: red;font-style: italic">(*) {{ $errors->first('content') }}</span>
                     @endif
                 </div>
+                <script> CKEDITOR.replace('editor1')  </script>
                 <div class="form-group">
                     {!! Form::label('labKeyword','Nhập keyword (SEO)') !!}
                     {!! Form::textarea('keywords',null,['class'=>'form-control','placeholder'=>'Nhập keyword SEO bài viết']) !!}

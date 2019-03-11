@@ -26,7 +26,7 @@ class CreateTablePostsTable extends Migration
             $table->text('keywords');
             $table->text('description');
             $table->string('url_video')->nullable();
-            $table->integer('view')->nullable();
+            $table->integer('view')->default(0);
             $table->string('tag')->nullable();
             $table->integer('cate_id')->unsigned();
             $table->foreign('cate_id')->references('id')->on('cates')->onDelete('cascade');
