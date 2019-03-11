@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Cate;
 use DB;
 use App\Banner;
-
+use Session;
 class Product_detail extends Controller
 {
     public function productDetail($name){
@@ -28,13 +28,21 @@ class Product_detail extends Controller
             }
         }
         //Hiển thị chi tiết sản phẩm
-        $product_detail = Product::where('alias','like',$name)->get();
+        $product_detail = Product::where('alias',$name)->first();
+        //
+
+        // Tăng lượt view trong trang
+        $productKey = 'product_' . $product_detail->id;
+        if (!Session::has($productKey)){
+            $product_detail->increment('view');
+            Session::put($productKey,1);
+        }
         //end
 //        echo "<pre>";
 //        print_r($product_detail);
 //        echo "</pre>";die();
-        $cate_pro = $product_detail[0]['cate_id'];
-        $cate_pro_id = $product_detail[0]['id'];
+        $cate_pro = $product_detail->cate_id;
+        $cate_pro_id = $product_detail->id;
         //lấy ảnh sản phẩm
         $product_images = DB::table('products')
                             ->join('images','products.id','=','images.item_id')
@@ -57,6 +65,9 @@ class Product_detail extends Controller
                         ->select('products.id','products.name','products.alias','products.price_old','products.price_new','products.avatar','products.title')
                         ->orderBy('products.id','DESC')->limit(6)->get();
         //end
+//        echo "<pre>";
+//        print_r($product_item);
+//        echo "</pre>";die();
 
         return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images','product_item'));
     }
@@ -80,13 +91,13 @@ class Product_detail extends Controller
                         ->join('cates','products.cate_id','=','cates.id')
                         ->where('products.status',1)
                         ->where('cates.alias','like',$alias)
-                        ->select('products.id','products.name','products.introduction','products.title','products.content','products.price_new','products.price_old','products.avatar')
+                        ->select('products.id','products.name','products.alias','products.introduction','products.title','products.content','products.price_new','products.price_old','products.avatar')
                         ->orderBy('id','DESC')->paginate(9);
         $post_banner = Banner::where('status',1)->where('banner_right',1)->orderBy('id','DESC')->limit(1)->get();
         //lấy ra sản phẩm được xem nhiều nhất
         $product_view = Product::where('status',1)->orderBy('view','DESC')->limit(5)->get();
 //                echo "<pre>";
-//        print_r($product_view);
+//        print_r($product_list);
 //        echo "</pre>";die();
         return view('frontend/product/product_list',compact('arr_menu','product_list','post_banner','product_view'));
     }

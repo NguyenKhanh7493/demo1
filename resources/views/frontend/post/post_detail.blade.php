@@ -8,7 +8,7 @@
                 <span class="navigation-pipe">&nbsp;</span>
                 <a class="home" href="{{ route('post_list') }}" title="Blog">Tin tức</a>
                 <span class="navigation-pipe">&nbsp;</span>
-                <span> {{ $post_detail[0]->tag }}</span>
+                <span> {{ $post_detail['tag'] }}</span>
             </div>
             <!-- ./breadcrumb -->
             <!-- row -->
@@ -19,7 +19,7 @@
                 <!-- Center colunm-->
                 <div class="center_column col-xs-12 col-sm-9" id="center_column">
                     <h1 class="page-heading">
-                        <span class="page-heading-title2" style="color: #ec0992;">{{ $post_detail[0]->name }}</span>
+                        <span class="page-heading-title2" style="color: #ec0992;">{{ $post_detail['name'] }}</span>
                     </h1>
                     <article class="entry-detail">
                         <div class="entry-meta-data">
@@ -48,14 +48,14 @@
                             <img src="{{ url('/') }}/public/images/post/image_detail/{{ $post_image[0]->image_name }}" alt="Blog">
                         </div>
                         <div class="content-text clearfix">
-                            <p style="font-weight: 600;font-style: italic;">{{ $post_detail[0]->introduction }}</p>
+                            <p style="font-weight: 600;font-style: italic;">{{ $post_detail['introduction'] }}</p>
 
-                            <p>{{ $post_detail[0]->content }}</p>
+                            <p>{{ $post_detail['content'] }}</p>
                         </div>
-                        @if(!empty($post_detail[0]->tag))
+                        @if(!empty($post_detail['tag']))
                         <div class="entry-tags">
                             <span>Xem thêm:</span>
-                            <a href="#">{{ $post_detail[0]->tag }}</a>
+                            <a href="#">{{ $post_detail['tag'] }}</a>
                         </div>
                          @endif
                     </article>
@@ -64,7 +64,7 @@
                         <h2>Có thể bạn quan tâm</h2>
                         <ul class="related-posts owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}'>
                             @foreach($post_list as $item)
-                                @if($item->id != $post_detail[0]->id)
+                                @if($item->id != $post_detail['id'])
                             <li class="post-item">
                                 <article class="entry">
                                     <div class="entry-thumb">

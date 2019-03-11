@@ -5,11 +5,11 @@
     <div class="container" id="columns">
         <!-- breadcrumb -->
         <div class="breadcrumb clearfix">
-            <a class="home" href="{{ route('home') }}" title="Return to Home">Trang chủ</a>
+            <a class="home" href="{{ route('home') }}" title="Trở về trang chủ">Trang chủ</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">Sản phẩm</a>
+            <a href="{{ URL::previous() }}" title="Quay lại trang sản phẩm">Sản phẩm</a>
             <span class="navigation-pipe">&nbsp;</span>
-            <a href="#" title="Return to Home">{{ $product_detail[0]->name }}</a>
+            <a href="{{ url('/chi-tiet',$product_detail['alias']) }}" title="Chi tiết sản phẩm">{{ $product_detail['name'] }}</a>
         </div>
         <!-- ./breadcrumb -->
         <!-- row -->
@@ -41,7 +41,7 @@
                             <!-- product-imge-->
                         </div>
                         <div class="pb-right-column col-xs-12 col-sm-7">
-                            <h1 class="product-name">{{ $product_detail[0]->name }}</h1>
+                            <h1 class="product-name">{{ $product_detail['name'] }}</h1>
                             <div class="product-comments">
                                 <div class="product-star">
                                     {{--<i class="fa fa-star"></i>--}}
@@ -56,16 +56,16 @@
                                 </div>
                             </div>
                             <div class="product-price-group">
-                                @if(!empty($product_detail[0]->price_new))
-                                    <span class="price">{{ number_format($product_detail[0]->price_new) }} <u style="font-size: 16px;">đ</u></span>
+                                @if(!empty($product_detail['price_new']))
+                                    <span class="price">{{ number_format($product_detail['price_new']) }} <u style="font-size: 16px;">đ</u></span>
                                 @else
-                                    <span class="price">{{ number_format($product_detail[0]->price_old) }} <u style="font-size: 16px;">đ</u></span>
+                                    <span class="price">{{ number_format($product_detail['price_old']) }} <u style="font-size: 16px;">đ</u></span>
                                 @endif
                                 {{--<span class="old-price">{{ $product_detail[0]->price_old }}</span>--}}
                                 {{--<span class="discount">-30%</span>--}}
                             </div>
                             <div class="info-orther" style="font-weight: 600;">
-                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Product ID : {{ $product_detail[0]->id }}</p>
+                                <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Product ID : {{ $product_detail['id'] }}</p>
                                 <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Đặt hoa online</p>
                                 <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Giao hàng miễn phí</p>
                                 <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Giao hàng nhận tiền</p>
@@ -150,7 +150,7 @@
                         </ul>
                         <div class="tab-container">
                             <div id="product-detail" class="tab-panel active">
-                                {{ $product_detail[0]->content }}
+                                {{ $product_detail['content'] }}
                             </div>
                         </div>
                     </div>
@@ -216,7 +216,7 @@
                     <span class="navigation-pipe">&nbsp;</span>
                     <a href="#" title="Return to Home">Sản phẩm</a>
                     <span class="navigation-pipe">&nbsp;</span>
-                    <a href="#" title="Return to Home">{{ $product_detail[0]->name }}</a>
+                    <a href="#" title="Return to Home">{{ $product_detail['name'] }}</a>
                 </div>
                 <!-- ./breadcrumb -->
                 <!-- row -->
@@ -237,7 +237,7 @@
                                     <!-- product-imge-->
                                 </div>
                                 <div class="pb-right-column col-xs-12 col-sm-7">
-                                    <h1 class="product-name">{{ $product_detail[0]->name }}</h1>
+                                    <h1 class="product-name">{{ $product_detail['name'] }}</h1>
                                     <div class="product-comments">
                                         <div class="product-star">
                                             {{--<i class="fa fa-star"></i>--}}
@@ -252,16 +252,16 @@
                                         </div>
                                     </div>
                                     <div class="product-price-group">
-                                        @if(!empty($product_detail[0]->price_new))
-                                            <span class="price">{{ number_format($product_detail[0]->price_new) }} <u style="font-size: 16px;">đ</u></span>
+                                        @if(!empty($product_detail['price_new']))
+                                            <span class="price">{{ number_format($product_detail['price_new']) }} <u style="font-size: 16px;">đ</u></span>
                                         @else
-                                            <span class="price">{{ number_format($product_detail[0]->price_old) }} <u style="font-size: 16px;">đ</u></span>
+                                            <span class="price">{{ number_format($product_detail['price_old']) }} <u style="font-size: 16px;">đ</u></span>
                                         @endif
                                         {{--<span class="old-price">{{ $product_detail[0]->price_old }}</span>--}}
                                         {{--<span class="discount">-30%</span>--}}
                                     </div>
                                     <div class="info-orther" style="font-weight: 600;">
-                                        <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Product ID : {{ $product_detail[0]->id }}</p>
+                                        <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Product ID : {{ $product_detail['id'] }}</p>
                                         <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Đặt hoa online</p>
                                         <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Giao hàng miễn phí</p>
                                         <p><i class="fa fa-hand-o-right" aria-hidden="true" style="color: #22d248;"></i> Giao hàng nhận tiền</p>
@@ -346,7 +346,7 @@
                                 </ul>
                                 <div class="tab-container">
                                     <div id="product-detail" class="tab-panel active">
-                                        {{ $product_detail[0]->content }}
+                                        {{ $product_detail['content'] }}
                                     </div>
                                 </div>
                             </div>

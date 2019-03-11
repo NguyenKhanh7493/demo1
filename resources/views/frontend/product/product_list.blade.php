@@ -34,7 +34,7 @@
                             <li class="col-sx-12 col-sm-4">
                                 <div class="product-container">
                                     <div class="left-block">
-                                        <a href="detail.html">
+                                        <a href="{{ url('/chi-tiet',$item->alias) }}">
                                             <img class="img-responsive" alt="product" src="{{ url('/') }}/public/images/product/avatar/{{ $item->avatar }}" />
                                         </a>
                                         {{--<div class="quick-view">--}}
@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                     <div class="right-block">
-                                        <h5 class="product-name"><a href="detail.html">{{ $item->name }}</a></h5>
+                                        <h5 class="product-name"><a href="{{ url('/chi-tiet',$item->alias) }}">{{ $item->name }}</a></h5>
                                         {{--<div class="product-star">--}}
                                             {{--<i class="fa fa-star"></i>--}}
                                             {{--<i class="fa fa-star"></i>--}}

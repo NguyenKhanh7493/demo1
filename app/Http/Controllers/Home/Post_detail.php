@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
 use App\product;
-use DB;
+use DB,Session;
 class Post_detail extends Controller
 {
     public function postList(){
@@ -53,7 +53,12 @@ class Post_detail extends Controller
                 array_push( $arr_menu, $temp);
             }
         }
-        $post_detail = Post::where('status',1)->where('alias','like',$name)->orderBy('id','DESC')->limit(6)->get();
+        $post_detail = Post::where('status',1)->where('alias','like',$name)->orderBy('id','DESC')->limit(6)->first();
+        $postKey = 'post_' . $post_detail->id;
+        if (!Session::has($postKey)){
+            $post_detail->increment('view');
+            Session::put($postKey,1);
+        }
         //danh sách liên quan
         $post_list = Post::where('status',1)->orderBy('id','DESC')->limit(6)->get();
         //sản phẩm được xem nhiều nhất
