@@ -50,7 +50,7 @@
                         <div class="content-text clearfix">
                             <p style="font-weight: 600;font-style: italic;">{{ $post_detail['introduction'] }}</p>
 
-                            <p>{{ $post_detail['content'] }}</p>
+                            <p>{!! $post_detail['content'] !!}</p>
                         </div>
                         @if(!empty($post_detail['tag']))
                         <div class="entry-tags">

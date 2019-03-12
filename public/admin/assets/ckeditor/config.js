@@ -35,5 +35,18 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+	//xóa ký tự &p
     CKEDITOR.config.entities = false;
+	//xóa thẻ p
+    config.enterMode = CKEDITOR.ENTER_BR;
+    CKEDITOR.config.forcePasteAsPlainText = true;
+    config.shiftEnterMode = CKEDITOR.ENTER_P;
+    config.autoParagraph = false;
+    //chèn ckfinder
+    config.filebrowserBrowseUrl = 'http://demo1.site/public/admin/assets/ckeditor/ckfinder/ckfinder.html';
+    config.filebrowserImageBrowseUrl = 'http://demo1.site/public/admin/assets/ckeditor/ckfinder/ckfinder.html?type=Images';
+    config.filebrowserFlashBrowseUrl = 'http://demo1.site/public/admin/assets/ckeditor/ckfinder/ckfinder.html?type=Flash';
+    config.filebrowserUploadUrl = 'http://demo1.site/public/admin/assets/ckeditor/ckfinder/core/connector/php/connector. php?command=QuickUpload&type=Files';
+    config.filebrowserImageUploadUrl = 'http://demo1.site/public/admin/assets/ckeditor/ckfinder/core/connector/php/connector. php?command=QuickUpload&type=Images';
+    config.filebrowserFlashUploadUrl = 'http://demo1.site/public/admin/assets/ckeditor/ckfinder/core/connector/php/connector. php?command=QuickUpload&type=Flash';
 };

@@ -150,7 +150,7 @@
                         </ul>
                         <div class="tab-container">
                             <div id="product-detail" class="tab-panel active">
-                                {{ $product_detail['content'] }}
+                                {!! $product_detail['content'] !!}
                             </div>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
                                 </ul>
                                 <div class="tab-container">
                                     <div id="product-detail" class="tab-panel active">
-                                        {{ $product_detail['content'] }}
+                                        {!! $product_detail['content'] !!}
                                     </div>
                                 </div>
                             </div>

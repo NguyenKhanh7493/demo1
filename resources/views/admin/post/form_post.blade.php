@@ -44,7 +44,7 @@
                         <span style="color: red;font-style: italic">(*) {{ $errors->first('content') }}</span>
                     @endif
                 </div>
-                <script> CKEDITOR.replace('editor1')  </script>
+                <script> CKEDITOR.replace('editor1',{ height:700})  </script>
                 <div class="form-group">
                     {!! Form::label('labKeyword','Nhập keyword (SEO)') !!}
                     {!! Form::textarea('keywords',null,['class'=>'form-control','placeholder'=>'Nhập keyword SEO bài viết']) !!}
