@@ -176,6 +176,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         //kn form
         Collective\Html\HtmlServiceProvider::class,
+        //kn shopping cart
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
     ],
 
@@ -230,6 +232,8 @@ return [
         //kn form 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        //kn shopping cart
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
 
     ],
 
