@@ -42,7 +42,7 @@
                             <button class="btn btn-default" type="button">OK</button>
                           </span>
                     </div><!-- /input-group -->
-                    <div class="introduce-title">Let's Socialize</div>
+                    <div class="introduce-title">Số người truy cập</div>
                     <div class="social-link">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-pinterest-p"></i></a>

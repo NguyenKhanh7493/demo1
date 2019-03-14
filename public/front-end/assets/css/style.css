@@ -3602,7 +3602,7 @@ span.notify-right{
   background: #fafafa;
   padding-top: 8px;
 }
-.sortPagiBar .bottom-pagination{
+.sortPagiBar .bottom-pagination{.page-order .cart_navigation a:hover
   width: auto;
   float: right;
   margin-left: 23px;
