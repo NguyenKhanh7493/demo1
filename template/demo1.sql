@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 12, 2019 lúc 10:41 AM
+-- Thời gian đã tạo: Th3 14, 2019 lúc 10:52 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -163,6 +163,39 @@ INSERT INTO `images` (`id`, `image_name`, `title`, `item_type`, `item_id`, `url`
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `invoices`
+--
+
+CREATE TABLE `invoices` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `gender` int(11) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `other` text NOT NULL,
+  `total` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `invoice_details`
+--
+
+CREATE TABLE `invoice_details` (
+  `id_invoice` int(10) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `num` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `migrations`
 --
 
@@ -185,7 +218,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2018_12_27_082656_create_table_images_table', 1),
 (26, '2019_01_09_085823_create_table_posts_table', 1),
 (27, '2019_01_16_082502_create_table_customer_buy_table', 2),
-(28, '2019_01_19_051933_create_table_banners_table', 3);
+(28, '2019_01_19_051933_create_table_banners_table', 3),
+(29, '2019_03_14_071203_create_table_invoices_table', 4),
+(30, '2019_03_14_072048_create_table_invoice_details_table', 4);
 
 -- --------------------------------------------------------
 
@@ -338,8 +373,8 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
 (3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'ty2.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', '<img alt=\"\" src=\"http://demo1.site/public/admin/plugins/images/ckfinder/images/cach-cam-chau-hoa-lan-ho-diep-dep-va-y-nghia-3-1.jpg\" style=\"height:457px; width:606px;text-align:center;\" /><br />\r\n<br />\r\nHoa lan Hồ Điệp&nbsp;có nguồn gốc từ Đông Nam Á, Philippines và Australia. Ngoài tự nhiên loài cây này luôn bám chặt vào thân cây khác hay bám vào đá để giữ cho cây cố định. Qua thời gian được con người phát hiện và đem về nuôi trồng, lan Hồ Điệp đã trở thành giống lan cao quý, được nhiều người yêu thích, là&nbsp;loài hoa trang trí chủ yếu cho những không gian thanh lịch, sang trọng.&nbsp;Trong số những màu sắc nổi bật và phổ biến như&nbsp;lan Hồ Điệp tím,&nbsp;lan Hồ Điệp vàng,&nbsp;lan Hồ Điệp cam,.. thì lan Hồ Điệp đỏ tuy là giống mới nhưng khó mà quên được khi đã từng ngắm loài hoa này.', 're', 're', 9, 2, 2, NULL, '2019-02-22 06:19:43', '2019-03-12 00:30:25'),
 (4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hd1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, 1, NULL, '2019-02-22 06:23:24', '2019-03-11 00:27:43'),
-(5, 'hoa lan hồng', 'hoa-lan-hong', 3, 3000000, 2000000, NULL, 'lando.jpg', 0, 0, 0, 1, 1, 'Hoa lan hồng', 'hoa lan abc', 'addad', 'ad', 'ad', 9, 1, 1, NULL, '2019-02-23 01:24:03', '2019-03-11 00:21:57'),
-(7, 'Hoa lan trắng', 'hoa-lan-trang', 3, 4343434, 3434343, NULL, 'hl.jpg', 0, 0, 0, 1, 1, 'hoa lan trắng', 'ad', 'ad', 'ad', 'ad', 9, 2, 3, NULL, '2019-02-23 01:25:57', '2019-03-11 00:47:34'),
+(5, 'hoa lan hồng', 'hoa-lan-hong', 3, 3000000, 2000000, NULL, 'lando.jpg', 0, 0, 0, 1, 1, 'Hoa lan hồng', 'hoa lan abc', 'addad', 'ad', 'ad', 9, 1, 2, NULL, '2019-02-23 01:24:03', '2019-03-12 23:40:49'),
+(7, 'Hoa lan trắng', 'hoa-lan-trang', 3, 4343434, 3434343, NULL, 'hl.jpg', 0, 0, 0, 1, 1, 'hoa lan trắng', 'ad', 'ad', 'ad', 'ad', 9, 2, 4, NULL, '2019-02-23 01:25:57', '2019-03-13 20:30:32'),
 (9, 'Hoa hồng vàng', 'hoa-hong-vang', 4, 80000, NULL, NULL, 'hv.jpg', 0, 1, 0, 0, 1, 'Hoa hồng vàng đẹp nhất', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 10, 1, 1, NULL, '2019-02-27 23:24:46', '2019-03-11 00:47:52'),
 (10, 'Hoa hồng cam', 'hoa-hong-cam', 5, 300000, NULL, NULL, 'hc2.jpg', 0, 1, 0, 0, 1, 'Hoa hồng cam đẹp', 'Màu cam là màu sắc được tạo bởi sự hòa hợp giữa hoa hồng vàng và đỏ. Do đó, hoa hồng cam luôn mang sự nhẹ nhàng, bay bổng và dịu dàng thể hiện niềm khát khao, những hoài bão lớn về một tình yêu chân thành. Do đó, nhiều người thường ví von rằng, hoa hồng cam đã hội tụ được những gì đẹp nhất của tình bạn và tình yêu trên những cánh hoa ấy.', 'Màu cam là màu sắc được tạo bởi sự hòa hợp giữa hoa hồng vàng và đỏ. Do đó, hoa hồng cam luôn mang sự nhẹ nhàng, bay bổng và dịu dàng thể hiện niềm khát khao, những hoài bão lớn về một tình yêu chân thành. Do đó, nhiều người thường ví von rằng, hoa hồng cam đã hội tụ được những gì đẹp nhất của tình bạn và tình yêu trên những cánh hoa ấy.\r\n\r\nHiếm có loài hoa nào mang nhiều cung bậc cảm xúc và thông điệp yêu thương như hoa hồng, đặc biệt hơn cả là hoa hồng cam. Nếu hoa hồng đỏ là đại diện của một tình yêu nồng nàn cháy bỏng thì hoa hồng cam lại mang hình hài cho một thứ tình cảm trong sáng và thuần khiết.\r\n\r\nBên cạnh ý nghĩa trên, tặng một bó hoa hồng cam còn là một món quà thể hiện thông điệp “tôi tự hào về bạn”, “hãy cứ làm theo suy nghĩ, trái tim và lí trí đang mách bảo”.\r\n\r\nNhững đoán hoa hồng cam thay lời muốn nói rằng: Em rất thật tự hào về anh, hãy thực hiện những điều mà anh thấy đúng đắn nhất,…Dù là tình cảm hay lý trí đều được bộc lộ rõ qua những đóa hồng cam kì diệu này.\r\n\r\nCho dù với mục đích nào đi nữa, hoa hồng cam vẫn truyền tải rất tốt thông điệp mà bạn muốn gửi đến người nhận và chắc chắn với sự góp mặt của màu hoa ấn tượng này sẽ làm ấm lên mối quan hệ của bạn.', 'à', 'âf', 10, 1, 0, NULL, '2019-02-28 00:58:04', '2019-03-10 23:54:30'),
 (11, 'Hoa hồng xanh', 'hoa-hong-xanh', 8, 405677, NULL, NULL, 'hx1.jpg', 0, 1, 0, 0, 1, 'Hoa hồng xanh đẹp', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'á', 's', 10, 1, 0, NULL, '2019-02-28 00:59:35', '2019-03-10 23:54:50'),
@@ -457,6 +492,12 @@ ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `invoices`
+--
+ALTER TABLE `invoices`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
@@ -548,10 +589,16 @@ ALTER TABLE `images`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
+-- AUTO_INCREMENT cho bảng `invoices`
+--
+ALTER TABLE `invoices`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
