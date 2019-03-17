@@ -20,11 +20,11 @@
                     <div class="col-sm-4">
                         <div class="introduce-title">VỀ CHÚNG TÔI</div>
                         <ul id="introduce-company"  class="introduce-list">
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Bản quyền & Sở hữu</a></li>
-                            <li><a href="#">Hoạt động</a></li>
+                            <li><a href="{{ url('/gioi-thieu') }}">Giới thiệu</a></li>
+                            <li><a href="{{ url('/gioi-thieu') }}">Bản quyền & Sở hữu</a></li>
+                            <li><a href="{{ url('/gioi-thieu') }}">Hoạt động</a></li>
                             <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-8">
@@ -44,11 +44,8 @@
                     </div><!-- /input-group -->
                     <div class="introduce-title">Số người truy cập</div>
                     <div class="social-link">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fa fa-vk"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <span>Tổng :</span>
+                        <span style="color: #e83a13;">{{ number_format(100000000) }}</span>
                     </div>
                 </div>
 

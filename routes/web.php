@@ -81,4 +81,6 @@ Route::get('/san-pham/{alias}','Home\Product_detail@productList')->name('product
 Route::get('/tin-tuc/{alias}','Home\Post_detail@postDetail')->name('post_detail');
 Route::get('/tin-tuc','Home\Post_detail@postList')->name('post_list');
 Route::get('/gio-hang','Home\CartController@index')->name('cart_index');
+Route::get('/tim-kiem-san-pham','Home\SearchController@searchProduct');
+Route::get('/tim-kiem-bai-viet','Home\SearchController@searchPost');
 //Route::get('/insert-user','HomeController@insertUser');

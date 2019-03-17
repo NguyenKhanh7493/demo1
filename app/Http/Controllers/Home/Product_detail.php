@@ -91,7 +91,7 @@ class Product_detail extends Controller
                         ->join('cates','products.cate_id','=','cates.id')
                         ->where('products.status',1)
                         ->where('cates.alias','like',$alias)
-                        ->select('products.id','products.name','products.alias','products.introduction','products.title','products.content','products.price_new','products.price_old','products.avatar')
+                        ->select('products.id','products.name','products.alias','products.introduction','products.title','products.content','products.price_new','products.price_old','products.avatar','products.num')
                         ->orderBy('id','DESC')->paginate(9);
         $post_banner = Banner::where('status',1)->where('banner_right',1)->orderBy('id','DESC')->limit(1)->get();
         //lấy ra sản phẩm được xem nhiều nhất

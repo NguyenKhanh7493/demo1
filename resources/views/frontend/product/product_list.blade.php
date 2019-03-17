@@ -65,7 +65,12 @@
                                         </div>
                                         <div class="info-orther">
                                             <p>Mã-sp: #{{ $item->id }}</p>
-                                            <p class="availability">Tình trạng: <span>Còn hàng</span></p>
+                                            <p class="availability">Tình trạng:
+                                            @if($item->num > 0)
+                                               <span>Còn hàng</span></p>
+                                            @else
+                                                <span style="color: red;">Hết hàng</span></p>
+                                            @endif()
                                             <div class="product-desc">
                                                 {{ $item->introduction }}
                                             </div>
