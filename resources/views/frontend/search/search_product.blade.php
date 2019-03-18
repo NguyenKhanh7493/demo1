@@ -120,7 +120,8 @@
                 <!-- ./row-->
             </div>
         </div>
-    @elseif(!empty($post))
+    @endif
+    @if(!empty($post))
         <div class="columns-container">
             <div class="container" id="columns">
                 <!-- breadcrumb -->
@@ -214,30 +215,30 @@
                                         {{--</li>--}}
 
 
-                                        @if($post_arr_list->currentPage() != 1)
-                                            <li><a href="{!! $post_arr_list->url($post_arr_list->currentPage()-1) !!}" aria-label="left"><span aria-hidden="true"><<</span></a></li>
-                                            @for($i=$post_arr_list->currentPage();$i <= $post_arr_list->lastPage();$i=$i+1)
-                                                <li class="{!! $post_arr_list->currentPage() == $i?'active':'' !!}"><a href="{!! $post_arr_list->url($i) !!}" >{!! $i !!}</a></li>
-                                                @if($i == $post_arr_list->currentPage()+5)
-                                                    <li><a href="#">...</a></li>
-                                                    <li><a href="{!! $post_arr_list->url($i) !!}">{!! $post_arr_list->lastPage() !!}</a></li>
-                                                    @break($i == $post_arr_list->currentPage()+5);
-                                                @endif
-                                            @endfor
-                                        @endif
-                                        @if($post_arr_list->currentPage() == 1)
-                                            @for($i = 1;$i <= $post_arr_list->lastPage();$i = $i +1)
-                                                <li class="{!! $post_arr_list->currentPage() == $i?'active':'' !!}"><a href="{!! $post_arr_list->url($i) !!}" >{!! $i !!}</a></li>
-                                                @if($i==5)
-                                                    <li><a href="#">...</a></li>
-                                                    <li><a href="{!! $post_arr_list->url($i) !!}">{!! $post_arr_list->lastPage() !!}</a></li>
-                                                    @break($i==5);
-                                                @endif
-                                            @endfor
-                                        @endif
-                                        @if($post_arr_list->currentPage() != $post_arr_list->lastPage())
-                                            <li><a href="{!! $post_arr_list->url($post_arr_list->currentPage()+1) !!}" aria-label="Next"><span aria-hidden="true">>></span></a></li>
-                                        @endif
+                                        {{--@if($post_arr_list->currentPage() != 1)--}}
+                                        {{--<li><a href="{!! $post_arr_list->url($post_arr_list->currentPage()-1) !!}" aria-label="left"><span aria-hidden="true"><<</span></a></li>--}}
+                                        {{--@for($i=$post_arr_list->currentPage();$i <= $post_arr_list->lastPage();$i=$i+1)--}}
+                                        {{--<li class="{!! $post_arr_list->currentPage() == $i?'active':'' !!}"><a href="{!! $post_arr_list->url($i) !!}" >{!! $i !!}</a></li>--}}
+                                        {{--@if($i == $post_arr_list->currentPage()+5)--}}
+                                        {{--<li><a href="#">...</a></li>--}}
+                                        {{--<li><a href="{!! $post_arr_list->url($i) !!}">{!! $post_arr_list->lastPage() !!}</a></li>--}}
+                                        {{--@break($i == $post_arr_list->currentPage()+5);--}}
+                                        {{--@endif--}}
+                                        {{--@endfor--}}
+                                        {{--@endif--}}
+                                        {{--@if($post_arr_list->currentPage() == 1)--}}
+                                        {{--@for($i = 1;$i <= $post_arr_list->lastPage();$i = $i +1)--}}
+                                        {{--<li class="{!! $post_arr_list->currentPage() == $i?'active':'' !!}"><a href="{!! $post_arr_list->url($i) !!}" >{!! $i !!}</a></li>--}}
+                                        {{--@if($i==5)--}}
+                                        {{--<li><a href="#">...</a></li>--}}
+                                        {{--<li><a href="{!! $post_arr_list->url($i) !!}">{!! $post_arr_list->lastPage() !!}</a></li>--}}
+                                        {{--@break($i==5);--}}
+                                        {{--@endif--}}
+                                        {{--@endfor--}}
+                                        {{--@endif--}}
+                                        {{--@if($post_arr_list->currentPage() != $post_arr_list->lastPage())--}}
+                                        {{--<li><a href="{!! $post_arr_list->url($post_arr_list->currentPage()+1) !!}" aria-label="Next"><span aria-hidden="true">>></span></a></li>--}}
+                                        {{--@endif--}}
                                     </ul>
                                 </nav>
                             </div>

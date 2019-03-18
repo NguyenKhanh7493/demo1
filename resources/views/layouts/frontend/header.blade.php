@@ -52,15 +52,14 @@
                 <a href="index.html"><img alt="Kute Shop" src="{{url('/')}}/public/front-end/assets/images/logo2.png" /></a>
             </div>
             <div class="col-xs-7 col-sm-7 header-search-box">
-                <form class="form-inline" action="{{ url('tim-kiem-san-pham') }}" method="get">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    {{--<div class="form-group form-category">--}}
-                        {{--<select class="select-category">--}}
-                            {{--<option value="2">All Categories</option>--}}
-                            {{--<option value="1">Men</option>--}}
-                            {{--<option value="2">Women</option>--}}
-                        {{--</select>--}}
-                    {{--</div>--}}
+                <form class="form-inline" action="{{ url('tim-kiem') }}" method="get">
+                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                    <div class="form-group form-category">
+                        <select class="select-category" name="value_search">
+                            <option value="1">Sản Phẩm</option>
+                            <option value="2">Bài viết</option>
+                        </select>
+                    </div>
                     <div class="form-group input-serach">
                         <input type="text" name="search"  placeholder="Nhập tìm kiếm...">
                     </div>
