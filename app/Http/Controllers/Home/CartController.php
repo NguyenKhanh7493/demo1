@@ -44,7 +44,8 @@ class CartController extends Controller
                 'price' => $product->price_old,
                 'qty' => '1',
                 'options' => [
-                    'avatar' => $product->avatar
+                    'avatar' => $product->avatar,
+                    'price_new' => $product->price_new
                 ]
             ];
             Cart::add($cartInfo);

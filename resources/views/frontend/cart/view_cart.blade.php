@@ -34,8 +34,8 @@
                                 <th>Tên sản phẩm</th>
                                 <th>Số lượng</th>
                                 {{--<th>Unit price</th>--}}
-                                {{--<th>Qty</th>--}}
-                                <th>Total</th>
+                                <th>Giá</th>
+                                <th>Tổng giá</th>
                                 <th  class="action"><i class="fa fa-trash-o"></i></th>
                             </tr>
                         </thead>
@@ -52,16 +52,24 @@
                                     {{--<small><a href="#">Size : S</a></small>--}}
                                 </td>
                                 <td class="qty">
-                                    <input class="form-control input-sm" type="number" value="1">
+                                    <input class="form-control input-sm" type="number" value="{{ $item->qty }}">
                                     <a href="#" style="background: #098e1f;color: #efe8e8;"><i class="fa fa-undo" aria-hidden="true"></i></a>
                                     {{--<a href="#"><i class="fa fa-caret-down"></i></a>--}}
                                 </td>
                                 {{--<td class="cart_avail"><span class="label label-success">In stock</span></td>--}}
-                                {{--<td class="price"><span>61,19 €</span></td>--}}
                                 <td class="price">
-                                    <span style="font-size: 15px;"> 300.000 <u>đ</u></span> <br/>
-                                    <span style="font-size: 13px;"> <strike>300.000 <u>đ</u></strike></span>
+                                    @if(!empty($item->options->price_new))
+                                        <span style="font-size: 15px;"> {{ $item->options->price_new }} <u>đ</u></span> <br/>
+                                        <span style="font-size: 13px;"> <strike>{{ $item->price }} <u>đ</u></strike></span>
+                                    @else
+                                        <span style="font-size: 15px;"> {{ $item->price }} <u>đ</u></span> <br/>
+                                    @endif
                                 </td>
+                                @if(!empty($item->options->price_new))
+                                <td class="price"><span>{{ number_format($item->options->price_new * $item->qty) }}</span></td>
+                                @else
+                                    <td class="price"><span>{{ number_format($item->price * $item->qty) }}</span></td>
+                                @endif
                                 <td class="action">
                                     <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </td>
