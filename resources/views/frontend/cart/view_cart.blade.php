@@ -22,47 +22,51 @@
                     {{--<li><span>04. Shipping</span></li>--}}
                     {{--<li><span>05. Payment</span></li>--}}
                 {{--</ul>--}}
+                @if(count($cart))
                 <div class="heading-counter warning">Sản phẩm trong giỏ hàng của bạn:
-                    <span style="color: red;">1 Sản phẩm</span>
+                    <span style="color: red;">{{ count($cart) }} Sản phẩm</span>
                 </div>
                 <div class="order-detail-content">
                     <table class="table table-bordered table-responsive cart_summary">
                         <thead>
-                        <tr>
-                            <th class="cart_product">Ảnh SP</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Số lượng</th>
-                            {{--<th>Unit price</th>--}}
-                            {{--<th>Qty</th>--}}
-                            <th>Total</th>
-                            <th  class="action"><i class="fa fa-trash-o"></i></th>
-                        </tr>
+                            <tr>
+                                <th class="cart_product">Ảnh SP</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                {{--<th>Unit price</th>--}}
+                                {{--<th>Qty</th>--}}
+                                <th>Total</th>
+                                <th  class="action"><i class="fa fa-trash-o"></i></th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="cart_product">
-                                <a href="#"><img src="{{ url('/') }}/public/front-end/assets/data/product-100x122.jpg" alt="Product"></a>
-                            </td>
-                            <td class="cart_description">
-                                <p class="product-name"><a href="#">Hoa lan kiếm </a></p>
-                                <small class="cart_ref">Product ID : #13</small><br>
-                                {{--<small><a href="#">Color : Beige</a></small><br>--}}
-                                {{--<small><a href="#">Size : S</a></small>--}}
-                            </td>
-                            <td class="qty">
-                                <input class="form-control input-sm" type="number" value="1">
-                                <a href="#" style="background: #098e1f;color: #efe8e8;"><i class="fa fa-undo" aria-hidden="true"></i></a>
-                                {{--<a href="#"><i class="fa fa-caret-down"></i></a>--}}
-                            </td>
-                            {{--<td class="cart_avail"><span class="label label-success">In stock</span></td>--}}
-                            {{--<td class="price"><span>61,19 €</span></td>--}}
-                            <td class="price">
-                                <span> 300.000 <u>đ</u></span>
-                            </td>
-                            <td class="action">
-                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
+                        @foreach(Cart::content() as $item)
+                            <tr>
+                                <td class="cart_product">
+                                    <a href="#"><img src="{{ url('/') }}/public/images/product/avatar/<?php echo $item->options->avatar; ?>" alt="Product"></a>
+                                </td>
+                                <td class="cart_description">
+                                    <p class="product-name"><a href="#">{{ $item->name }} </a></p>
+                                    <small class="cart_ref">Product ID : #{{ $item->id }}</small><br>
+                                    {{--<small><a href="#">Color : Beige</a></small><br>--}}
+                                    {{--<small><a href="#">Size : S</a></small>--}}
+                                </td>
+                                <td class="qty">
+                                    <input class="form-control input-sm" type="number" value="1">
+                                    <a href="#" style="background: #098e1f;color: #efe8e8;"><i class="fa fa-undo" aria-hidden="true"></i></a>
+                                    {{--<a href="#"><i class="fa fa-caret-down"></i></a>--}}
+                                </td>
+                                {{--<td class="cart_avail"><span class="label label-success">In stock</span></td>--}}
+                                {{--<td class="price"><span>61,19 €</span></td>--}}
+                                <td class="price">
+                                    <span style="font-size: 15px;"> 300.000 <u>đ</u></span> <br/>
+                                    <span style="font-size: 13px;"> <strike>300.000 <u>đ</u></strike></span>
+                                </td>
+                                <td class="action">
+                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
@@ -71,8 +75,9 @@
                         </tr>
                         </tfoot>
                     </table>
+                    @endif
                     <div class="cart_navigation">
-                        <a class="prev-btn" href="#">Quay lại trang mua hàng</a>
+                        <a class="prev-btn" href="{{ url('/') }}">Quay lại trang mua hàng</a>
                         <a class="next-btn" href="#">Thanh toán</a>
                     </div>
                 </div>

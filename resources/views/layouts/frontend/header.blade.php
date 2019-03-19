@@ -70,7 +70,7 @@
                 <a title="Compare" href="#" class="btn-compare">compare</a>
                 <a title="My wishlist" href="#" class="btn-heart">wishlist</a>
                 <div class="btn-cart" id="cart-block">
-                    <a title="My cart" href="cart.html">Cart</a>
+                    <a title="My cart" href="{{ url('/gio-hang') }}">Cart</a>
                     <span class="notify notify-right">2</span>
                     <div class="cart-block">
                         <div class="cart-block-content">
