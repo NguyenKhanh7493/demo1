@@ -24,7 +24,7 @@
                 {{--</ul>--}}
                 @if(count($cart))
                 <div class="heading-counter warning">Sản phẩm trong giỏ hàng của bạn:
-                    <span style="color: red;">{{ count($cart) }} Sản phẩm</span>
+                    <span style="color: red;">{{ Cart::count() }} Sản phẩm</span>
                 </div>
                 <div class="order-detail-content">
                     <table class="table table-bordered table-responsive cart_summary">
@@ -40,7 +40,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach(Cart::content() as $item)
+                        <form action="" method="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @foreach($cart as $item)
                             <tr>
                                 <td class="cart_product">
                                     <a href="#"><img src="{{ url('/') }}/public/images/product/avatar/<?php echo $item->options->avatar; ?>" alt="Product"></a>
@@ -52,34 +54,35 @@
                                     {{--<small><a href="#">Size : S</a></small>--}}
                                 </td>
                                 <td class="qty">
-                                    <input class="form-control input-sm" type="text" value="{{ $item->qty }}">
-                                    <a href="{{ url('/gio-hang?product_id=$item->id&increment=1') }}"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                    <a href="{{ url('/gio-hang?product_id=$item->id&decrease=1') }}"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                                    <input class="form-control input-sm qty-cart" type="text" value="{{ $item->qty }}">
+                                    <a href="" class="updateCart" id="{{ $item->rowId }}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                    <a href=""><i class="fa fa-minus" aria-hidden="true"></i></a>
                                 </td>
                                 {{--<td class="cart_avail"><span class="label label-success">In stock</span></td>--}}
                                 <td class="price">
-                                    @if($item->options->has('price_new'))
-                                        <span style="font-size: 15px;"> {{ $item->options->price_new }} <u>đ</u></span> <br/>
-                                        <span style="font-size: 13px;"> <strike>{{ $item->price }} <u>đ</u></strike></span>
+                                    @if($item->options->has('price_new') && $item->options->price_new != 0)
+                                        <span style="font-size: 15px; "> {{ number_format($item->options->price_new) }} <u>đ</u></span> <br/>
+                                        <span style="font-size: 13px; color: #9e9898;"> <strike>{{ number_format($item->price) }} <u>đ</u></strike></span>
                                     @else
-                                        <span style="font-size: 15px;"> {{ $item->price }} <u>đ</u></span> <br/>
+                                        <span style="font-size: 15px;"> {{ number_format($item->price) }} <u>đ</u></span> <br/>
                                     @endif
                                 </td>
-                                @if($item->options->has('price_new'))
-                                <td class="price"><span>{{ number_format($item->options->price_new * $item->qty) }}</span></td>
+                                @if($item->options->has('price_new') && $item->options->price_new != 0)
+                                <td class="price" style="font-size: 15px;"><span>{{ number_format($item->options->price_new * $item->qty) }}</span></td>
                                 @else
-                                    <td class="price"><span>{{ number_format($item->price * $item->qty) }}</span></td>
+                                    <td class="price" style="font-size: 15px;"><span>{{ number_format($item->price * $item->qty) }}</span></td>
                                 @endif
-                                <td class="action">
-                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <td class="action" id="{{ $item->rowId }}">
+                                    <a href="javascript:void(0)" class="delete-cart" id="{{ $item->rowId }}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                         @endforeach
+                        </form>
                         </tbody>
                         <tfoot>
                         <tr>
                             <td colspan="3"><strong>Tổng tiền</strong></td>
-                            <td colspan="2" style="color:#e61212;font-size: 18px;"><strong>3000.000 <u>đ</u></strong></td>
+                            <td colspan="2" style="color:#e61212;font-size: 18px;"><strong>{{ $total }} <u>đ</u></strong></td>
                         </tr>
                         </tfoot>
                     </table>

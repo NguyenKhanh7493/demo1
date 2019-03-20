@@ -80,7 +80,9 @@ Route::get('/chi-tiet/{alias}','Home\Product_detail@productDetail')->name('produ
 Route::get('/san-pham/{alias}','Home\Product_detail@productList')->name('product_list');
 Route::get('/tin-tuc/{alias}','Home\Post_detail@postDetail')->name('post_detail');
 Route::get('/tin-tuc','Home\Post_detail@postList')->name('post_list');
-Route::post('/gio-hang','Home\CartController@cart')->name('cart_index');
-Route::get('/gio-hang','Home\CartController@Get_cart')->name('cart_index');
 Route::get('/tim-kiem','Home\SearchController@searchProduct');
+Route::get('/mua-san-pham/{id}/{name}','Home\CartController@addCart')->name('add_cart');
+Route::get('/gio-hang','Home\CartController@listCart')->name('cart_index');
+Route::get('/cap-nhat/{id}/{qty}','Home\CartController@updateCart')->name('cart_update');
+Route::delete('/xoa-san-pham','Home\CartController@delete')->name('cart_delete');
 //Route::get('/insert-user','HomeController@insertUser');

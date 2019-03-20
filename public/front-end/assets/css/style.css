@@ -5924,9 +5924,22 @@ span.notify-right{
 }
 /*tự thêm sau này*/
 .btn-buy{
+    height: 35px;
+    width: auto;
+    line-height: 35px;
+    font-size: 14px;
     color: #fff;
-    background-color:#22d248 ;
-    border-color: #22d248;
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+    clear: both;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #22d248;
+    border-radius: 4px;
+    /*color: #fff;*/
+    /*background-color:#22d248 ;*/
+    /*border-color: #22d248;*/
 }
 .button-group a:hover{
     color: #fff !important;

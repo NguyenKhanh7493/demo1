@@ -33,26 +33,69 @@ class CartController extends Controller
         }
         return view('frontend/cart/view_cart',compact('arr_menu'));
     }
-    public function cart(Request $request){
-        if($request->isMethod('post')){
-//            $this->data['title'] = 'gio hang cua ban';
-            $product_id = $request->get('product_id');
-            $product = Product::find($product_id);
-            $cartInfo = [
-                'id' => $product_id,
-                'name' => $product->name,
-                'price' => $product->price_old,
-                'qty' => '1',
-                'options' => [
-                    'avatar' => $product->avatar,
-                    'price_new' => $product->price_new
-                ]
-            ];
-            Cart::add($cartInfo);
-        }
-        return $this->Get_cart();
+//    public function cart(Request $request){
+//        if($request->isMethod('post')){
+////            $this->data['title'] = 'gio hang cua ban';
+//            $product_id = $request->get('product_id');
+//            $product = Product::find($product_id);
+//            $cartInfo = [
+//                'id' => $product_id,
+//                'name' => $product->name,
+//                'price' => $product->price_old,
+//                'qty' => '1',
+//                'options' => [
+//                    'avatar' => $product->avatar,
+//                    'price_new' => $product->price_new
+//                ]
+//            ];
+//            Cart::add($cartInfo);
+//        }
+//        return $this->Get_cart();
+//    }
+//    public function Get_cart(){
+//        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
+//        $arr_menu = [];
+//        foreach ($menu as $menus){
+//            $arr_child = [];
+//            if($menus['parent_id'] == 0){
+//                $id = $menus['id'];
+//                foreach ($menu as $menus2){
+//                    if($menus2['parent_id'] == $id){
+//                        array_push($arr_child, $menus2);
+//                    }
+//                }
+//                $temp = ['parent' => $menus, 'child' => $arr_child];
+//                array_push( $arr_menu, $temp);
+//            }
+//        }
+//        $cart = Cart::content();
+//        $this->data['cart'] = $cart;
+////        $product = Product::find(7);
+////        echo "<pre>";
+////        print_r($cart);die();
+////        echo "</pre>";
+//        return view('frontend/cart/view_cart',$this->data,compact('arr_menu'));
+//    }
+    public function addCart($id){
+        $product_buy = Product::where('id',$id)->first();
+        $cartInfo = [
+            'id' => $product_buy->id,
+            'name' => $product_buy->name,
+            'price' => $product_buy->price_old,
+            'qty' => 1,
+            'options' => [
+                'avatar' => $product_buy->avatar,
+                 'price_new' => $product_buy->price_new
+            ]
+        ];
+        Cart::add($cartInfo);
+        $cart = Cart::content();
+        return redirect()->route('cart_index');
+//        echo "<pre>";
+//        print_r($cart);
+//        echo "</pre>";die();
     }
-    public function Get_cart(){
+    public function listCart(){
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
         $arr_menu = [];
         foreach ($menu as $menus){
@@ -69,12 +112,20 @@ class CartController extends Controller
             }
         }
         $cart = Cart::content();
-        $this->data['cart'] = $cart;
-//        $product = Product::find(7);
-//        echo "<pre>";
-//        print_r($cart);die();
-//        echo "</pre>";
-        return view('frontend/cart/view_cart',$this->data,compact('arr_menu'));
+        $total = Cart::subtotal();
+        return view('frontend/cart/view_cart',compact('cart','arr_menu','total'));
+    }
+    public function updateCart(Request $request){
+        if ($request->ajax()){
+            $id = $request->get('id');
+            $qty = $request->get('qty');
+            Cart::update($id,$qty);
+        }
+    }
+    public function delete(Request $request){
+        if ($request->ajax()){
+            Cart::destroy($request->id);
+        }
     }
 
     /**

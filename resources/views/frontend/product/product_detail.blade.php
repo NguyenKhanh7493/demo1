@@ -74,17 +74,13 @@
                             <div class="product-desc" style="font-weight: 600;font-size: 18px;color: #2280d2;">
                                 <i class="fa fa-truck" aria-hidden="true" style="font-size: 27px;color: #22d248;"></i> Cam kết giao hàng đúng thời gian và đúng mẫu mã quý khách đã mua !
                             </div>
-                            <form action="{{ url('/gio-hang') }}" method="post">
                                 <div class="form-action">
                                     <div class="button-group">
-                                        <input type="hidden" name="product_id" value="{{ $product_detail['id'] }}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" class="btn-buy btn-lg"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mua hàng</button>
-                                        {{--<a class="btn-buy" href="#">Mua hàng</a>--}}
+                                        {{--<button type="submit" class="btn-buy btn-lg"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mua hàng</button>--}}
+                                        <a class="btn-buy" href="{{ url('/mua-san-pham',[$product_detail['id'],$product_detail['alias']]) }}">Mua hàng</a>
                                         {{--<a class="btn-buy" href="#">Thêm vào giỏ</a>--}}
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                     <!-- tab product -->
@@ -260,15 +256,12 @@
 
                                         {{--</div>--}}
                                     {{--</div>--}}
-                                    <form action="{{ url('/gio-hang') }}">
                                         <div class="form-action">
                                             <div class="button-group">
-                                                {{--<a class="btn-buy" href="#">Mua hàng</a>--}}
-                                                <button type="submit" class="btn-buy">aaa</button>
+                                                <a class="btn-buy" href="{{ url('/mua-san-pham',[$product_detail['id'],$product_detail['alias']]) }}">Mua hàng</a>
                                                 {{--<a class="btn-buy" href="#">Thêm vào giỏ</a>--}}
                                             </div>
                                         </div>
-                                    </form>
                                     {{--<div class="form-share">--}}
                                     {{--<div class="sendtofriend-print">--}}
                                     {{--<a href="javascript:print();"><i class="fa fa-print"></i> Print</a>--}}
