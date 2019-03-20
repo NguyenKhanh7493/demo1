@@ -71,7 +71,7 @@
                 <a title="My wishlist" href="#" class="btn-heart">wishlist</a>
                 <div class="btn-cart" id="cart-block">
                     <a title="Giỏ hàng của tôi" href="{{ url('/gio-hang') }}">Cart</a>
-                    <span class="notify notify-right">2</span>
+                    <span class="notify notify-right">{{ Cart::count() }}</span>
                     {{--<div class="cart-block">--}}
                         {{--<div class="cart-block-content">--}}
                             {{--<h5 class="cart-title">2 Items in my cart</h5>--}}

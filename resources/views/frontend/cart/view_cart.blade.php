@@ -52,20 +52,20 @@
                                     {{--<small><a href="#">Size : S</a></small>--}}
                                 </td>
                                 <td class="qty">
-                                    <input class="form-control input-sm" type="number" value="{{ $item->qty }}">
-                                    <a href="#" style="background: #098e1f;color: #efe8e8;"><i class="fa fa-undo" aria-hidden="true"></i></a>
-                                    {{--<a href="#"><i class="fa fa-caret-down"></i></a>--}}
+                                    <input class="form-control input-sm" type="text" value="{{ $item->qty }}">
+                                    <a href="{{ url('/gio-hang?product_id=$item->id&increment=1') }}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                    <a href="{{ url('/gio-hang?product_id=$item->id&decrease=1') }}"><i class="fa fa-minus" aria-hidden="true"></i></a>
                                 </td>
                                 {{--<td class="cart_avail"><span class="label label-success">In stock</span></td>--}}
                                 <td class="price">
-                                    @if(!empty($item->options->price_new))
+                                    @if($item->options->has('price_new'))
                                         <span style="font-size: 15px;"> {{ $item->options->price_new }} <u>đ</u></span> <br/>
                                         <span style="font-size: 13px;"> <strike>{{ $item->price }} <u>đ</u></strike></span>
                                     @else
                                         <span style="font-size: 15px;"> {{ $item->price }} <u>đ</u></span> <br/>
                                     @endif
                                 </td>
-                                @if(!empty($item->options->price_new))
+                                @if($item->options->has('price_new'))
                                 <td class="price"><span>{{ number_format($item->options->price_new * $item->qty) }}</span></td>
                                 @else
                                     <td class="price"><span>{{ number_format($item->price * $item->qty) }}</span></td>

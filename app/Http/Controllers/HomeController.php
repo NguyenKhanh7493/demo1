@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use View;
+use Cart;
 class HomeController extends Controller
 {
     /**
