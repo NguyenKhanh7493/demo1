@@ -74,7 +74,7 @@
                     <span class="notify notify-right">{{ Cart::count() }}</span>
                     <div class="cart-block">
                         <div class="cart-block-content">
-                            <h5 class="cart-title">{{ Cart::count() }} Trong giỏ hàng</h5>
+                            <h5 class="cart-title">{{ Cart::count() }} Sản phẩm trong giỏ hàng</h5>
                             <div class="cart-block-list">
                                 <ul>
                                     @foreach(Cart::content() as $val)
@@ -88,10 +88,10 @@
                                         <div class="p-right">
                                             <p class="p-name">{{ $val->name }}</p>
                                             @if($val->options->has('price_new') && $val->options->price_new != 0)
-                                            <p class="price_new" style="color: #e00303;">{{ number_format($val->options->price_new) }}</p>
-                                            <p class="price-old" style="font-size: 11px;"><strike>{{ number_format($val->price) }}</strike></p>
+                                            <p class="price_new" style="color: #e00303;">{{ number_format($val->options->price_new) }} <u>đ</u></p>
+                                            <p class="price-old" style="font-size: 11px;"><strike>{{ number_format($val->price) }} <u>đ</u></strike></p>
                                             @else
-                                                <p class="p-rice">{{ number_format($val->price) }}</p>
+                                                <p class="p-rice">{{ number_format($val->price) }} <u>đ</u></p>
                                             @endif
                                             <p>Qty: {{ $val->qty }}</p>
                                         </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="toal-cart">
                                 <span>Tổng</span>
-                                <span class="toal-price pull-right" style="font-weight: 600;">{{ number_format($total) }}</span>
+                                <span class="toal-price pull-right" style="font-weight: 600;">{{ number_format($total) }} <u>đ</u></span>
                             </div>
                             <div class="cart-buttons">
                                 <a href="{{ url('/gio-hang') }}" class="btn-check-out">Xem giỏ hàng</a>

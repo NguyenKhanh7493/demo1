@@ -68,9 +68,9 @@
                                     @endif
                                 </td>
                                 @if($item->options->has('price_new') && $item->options->price_new != 0)
-                                <td class="price" style="font-size: 15px;"><span>{{ number_format($item->options->price_new * $item->qty) }}</span></td>
+                                <td class="price" style="font-size: 15px;"><span>{{ number_format($item->options->price_new * $item->qty) }} <u>đ</u></span></td>
                                 @else
-                                    <td class="price" style="font-size: 15px;"><span>{{ number_format($item->price * $item->qty) }}</span></td>
+                                    <td class="price" style="font-size: 15px;"><span>{{ number_format($item->price * $item->qty) }} <u>đ</u></span></td>
                                 @endif
                                 <td class="action">
                                     <a href="{{ url('/xoa-san-pham',$item->rowId) }}" class="delete-cart"><i class="fa fa-times" aria-hidden="true"></i></a>
