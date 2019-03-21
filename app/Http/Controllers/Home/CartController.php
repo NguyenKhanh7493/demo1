@@ -112,8 +112,19 @@ class CartController extends Controller
             }
         }
         $cart = Cart::content();
-        $total = Cart::subtotal();
+        $total = $this->total();
         return view('frontend/cart/view_cart',compact('cart','arr_menu','total'));
+    }
+    public function total(){
+        $total = 0;
+        foreach (Cart::content() as $val){
+            if ($val->options->price_new != null){
+                $total = $val->qty * $val->options->price_new + $total;
+            }elseif($val->price){
+                $total = $val->subtotal + $total;
+            }
+        }
+        return $total;
     }
     public function updateCart(Request $request){
         if ($request->ajax()){
@@ -122,10 +133,9 @@ class CartController extends Controller
             Cart::update($id,$qty);
         }
     }
-    public function delete(Request $request){
-        if ($request->ajax()){
-            Cart::destroy($request->id);
-        }
+    public function delete($id){
+        Cart::remove($id);
+        return redirect()->route('cart_index');
     }
 
     /**

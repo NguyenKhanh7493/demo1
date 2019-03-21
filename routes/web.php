@@ -84,5 +84,5 @@ Route::get('/tim-kiem','Home\SearchController@searchProduct');
 Route::get('/mua-san-pham/{id}/{name}','Home\CartController@addCart')->name('add_cart');
 Route::get('/gio-hang','Home\CartController@listCart')->name('cart_index');
 Route::get('/cap-nhat/{id}/{qty}','Home\CartController@updateCart')->name('cart_update');
-Route::delete('/xoa-san-pham','Home\CartController@delete')->name('cart_delete');
+Route::get('/xoa-san-pham/{id}','Home\CartController@delete')->name('cart_delete');
 //Route::get('/insert-user','HomeController@insertUser');

@@ -21,11 +21,11 @@ $(document).ready(function () {
     $(".delete-cart").click(function () {
         var rowID = $(this).attr('id');
         var token = $("input[name='_token']").val();
-        if(config('bạn có muốn xóa sản phẩm này ?')){
+        if (confirm('bạn có muốn xóa')){
             $.ajax({
                 url:'/xoa-san-pham',
                 type:'delete',
-                data:{"_token":token,"id":rowID},
+                data:{"_token":token,id:rowID},
                 success:function (data) {
                     $('tr#'+id).slideUp(300,function () {
                         $(this).remove();

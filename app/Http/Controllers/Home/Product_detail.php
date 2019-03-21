@@ -68,8 +68,9 @@ class Product_detail extends Controller
 //        echo "<pre>";
 //        print_r($product_item);
 //        echo "</pre>";die();
+        $total = total();
 
-        return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images','product_item'));
+        return view('frontend/product/product_detail',compact('arr_menu','product_detail','product_images','product_item','total'));
     }
     public function productList($alias){
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
@@ -96,9 +97,10 @@ class Product_detail extends Controller
         $post_banner = Banner::where('status',1)->where('banner_right',1)->orderBy('id','DESC')->limit(1)->get();
         //lấy ra sản phẩm được xem nhiều nhất
         $product_view = Product::where('status',1)->orderBy('view','DESC')->limit(5)->get();
+        $total = total();
 //                echo "<pre>";
 //        print_r($product_list);
 //        echo "</pre>";die();
-        return view('frontend/product/product_list',compact('arr_menu','product_list','post_banner','product_view'));
+        return view('frontend/product/product_list',compact('arr_menu','product_list','post_banner','product_view','total'));
     }
 }

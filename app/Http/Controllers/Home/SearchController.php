@@ -42,13 +42,15 @@ class SearchController extends Controller
             //sản phẩm được xem nhiều nhất
             $post_slidebar = Post::where('status',1)->orderBy('view','DESC')->limit(6)->get();
         }
-        return view('frontend/search/search_product',compact('product','key','arr_menu','product_view','post_banner','post_slidebar','post'));
+        $total = total();
+        return view('frontend/search/search_product',compact('product','key','arr_menu','product_view','post_banner','post_slidebar','post','total'));
     }
     public function searchPost(Request $request){
         $key = $request->search;
         $post = Post::where('name','like','%'.$request->search.'%')
             ->orWhere('introduction','like','%'.$request->search.'%')
             ->orWhere('content','like','%'.$request->search.'%')->paginate(9);
-        return view('frontend/search/search_post',compact('key','post'));
+        $total = total();
+        return view('frontend/search/search_post',compact('key','post','total'));
     }
 }

@@ -72,8 +72,8 @@
                                 @else
                                     <td class="price" style="font-size: 15px;"><span>{{ number_format($item->price * $item->qty) }}</span></td>
                                 @endif
-                                <td class="action" id="{{ $item->rowId }}">
-                                    <a href="javascript:void(0)" class="delete-cart" id="{{ $item->rowId }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <td class="action">
+                                    <a href="{{ url('/xoa-san-pham',$item->rowId) }}" class="delete-cart"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -82,7 +82,7 @@
                         <tfoot>
                         <tr>
                             <td colspan="3"><strong>Tổng tiền</strong></td>
-                            <td colspan="2" style="color:#e61212;font-size: 18px;"><strong>{{ $total }} <u>đ</u></strong></td>
+                            <td colspan="2" style="color:#e61212;font-size: 18px;"><strong>{{ number_format($total) }} <u>đ</u></strong></td>
                         </tr>
                         </tfoot>
                     </table>

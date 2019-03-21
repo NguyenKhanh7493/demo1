@@ -32,10 +32,11 @@ class Post_detail extends Controller
         $post_slidebar = Post::where('status',1)->orderBy('view','DESC')->limit(6)->get();
         //lấy banner quảng cáo sản phẩm
         $post_banner = Banner::where('status',1)->where('banner_right',1)->orderBy('id','DESC')->limit(1)->get();
+        $total = total();
 //        echo "<pre>";
 //        print_r($post_arr_list);die();
 //        echo "</pre>";
-        return view('frontend/post/post_list',compact('arr_menu','post_arr_list','post_slidebar','post_banner'));
+        return view('frontend/post/post_list',compact('arr_menu','post_arr_list','post_slidebar','post_banner','total'));
     }
     public function postDetail($name){
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
@@ -72,9 +73,10 @@ class Post_detail extends Controller
                       ->where('item_type',2)
                       ->where('status',1)
                       ->select('images.image_name','images.title','images.id')->orderBy('id','DESC')->limit(1)->get();
+        $total = total();
 //        echo "<pre>";
 //        print_r($post_image);die();
 //        echo "</pre>";
-        return view('frontend/post/post_detail',compact('arr_menu','post_detail','post_list','post_slidebar','post_banner','post_image'));
+        return view('frontend/post/post_detail',compact('arr_menu','post_detail','post_list','post_slidebar','post_banner','post_image','total'));
     }
 }

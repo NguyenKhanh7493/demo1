@@ -72,48 +72,42 @@
                 <div class="btn-cart" id="cart-block">
                     <a title="Giỏ hàng của tôi" href="{{ url('/gio-hang') }}">Cart</a>
                     <span class="notify notify-right">{{ Cart::count() }}</span>
-                    {{--<div class="cart-block">--}}
-                        {{--<div class="cart-block-content">--}}
-                            {{--<h5 class="cart-title">2 Items in my cart</h5>--}}
-                            {{--<div class="cart-block-list">--}}
-                                {{--<ul>--}}
-                                    {{--<li class="product-info">--}}
-                                        {{--<div class="p-left">--}}
-                                            {{--<a href="#" class="remove_link"></a>--}}
-                                            {{--<a href="#">--}}
-                                                {{--<img class="img-responsive" src="{{url('/')}}/public/front-end/assets/data/product-100x122.jpg" alt="p10">--}}
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="p-right">--}}
-                                            {{--<p class="p-name">Donec Ac Tempus</p>--}}
-                                            {{--<p class="p-rice">61,19 €</p>--}}
-                                            {{--<p>Qty: 1</p>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="product-info">--}}
-                                        {{--<div class="p-left">--}}
-                                            {{--<a href="#" class="remove_link"></a>--}}
-                                            {{--<a href="#">--}}
-                                                {{--<img class="img-responsive" src="{{url('/')}}/public/front-end/assets/data/product-s5-100x122.jpg" alt="p10">--}}
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="p-right">--}}
-                                            {{--<p class="p-name">Donec Ac Tempus</p>--}}
-                                            {{--<p class="p-rice">61,19 €</p>--}}
-                                            {{--<p>Qty: 1</p>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--<div class="toal-cart">--}}
-                                {{--<span>Total</span>--}}
-                                {{--<span class="toal-price pull-right">122.38 €</span>--}}
-                            {{--</div>--}}
-                            {{--<div class="cart-buttons">--}}
-                                {{--<a href="order.html" class="btn-check-out">Checkout</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                    <div class="cart-block">
+                        <div class="cart-block-content">
+                            <h5 class="cart-title">{{ Cart::count() }} Trong giỏ hàng</h5>
+                            <div class="cart-block-list">
+                                <ul>
+                                    @foreach(Cart::content() as $val)
+                                    <li class="product-info">
+                                        <div class="p-left">
+                                            <a href="#" class="remove_link"></a>
+                                            <a href="#">
+                                                <img class="img-responsive" src="{{url('/')}}/public/images/product/avatar/{{ $val->options->avatar }}" alt="p10">
+                                            </a>
+                                        </div>
+                                        <div class="p-right">
+                                            <p class="p-name">{{ $val->name }}</p>
+                                            @if($val->options->has('price_new') && $val->options->price_new != 0)
+                                            <p class="price_new" style="color: #e00303;">{{ number_format($val->options->price_new) }}</p>
+                                            <p class="price-old" style="font-size: 11px;"><strike>{{ number_format($val->price) }}</strike></p>
+                                            @else
+                                                <p class="p-rice">{{ number_format($val->price) }}</p>
+                                            @endif
+                                            <p>Qty: {{ $val->qty }}</p>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="toal-cart">
+                                <span>Tổng</span>
+                                <span class="toal-price pull-right" style="font-weight: 600;">{{ number_format($total) }}</span>
+                            </div>
+                            <div class="cart-buttons">
+                                <a href="{{ url('/gio-hang') }}" class="btn-check-out">Xem giỏ hàng</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

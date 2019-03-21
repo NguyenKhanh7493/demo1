@@ -83,3 +83,14 @@ function subMenuLeft($data,$id){
     echo '</ul>';
 
 }
+function total(){
+    $total = 0;
+    foreach (Cart::content() as $val){
+        if ($val->options->price_new != null){
+            $total = $val->qty * $val->options->price_new + $total;
+        }elseif($val->price){
+            $total = $val->subtotal + $total;
+        }
+    }
+    return $total;
+}

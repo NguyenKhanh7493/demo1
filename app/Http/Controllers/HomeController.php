@@ -55,12 +55,13 @@ class HomeController extends Controller
         $product_new = Product::where('status',1)->where('new',1)->orderBy('id','DESC')->limit(6)->get();
         $product_seeds = Product::where('status',1)->where('home',1)->orderBy('id','DESC')->limit(6)->get();
         $news_post = Post::where('status',1)->where('new',1)->orderBy('id','DESC')->limit(6)->get();
+        $total = total();
 //        echo "<pre>";
 //        print_r($news_post);
 //        echo "</pre>";
 //        die();
         return view('frontend/index',
-            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new','product_seeds','news_post')
+            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new','product_seeds','news_post','total')
         );
     }
     public function about(){
@@ -82,7 +83,8 @@ class HomeController extends Controller
                 array_push( $arr_menu, $temp);
             }
         }
-        return view('frontend/about/about',compact('arr_menu'));
+        $total = total();
+        return view('frontend/about/about',compact('arr_menu','total'));
     }
     public function contact(){
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
@@ -103,7 +105,8 @@ class HomeController extends Controller
                 array_push( $arr_menu, $temp);
             }
         }
-        return view('frontend/contact/contact',compact('arr_menu'));
+        $total = total();
+        return view('frontend/contact/contact',compact('arr_menu','total'));
     }
 //    public function productDetail(){
 //        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
