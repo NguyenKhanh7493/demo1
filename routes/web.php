@@ -85,4 +85,5 @@ Route::get('/mua-san-pham/{id}/{name}','Home\CartController@addCart')->name('add
 Route::get('/gio-hang','Home\CartController@listCart')->name('cart_index');
 Route::get('/cap-nhat/{id}/{qty}','Home\CartController@updateCart')->name('cart_update');
 Route::get('/xoa-san-pham/{id}','Home\CartController@delete')->name('cart_delete');
+Route::get('/thanh-toan','Home\PaymentController@payment')->name('cart_payment');
 //Route::get('/insert-user','HomeController@insertUser');

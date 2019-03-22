@@ -89,7 +89,7 @@
                     @endif
                     <div class="cart_navigation">
                         <a class="prev-btn" href="{{ url('/') }}">Quay lại trang mua hàng</a>
-                        <a class="next-btn" href="#">Thanh toán</a>
+                        <a class="next-btn" href="{{ url('/thanh-toan') }}">Thanh toán</a>
                     </div>
                 </div>
             </div>

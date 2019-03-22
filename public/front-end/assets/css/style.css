@@ -5947,3 +5947,20 @@ span.notify-right{
 .navbar-collapse ul>li>a:hover{
     color: red;
 }
+.gender-pay{
+    text-align: center;
+}
+.cart-buy{
+    padding: 5px 2px;
+    border:solid 1px #22d248;
+    line-height: 28px;
+    margin-left: 8px;
+}
+.back-buy-cart a:hover{
+    color: #fff !important;
+    background: #22d248;
+}
+.buy-now button{
+    border:none !important;
+    background: none;
+}
