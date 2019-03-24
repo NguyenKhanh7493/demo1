@@ -64,6 +64,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         // Route::delete('/delete','Admin\PostController@delImgPost');
          Route::delete('/deleteBanner','Admin\BannerController@destroy');
     });
+    Route::group(['prefix'=>'bill'],function (){
+        Route::get('/','Admin\InvoiceDetailController@index')->name('billList');
+        Route::get('/view/{id}','Admin\InvoiceDetailController@show')->name('billShow');
+    });
 });
 
 Route::post('login','Auth\LoginController@login')->name('login');
