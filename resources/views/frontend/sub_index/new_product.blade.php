@@ -46,9 +46,9 @@
                                             {{--<a title="Add to compare" class="compare" href="#"></a>--}}
                                             {{--<a title="Quick view" class="search" href="#"></a>--}}
                                         </div>
-                                        <div class="add-to-cart">
-                                            <a title="Thêm vào giỏ" href="#">Thêm vào giỏ</a>
-                                        </div>
+                                        {{--<div class="add-to-cart">--}}
+                                            {{--<a title="Thêm vào giỏ" href="#">Thêm vào giỏ</a>--}}
+                                        {{--</div>--}}
                                     </div>
                                     <div class="right-block">
                                         <h5 class="product-name"><a href="{{ route('product_detail',$product_news->alias) }}">{{ $product_news->name }}</a></h5>

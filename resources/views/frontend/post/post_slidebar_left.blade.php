@@ -30,10 +30,10 @@
                         @foreach($post_slidebar as $result)
                         <li>
                             <div class="post-thumb">
-                                <a href="#"><img src="{{ url('/') }}/public/images/post/avatar/{{ $result->avatar }}" alt="Blog"></a>
+                                <a href="{{ url('/tin-tuc',$result->alias) }}"><img src="{{ url('/') }}/public/images/post/avatar/{{ $result->avatar }}" alt="Blog"></a>
                             </div>
                             <div class="post-info">
-                                <h5 class="entry_title"><a href="#">{{ $result->name }}</a></h5>
+                                <h5 class="entry_title"><a href="{{ url('/tin-tuc',$result->alias) }}">{{ $result->name }}</a></h5>
                                 {{--<div class="post-meta">--}}
                                     {{--<span class="date"><i class="fa fa-calendar"></i> 2014-08-05</span>--}}
                                     {{--<span class="comment-count">--}}

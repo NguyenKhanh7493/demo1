@@ -37,9 +37,9 @@
                                 <div class="left-block">
                                     <a href="{{ route('product_detail',$item->alias) }}">
                                         <img class="img-responsive" alt="product" src="{{ url('/') }}/public/images/product/avatar/{{ $item->avatar }}" /></a>
-                                    <div class="add-to-cart">
-                                        <a title="Add to Cart" href="#">Thêm vào giỏ</a>
-                                    </div>
+                                    {{--<div class="add-to-cart">--}}
+                                        {{--<a title="Add to Cart" href="#">Thêm vào giỏ</a>--}}
+                                    {{--</div>--}}
                                 </div>
                                 <div class="right-block">
                                     <h5 class="product-name"><a href="{{ route('product_detail',$item->alias) }}">{{ $item->name }}</a></h5>

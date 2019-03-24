@@ -86,4 +86,6 @@ Route::get('/gio-hang','Home\CartController@listCart')->name('cart_index');
 Route::get('/cap-nhat/{id}/{qty}','Home\CartController@updateCart')->name('cart_update');
 Route::get('/xoa-san-pham/{id}','Home\CartController@delete')->name('cart_delete');
 Route::get('/thanh-toan','Home\PaymentController@payment')->name('cart_payment');
+Route::get('/chi-tiet-mua-hang','Home\PaymentController@get_invoice_detail')->name('get-invoice-detail');
+Route::post('/chi-tiet-mua-hang','Home\PaymentController@post_invoice_detail')->name('post-invoice-detail');
 //Route::get('/insert-user','HomeController@insertUser');

@@ -30,10 +30,10 @@
                         @foreach($product_view as $val)
                         <li>
                             <div class="post-thumb">
-                                <a href="#"><img src="{{ url('/') }}/public/images/product/avatar/{{ $val->avatar }}" alt="Blog"></a>
+                                <a href="{{ url('/chi-tiet',$val->alias) }}"><img src="{{ url('/') }}/public/images/product/avatar/{{ $val->avatar }}" alt="Blog"></a>
                             </div>
                             <div class="post-info">
-                                <h5 class="entry_title"><a href="#">{{ $val->name }}</a></h5>
+                                <h5 class="entry_title"><a href="{{ url('/chi-tiet',$val->alias) }}">{{ $val->name }}</a></h5>
                                 {{--<div class="post-meta">--}}
                                     {{--<span class="date"><i class="fa fa-calendar"></i> 2014-08-05</span>--}}
                                     {{--<span class="comment-count">--}}
