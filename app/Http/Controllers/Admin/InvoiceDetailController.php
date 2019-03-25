@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Invoice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class InvoiceDetailController extends Controller
 {
     /**
@@ -14,7 +15,11 @@ class InvoiceDetailController extends Controller
      */
     public function index()
     {
-        return view('admin/invoice/list');
+        $invoice_list = Invoice::paginate(12);
+//        echo "<pre>";
+//        print_r($invoice_list);
+//        echo "</pre>";die();
+        return view('admin/invoice/list',compact('invoice_list'));
     }
 
     /**
@@ -46,6 +51,13 @@ class InvoiceDetailController extends Controller
      */
     public function show($id)
     {
+        $bill_detail = DB::table('invoices')
+                       ->join('invoice_details','invoices.id','=','invoice_details.id_invoice')
+                       ->join('products','invoice_details.product_id','=','products.id')
+                       ->select('products.name')->get()->toArray();
+        echo "<pre>";
+        print_r($bill_detail);
+        echo "</pre>";die();
         return view('admin/invoice/invoiceView');
     }
 

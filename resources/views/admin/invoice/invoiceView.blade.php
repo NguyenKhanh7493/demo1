@@ -26,11 +26,29 @@
                                 <h3> &nbsp;<b class="text-danger">THÔNG TIN KHÁCH HÀNG</b></h3>
                                 <p style="font-weight: 600;">Họ tên : <span style="font-weight: 300;">Nguyễn Như Khánh</span></p>
                                 <p style="font-weight: 600;">SĐT : <span style="font-weight: 300;">0964245027</span></p>
-                                <p style="font-weight: 600;">Địa chỉ : <span style="font-weight: 300;">Vĩnh thủy - Vĩnh Linh - Quảng trị</span></p>
+                                <p style="font-weight: 600;">Địa chỉ :
+                                    <span style="font-weight: 300;">Vĩnh thủy - Vĩnh Linh - Quảng trị</span>
+                                </p>
                                 <p style="font-weight: 600;">Email : <span style="font-weight: 300;">nguyenkhanh7493@gmail.com</span></p>
                                 <p style="font-weight: 600;">Ngày mua : <span style="font-weight: 300;">17/01/1993</span></p>
                                 <p style="font-weight: 600;">Yêu cầu khách hàng : <span style="font-weight: 300;">Giao hàng nhanh nhanh cho tôi 1 xíu nhé..có gì rồi tôi trả thêm tiền cho nghe</span></p>
                             </address>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {!! Form::label('labCate','Tình trạng đơn hàng') !!}
+                                    <select class="form-control" data-placeholder="Choose a Category" name="cate_id" tabindex="1">
+                                        <option value="1">Chưa xử lý</option>
+                                        <option value="2">Đã xử lý</option>
+                                        <option value="3">Đã giao hàng</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('labCate','Gửi mail chi tiết đơn hàng') !!}
+                                    <input type="email" value="khanh">
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
                         </div>
                         {{--<div  class="pull-right text-right">--}}
                             {{--<address>--}}
@@ -79,8 +97,8 @@
                         <div class="clearfix"></div>
                         <hr>
                         <div class="text-right">
-                            <button class="btn btn-danger" type="submit"> Proceed to payment </button>
-                            <button onClick="javascript:window.print();" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
+                            <button class="btn btn-danger" type="submit"> Xử lý đơn hàng </button>
+                            <button onClick="javascript:window.print();" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Quay lại</span> </button>
                         </div>
                     </div>
                 </div>

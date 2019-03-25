@@ -33,18 +33,26 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($invoice_list as $item)
                         <tr>
-                            <td>123</td>
-                            <td>Nguyễn Như Khánh</td>
-                            <td>0964245027</td>
-                            <td>nguyenkhanh7493@gmail.com</td>
-                            <td>17/01/1993</td>
-                            <td>Chưa xử lý</td>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->phone }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            @if($item->status == 0)
+                                <td>Chưa xử lý</td>
+                            @elseif($item->status == 1)
+                                <td>Đã xử lý</td>
+                            @else
+                                <td>Đã giao hàng</td>
+                            @endif
                             <td>
-                                <a href="{{ route('billShow',1) }}" id="editItem" title="Xem đơn hàng"><i class="fa fa-eye" aria-hidden="true"></i></a> |
+                                <a href="{{ route('billShow',$item->id) }}" id="editItem" title="Xem đơn hàng"><i class="fa fa-eye" aria-hidden="true"></i></a> |
                                 <a href="javascript:void(0)" class="DelPost" data-msg="Bạn muốn xóa?" data-id="" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
                             </td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

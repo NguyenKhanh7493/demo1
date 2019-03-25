@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Cart;
+use App\Invoice;
 use App\Http\Requests\Home\PaymentRequest;
+use App\Invoice_detail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
+use Cart;
 
 class PaymentController extends Controller
 {
@@ -49,7 +51,7 @@ class PaymentController extends Controller
         return view('frontend/invoice/invoiceDetail',compact('arr_menu','total'));
     }
     public function post_invoice_detail(PaymentRequest $request){
-        $paymentCart = new Cart();
+        $paymentCart = new Invoice();
         $paymentCart->name = $request->name;
         $paymentCart->gender = $request->gender;
         $paymentCart->phone = $request->phone;
@@ -61,6 +63,14 @@ class PaymentController extends Controller
         $paymentCart->save();
         if ($paymentCart){
             $invoice_id = $paymentCart['id'];
+            foreach (Cart::content() as $item){
+                $invoiceDetail = new Invoice_detail();
+                $invoiceDetail->id_invoice = $invoice_id;
+                $invoiceDetail->product_id = $item->id;
+                $invoiceDetail->num = $item->qty;
+                $invoiceDetail->save();
+                Cart::destroy();
+            }
         }
         return redirect()->route('get-invoice-detail');
     }

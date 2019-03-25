@@ -22,6 +22,7 @@ class CreateTableInvoicesTable extends Migration
             $table->string('email');
             $table->text('other');
             $table->integer('total');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

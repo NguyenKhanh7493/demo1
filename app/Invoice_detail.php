@@ -10,4 +10,7 @@ class Invoice_detail extends Model
     protected $fillable = [
         'id_invoice','product_id','num'
     ];
+    public function invoice(){
+        return $this->belongsTo('App\Invoice');
+    }
 }

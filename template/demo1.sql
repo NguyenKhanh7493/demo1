@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 14, 2019 lúc 10:52 AM
+-- Thời gian đã tạo: Th3 25, 2019 lúc 10:39 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.11
 
@@ -176,8 +176,18 @@ CREATE TABLE `invoices` (
   `other` text NOT NULL,
   `total` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `invoices`
+--
+
+INSERT INTO `invoices` (`id`, `name`, `gender`, `phone`, `address`, `email`, `other`, `total`, `created_at`, `updated_at`, `status`) VALUES
+(3, 'Nguyễn Như Khánh', 1, '0964245027', 'Vĩnh linh - Quảng Trị', 'nguyenkhanh7493@gmail.com', 'ad', 700000, '2019-03-24 23:50:56', '2019-03-24 23:50:56', NULL),
+(4, 'Đoàn Thị Xuân Hiếu', 1, '0972024098', 'Vĩnh linh - Quảng Trị', 'xuanhieu7496@gmail.com', 'khánh đẹp trai', 2120000, '2019-03-25 00:31:33', '2019-03-25 00:31:33', NULL),
+(5, 'Khánh Long', 1, '0967257506', 'Vĩnh linh - Quảng Trị', 'khanhlongqt7498@gmail.com', 'khánh nè', 2200000, '2019-03-25 00:44:38', '2019-03-25 00:44:38', 0);
 
 -- --------------------------------------------------------
 
@@ -192,6 +202,18 @@ CREATE TABLE `invoice_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `invoice_details`
+--
+
+INSERT INTO `invoice_details` (`id_invoice`, `product_id`, `num`, `created_at`, `updated_at`) VALUES
+(3, 13, 1, '2019-03-24 23:50:56', '2019-03-24 23:50:56'),
+(3, 15, 1, '2019-03-24 23:50:56', '2019-03-24 23:50:56'),
+(4, 4, 1, '2019-03-25 00:31:35', '2019-03-25 00:31:35'),
+(4, 19, 1, '2019-03-25 00:31:35', '2019-03-25 00:31:35'),
+(5, 5, 1, '2019-03-25 00:44:38', '2019-03-25 00:44:38'),
+(5, 18, 1, '2019-03-25 00:44:38', '2019-03-25 00:44:38');
 
 -- --------------------------------------------------------
 
@@ -371,21 +393,21 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, `percent`, `avatar`, `home`, `new`, `hot`, `best_sale`, `status`, `title`, `introduction`, `content`, `keywords`, `description`, `cate_id`, `user_id`, `view`, `cart`, `created_at`, `updated_at`) VALUES
-(3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'ty2.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', '<img alt=\"\" src=\"http://demo1.site/public/admin/plugins/images/ckfinder/images/cach-cam-chau-hoa-lan-ho-diep-dep-va-y-nghia-3-1.jpg\" style=\"height:457px; width:606px;text-align:center;\" /><br />\r\n<br />\r\nHoa lan Hồ Điệp&nbsp;có nguồn gốc từ Đông Nam Á, Philippines và Australia. Ngoài tự nhiên loài cây này luôn bám chặt vào thân cây khác hay bám vào đá để giữ cho cây cố định. Qua thời gian được con người phát hiện và đem về nuôi trồng, lan Hồ Điệp đã trở thành giống lan cao quý, được nhiều người yêu thích, là&nbsp;loài hoa trang trí chủ yếu cho những không gian thanh lịch, sang trọng.&nbsp;Trong số những màu sắc nổi bật và phổ biến như&nbsp;lan Hồ Điệp tím,&nbsp;lan Hồ Điệp vàng,&nbsp;lan Hồ Điệp cam,.. thì lan Hồ Điệp đỏ tuy là giống mới nhưng khó mà quên được khi đã từng ngắm loài hoa này.', 're', 're', 9, 2, 2, NULL, '2019-02-22 06:19:43', '2019-03-12 00:30:25'),
-(4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hd1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, 1, NULL, '2019-02-22 06:23:24', '2019-03-11 00:27:43'),
-(5, 'hoa lan hồng', 'hoa-lan-hong', 3, 3000000, 2000000, NULL, 'lando.jpg', 0, 0, 0, 1, 1, 'Hoa lan hồng', 'hoa lan abc', 'addad', 'ad', 'ad', 9, 1, 2, NULL, '2019-02-23 01:24:03', '2019-03-12 23:40:49'),
-(7, 'Hoa lan trắng', 'hoa-lan-trang', 3, 4343434, 3434343, NULL, 'hl.jpg', 0, 0, 0, 1, 1, 'hoa lan trắng', 'ad', 'ad', 'ad', 'ad', 9, 2, 4, NULL, '2019-02-23 01:25:57', '2019-03-13 20:30:32'),
+(3, 'Hoa lan hồ điệp', 'hoa-lan-ho-diep', 4, 4000000, 3000000, NULL, 'ty2.jpg', 0, 0, 0, 1, 1, 'Hoa lan đẹp', 're', '<img alt=\"\" src=\"http://demo1.site/public/admin/plugins/images/ckfinder/images/cach-cam-chau-hoa-lan-ho-diep-dep-va-y-nghia-3-1.jpg\" style=\"height:457px; width:606px;text-align:center;\" /><br />\r\n<br />\r\nHoa lan Hồ Điệp&nbsp;có nguồn gốc từ Đông Nam Á, Philippines và Australia. Ngoài tự nhiên loài cây này luôn bám chặt vào thân cây khác hay bám vào đá để giữ cho cây cố định. Qua thời gian được con người phát hiện và đem về nuôi trồng, lan Hồ Điệp đã trở thành giống lan cao quý, được nhiều người yêu thích, là&nbsp;loài hoa trang trí chủ yếu cho những không gian thanh lịch, sang trọng.&nbsp;Trong số những màu sắc nổi bật và phổ biến như&nbsp;lan Hồ Điệp tím,&nbsp;lan Hồ Điệp vàng,&nbsp;lan Hồ Điệp cam,.. thì lan Hồ Điệp đỏ tuy là giống mới nhưng khó mà quên được khi đã từng ngắm loài hoa này.', 're', 're', 9, 2, 3, NULL, '2019-02-22 06:19:43', '2019-03-21 02:38:44'),
+(4, 'Hoa hồng đỏ', 'hoa-hong-do', 4, 1000000, 2000000, NULL, 'hd1.jpg', 0, 0, 0, 1, 1, 'Hoa hồng đỏ đẹp', 'ad', 'ad', 'ad', 'ad', 10, 2, 6, NULL, '2019-02-22 06:23:24', '2019-03-25 00:30:18'),
+(5, 'hoa lan hồng', 'hoa-lan-hong', 3, 3000000, 2000000, NULL, 'lando.jpg', 0, 0, 0, 1, 1, 'Hoa lan hồng', 'hoa lan abc', 'addad', 'ad', 'ad', 9, 1, 9, NULL, '2019-02-23 01:24:03', '2019-03-25 00:43:59'),
+(7, 'Hoa lan trắng', 'hoa-lan-trang', 3, 4343434, 3434343, NULL, 'hl.jpg', 0, 0, 0, 1, 1, 'hoa lan trắng', 'ad', 'ad', 'ad', 'ad', 9, 2, 8, NULL, '2019-02-23 01:25:57', '2019-03-20 20:56:55'),
 (9, 'Hoa hồng vàng', 'hoa-hong-vang', 4, 80000, NULL, NULL, 'hv.jpg', 0, 1, 0, 0, 1, 'Hoa hồng vàng đẹp nhất', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 10, 1, 1, NULL, '2019-02-27 23:24:46', '2019-03-11 00:47:52'),
 (10, 'Hoa hồng cam', 'hoa-hong-cam', 5, 300000, NULL, NULL, 'hc2.jpg', 0, 1, 0, 0, 1, 'Hoa hồng cam đẹp', 'Màu cam là màu sắc được tạo bởi sự hòa hợp giữa hoa hồng vàng và đỏ. Do đó, hoa hồng cam luôn mang sự nhẹ nhàng, bay bổng và dịu dàng thể hiện niềm khát khao, những hoài bão lớn về một tình yêu chân thành. Do đó, nhiều người thường ví von rằng, hoa hồng cam đã hội tụ được những gì đẹp nhất của tình bạn và tình yêu trên những cánh hoa ấy.', 'Màu cam là màu sắc được tạo bởi sự hòa hợp giữa hoa hồng vàng và đỏ. Do đó, hoa hồng cam luôn mang sự nhẹ nhàng, bay bổng và dịu dàng thể hiện niềm khát khao, những hoài bão lớn về một tình yêu chân thành. Do đó, nhiều người thường ví von rằng, hoa hồng cam đã hội tụ được những gì đẹp nhất của tình bạn và tình yêu trên những cánh hoa ấy.\r\n\r\nHiếm có loài hoa nào mang nhiều cung bậc cảm xúc và thông điệp yêu thương như hoa hồng, đặc biệt hơn cả là hoa hồng cam. Nếu hoa hồng đỏ là đại diện của một tình yêu nồng nàn cháy bỏng thì hoa hồng cam lại mang hình hài cho một thứ tình cảm trong sáng và thuần khiết.\r\n\r\nBên cạnh ý nghĩa trên, tặng một bó hoa hồng cam còn là một món quà thể hiện thông điệp “tôi tự hào về bạn”, “hãy cứ làm theo suy nghĩ, trái tim và lí trí đang mách bảo”.\r\n\r\nNhững đoán hoa hồng cam thay lời muốn nói rằng: Em rất thật tự hào về anh, hãy thực hiện những điều mà anh thấy đúng đắn nhất,…Dù là tình cảm hay lý trí đều được bộc lộ rõ qua những đóa hồng cam kì diệu này.\r\n\r\nCho dù với mục đích nào đi nữa, hoa hồng cam vẫn truyền tải rất tốt thông điệp mà bạn muốn gửi đến người nhận và chắc chắn với sự góp mặt của màu hoa ấn tượng này sẽ làm ấm lên mối quan hệ của bạn.', 'à', 'âf', 10, 1, 0, NULL, '2019-02-28 00:58:04', '2019-03-10 23:54:30'),
 (11, 'Hoa hồng xanh', 'hoa-hong-xanh', 8, 405677, NULL, NULL, 'hx1.jpg', 0, 1, 0, 0, 1, 'Hoa hồng xanh đẹp', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'á', 's', 10, 1, 0, NULL, '2019-02-28 00:59:35', '2019-03-10 23:54:50'),
-(12, 'Hoa chi lan kiếm', 'hoa-chi-lan-kiem', 11, 100000, NULL, NULL, 'clk1.jpg', 0, 1, 0, 0, 1, 'Chi lan kiếm đẹp nhất', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Trong đó có Chi lan kiếm và Chi lan vanda Dễ nuôi trồng, mang trong mình vẻ đẹp thanh tao và hương thơm dịu dàng khiến nhiều người yêu lan cảm thấy thích thú và say mê.\r\n\r\nHôm nay Tập đoàn nông nghiệp công nghệ cao Appa cùng các bạn đi tìm hiểu về hai loài hoa này. Để có cái nhìn tổng quan hơn và qua đó có thể chăm sóc cho chậu hoa của mình đẹp, xanh tươi, hoa to, màu đẹp và nở lâu.', 're', 're', 9, 2, 1, NULL, '2019-02-28 01:06:00', '2019-03-11 00:28:07'),
-(13, 'Hoa chi trúc lan', 'hoa-chi-truc-lan', 4, 400000, NULL, NULL, 'clr1.jpg', 0, 1, 0, 0, 1, 'hoa chi trúc lan', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Để trồng được những chậu hoa phong lan đẹp, cho hoa to, màu sắc tươi mới hẳn không phải là điều dễ dàng.', 'ádad', 'ád', 9, 2, 1, NULL, '2019-02-28 01:12:07', '2019-03-11 00:34:14'),
-(14, 'Hoa chi lan cát', 'hoa-chi-lan-cat', 5, 10000, NULL, NULL, 'clc1.jpg', 0, 1, 0, 0, 1, 'Chi lan cát', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'da', 'ad', 9, 2, 0, NULL, '2019-02-28 01:18:28', '2019-03-10 23:48:06'),
-(15, 'Hoa giấy đỏ', 'hoa-giay-do', 4, 400000, 300000, NULL, 'hg1.jpg', 0, 0, 0, 1, 1, 'hoa giấy đỏ đẹp', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 13, 1, 2, NULL, '2019-02-28 01:56:12', '2019-03-11 00:21:31'),
-(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, 2, NULL, '2019-02-28 01:57:03', '2019-03-11 00:21:05'),
-(17, 'Hạt hoa tử la lan', 'hat-hoa-tu-la-lan', 4, 300000, NULL, NULL, 'htll.jpg', 1, 0, 0, 0, 1, 'hoa tử hoa lan', 'fasf', 'à', 'à', 'à', 14, 1, 1, NULL, '2019-02-28 23:21:58', '2019-03-11 00:19:47'),
-(18, 'Hạt hoa lan Nam Phi', 'hat-hoa-lan-nam-phi', 4, 200000, NULL, NULL, 'lnp.jpg', 1, 0, 0, 0, 1, 'Hoa lan nam phi', 'dâda', 'dâd', 'dâd', 'ad', 14, 1, 2, NULL, '2019-02-28 23:36:24', '2019-03-11 00:16:24'),
-(19, 'Hoa giấy ghép', 'hoa-giay-ghep', 2, 120000, NULL, NULL, 'hgg.jpg', 0, 1, 0, 0, 1, 'hoa giấy ghép đẹp', 'đây là hoa giấy ghép đẹp lắm nè', 'hoa giấy nè bà con', 'abc', 'cdt', 13, 1, 1, NULL, '2019-03-11 00:41:00', '2019-03-11 00:43:16');
+(12, 'Hoa chi lan kiếm', 'hoa-chi-lan-kiem', 11, 100000, NULL, NULL, 'clk1.jpg', 0, 1, 0, 0, 1, 'Chi lan kiếm đẹp nhất', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Trong đó có Chi lan kiếm và Chi lan vanda Dễ nuôi trồng, mang trong mình vẻ đẹp thanh tao và hương thơm dịu dàng khiến nhiều người yêu lan cảm thấy thích thú và say mê.\r\n\r\nHôm nay Tập đoàn nông nghiệp công nghệ cao Appa cùng các bạn đi tìm hiểu về hai loài hoa này. Để có cái nhìn tổng quan hơn và qua đó có thể chăm sóc cho chậu hoa của mình đẹp, xanh tươi, hoa to, màu đẹp và nở lâu.', 're', 're', 9, 2, 2, NULL, '2019-02-28 01:06:00', '2019-03-20 21:29:11'),
+(13, 'Hoa chi trúc lan', 'hoa-chi-truc-lan', 4, 400000, NULL, NULL, 'clr1.jpg', 0, 1, 0, 0, 1, 'hoa chi trúc lan', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Để trồng được những chậu hoa phong lan đẹp, cho hoa to, màu sắc tươi mới hẳn không phải là điều dễ dàng.', 'ádad', 'ád', 9, 2, 4, NULL, '2019-02-28 01:12:07', '2019-03-24 21:00:49'),
+(14, 'Hoa chi lan cát', 'hoa-chi-lan-cat', 5, 10000, NULL, NULL, 'clc1.jpg', 0, 1, 0, 0, 1, 'Chi lan cát', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'da', 'ad', 9, 2, 4, NULL, '2019-02-28 01:18:28', '2019-03-20 23:58:45'),
+(15, 'Hoa giấy đỏ', 'hoa-giay-do', 4, 400000, 300000, NULL, 'hg1.jpg', 0, 0, 0, 1, 1, 'hoa giấy đỏ đẹp', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 13, 1, 8, NULL, '2019-02-28 01:56:12', '2019-03-24 21:10:55'),
+(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, 4, NULL, '2019-02-28 01:57:03', '2019-03-20 00:02:37'),
+(17, 'Hạt hoa tử la lan', 'hat-hoa-tu-la-lan', 4, 300000, NULL, NULL, 'htll.jpg', 1, 0, 0, 0, 1, 'hoa tử hoa lan', 'fasf', 'à', 'à', 'à', 14, 1, 3, NULL, '2019-02-28 23:21:58', '2019-03-20 01:22:52'),
+(18, 'Hạt hoa lan Nam Phi', 'hat-hoa-lan-nam-phi', 4, 200000, NULL, NULL, 'lnp.jpg', 1, 0, 0, 0, 1, 'Hoa lan nam phi', 'dâda', 'dâd', 'dâd', 'ad', 14, 1, 4, NULL, '2019-02-28 23:36:24', '2019-03-25 00:44:09'),
+(19, 'Hoa giấy ghép', 'hoa-giay-ghep', 2, 120000, NULL, NULL, 'hgg.jpg', 0, 1, 0, 0, 1, 'hoa giấy ghép đẹp', 'đây là hoa giấy ghép đẹp lắm nè', 'hoa giấy nè bà con', 'abc', 'cdt', 13, 1, 3, NULL, '2019-03-11 00:41:00', '2019-03-25 00:30:29');
 
 -- --------------------------------------------------------
 
@@ -592,7 +614,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT cho bảng `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
