@@ -33,7 +33,7 @@
                                 <div class="form-group">
                                     {{--<label for="company_name">Email (*)</label>--}}
                                     {{--<input type="email" name="" class="input form-control" id="company_name" placeholder="Nhập Email">--}}
-                                    {!! Form::label('labEmail','Số điện thoại (*)') !!}
+                                    {!! Form::label('labEmail','Email (*)') !!}
                                     {!! Form::email('email',null,['class'=>'input form-control','placeholder'=>'Nhập email']) !!}
                                     @if($errors->first('email'))
                                         <span style="color: red;font-style: italic">(*) {{ $errors->first('email') }}</span>

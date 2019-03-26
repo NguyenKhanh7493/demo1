@@ -54,11 +54,13 @@ class InvoiceDetailController extends Controller
         $bill_detail = DB::table('invoices')
                        ->join('invoice_details','invoices.id','=','invoice_details.id_invoice')
                        ->join('products','invoice_details.product_id','=','products.id')
-                       ->select('products.name')->get()->toArray();
-        echo "<pre>";
-        print_r($bill_detail);
-        echo "</pre>";die();
-        return view('admin/invoice/invoiceView');
+                       ->where('invoices.id',$id)
+                       ->select('products.name','products.id','invoice_details.num','invoices.id as bill_id','invoices.name as name_invoice','invoices.gender',
+                                'invoices.phone','invoices.address','invoices.email','invoices.other','invoices.total','invoices.created_at','products.price_old','products.price_new')->orderBy('bill_id','DESC')->get();
+//        echo "<pre>";
+//        print_r($bill_detail);
+//        echo "</pre>";die();
+        return view('admin/invoice/invoiceView',compact('bill_detail'));
     }
 
     /**

@@ -21,33 +21,39 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="pull-center" style="text-align: center;">
+                        <div class="pull-left">
                             <address>
                                 <h3> &nbsp;<b class="text-danger">THÔNG TIN KHÁCH HÀNG</b></h3>
-                                <p style="font-weight: 600;">Họ tên : <span style="font-weight: 300;">Nguyễn Như Khánh</span></p>
-                                <p style="font-weight: 600;">SĐT : <span style="font-weight: 300;">0964245027</span></p>
+                                <p style="font-weight: 600;">Họ tên : <span style="font-weight: 300;">{{ $bill_detail[0]->name_invoice }}</span></p>
+                                <p style="font-weight: 600;">SĐT : <span style="font-weight: 300;">{{ $bill_detail[0]->phone }}</span></p>
                                 <p style="font-weight: 600;">Địa chỉ :
-                                    <span style="font-weight: 300;">Vĩnh thủy - Vĩnh Linh - Quảng trị</span>
+                                    <span style="font-weight: 300;">{{ $bill_detail[0]->address }}</span>
                                 </p>
-                                <p style="font-weight: 600;">Email : <span style="font-weight: 300;">nguyenkhanh7493@gmail.com</span></p>
-                                <p style="font-weight: 600;">Ngày mua : <span style="font-weight: 300;">17/01/1993</span></p>
-                                <p style="font-weight: 600;">Yêu cầu khách hàng : <span style="font-weight: 300;">Giao hàng nhanh nhanh cho tôi 1 xíu nhé..có gì rồi tôi trả thêm tiền cho nghe</span></p>
+                                <p style="font-weight: 600;">Email : <span style="font-weight: 300;">{{ $bill_detail[0]->email }}</span></p>
+                                <p style="font-weight: 600;">Ngày mua : <span style="font-weight: 300;">{{ $bill_detail[0]->created_at }}</span></p>
+                                <p style="font-weight: 600;">Yêu cầu khách hàng : <span style="font-weight: 300;">{{ $bill_detail[0]->other }}</span></p>
                             </address>
-                            <div class="col-md-4"></div>
                             <div class="col-md-4">
+                                <form action="">
+                                    <div class="form-group">
+                                        {!! Form::label('labCate','Tình trạng đơn hàng',['style'=>'color:#1cb735']) !!}
+                                        <select class="form-control" data-placeholder="Choose a Category" name="status" tabindex="1">
+                                            <option value="1">Chưa xử lý</option>
+                                            <option value="2">Đã xử lý</option>
+                                            <option value="3">Đã giao hàng</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10" style="margin-top: -21px;">Submit</button>
+                                </form>
                                 <div class="form-group">
-                                    {!! Form::label('labCate','Tình trạng đơn hàng') !!}
-                                    <select class="form-control" data-placeholder="Choose a Category" name="cate_id" tabindex="1">
-                                        <option value="1">Chưa xử lý</option>
-                                        <option value="2">Đã xử lý</option>
-                                        <option value="3">Đã giao hàng</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    {!! Form::label('labCate','Gửi mail chi tiết đơn hàng') !!}
-                                    <input type="email" value="khanh">
+                                    <div class="input-group m-t-10">
+                                        <input type="email" id="example-input2-group2" name="example-input2-group2" class="form-control" value="{{ $bill_detail[0]->email }}" placeholder="Email">
+                                        <span class="input-group-btn">
+                                      <button type="button" class="btn waves-effect waves-light btn-info">Gửi</button>
+                                      </span> </div>
                                 </div>
                             </div>
+                            <div class="col-md-4"></div>
                             <div class="col-md-4"></div>
                         </div>
                         {{--<div  class="pull-right text-right">--}}
@@ -76,13 +82,24 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($bill_detail as $item)
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Hoa lan kiếm</td>
-                                    <td class="text-right">2 </td>
-                                    <td class="text-right">{{ number_format(2000000) }} <u>đ</u></td>
-                                    <td class="text-right"> {{ number_format(4000000) }} <u>đ</u></td>
+                                    <td class="text-center">{{ $item->id }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td class="text-right">{{ $item->num }} </td>
+                                    @if($item->price_new && $item->price_new != 0)
+                                        <td class="text-right">{{ number_format($item->price_new) }} <u>đ</u></td>
+                                    @else
+                                        <td class="text-right">{{ number_format($item->price_old) }} <u>đ</u></td>
+                                    @endif
+
+                                    @if($item->price_new && $item->price_new != 0)
+                                        <td class="text-right">{{ number_format($item->price_new * $item->num) }} <u>đ</u></td>
+                                    @else
+                                        <td class="text-right">{{ number_format($item->price_old * $item->num) }} <u>đ</u></td>
+                                    @endif
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -92,7 +109,7 @@
                             {{--<p>Sub - Total amount: $13,848</p>--}}
                             {{--<p>vat (10%) : $138 </p>--}}
                             <hr>
-                            <h3><b>Tổng đơn hàng :</b> {{ number_format(4000000) }} <u>đ</u></h3>
+                            <h3><b>Tổng đơn hàng :</b> {{ number_format($item->total) }} <u>đ</u></h3>
                         </div>
                         <div class="clearfix"></div>
                         <hr>
