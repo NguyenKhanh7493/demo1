@@ -33,41 +33,50 @@
                                 <p style="font-weight: 600;">Ngày mua : <span style="font-weight: 300;">{{ $bill_detail[0]->created_at }}</span></p>
                                 <p style="font-weight: 600;">Yêu cầu khách hàng : <span style="font-weight: 300;">{{ $bill_detail[0]->other }}</span></p>
                             </address>
-                            <div class="col-md-4">
-                                <form action="">
-                                    <div class="form-group">
-                                        {!! Form::label('labCate','Tình trạng đơn hàng',['style'=>'color:#1cb735']) !!}
-                                        <select class="form-control" data-placeholder="Choose a Category" name="status" tabindex="1">
-                                            <option value="1">Chưa xử lý</option>
-                                            <option value="2">Đã xử lý</option>
-                                            <option value="3">Đã giao hàng</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10" style="margin-top: -21px;">Submit</button>
-                                </form>
-                                <div class="form-group">
-                                    <div class="input-group m-t-10">
-                                        <input type="email" id="example-input2-group2" name="example-input2-group2" class="form-control" value="{{ $bill_detail[0]->email }}" placeholder="Email">
-                                        <span class="input-group-btn">
-                                      <button type="button" class="btn waves-effect waves-light btn-info">Gửi</button>
-                                      </span> </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4"></div>
+                            {{--<div class="col-md-4">--}}
+                                {{--<form action="">--}}
+                                    {{--<div class="form-group">--}}
+                                        {{--{!! Form::label('labCate','Tình trạng đơn hàng',['style'=>'color:#1cb735']) !!}--}}
+                                        {{--<select class="form-control" data-placeholder="Choose a Category" name="status" tabindex="1">--}}
+                                            {{--<option value="1">Chưa xử lý</option>--}}
+                                            {{--<option value="2">Đã xử lý</option>--}}
+                                            {{--<option value="3">Đã giao hàng</option>--}}
+                                        {{--</select>--}}
+                                    {{--</div>--}}
+                                    {{--<button type="submit" class="btn btn-success waves-effect waves-light m-r-10" style="margin-top: -21px;">Submit</button>--}}
+                                {{--</form>--}}
+                                {{--<form action="{{ url('admin/bill/email') }}" method="post">--}}
+                                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                                    {{--<div class="form-group">--}}
+                                        {{--<input type="text" value="{{ $bill_detail[0]->email }}">--}}
+                                        {{--<input type="submit">--}}
+                                    {{--</div>--}}
+                                {{--</form>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-4"></div>--}}
+                            {{--<div class="col-md-4"></div>--}}
                         </div>
-                        {{--<div  class="pull-right text-right">--}}
-                            {{--<address>--}}
-                                {{--<h3>To,</h3>--}}
-                                {{--<h4 class="font-bold">Gaala & Sons,</h4>--}}
-                                {{--<p class="text-muted m-l-30">E 104, Dharti-2, <br/>--}}
-                                    {{--Nr' Viswakarma Temple, <br/>--}}
-                                    {{--Talaja Road, <br/>--}}
-                                    {{--Bhavnagar - 364002</p>--}}
-                                {{--<p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan 2017</p>--}}
-                                {{--<p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>--}}
-                            {{--</address>--}}
-                        {{--</div>--}}
+                        <div  class="pull-right text-right">
+                            <address>
+                                <h3>Tình trạng đơn hàng</h3>
+                                <p class="text-right">
+                                    <a href="">
+                                        <span class="btn btn-success" style="text-align: center">
+                                           <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                                Gửi email đơn hàng
+                                        </span>
+                                    </a>
+                                </p>
+                                <p class="text-right">
+                                    <a href="">
+                                        <span class="btn btn-success" style="text-align: center">
+                                           <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+                                                Xử lý đơn hàng
+                                        </span>
+                                    </a>
+                                </p>
+                            </address>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="table-responsive m-t-40">

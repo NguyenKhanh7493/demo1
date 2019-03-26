@@ -29,9 +29,8 @@ class InvoiceDetailController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('billList');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -40,7 +39,7 @@ class InvoiceDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('createEmail');
     }
 
     /**

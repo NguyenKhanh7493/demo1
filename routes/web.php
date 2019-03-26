@@ -67,6 +67,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     Route::group(['prefix'=>'bill'],function (){
         Route::get('/','Admin\InvoiceDetailController@index')->name('billList');
         Route::get('/view/{id}','Admin\InvoiceDetailController@show')->name('billShow');
+        Route::get('/email-bill','Admin\InvoiceDetailController@create')->name('createEmail');
+        Route::post('/email-bill','Admin\InvoiceDetailController@store')->name('PostCreateEmail');
     });
 });
 
