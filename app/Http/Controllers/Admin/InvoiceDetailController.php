@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Invoice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+use DB,Session;
 class InvoiceDetailController extends Controller
 {
     /**
@@ -41,6 +41,10 @@ class InvoiceDetailController extends Controller
     {
         return redirect()->route('createEmail');
     }
+    public function getEmail(){
+        return view('admin/submit_email/invoice_email');
+    }
+    public function postEmail(){}
 
     /**
      * Display the specified resource.
@@ -55,7 +59,7 @@ class InvoiceDetailController extends Controller
                        ->join('products','invoice_details.product_id','=','products.id')
                        ->where('invoices.id',$id)
                        ->select('products.name','products.id','invoice_details.num','invoices.id as bill_id','invoices.name as name_invoice','invoices.gender',
-                                'invoices.phone','invoices.address','invoices.email','invoices.other','invoices.total','invoices.created_at','products.price_old','products.price_new')->orderBy('bill_id','DESC')->get();
+                                'invoices.phone','invoices.address','invoices.email','invoices.other','invoices.total','invoices.created_at','products.price_old','products.price_new','invoices.status')->orderBy('bill_id','DESC')->get();
 //        echo "<pre>";
 //        print_r($bill_detail);
 //        echo "</pre>";die();
@@ -70,9 +74,19 @@ class InvoiceDetailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bill_update = DB::table('invoices')
+            ->join('invoice_details','invoices.id','=','invoice_details.id_invoice')
+            ->join('products','invoice_details.product_id','=','products.id')
+            ->where('invoices.id',$id)
+            ->select('products.name','products.id','invoice_details.num','invoices.id as bill_id','invoices.name as name_invoice','invoices.gender',
+                'invoices.phone','invoices.address','invoices.email','invoices.other','invoices.total','invoices.created_at',
+                'products.price_old','products.price_new','invoices.status')->get();
+        $status_bill = Invoice::find($id);
+//        echo "<pre>";
+//        print_r($status_bill);
+//        echo "</pre>";die();
+        return view('admin/invoice/updateBill',compact('bill_update','status_bill'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -82,7 +96,16 @@ class InvoiceDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $status_bill = Invoice::find($id);
+        $requestData = $request->all();
+        $requestData['status'] = $request->status;
+        if ($status_bill->update($requestData)){
+            Session::flash('success','Sửa thành công');
+            return redirect()->route('billUpdate',$status_bill->id);
+        }else{
+            Session::flash('danger','Thêm thất bại');
+            return redirect()->back();
+        }
     }
 
     /**

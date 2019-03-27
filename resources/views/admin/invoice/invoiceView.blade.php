@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="white-box">
-                <h3><b>Chi tiết hóa đơn</b> <span class="pull-right">#5669626</span></h3>
+                <h3><b>Chi tiết hóa đơn</b> <span class="pull-right">#{{ $bill_detail[0]->bill_id }}</span></h3>
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
@@ -56,24 +56,19 @@
                             {{--<div class="col-md-4"></div>--}}
                             {{--<div class="col-md-4"></div>--}}
                         </div>
-                        <div  class="pull-right text-right">
+                        <div  class="pull-right text-right" style="font-size: 18px;color: #2fa906;font-weight: 600;">
                             <address>
                                 <h3>Tình trạng đơn hàng</h3>
                                 <p class="text-right">
-                                    <a href="">
-                                        <span class="btn btn-success" style="text-align: center">
-                                           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                                Gửi email đơn hàng
-                                        </span>
-                                    </a>
-                                </p>
-                                <p class="text-right">
-                                    <a href="">
-                                        <span class="btn btn-success" style="text-align: center">
-                                           <i class="fa fa-hourglass-start" aria-hidden="true"></i>
-                                                Xử lý đơn hàng
-                                        </span>
-                                    </a>
+                                    @if($bill_detail[0]->status == 0)
+                                        <i class="fa fa-hand-o-right" aria-hidden="true" style="margin-right: 10px;"></i> Đang xử lý
+                                    @elseif($bill_detail[0]->status == 1)
+                                        <i class="fa fa-hand-o-right" aria-hidden="true" style="margin-right: 10px;"></i> Đã xử lý
+                                    @elseif($bill_detail[0]->status == 2)
+                                        <i class="fa fa-hand-o-right" aria-hidden="true" style="margin-right: 10px;"></i> Đang vận chuyển
+                                    @elseif($bill_detail[0]->status == 3)
+                                        <i class="fa fa-hand-o-right" aria-hidden="true" style="margin-right: 10px;"></i> Đã giao hàng
+                                    @endif
                                 </p>
                             </address>
                         </div>
@@ -123,8 +118,14 @@
                         <div class="clearfix"></div>
                         <hr>
                         <div class="text-right">
-                            <button class="btn btn-danger" type="submit"> Xử lý đơn hàng </button>
-                            <button onClick="javascript:window.print();" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Quay lại</span> </button>
+                            <p>
+                               <a href="{{ url('/admin/bill') }}">
+                                   <span class="btn btn-success btn-md" style="text-align: center">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                            Quay lại
+                                   </span>
+                               </a>
+                            </p>
                         </div>
                     </div>
                 </div>

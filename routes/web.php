@@ -67,8 +67,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     Route::group(['prefix'=>'bill'],function (){
         Route::get('/','Admin\InvoiceDetailController@index')->name('billList');
         Route::get('/view/{id}','Admin\InvoiceDetailController@show')->name('billShow');
-        Route::get('/email-bill','Admin\InvoiceDetailController@create')->name('createEmail');
-        Route::post('/email-bill','Admin\InvoiceDetailController@store')->name('PostCreateEmail');
+        Route::get('/update/{id}','Admin\InvoiceDetailController@edit')->name('billUpdate');
+        Route::post('/update/{id}','Admin\InvoiceDetailController@update')->name('postBillUpdate');
+        Route::get('/email-bill','Admin\InvoiceDetailController@getEmail')->name('getEmail');
+        Route::post('/email-bill','Admin\InvoiceDetailController@postEmail')->name('postEmail');
     });
 });
 

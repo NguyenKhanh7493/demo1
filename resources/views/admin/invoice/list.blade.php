@@ -48,7 +48,8 @@
                                 <td>Đã giao hàng</td>
                             @endif
                             <td>
-                                <a href="{{ route('billShow',$item->id) }}" id="editItem" title="Xem đơn hàng"><i class="fa fa-eye" aria-hidden="true"></i></a> |
+                                <a href="{{ route('billShow',$item->id) }}" id="viewItem" title="Xem đơn hàng"><i class="fa fa-eye" aria-hidden="true"></i></a> |
+                                <a href="{{ route('billUpdate',$item->id) }}" id="editItem" title="Sửa đơn hàng"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |
                                 <a href="javascript:void(0)" class="DelPost" data-msg="Bạn muốn xóa?" data-id="" data-token="{{ csrf_token() }}"><i class="ti-trash text-danger"></i></a>
                             </td>
                         </tr>
