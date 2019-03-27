@@ -5,12 +5,13 @@
             <h4 class="page-title">Data Table</h4>
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-            <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
-            <ol class="breadcrumb">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Table</a></li>
-                <li class="active">Data Table</li>
-            </ol>
+            <p class="text-right">
+                <a href="{{ route('billList') }}">
+                        <span class="btn btn-success" style="text-align: center">
+                            <i class="fa fa-list-ul text-white" aria-hidden="true"></i>
+                            Danh sách</span>
+                </a>
+            </p>
         </div>
     </div>
     <div class="row">
@@ -28,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" value="{{ $bill_update[0]->email }}" readonly>
+                                <input type="email" class="form-control" value="{{ $bill_update[0]->email }}" name="email_bill" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Số điện thoại</label>
@@ -97,7 +98,7 @@
                             <td class="text-center">{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td class="text-right">
-                                <input type="number" style="width: 60px;" value="2" name="num">
+                                <input type="number" style="width: 60px;" value="{{ $item->num }}" name="num">
                                 <a href="" style="margin-left: 5px;" title="cập nhật"><i class="fa fa-undo" aria-hidden="true"></i></a>
                             </td>
                             @if ($item->price_new && $item->price_new != 0)
@@ -121,7 +122,7 @@
                 {{--<p>Sub - Total amount: $13,848</p>--}}
                 {{--<p>vat (10%) : $138 </p>--}}
                 <hr>
-                <h3><b>Total :</b> {{ $item->total }}</h3>
+                <h3><b>Total :</b> {{ number_format($item->total) }} <u>vnđ</u></h3>
             </div>
 
             <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Cập nhật</button>
