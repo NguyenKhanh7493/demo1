@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Cate;
 use Cart;
 use Carbon\Carbon;
+use Mail;
 
 class PaymentController extends Controller
 {
@@ -52,6 +53,14 @@ class PaymentController extends Controller
         return view('frontend/invoice/invoiceDetail',compact('arr_menu','total'));
     }
     public function post_invoice_detail(PaymentRequest $request){
+        $data = ['hoten'=>$request->input('name'),
+            'phone'=>$request->input('phone'),
+            'email'=>$request->input('email'),
+            'address'=>$request->input('address')];
+        Mail::send('frontend.send_mail.payment_email',$data,function ($message) use ($request){
+            $message->from('khanhoideptrairua@gmail.com','shop hoa');
+            $message->to($request->input('email'))->subject('Chi tiết hóa đơn');
+        });
         $paymentCart = new Invoice();
         $paymentCart->name = $request->name;
         $paymentCart->gender = $request->gender;
@@ -66,7 +75,7 @@ class PaymentController extends Controller
 //        $date->toDateString();
         $date_bill = $date->format('d/m/Y h:i:s');
 //        print_r($date->format('d/m/Y h:i:s'));die();
-        $paymentCart->time_buy = $date;
+        $paymentCart->time_buy = $date_bill;
         $paymentCart->save();
         if ($paymentCart){
             $invoice_id = $paymentCart['id'];
