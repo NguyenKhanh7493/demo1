@@ -24,8 +24,12 @@
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Mã HĐ</label>
+                                <input type="text" class="form-control" name="id_hd" value="{{ $bill_update[0]->bill_id }}" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Họ tên khách hàng</label>
-                                <input type="text" class="form-control" value="{{ $bill_update[0]->name_invoice }}" readonly>
+                                <input type="text" class="form-control" name="name" value="{{ $bill_update[0]->name_invoice }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
@@ -33,13 +37,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Số điện thoại</label>
-                                <input type="text" class="form-control" value="{{ $bill_update[0]->phone }}" readonly>
+                                <input type="text" class="form-control" value="{{ $bill_update[0]->phone }}" name="phone" readonly>
                             </div>
                             <div class="form-group" style="margin-bottom: 35px;">
                                 <label for="exampleInputEmail1">Tình trạng đơn hàng</label>
                                 <select name="status">
-                                    <option value="0" <?php if (isset($status_bill) && $status_bill['status'] == 0) echo 'selected' ?>>Chưa xử lý</option>
-                                    <option value="1" <?php if (isset($status_bill) && $status_bill['status'] == 1) echo 'selected'?>>Đã xử lý</option>
+                                    <option value="1" <?php if (isset($status_bill) && $status_bill['status'] == 0) echo 'selected'?>>Đã xử lý</option>
+                                    <option value="1" <?php if (isset($status_bill) && $status_bill['status'] == 1) echo 'selected'?>>Đang vận chuyển</option>
                                     <option value="2" <?php if (isset($status_bill) && $status_bill['status'] == 2) echo 'selected'?>>Đã giao hàng</option>
                                 </select>
                             </div>
@@ -53,12 +57,24 @@
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Giới tính</label>
+                                @if($bill_update[0]->gender == 1)
+                                    <input type="text" class="form-control" value="Nam"  readonly>
+                                @else
+                                    <input type="text" class="form-control" value="Nữ"  readonly>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ngày mua hàng</label>
+                                <input type="text" class="form-control" name="created_at" value="{{ $bill_update[0]->created_at }} " readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Địa chỉ</label><br/>
                                 <textarea name="address" id="" cols="50" rows="5" readonly>{{ $bill_update[0]->address }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Yêu cầu khách hàng</label><br/>
-                                <textarea name="address" id="" cols="50" rows="5" readonly>{{ $bill_update[0]->other }}</textarea>
+                                <textarea name="other" id="" cols="50" rows="5" readonly>{{ $bill_update[0]->other }}</textarea>
                             </div>
                             {{--<div class="form-group">--}}
                             {{--<label for="exampleInputPassword1">Password</label>--}}

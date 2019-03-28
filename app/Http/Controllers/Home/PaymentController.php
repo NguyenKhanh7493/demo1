@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
 use Cart;
+use Carbon\Carbon;
 
 class PaymentController extends Controller
 {
@@ -60,6 +61,12 @@ class PaymentController extends Controller
         $paymentCart->other = $request->other;
 //        $total = $request->get('total_product');
         $paymentCart->total = total();
+//        $date = date('m/d/Y h:i:s');
+        $date =  Carbon::now('Asia/Ho_Chi_Minh');
+//        $date->toDateString();
+        $date_bill = $date->format('d/m/Y h:i:s');
+//        print_r($date->format('d/m/Y h:i:s'));die();
+        $paymentCart->time_buy = $date;
         $paymentCart->save();
         if ($paymentCart){
             $invoice_id = $paymentCart['id'];
