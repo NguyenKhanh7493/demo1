@@ -26,16 +26,16 @@
                 </div>
                 <div class="user-btm-box">
                     <div class="col-md-4 col-sm-4 text-center">
-                        <p class="text-purple"><i class="ti-facebook"></i></p>
-                        <h1>258</h1>
+                        <p class="text-purple">Sản phẩm</p>
+                        <h1>{{ $product }}</h1>
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
-                        <p class="text-blue"><i class="ti-twitter"></i></p>
-                        <h1>125</h1>
+                        <p class="text-blue">Bài viết</p>
+                        <h1>{{ $post }}</h1>
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
-                        <p class="text-danger"><i class="ti-dribbble"></i></p>
-                        <h1>556</h1>
+                        <p class="text-danger">Lượt mua</p>
+                        <h1>{{ $invoice }}</h1>
                     </div>
                 </div>
             </div>

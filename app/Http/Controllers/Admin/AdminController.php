@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Invoice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Product;
+use App\Post;
 class AdminController extends Controller
 {
     /**
@@ -14,7 +16,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin/admin/index');
+        $product = Product::count();
+        $post = Post::count();
+        $invoice = Invoice::count();
+//        echo "<pre>";
+//        print_r($post);
+//        echo "</pre>";die();
+        return view('admin/admin/index',compact('product','post','invoice'));
     }
 
     /**
