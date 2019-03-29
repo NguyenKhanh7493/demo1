@@ -42,9 +42,10 @@
                             <div class="form-group" style="margin-bottom: 35px;">
                                 <label for="exampleInputEmail1">Tình trạng đơn hàng</label>
                                 <select name="status">
-                                    <option value="1" <?php if (isset($status_bill) && $status_bill['status'] == 0) echo 'selected'?>>Đã xử lý</option>
-                                    <option value="1" <?php if (isset($status_bill) && $status_bill['status'] == 1) echo 'selected'?>>Đang vận chuyển</option>
-                                    <option value="2" <?php if (isset($status_bill) && $status_bill['status'] == 2) echo 'selected'?>>Đã giao hàng</option>
+                                    <option value="0" <?php if (isset($status_bill) && $status_bill['status'] == 0) echo 'selected'?>>Chưa xử lý</option>
+                                    <option value="1" <?php if (isset($status_bill) && $status_bill['status'] == 1) echo 'selected'?>>Đã xử lý</option>
+                                    <option value="2" <?php if (isset($status_bill) && $status_bill['status'] == 2) echo 'selected'?>>Đang vận chuyển</option>
+                                    <option value="3" <?php if (isset($status_bill) && $status_bill['status'] == 3) echo 'selected'?>>Đã giao hàng</option>
                                 </select>
                             </div>
                     </div>
@@ -66,7 +67,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày mua hàng</label>
-                                <input type="text" class="form-control" name="created_at" value="{{ $bill_update[0]->created_at }} " readonly>
+                                <input type="text" class="form-control" name="time_buy" value="{{ $bill_update[0]->time_buy }} " readonly>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Địa chỉ</label><br/>

@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Cate;
 use Cart;
 use Carbon\Carbon;
-use Mail;
+use Mail,DB;
 
 class PaymentController extends Controller
 {
@@ -53,14 +53,6 @@ class PaymentController extends Controller
         return view('frontend/invoice/invoiceDetail',compact('arr_menu','total'));
     }
     public function post_invoice_detail(PaymentRequest $request){
-        $data = ['hoten'=>$request->input('name'),
-            'phone'=>$request->input('phone'),
-            'email'=>$request->input('email'),
-            'address'=>$request->input('address')];
-        Mail::send('frontend.send_mail.payment_email',$data,function ($message) use ($request){
-            $message->from('khanhoideptrairua@gmail.com','shop hoa');
-            $message->to($request->input('email'))->subject('Chi tiết hóa đơn');
-        });
         $paymentCart = new Invoice();
         $paymentCart->name = $request->name;
         $paymentCart->gender = $request->gender;
@@ -88,6 +80,32 @@ class PaymentController extends Controller
                 Cart::destroy();
             }
         }
+
+        $bill_update = DB::table('invoices')
+            ->join('invoice_details','invoices.id','=','invoice_details.id_invoice')
+            ->join('products','invoice_details.product_id','=','products.id')
+            ->where('invoices.id',$paymentCart['id'])
+            ->select('products.name','products.id','invoice_details.num','invoices.id as bill_id','invoices.name as name_invoice','invoices.gender',
+                'invoices.phone','invoices.address','invoices.email','invoices.other','invoices.total','invoices.created_at',
+                'products.price_old','products.price_new','invoices.status')->get();
+        $bill = [];
+        foreach ($bill_update as $val){
+            array_push($bill,['id'=>$val->id,'name'=>$val->name,'num'=>$val->num,'price_old'=>$val->price_old,'price_new'=>$val->price_new,'total'=>$val->total]);
+        }
+        $data = ['hoten'=>$request->input('name'),
+            'phone'=>$paymentCart['phone'],
+            'id_invoice'=>$paymentCart['id'],
+            'email'=>$request->input('email'),
+            'address'=>$request->input('address'),
+            'total' => $paymentCart['total'],
+            'date'=>$paymentCart['time_buy'],
+            'status'=>$paymentCart['status'],
+            'product'=>$bill
+        ];
+        Mail::send('frontend.send_mail.payment_email',$data,function ($message) use ($request){
+            $message->from('khanhoideptrairua@gmail.com','shop hoa');
+            $message->to($request->input('email'))->subject('Chi tiết hóa đơn');
+        });
         return redirect()->route('get-invoice-detail');
     }
 }

@@ -113,11 +113,7 @@
                         <td>
                             <span>Tình trạng đơn hàng</span><br>
                             @if($status == 0)
-                                <span style="color: red;font-weight: 600;font-size: 20px;">Đã xử lý</span>
-                            @elseif($status == 1)
-                                <span style="color: red;font-weight: 600;font-size: 20px;">Đang vận chuyển</span>
-                            @elseif($status == 2)
-                                <span style="color: red;font-weight: 600;font-size: 20px;">Đã giao hàng</span>
+                                <span style="color: red;font-weight: 600;font-size: 20px;">Đang xử lý</span>
                             @endif
                         </td>
                     </tr>
@@ -138,7 +134,7 @@
 
                         <td>
                             mã hóa đơn #: {{ $id_invoice }}<br>
-                            {{ $date }}<br>
+                            Ngày mua : {{ $date }}<br>
                         </td>
                     </tr>
                 </table>
@@ -179,7 +175,7 @@
             <div class="test" style="margin-left: 593px;">
                 <div class="pull-right">
                     <p></p>
-                    <p style="font-weight: 600;">Tổng giá : <span style="color: #ea0b0b;">{{ number_format($item['total']) }} <u>đ</u></span></p>
+                    <p style="font-weight: 600;">Tổng giá : <span style="color: #ea0b0b;">{{ number_format($total) }} <u>đ</u></span></p>
                 </div>
             </div>
             <hr>
