@@ -77,7 +77,6 @@ class PaymentController extends Controller
                 $invoiceDetail->product_id = $item->id;
                 $invoiceDetail->num = $item->qty;
                 $invoiceDetail->save();
-                Cart::destroy();
             }
         }
 
@@ -106,6 +105,7 @@ class PaymentController extends Controller
             $message->from('khanhoideptrairua@gmail.com','shop hoa');
             $message->to($request->input('email'))->subject('Chi tiết hóa đơn');
         });
+        Cart::destroy();
         return redirect()->route('get-invoice-detail');
     }
 }

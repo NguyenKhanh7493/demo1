@@ -83,7 +83,8 @@ Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/','HomeController@index');
 Route::get('/gioi-thieu','HomeController@about')->name('about');
-Route::get('/lien-he','HomeController@contact')->name('contact');
+Route::get('/lien-he','Home\ContactController@contact')->name('contact');
+Route::post('/lien-he','Home\ContactController@post_contact')->name('PostContact');
 Route::get('/chi-tiet/{alias}','Home\Product_detail@productDetail')->name('product_detail');
 Route::get('/san-pham/{alias}','Home\Product_detail@productList')->name('product_list');
 Route::get('/tin-tuc/{alias}','Home\Post_detail@postDetail')->name('post_detail');
@@ -96,4 +97,5 @@ Route::get('/xoa-san-pham/{id}','Home\CartController@delete')->name('cart_delete
 Route::get('/thanh-toan','Home\PaymentController@payment')->name('cart_payment');
 Route::get('/chi-tiet-mua-hang','Home\PaymentController@get_invoice_detail')->name('get-invoice-detail');
 Route::post('/chi-tiet-mua-hang','Home\PaymentController@post_invoice_detail')->name('post-invoice-detail');
+Route::post('/nhan-email','HomeController@receive_email')->name('post_email');
 //Route::get('/insert-user','HomeController@insertUser');

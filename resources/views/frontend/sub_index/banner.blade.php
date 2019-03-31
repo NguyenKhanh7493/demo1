@@ -66,7 +66,7 @@
 <div id="home-slider">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 header-top-right">
+            <div class="col-sm-12 acs">
                 <div class="homeslider">
                     <ul id="contenhomeslider">
                         @foreach($banner as $banners)
@@ -94,3 +94,8 @@
         {{--</div>--}}
     {{--</div>--}}
 {{--</div>--}}
+<style type="text/css">
+    .homeslider>.bx-wrapper>.bx-viewport{
+        border-top: none !important;
+    }
+</style>

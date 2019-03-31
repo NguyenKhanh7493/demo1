@@ -49,7 +49,7 @@
     <div class="container main-header">
         <div class="row">
             <div class="col-xs-12 col-sm-3 logo">
-                <a href="index.html"><img alt="Kute Shop" src="{{url('/')}}/public/front-end/assets/images/logo2.png" /></a>
+                <a href="index.html"><img alt="Kute Shop" src="{{url('/')}}/public/front-end/assets/images/logo/logo6.png" /></a>
             </div>
             <div class="col-xs-7 col-sm-7 header-search-box">
                 <form class="form-inline" action="{{ url('tim-kiem') }}" method="get">

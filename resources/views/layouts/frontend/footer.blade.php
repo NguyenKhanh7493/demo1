@@ -4,7 +4,7 @@
         <div id="introduce-box" class="row">
             <div class="col-md-3">
                 <div id="address-box">
-                    <a href="#"><img src="{{url('/')}}/public/front-end/assets/data/introduce-logo.png" alt="" /></a>
+                    <a href="{{ url('/') }}"><img src="{{url('/')}}/public/front-end/assets/images/logo/logofooter.png" alt="" /></a>
                     <div id="address-list">
                         <div class="tit-name">Địa chỉ:</div>
                         <div class="tit-contain">Bình Đáng - Bình Hòa - Thuận An - Bình Dương</div>
@@ -23,7 +23,7 @@
                             <li><a href="{{ url('/gioi-thieu') }}">Giới thiệu</a></li>
                             <li><a href="{{ url('/gioi-thieu') }}">Bản quyền & Sở hữu</a></li>
                             <li><a href="{{ url('/gioi-thieu') }}">Hoạt động</a></li>
-                            <li><a href="#">Tin tức</a></li>
+                            <li><a href="{{ url('/tin-tuc') }}">Tin tức</a></li>
                             <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
                         </ul>
                     </div>
@@ -36,12 +36,15 @@
             <div class="col-md-3">
                 <div id="contact-box">
                     <div class="introduce-title">ĐĂNG KÝ NHẬN BẢN TIN MỚI</div>
-                    <div class="input-group" id="mail-box">
-                        <input type="text" placeholder="Xin mời nhập email"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">OK</button>
-                          </span>
-                    </div><!-- /input-group -->
+                    <form action="{{ route('post_email') }}" method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="input-group" id="mail-box">
+                            <input type="text" placeholder="Xin mời nhập email" name="email"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">OK</button>
+                              </span>
+                        </div>
+                    </form><!-- /input-group -->
                     <div class="introduce-title">Số người truy cập</div>
                     <div class="social-link">
                         <span>Tổng :</span>

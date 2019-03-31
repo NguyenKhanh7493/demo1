@@ -6,8 +6,10 @@ use App\Banner;
 use App\Cate;
 use App\Post;
 use App\Product;
+use App\Receive_email;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use View;
 use Cart;
@@ -35,6 +37,16 @@ class HomeController extends Controller
         $banner_bottom = Banner::where('banner_bottom',1)->where('status',1)->orderBy('id','DESC')->limit(2)->select('name','title','sort')->get();
         $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
         $best_sale = Product::where('best_sale',1)->orderBy('id','DESC')->limit(6)->get();
+//        $bestseller = DB::table('invoice_details')
+//            ->join('products','invoice_details.product_id','=','products.id')
+//            ->select('products.name','products.id','products.price_old',
+//                'products.price_new','products.alias','products.status','products.view')
+//            ->orderBy('view','DESC')
+//            ->get()->toArray();
+        $bestseller = Product::orderBy('view','DESC')->limit(6)->get();
+//                    echo "<pre>";
+//            print_r($bestseller);
+//            echo "</pre>";die();
         $arr_menu = [];
         foreach ($menu as $menus){
             $arr_child = [];
@@ -61,7 +73,7 @@ class HomeController extends Controller
 //        echo "</pre>";
 //        die();
         return view('frontend/index',
-            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new','product_seeds','news_post','total')
+            compact('banner','banner_right','banner_bottom','menu','arr_menu','best_sale','product_new','product_seeds','news_post','total','bestseller')
         );
     }
     public function about(){
@@ -85,28 +97,6 @@ class HomeController extends Controller
         }
         $total = total();
         return view('frontend/about/about',compact('arr_menu','total'));
-    }
-    public function contact(){
-        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
-        $arr_menu = [];
-        foreach ($menu as $menus){
-            $arr_child = [];
-//            echo "<pre>";
-//            print_r($menus);
-//            echo "</pre>";
-            if($menus['parent_id'] == 0){
-                $id = $menus['id'];
-                foreach ($menu as $menus2){
-                    if($menus2['parent_id'] == $id){
-                        array_push($arr_child, $menus2);
-                    }
-                }
-                $temp = ['parent' => $menus, 'child' => $arr_child];
-                array_push( $arr_menu, $temp);
-            }
-        }
-        $total = total();
-        return view('frontend/contact/contact',compact('arr_menu','total'));
     }
 //    public function productDetail(){
 //        $menu = Cate::where('menu_top',1)->where('status',1)->select('id','name','alias','parent_id')->get()->toArray();
@@ -147,6 +137,14 @@ class HomeController extends Controller
    //     $user->password = Hash::make('123456');
    //     $user->save();
    // }
+    public function receive_email(Request $request){
+        $requestData = new Receive_email();
+        $requestData->email = $request->email;
+        $requestData->save();
+        if ($requestData){
+            return redirect()->route('/');
+        }
+    }
     public function errors(){
         $error = [
             'name' => 'Bạn không có quyền truy cập',

@@ -172,7 +172,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <div class="test" style="margin-left: 593px;">
+            <div class="test" style="margin-left: 540px;">
                 <div class="pull-right">
                     <p></p>
                     <p style="font-weight: 600;">Tổng giá : <span style="color: #ea0b0b;">{{ number_format($total) }} <u>đ</u></span></p>

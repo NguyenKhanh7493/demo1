@@ -18,7 +18,9 @@
                 <div id="message-box-conact"></div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="page-subheading">ĐIỀN NHỮNG THÔNG TIN VÀO DƯỚI ĐÂY</h3>
+                        {{--<h3 class="page-subheading">QÚY KHÁCH HÃY ĐIỀN NHỮNG THÔNG TIN VÀO DƯỚI ĐÂY</h3>--}}
+                        <form action="{{ route('PostContact') }}" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="contact-form-box">
                             <div class="form-selector">
                                 <label>Tên khách hàng</label>
@@ -40,6 +42,7 @@
                                 <button id="btn-send-contact" class="btn">Gửi</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                     <div class="col-xs-12 col-sm-6" id="contact_form_map">
                         <h3 class="page-subheading">Hoặc bạn có thể liên lạc trực tiếp với chúng tôi</h3>

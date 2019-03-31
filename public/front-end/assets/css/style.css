@@ -4683,13 +4683,13 @@ span.notify-right{
   right: -12px;
 }
 .group-button-header .btn-heart{
-  background: url("../images/icon-heart-round5.png") no-repeat center center;
+  /*background: url("../images/icon-heart-round5.png") no-repeat center center;*/
   text-indent: -999px;
   display: inline-block;
   font-size: 0;
 }
 .group-button-header .btn-compare{
-  background: url("../images/icon-compare-round5.png") no-repeat center center;
+  /*background: url("../images/icon-compare-round5.png") no-repeat center center;*/
   text-indent: -999px;
   margin-right: 0;
   display: inline-block;

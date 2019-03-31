@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 29, 2019 lúc 09:36 AM
--- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.11
+-- Thời gian đã tạo: Th3 31, 2019 lúc 03:29 PM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -52,7 +52,9 @@ INSERT INTO `banners` (`id`, `name`, `title`, `link`, `banner_center`, `banner_r
 (17, 'banner-1.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 1, '2019-02-20 22:41:31', '2019-02-22 07:36:14', 1),
 (18, 'banner-2.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 2, '2019-02-20 22:41:56', '2019-02-22 07:41:04', 1),
 (19, 'banner3.jpg', 'laptop và linh kiện chính hãng', NULL, 1, 0, 0, 3, '2019-02-20 22:42:13', '2019-02-22 07:44:30', 1),
-(20, 'bnn-1.jpg', 'Banner đẹp', NULL, 0, 1, 0, 1, '2019-03-06 06:23:55', '2019-03-06 06:29:41', 1);
+(20, 'bnn-1.jpg', 'Banner đẹp', NULL, 0, 1, 0, 1, '2019-03-06 06:23:55', '2019-03-06 06:29:41', 1),
+(21, 'bn-lg.jpg', 'ảnh bìa', NULL, 0, 0, 1, 1, '2019-03-31 03:12:07', '2019-03-31 03:12:07', 1),
+(22, 'bn1.jpg', 'hoa đẹp', NULL, 0, 0, 1, 2, '2019-03-31 04:25:52', '2019-03-31 04:25:52', 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +189,9 @@ CREATE TABLE `invoices` (
 
 INSERT INTO `invoices` (`id`, `name`, `gender`, `phone`, `address`, `email`, `other`, `total`, `created_at`, `updated_at`, `status`, `time_buy`) VALUES
 (18, 'Nguyễn Như Khánh', 1, '0964245027', 'Vĩnh linh - Quảng Trị', 'nguyenkhanh7493@gmail.com', 'Khánh ơi là khánh', 4600000, '2019-03-29 00:39:46', '2019-03-29 01:07:21', 3, '29/03/2019 02:39:46'),
-(19, 'Đoàn Thị Xuân Hiếu', 2, '0972024098', 'Triệu Phong - Quảng Trị', 'xuanhieu7496@gmail.com', 'Anh khánh đẹp zai vậy', 6000000, '2019-03-29 01:10:47', '2019-03-29 01:11:30', 1, '29/03/2019 03:10:47');
+(19, 'Đoàn Thị Xuân Hiếu', 2, '0972024098', 'Triệu Phong - Quảng Trị', 'xuanhieu7496@gmail.com', 'Anh khánh đẹp zai vậy', 6000000, '2019-03-29 01:10:47', '2019-03-29 01:11:30', 1, '29/03/2019 03:10:47'),
+(20, 'Khánh', 1, '0964245027', 'Vĩnh linh - Quảng Trị', 'nguyenkhanh7493@gmail.com', 'hihi', 10000, '2019-03-30 20:19:51', '2019-03-30 20:19:51', 0, '31/03/2019 10:19:51'),
+(21, 'khánh', 1, '0964245027', 'Vĩnh linh - Quảng Trị', 'nguyenkhanh7493@gmail.com', 'hihi', 300000, '2019-03-30 20:30:25', '2019-03-30 23:24:40', 2, '31/03/2019 10:30:25');
 
 -- --------------------------------------------------------
 
@@ -210,7 +214,9 @@ CREATE TABLE `invoice_details` (
 INSERT INTO `invoice_details` (`id_invoice`, `product_id`, `num`, `created_at`, `updated_at`) VALUES
 (18, 5, 2, '2019-03-29 00:39:47', '2019-03-29 00:39:47'),
 (18, 15, 2, '2019-03-29 00:39:47', '2019-03-29 00:39:47'),
-(19, 4, 3, '2019-03-29 01:10:47', '2019-03-29 01:10:47');
+(19, 4, 3, '2019-03-29 01:10:47', '2019-03-29 01:10:47'),
+(20, 14, 1, '2019-03-30 20:19:51', '2019-03-30 20:19:51'),
+(21, 15, 1, '2019-03-30 20:30:25', '2019-03-30 20:30:25');
 
 -- --------------------------------------------------------
 
@@ -239,7 +245,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2019_01_16_082502_create_table_customer_buy_table', 2),
 (28, '2019_01_19_051933_create_table_banners_table', 3),
 (29, '2019_03_14_071203_create_table_invoices_table', 4),
-(30, '2019_03_14_072048_create_table_invoice_details_table', 4);
+(30, '2019_03_14_072048_create_table_invoice_details_table', 4),
+(31, '2019_03_31_121329_create_table_receive_email_table', 5);
 
 -- --------------------------------------------------------
 
@@ -399,12 +406,25 @@ INSERT INTO `products` (`id`, `name`, `alias`, `num`, `price_old`, `price_new`, 
 (11, 'Hoa hồng xanh', 'hoa-hong-xanh', 8, 405677, NULL, NULL, 'hx1.jpg', 0, 1, 0, 0, 1, 'Hoa hồng xanh đẹp', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'Hoa hồng vàng được trồng từ rất lâu đời và rất phổ biến trên toàn thế giới, từ châu Á đến Châu Mỹ, phương Đông và Phương Tây đều rất yêu thích loại hoa này.Hoa hồng vàng tuy xuất hiện sau nhưng cũng phổ biến không kém so với hoa hồng đỏ hay trắng', 'á', 's', 10, 1, 1, NULL, '2019-02-28 00:59:35', '2019-03-28 23:36:58'),
 (12, 'Hoa chi lan kiếm', 'hoa-chi-lan-kiem', 11, 100000, NULL, NULL, 'clk1.jpg', 0, 1, 0, 0, 1, 'Chi lan kiếm đẹp nhất', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Trong đó có Chi lan kiếm và Chi lan vanda Dễ nuôi trồng, mang trong mình vẻ đẹp thanh tao và hương thơm dịu dàng khiến nhiều người yêu lan cảm thấy thích thú và say mê.\r\n\r\nHôm nay Tập đoàn nông nghiệp công nghệ cao Appa cùng các bạn đi tìm hiểu về hai loài hoa này. Để có cái nhìn tổng quan hơn và qua đó có thể chăm sóc cho chậu hoa của mình đẹp, xanh tươi, hoa to, màu đẹp và nở lâu.', 're', 're', 9, 2, 2, NULL, '2019-02-28 01:06:00', '2019-03-20 21:29:11'),
 (13, 'Hoa chi trúc lan', 'hoa-chi-truc-lan', 4, 400000, NULL, NULL, 'clr1.jpg', 0, 1, 0, 0, 1, 'hoa chi trúc lan', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Theo các thống kê chưa chính xác hiện trên thế giới có 25.000 loài hoa phong lan, hằng năm các nhà nghiên cứu lại tìm thấy được nhiều giống lan khác, và việc nhân giống lại tạo cũng cho ra đời rất nhiều loại hoa lan. Để trồng được những chậu hoa phong lan đẹp, cho hoa to, màu sắc tươi mới hẳn không phải là điều dễ dàng.', 'ádad', 'ád', 9, 2, 5, NULL, '2019-02-28 01:12:07', '2019-03-28 23:36:15'),
-(14, 'Hoa chi lan cát', 'hoa-chi-lan-cat', 5, 10000, NULL, NULL, 'clc1.jpg', 0, 1, 0, 0, 1, 'Chi lan cát', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'da', 'ad', 9, 2, 5, NULL, '2019-02-28 01:18:28', '2019-03-28 01:09:34'),
-(15, 'Hoa giấy đỏ', 'hoa-giay-do', 4, 400000, 300000, NULL, 'hg1.jpg', 0, 0, 0, 1, 1, 'hoa giấy đỏ đẹp', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 13, 1, 10, NULL, '2019-02-28 01:56:12', '2019-03-29 00:38:11'),
-(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, 4, NULL, '2019-02-28 01:57:03', '2019-03-20 00:02:37'),
+(14, 'Hoa chi lan cát', 'hoa-chi-lan-cat', 5, 10000, NULL, NULL, 'clc1.jpg', 0, 1, 0, 0, 1, 'Chi lan cát', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'Trong số hàng trăm, hàng ngàn loại hoa thì phong lan là một loài hoa kiêu sa, quyến rũ nhất, và quả thật không hổ danh với danh hiệu “nữ hoàng các loài hoa”. Sắc đẹp tuyệt trần, tinh tế đầy sang trọng với những màu sắc, hương thơm, chủng loại đa dạng đã khiến cho loài hoa này làm say đắm bao người.', 'da', 'ad', 9, 2, 6, NULL, '2019-02-28 01:18:28', '2019-03-30 20:18:38'),
+(15, 'Hoa giấy đỏ', 'hoa-giay-do', 4, 400000, 300000, NULL, 'hg1.jpg', 0, 0, 0, 1, 1, 'hoa giấy đỏ đẹp', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 13, 1, 11, NULL, '2019-02-28 01:56:12', '2019-03-30 20:26:56'),
+(16, 'Hoa giấy trắng', 'hoa-giay-trang', 5, 4000000, 2999998, NULL, 'hgt1.jpg', 0, 0, 0, 1, 1, 'hoa giấy trắng', 'dddđ', 'ddđ', 'dddd', 'dddd', 13, 1, 5, NULL, '2019-02-28 01:57:03', '2019-03-30 23:20:25'),
 (17, 'Hạt hoa tử la lan', 'hat-hoa-tu-la-lan', 4, 300000, NULL, NULL, 'htll.jpg', 1, 0, 0, 0, 1, 'hoa tử hoa lan', 'fasf', 'à', 'à', 'à', 14, 1, 4, NULL, '2019-02-28 23:21:58', '2019-03-25 20:15:09'),
 (18, 'Hạt hoa lan Nam Phi', 'hat-hoa-lan-nam-phi', 4, 200000, NULL, NULL, 'lnp.jpg', 1, 0, 0, 0, 1, 'Hoa lan nam phi', 'dâda', 'dâd', 'dâd', 'ad', 14, 1, 4, NULL, '2019-02-28 23:36:24', '2019-03-25 00:44:09'),
 (19, 'Hoa giấy ghép', 'hoa-giay-ghep', 2, 120000, NULL, NULL, 'hgg.jpg', 0, 1, 0, 0, 1, 'hoa giấy ghép đẹp', 'đây là hoa giấy ghép đẹp lắm nè', 'hoa giấy nè bà con', 'abc', 'cdt', 13, 1, 4, NULL, '2019-03-11 00:41:00', '2019-03-28 23:36:19');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `receive_email`
+--
+
+CREATE TABLE `receive_email` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -559,6 +579,12 @@ ALTER TABLE `products`
   ADD KEY `products_user_id_foreign` (`user_id`);
 
 --
+-- Chỉ mục cho bảng `receive_email`
+--
+ALTER TABLE `receive_email`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `roles`
 --
 ALTER TABLE `roles`
@@ -587,7 +613,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `cates`
@@ -611,13 +637,13 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT cho bảng `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
@@ -636,6 +662,12 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT cho bảng `receive_email`
+--
+ALTER TABLE `receive_email`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
