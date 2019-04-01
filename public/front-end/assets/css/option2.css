@@ -285,12 +285,12 @@
 
 .option2 .owl-controls .owl-prev:hover, 
 .option2 .owl-controls .owl-next:hover {
-  background: #958457;
+  background: #22d248;
   color: #fff;
 }
 
 .option2 .content-page {
-	background: #eaeaea;
+	background: #fff;
 }
 .option2 #main-menu .dropdown-menu .block-container .group_header>a{
 	border-color: #958457;

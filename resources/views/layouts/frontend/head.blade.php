@@ -30,5 +30,6 @@
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/responsive.css" />
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/option2.css" />
 <link rel="stylesheet" type="text/css" href="{{url('/')}}/public/front-end/assets/css/option7.css" />
+<link rel="shortcut icon" type="image/png" href="{{url('/')}}/public/images/favicon/2.png"/>
 
-<title>Nguyễn Như Khánh</title>
+<title>N2K-Shop</title>

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="nav-top-links">
                 <a class="first-item" href="#"><img alt="phone" src="{{url('/')}}/public/front-end/assets/images/phone.png" />0964245027</a>
-                <a href="#"><img alt="email" src="{{url('/')}}/public/front-end/assets/images/email.png" />Gửi mail phải hồi cho chúng tôi</a>
+                <a href="{{ url('/lien-he') }}"><img alt="email" src="{{url('/')}}/public/front-end/assets/images/email.png" />Gửi mail phải hồi cho chúng tôi</a>
             </div>
             {{--<div class="currency ">--}}
                 {{--<div class="dropdown">--}}
@@ -49,7 +49,7 @@
     <div class="container main-header">
         <div class="row">
             <div class="col-xs-12 col-sm-3 logo">
-                <a href="index.html"><img alt="Kute Shop" src="{{url('/')}}/public/front-end/assets/images/logo/logo6.png" /></a>
+                <a href="{{ url('/') }}"><img alt="Kute Shop" src="{{url('/')}}/public/front-end/assets/images/logo/logo6.png" /></a>
             </div>
             <div class="col-xs-7 col-sm-7 header-search-box">
                 <form class="form-inline" action="{{ url('tim-kiem') }}" method="get">

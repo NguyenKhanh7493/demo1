@@ -23,7 +23,7 @@
     <div class="product-featured clearfix">
         <div class="banner-featured">
             <div class="banner-img">
-                <a href="#"><img alt="Featurered 1" src="{{ url('/') }}/public/images/choinon4.jpg" /></a>
+                <a href="#"><img alt="Featurered 1" src="{{ url('/') }}/public/images/favicon/choinon4.jpg" /></a>
             </div>
         </div>
         <div class="product-featured-content">
@@ -33,7 +33,7 @@
                     <div class="tab-panel active" id="tab-4">
                         <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                             @foreach($product_seeds as $item)
-                            <li>
+                            <li style="border: 1px solid #eaeaea;">
                                 <div class="left-block">
                                     <a href="{{ route('product_detail',$item->alias) }}">
                                         <img class="img-responsive" alt="product" src="{{ url('/') }}/public/images/product/avatar/{{ $item->avatar }}" /></a>
