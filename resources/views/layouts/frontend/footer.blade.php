@@ -48,7 +48,7 @@
                     <div class="introduce-title">Số người truy cập</div>
                     <div class="social-link">
                         <span>Tổng :</span>
-                        <span style="color: #e83a13;">{{ number_format(100000000) }}</span>
+                        <span style="color: #e83a13;">{{ number_format(100) }}</span>
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@
         </div><!-- /#introduce-box -->
 
         <div id="footer-menu-box">
-            <p class="text-center" style="color: #0d831d;">Copyrights &#169; 2019 Bản quyền thuộc Nguyễn Khánh</p>
+            <p class="text-center" style="color: #0d831d;">Copyrights &#169; 2019 Bản quyền thuộc N2K_shop</p>
         </div><!-- /#footer-menu-box -->
     </div>
 </footer>

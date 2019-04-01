@@ -142,7 +142,10 @@ class HomeController extends Controller
         $requestData->email = $request->email;
         $requestData->save();
         if ($requestData){
-            return redirect()->route('/');
+            echo "<script>
+                        window.location = '".url('/')."'
+                        alert('Bạn đã đăng ký email thành công..Xin cảm ơn bạn');
+                    </script>";
         }
     }
     public function errors(){
