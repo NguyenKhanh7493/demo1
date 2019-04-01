@@ -178,6 +178,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         //kn shopping cart
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        //lấy ip khách hàng
+        \Torann\GeoIP\GeoIPServiceProvider::class,
 
     ],
 
@@ -234,6 +236,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         //kn shopping cart
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        //lấy ip khách hàng
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
 
     ],
 

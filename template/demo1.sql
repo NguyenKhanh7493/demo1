@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 31, 2019 lúc 03:29 PM
+-- Thời gian đã tạo: Th4 01, 2019 lúc 04:06 PM
 -- Phiên bản máy phục vụ: 10.1.37-MariaDB
 -- Phiên bản PHP: 7.3.0
 
@@ -94,6 +94,23 @@ INSERT INTO `cates` (`id`, `name`, `alias`, `status`, `parent_id`, `type`, `menu
 (10, 'Hoa hồng', 'hoa-hong', 1, 4, 3, 1, NULL, NULL, NULL, 'Hoa hồng đẹp nhất', 'Hoa hồng đẹp nhất', NULL, '2019-02-22 06:13:51', '2019-02-22 06:13:51', 1),
 (13, 'Hoa giấy', 'hoa-giay', 1, 4, 3, 1, NULL, NULL, NULL, 'gh', 'gh', NULL, '2019-02-28 01:49:19', '2019-02-28 01:49:19', 1),
 (14, 'Hạt giống', 'hat-giong', 1, 4, 3, 1, NULL, NULL, NULL, 'da', 'da', NULL, '2019-02-28 23:08:01', '2019-02-28 23:08:01', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `date_day` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -246,7 +263,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2019_01_19_051933_create_table_banners_table', 3),
 (29, '2019_03_14_071203_create_table_invoices_table', 4),
 (30, '2019_03_14_072048_create_table_invoice_details_table', 4),
-(31, '2019_03_31_121329_create_table_receive_email_table', 5);
+(31, '2019_03_31_121329_create_table_receive_email_table', 5),
+(32, '2019_04_01_135735_create_table_contacts_table', 6);
 
 -- --------------------------------------------------------
 
@@ -426,6 +444,13 @@ CREATE TABLE `receive_email` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `receive_email`
+--
+
+INSERT INTO `receive_email` (`id`, `email`, `created_at`, `updated_at`) VALUES
+(1, 'nguyenkhanh7493@gmail.com', '2019-03-31 06:43:51', '2019-03-31 06:43:51');
+
 -- --------------------------------------------------------
 
 --
@@ -515,6 +540,12 @@ ALTER TABLE `banners`
 -- Chỉ mục cho bảng `cates`
 --
 ALTER TABLE `cates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -622,6 +653,12 @@ ALTER TABLE `cates`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `customer_buy`
 --
 ALTER TABLE `customer_buy`
@@ -643,7 +680,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
@@ -667,7 +704,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `receive_email`
 --
 ALTER TABLE `receive_email`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
