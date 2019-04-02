@@ -30,8 +30,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //lấy ip
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $arr_ip = geoip()->getLocation($ip);
+        $result = [
+            'ip' => $ip,
+            'country' => $arr_ip['country'],
+            'region' => $arr_ip['city']
+        ];
+        $count_ip = count($result['ip']);
+        //lấy ip
+        echo "<pre>";
+        print_r($count_ip);
+        echo "</pre>";die();
         $banner = Banner::where('banner_center',1)->where('status',1)->orderBy('id','DESC')->limit(3)->select('name','title','sort')->get();
         $banner_right = Banner::where('banner_right',1)->where('status',1)->orderBy('id','DESC')->limit(1)->select('name','title','sort')->get();
         $banner_bottom = Banner::where('banner_bottom',1)->where('status',1)->orderBy('id','DESC')->limit(2)->select('name','title','sort')->get();

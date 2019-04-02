@@ -179,7 +179,7 @@ return [
         //kn shopping cart
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         //lấy ip khách hàng
-//        Torann\GeoIP\GeoIPServiceProvider::class,
+        \Torann\GeoIP\GeoIPServiceProvider::class,
 
     ],
 
@@ -237,7 +237,7 @@ return [
         //kn shopping cart
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         //lấy ip khách hàng
-//        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
 
     ],
 
