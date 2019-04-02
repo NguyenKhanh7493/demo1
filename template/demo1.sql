@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 01, 2019 lúc 04:06 PM
--- Phiên bản máy phục vụ: 10.1.37-MariaDB
--- Phiên bản PHP: 7.3.0
+-- Thời gian đã tạo: Th4 02, 2019 lúc 11:50 AM
+-- Phiên bản máy phục vụ: 10.1.36-MariaDB
+-- Phiên bản PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -106,11 +106,19 @@ CREATE TABLE `contacts` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `content` text NOT NULL,
+  `contents` text NOT NULL,
   `date_day` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `description`, `contents`, `date_day`, `created_at`, `updated_at`) VALUES
+(1, 'Khánh', 'nguyenkhanh7493@gmail.com', 'tôi hài lòng', 'Tôi hài lòng vì khánh đẹp trai', '02/04/2019 01:14:54', '2019-04-01 23:14:54', '2019-04-01 23:14:54'),
+(2, 'Xuân hiếu', 'xuanhieu7496@gmail.com', 'anh khánh đẹp trai', 'Anh khánh đẹp trai quá à', '02/04/2019 01:16:27', '2019-04-01 23:16:27', '2019-04-01 23:16:27');
 
 -- --------------------------------------------------------
 
@@ -656,7 +664,7 @@ ALTER TABLE `cates`
 -- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `customer_buy`
