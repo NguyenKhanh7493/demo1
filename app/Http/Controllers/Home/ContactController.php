@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Contact;
+use App\Http\Requests\Home\ContactRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cate;
-
+use Carbon\Carbon;
+use Session;
 class ContactController extends Controller
 {
     public function contact(){
@@ -30,7 +33,23 @@ class ContactController extends Controller
         $total = total();
         return view('frontend/contact/contact',compact('arr_menu','total'));
     }
-    public function post_contact(){
-        echo 'đây là trang liên hệ';
+    public function post_contact(ContactRequest $request){
+
+        $requestData = new Contact();
+        $requestData->name = $request->name;
+        $requestData->email = $request->email;
+        $requestData->description = $request->description;
+        $requestData->contents = $request->contents;
+        $date =  Carbon::now('Asia/Ho_Chi_Minh');
+        $date_bill = $date->format('d/m/Y h:i:s');
+        $requestData->date_Day = $date_bill;
+        $requestData->save();
+        if ($requestData){
+            Session::flash('success','Cảm ơn bạn đã liên hệ với chúng tôi, chúng tôi sẽ trả lời cho bạn trong thời gian sớm nhất ! Xin cảm ơn');
+            return redirect()->route('contact');
+        }else{
+            Session::flash('danger','Liên hệ thất bại');
+            return redirect()->route('contact');
+        }
     }
 }

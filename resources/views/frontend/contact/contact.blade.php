@@ -13,6 +13,16 @@
             <h2 class="page-heading">
                 <span class="page-heading-title2">Liên hệ với chúng tôi</span>
             </h2>
+            @if(Session::has('danger'))
+                <div class="my-alert">
+                    <div class="alert alert-danger">{{ Session::get('danger') }}</div>
+                </div>
+            @endif
+            @if(Session::has('success'))
+                <div class="my-alert">
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
+                </div>
+            @endif
             <!-- ../page heading-->
             <div id="contact" class="page-content page-contact">
                 <div id="message-box-conact"></div>
@@ -25,18 +35,30 @@
                             <div class="form-selector">
                                 {!! Form::label('labName','Tên khách hàng (*)') !!}
                                 {!! Form::text('name',null,['class'=>'form-control input-sm','placeholder'=>'Nhập họ tên']) !!}
+                                @if($errors->first('name'))
+                                    <span style="color: red;font-style: italic">(*) {{ $errors->first('name') }}</span>
+                                @endif
                             </div>
                             <div class="form-selector">
                                 {!! Form::label('labEmail','Nhập email (*)') !!}
                                 {!! Form::email('email',null,['class'=>'form-control input-sm','placeholder'=>'Nhập email']) !!}
+                                @if($errors->first('email'))
+                                    <span style="color: red;font-style: italic">(*) {{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                             <div class="form-selector">
                                 {!! Form::label('labDescription','Tiêu đề (*)') !!}
                                 {!! Form::text('description',null,['class'=>'form-control input-sm','placeholder'=>'Nhập tiêu đề']) !!}
+                                @if($errors->first('description'))
+                                    <span style="color: red;font-style: italic">(*) {{ $errors->first('description') }}</span>
+                                @endif
                             </div>
                             <div class="form-selector">
                                 {!! Form::label('labContent','Nội dung (*)') !!}
-                                {!! Form::textarea('content',null,['class'=>'form-control input-sm','placeholder'=>'Nhập nội dung']) !!}
+                                {!! Form::textarea('contents',null,['class'=>'form-control input-sm','placeholder'=>'Nhập nội dung']) !!}
+                                @if($errors->first('contents'))
+                                    <span style="color: red;font-style: italic">(*) {{ $errors->first('content') }}</span>
+                                @endif
                             </div>
                             <div class="form-selector">
                                 <button id="btn-send-contact" class="btn">Gửi</button>
