@@ -4161,7 +4161,7 @@ span.notify-right{
     color: white;
     padding: 0;
     font-weight: normal;
-    background: #666;
+    background: #22d248;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -4169,7 +4169,7 @@ span.notify-right{
     padding: 10px 25px;
 }
 #contact #btn-send-contact:hover{
-    background: #F36;
+    background: #22d248;
 }
 #contact_form_map ul {
   line-height: 28px;

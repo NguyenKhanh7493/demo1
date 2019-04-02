@@ -23,20 +23,20 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="contact-form-box">
                             <div class="form-selector">
-                                <label>Tên khách hàng</label>
-                                <input type="text" class="form-control input-sm" id="subject" />
+                                {!! Form::label('labName','Tên khách hàng (*)') !!}
+                                {!! Form::text('name',null,['class'=>'form-control input-sm','placeholder'=>'Nhập họ tên']) !!}
                             </div>
                             <div class="form-selector">
-                                <label>Địa chỉ Email</label>
-                                <input type="text" class="form-control input-sm" id="email" />
+                                {!! Form::label('labEmail','Nhập email (*)') !!}
+                                {!! Form::email('email',null,['class'=>'form-control input-sm','placeholder'=>'Nhập email']) !!}
                             </div>
                             <div class="form-selector">
-                                <label>Tiêu đề</label>
-                                <input type="text" class="form-control input-sm" id="order_reference" />
+                                {!! Form::label('labDescription','Tiêu đề (*)') !!}
+                                {!! Form::text('description',null,['class'=>'form-control input-sm','placeholder'=>'Nhập tiêu đề']) !!}
                             </div>
                             <div class="form-selector">
-                                <label>Nội dung</label>
-                                <textarea class="form-control input-sm" rows="10" id="message"></textarea>
+                                {!! Form::label('labContent','Nội dung (*)') !!}
+                                {!! Form::textarea('content',null,['class'=>'form-control input-sm','placeholder'=>'Nhập nội dung']) !!}
                             </div>
                             <div class="form-selector">
                                 <button id="btn-send-contact" class="btn">Gửi</button>
