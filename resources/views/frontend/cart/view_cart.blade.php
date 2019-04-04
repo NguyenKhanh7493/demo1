@@ -55,8 +55,7 @@
                                 </td>
                                 <td class="qty">
                                     <input class="form-control input-sm qty-cart" type="text" value="{{ $item->qty }}">
-                                    <a href="" class="updateCart" id="{{ $item->rowId }}"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-minus" aria-hidden="true"></i></a>
+                                    <a href="" class="updateCart" id="{{ $item->rowId }}"><i class="fa fa-undo" aria-hidden="true"></i></a>
                                 </td>
                                 {{--<td class="cart_avail"><span class="label label-success">In stock</span></td>--}}
                                 <td class="price">

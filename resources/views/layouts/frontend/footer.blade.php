@@ -45,10 +45,10 @@
                               </span>
                         </div>
                     </form><!-- /input-group -->
-                    <div class="introduce-title">Số người truy cập</div>
+                    <div class="introduce-title">Kết nối với chúng tôi : </div>
                     <div class="social-link">
-                        <span>Tổng :</span>
-                        <span style="color: #e83a13;">{{ number_format(100) }}</span>
+                        <a href="https://www.facebook.com/nguyenkhanh.N2K" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/channel/UCu_4xbnqgYzR9JOr_5ilBKg" target="_blank"><i class="fa fa-youtube" style="background: #da4735;"></i></a>
                     </div>
                 </div>
 
